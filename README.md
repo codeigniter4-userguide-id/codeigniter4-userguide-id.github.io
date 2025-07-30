@@ -1,1 +1,317 @@
-# codeigniter4-userguide-id.github.io
+# CodeIgniter User Guide Bahasa Indonesia
+
+Terjemahan User Guide CodeIgniter 4 (UnOfficial) versi 4.6.2.
+
+Status file: 53/294
+
+    - 📁 concepts
+      - [x] 📄 autoloader.rst
+      - [x] 📄 factories.rst
+      - [x] 📄 goals.rst
+      - [x] 📄 http.rst
+      - [x] 📄 index.rst
+      - [x] 📄 mvc.rst
+      - [x] 📄 security.rst
+      - [x] 📄 services.rst
+      - [x] 📄 structure.rst
+    - 📁 tutorial
+      - [x] 📄 conclusion.rst
+      - [x] 📄 create_news_items.rst
+      - [x] 📄 index.rst
+      - [x] 📄 news_section.rst
+      - [x] 📄 static_pages.rst
+    - 📁 outgoing
+      - [x] 📄 alternative_php.rst
+      - [x] 📄 api_responses.rst
+      - [x] 📄 csp.rst
+      - [x] 📄 index.rst
+      - [x] 📄 localization.rst
+      - [x] 📄 response.rst
+      - [x] 📄 table.rst
+      - [x] 📄 view_cells.rst
+      - [x] 📄 view_decorators.rst
+      - [x] 📄 view_layouts.rst
+      - [x] 📄 view_parser.rst
+      - [x] 📄 view_renderer.rst
+      - [x] 📄 views.rst
+    - 📁 models
+      - [x] 📄 entities.rst
+      - [x] 📄 index.rst
+      - [x] 📄 model.rst
+    - 📁 database
+      - [x] 📄 call_function.rst
+      - [x] 📄 configuration.rst
+      - [x] 📄 connecting.rst
+      - [x] 📄 events.rst
+      - [x] 📄 examples.rst
+      - [x] 📄 helpers.rst
+      - [x] 📄 index.rst
+      - [x] 📄 metadata.rst
+      - [x] 📄 queries.rst
+      - [x] 📄 query_builder.rst
+      - [x] 📄 results.rst
+      - [x] 📄 transactions.rst
+      - [x] 📄 utilities.rst
+    - 📁 changelogs
+      - [ ] 📄 index.rst
+      - [ ] 📄 v4.0.0-alpha.1.rst
+      - [ ] 📄 v4.0.0-alpha.2.rst
+      - [ ] 📄 v4.0.0-alpha.3.rst
+      - [ ] 📄 v4.0.0-alpha.4.rst
+      - [ ] 📄 v4.0.0-alpha.5.rst
+      - [ ] 📄 v4.0.0-beta.1.rst
+      - [ ] 📄 v4.0.0-beta.2.rst
+      - [ ] 📄 v4.0.0-beta.3.rst
+      - [ ] 📄 v4.0.0-beta.4.rst
+      - [ ] 📄 v4.0.0-rc.1.rst
+      - [ ] 📄 v4.0.0-rc.2.rst
+      - [ ] 📄 v4.0.0-rc.3.rst
+      - [ ] 📄 v4.0.0-rc.4.rst
+      - [ ] 📄 v4.0.0.rst
+      - [ ] 📄 v4.0.3.rst
+      - [ ] 📄 v4.0.4.rst
+      - [ ] 📄 v4.0.5.rst
+      - [ ] 📄 v4.1.0.rst
+      - [ ] 📄 v4.1.1.rst
+      - [ ] 📄 v4.1.2.rst
+      - [ ] 📄 v4.1.3.rst
+      - [ ] 📄 v4.1.4.rst
+      - [ ] 📄 v4.1.5.rst
+      - [ ] 📄 v4.1.6.rst
+      - [ ] 📄 v4.1.7.rst
+      - [ ] 📄 v4.1.8.rst
+      - [ ] 📄 v4.1.9.rst
+      - [ ] 📄 v4.2.0.rst
+      - [ ] 📄 v4.2.1.rst
+      - [ ] 📄 v4.2.10.rst
+      - [ ] 📄 v4.2.11.rst
+      - [ ] 📄 v4.2.12.rst
+      - [ ] 📄 v4.2.2.rst
+      - [ ] 📄 v4.2.3.rst
+      - [ ] 📄 v4.2.4.rst
+      - [ ] 📄 v4.2.5.rst
+      - [ ] 📄 v4.2.6.rst
+      - [ ] 📄 v4.2.7.rst
+      - [ ] 📄 v4.2.8.rst
+      - [ ] 📄 v4.2.9.rst
+      - [ ] 📄 v4.3.0.rst
+      - [ ] 📄 v4.3.1.rst
+      - [ ] 📄 v4.3.2.rst
+      - [ ] 📄 v4.3.3.rst
+      - [ ] 📄 v4.3.4.rst
+      - [ ] 📄 v4.3.5.rst
+      - [ ] 📄 v4.3.6.rst
+      - [ ] 📄 v4.3.7.rst
+      - [ ] 📄 v4.3.8.rst
+      - [ ] 📄 v4.4.0.rst
+      - [ ] 📄 v4.4.1.rst
+      - [ ] 📄 v4.4.2.rst
+      - [ ] 📄 v4.4.3.rst
+      - [ ] 📄 v4.4.4.rst
+      - [ ] 📄 v4.4.5.rst
+      - [ ] 📄 v4.4.6.rst
+      - [ ] 📄 v4.4.7.rst
+      - [ ] 📄 v4.4.8.rst
+      - [ ] 📄 v4.5.0.rst
+      - [ ] 📄 v4.5.1.rst
+      - [ ] 📄 v4.5.2.rst
+      - [ ] 📄 v4.5.3.rst
+      - [ ] 📄 v4.5.4.rst
+      - [ ] 📄 v4.5.5.rst
+      - [ ] 📄 v4.5.6.rst
+      - [ ] 📄 v4.5.7.rst
+      - [ ] 📄 v4.5.8.rst
+      - [ ] 📄 v4.6.0.rst
+      - [ ] 📄 v4.6.1.rst
+      - [ ] 📄 v4.6.2.rst
+      - [ ] 📄 v4.6.3.rst
+    - 📁 cli
+      - [ ] 📄 cli_commands.rst
+      - [ ] 📄 cli_controllers.rst
+      - [ ] 📄 cli_generators.rst
+      - [ ] 📄 cli_library.rst
+      - [ ] 📄 cli_overview.rst
+      - [ ] 📄 cli_request.rst
+      - [ ] 📄 index.rst
+      - [ ] 📄 spark_commands.rst
+    - 📁 dbmgmt
+      - [ ] 📄 db_commands.rst
+      - [ ] 📄 forge.rst
+      - [ ] 📄 index.rst
+      - [ ] 📄 migration.rst
+      - [ ] 📄 seeds.rst
+    - 📁 extending
+      - [ ] 📄 authentication.rst
+      - [ ] 📄 basecontroller.rst
+      - [ ] 📄 common.rst
+      - [ ] 📄 composer_packages.rst
+      - [ ] 📄 contributing.rst
+      - [ ] 📄 core_classes.rst
+      - [ ] 📄 events.rst
+      - [ ] 📄 index.rst
+    - 📁 general
+      - [ ] 📄 ajax.rst
+      - [ ] 📄 caching.rst
+      - [ ] 📄 common_functions.rst
+      - [ ] 📄 configuration.rst
+      - [ ] 📄 environments.rst
+      - [ ] 📄 errors.rst
+      - [ ] 📄 helpers.rst
+      - [ ] 📄 index.rst
+      - [ ] 📄 logging.rst
+      - [ ] 📄 managing_apps.rst
+      - [ ] 📄 modules.rst
+      - [ ] 📄 urls.rst
+    - 📁 helpers
+      - [ ] 📄 array_helper.rst
+      - [ ] 📄 cookie_helper.rst
+      - [ ] 📄 date_helper.rst
+      - [ ] 📄 filesystem_helper.rst
+      - [ ] 📄 form_helper.rst
+      - [ ] 📄 html_helper.rst
+      - [ ] 📄 index.rst
+      - [ ] 📄 inflector_helper.rst
+      - [ ] 📄 number_helper.rst
+      - [ ] 📄 security_helper.rst
+      - [ ] 📄 test_helper.rst
+      - [ ] 📄 text_helper.rst
+      - [ ] 📄 url_helper.rst
+      - [ ] 📄 xml_helper.rst
+    - 📁 incoming
+      - [ ] 📄 auto_routing_improved.rst
+      - [ ] 📄 content_negotiation.rst
+      - [ ] 📄 controllers.rst
+      - [ ] 📄 filters.rst
+      - [ ] 📄 incomingrequest.rst
+      - [ ] 📄 index.rst
+      - [ ] 📄 message.rst
+      - [ ] 📄 methodspoofing.rst
+      - [ ] 📄 request.rst
+      - [ ] 📄 restful.rst
+      - [ ] 📄 routing.rst
+    - 📁 installation
+      - [x] 📄 backward_compatibility_notes.rst
+      - [x] 📄 deployment.rst
+      - [x] 📄 index.rst
+      - [x] 📄 installing_composer.rst
+      - [x] 📄 installing_manual.rst
+      - [x] 📄 repositories.rst
+      - [x] 📄 running.rst
+      - [x] 📄 troubleshooting.rst
+      - [ ] 📄 upgrade_404.rst
+      - [ ] 📄 upgrade_405.rst
+      - [ ] 📄 upgrade_410.rst
+      - [ ] 📄 upgrade_412.rst
+      - [ ] 📄 upgrade_413.rst
+      - [ ] 📄 upgrade_414.rst
+      - [ ] 📄 upgrade_415.rst
+      - [ ] 📄 upgrade_416.rst
+      - [ ] 📄 upgrade_417.rst
+      - [ ] 📄 upgrade_418.rst
+      - [ ] 📄 upgrade_420.rst
+      - [ ] 📄 upgrade_421.rst
+      - [ ] 📄 upgrade_4210.rst
+      - [ ] 📄 upgrade_4211.rst
+      - [ ] 📄 upgrade_4212.rst
+      - [ ] 📄 upgrade_422.rst
+      - [ ] 📄 upgrade_423.rst
+      - [ ] 📄 upgrade_425.rst
+      - [ ] 📄 upgrade_426.rst
+      - [ ] 📄 upgrade_427.rst
+      - [ ] 📄 upgrade_428.rst
+      - [ ] 📄 upgrade_430.rst
+      - [ ] 📄 upgrade_431.rst
+      - [ ] 📄 upgrade_432.rst
+      - [ ] 📄 upgrade_433.rst
+      - [ ] 📄 upgrade_434.rst
+      - [ ] 📄 upgrade_435.rst
+      - [ ] 📄 upgrade_436.rst
+      - [ ] 📄 upgrade_437.rst
+      - [ ] 📄 upgrade_438.rst
+      - [ ] 📄 upgrade_440.rst
+      - [ ] 📄 upgrade_441.rst
+      - [ ] 📄 upgrade_442.rst
+      - [ ] 📄 upgrade_443.rst
+      - [ ] 📄 upgrade_444.rst
+      - [ ] 📄 upgrade_445.rst
+      - [ ] 📄 upgrade_446.rst
+      - [ ] 📄 upgrade_447.rst
+      - [ ] 📄 upgrade_448.rst
+      - [ ] 📄 upgrade_450.rst
+      - [ ] 📄 upgrade_451.rst
+      - [ ] 📄 upgrade_452.rst
+      - [ ] 📄 upgrade_453.rst
+      - [ ] 📄 upgrade_454.rst
+      - [ ] 📄 upgrade_455.rst
+      - [ ] 📄 upgrade_456.rst
+      - [ ] 📄 upgrade_457.rst
+      - [ ] 📄 upgrade_458.rst
+      - [ ] 📄 upgrade_460.rst
+      - [ ] 📄 upgrade_461.rst
+      - [ ] 📄 upgrade_462.rst
+      - [ ] 📄 upgrade_463.rst
+      - [ ] 📄 upgrade_4xx.rst
+      - [ ] 📄 upgrade_configuration.rst
+      - [ ] 📄 upgrade_controllers.rst
+      - [ ] 📄 upgrade_database.rst
+      - [ ] 📄 upgrade_emails.rst
+      - [ ] 📄 upgrade_encryption.rst
+      - [ ] 📄 upgrade_file_upload.rst
+      - [ ] 📄 upgrade_html_tables.rst
+      - [ ] 📄 upgrade_images.rst
+      - [ ] 📄 upgrade_localization.rst
+      - [ ] 📄 upgrade_migrations.rst
+      - [ ] 📄 upgrade_models.rst
+      - [ ] 📄 upgrade_pagination.rst
+      - [ ] 📄 upgrade_responses.rst
+      - [ ] 📄 upgrade_routing.rst
+      - [ ] 📄 upgrade_security.rst
+      - [ ] 📄 upgrade_sessions.rst
+      - [ ] 📄 upgrade_validations.rst
+      - [ ] 📄 upgrade_view_parser.rst
+      - [ ] 📄 upgrade_views.rst
+      - [ ] 📄 upgrading.rst
+    - 📁 intro
+      - [ ] 📄 credits.rst
+      - [ ] 📄 index.rst
+      - [ ] 📄 psr.rst
+      - [ ] 📄 requirements.rst
+    - 📁 libraries
+      - [ ] 📄 caching.rst
+      - [ ] 📄 cookies.rst
+      - [ ] 📄 cors.rst
+      - [ ] 📄 curlrequest.rst
+      - [ ] 📄 email.rst
+      - [ ] 📄 encryption.rst
+      - [ ] 📄 file_collections.rst
+      - [ ] 📄 files.rst
+      - [ ] 📄 honeypot.rst
+      - [ ] 📄 images.rst
+      - [ ] 📄 index.rst
+      - [ ] 📄 official_packages.rst
+      - [ ] 📄 pagination.rst
+      - [ ] 📄 publisher.rst
+      - [ ] 📄 security.rst
+      - [ ] 📄 sessions.rst
+      - [ ] 📄 throttler.rst
+      - [ ] 📄 time.rst
+      - [ ] 📄 typography.rst
+      - [ ] 📄 uploaded_files.rst
+      - [ ] 📄 uri.rst
+      - [ ] 📄 user_agent.rst
+      - [ ] 📄 validation.rst
+    - 📁 testing
+      - [ ] 📄 benchmark.rst
+      - [ ] 📄 cli.rst
+      - [ ] 📄 controllers.rst
+      - [ ] 📄 database.rst
+      - [ ] 📄 debugging.rst
+      - [ ] 📄 fabricator.rst
+      - [ ] 📄 feature.rst
+      - [ ] 📄 index.rst
+      - [ ] 📄 mocking.rst
+      - [ ] 📄 overview.rst
+      - [ ] 📄 response.rst
+    - [x] 📄 index.rst
+    - [x] 📄 license.rst
+    

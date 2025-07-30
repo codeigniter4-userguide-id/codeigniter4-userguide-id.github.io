@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Security Policy (CSP) &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Localization (Bahasa)" href="localization.html" />
+    <link rel="prev" title="API Response Trait" href="api_responses.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Ikhtisar CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Membangun Respons (Output)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Membangun Respons (Output)</a></li>
+      <li class="breadcrumb-item active">Content Security Policy (CSP)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="content-security-policy-csp">
+<span id="content-security-policy"></span><h1>Content Security Policy (CSP)<a class="headerlink" href="#content-security-policy-csp" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#apa-itu-content-security-policy" id="id1">Apa itu Content Security Policy?</a></p></li>
+<li><p><a class="reference internal" href="#mengaktifkan-csp" id="id2">Mengaktifkan CSP</a></p></li>
+<li><p><a class="reference internal" href="#konfigurasi-runtime" id="id3">Konfigurasi Runtime</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hanya-laporan" id="id4">Hanya Laporan</a></p></li>
+<li><p><a class="reference internal" href="#hapus-direktif" id="id5">Hapus Direktif</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#konten-inline" id="id6">Konten Inline</a></p>
+<ul>
+<li><p><a class="reference internal" href="#menggunakan-placeholder" id="id7">Menggunakan Placeholder</a></p></li>
+<li><p><a class="reference internal" href="#menggunakan-fungsi" id="id8">Menggunakan Fungsi</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="apa-itu-content-security-policy">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Apa itu Content Security Policy?</a><a class="headerlink" href="#apa-itu-content-security-policy" title="Permalink to this heading"></a></h2>
+<p>Salah satu perlindungan terbaik yang Anda miliki terhadap serangan XSS adalah mengimplementasikan Content
+Security Policy (CSP) di situs. Ini mengharuskan Anda untuk menentukan dan mengotorisasi setiap
+sumber konten yang disertakan dalam HTML situs Anda, termasuk gambar,
+stylesheet, file JavaScript, dan sebagainya. Browser akan menolak konten dari
+sumber yang tidak disetujui secara eksplisit. Otorisasi ini didefinisikan dalam
+header <code class="docutils literal notranslate"><span class="pre">Content-Security-Policy</span></code> response dan menawarkan berbagai opsi konfigurasi.</p>
+<p>Ini terdengar kompleks, dan di beberapa situs, tentu bisa menjadi tantangan. Namun, untuk banyak situs sederhana, di mana semua konten
+disajikan oleh domain yang sama (misalnya, <strong>http://example.com</strong>), sangat mudah untuk diintegrasikan.</p>
+<p>Karena ini adalah subjek yang kompleks, panduan pengguna ini tidak akan membahas semua detailnya. Untuk informasi lebih lanjut, Anda harus
+mengunjungi situs-situs berikut:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://content-security-policy.com/">Situs utama Content Security Policy</a></p></li>
+<li><p><a class="reference external" href="https://www.w3.org/TR/CSP">Spesifikasi W3C</a></p></li>
+<li><p><a class="reference external" href="https://www.html5rocks.com/en/tutorials/security/content-security-policy/">Pengantar di HTML5Rocks</a></p></li>
+<li><p><a class="reference external" href="https://www.sitepoint.com/improving-web-security-with-the-content-security-policy/">Artikel di SitePoint</a></p></li>
+</ul>
+</section>
+<section id="mengaktifkan-csp">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Mengaktifkan CSP</a><a class="headerlink" href="#mengaktifkan-csp" title="Permalink to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p><a class="reference internal" href="../testing/debugging.html#the-debug-toolbar"><span class="std std-ref">Debug Toolbar</span></a> dapat menggunakan Kint, yang
+mengeluarkan skrip inline. Oleh karena itu, ketika CSP diaktifkan, nonce CSP secara
+otomatis dikeluarkan untuk Debug Toolbar. Namun, jika Anda tidak menggunakan
+nonce CSP, ini akan mengubah header CSP menjadi sesuatu yang tidak Anda inginkan,
+dan akan berperilaku berbeda daripada di produksi; jika Anda ingin memverifikasi perilaku CSP,
+matikan Debug Toolbar.</p>
+</div>
+<p>Secara default, dukungan untuk ini dimatikan. Untuk mengaktifkan dukungan di aplikasi Anda, edit nilai <code class="docutils literal notranslate"><span class="pre">CSPEnabled</span></code> di
+<strong>app/Config/App.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">App</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="nx">bool</span> <span class="nv">$CSPEnabled</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ketika diaktifkan, objek response akan berisi instance <code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\ContentSecurityPolicy</span></code>.
+Nilai yang diatur di <strong>app/Config/ContentSecurityPolicy.php</strong> diterapkan ke instance tersebut, dan jika tidak ada perubahan yang
+diperlukan selama runtime, maka header yang diformat dengan benar akan dikirim dan Anda selesai.</p>
+<p>Dengan CSP diaktifkan, dua baris header ditambahkan ke response HTTP: header <strong>Content-Security-Policy</strong>, dengan
+kebijakan yang mengidentifikasi jenis atau asal konten yang secara eksplisit diizinkan untuk konteks
+yang berbeda, dan header <strong>Content-Security-Policy-Report-Only</strong>, yang mengidentifikasi jenis atau
+asal konten yang akan diizinkan tetapi juga akan dilaporkan ke tujuan
+pilihan Anda.</p>
+<p>Implementasi kami menyediakan perlakuan default, yang dapat diubah melalui metode <code class="docutils literal notranslate"><span class="pre">reportOnly()</span></code>.
+Ketika entri tambahan ditambahkan ke direktif CSP, seperti yang ditunjukkan di bawah, itu akan ditambahkan
+ke header CSP yang sesuai untuk pemblokiran atau pencegahan. Itu dapat ditimpa per
+panggilan, dengan memberikan parameter kedua opsional ke panggilan metode penambahan.</p>
+</section>
+<section id="konfigurasi-runtime">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Konfigurasi Runtime</a><a class="headerlink" href="#konfigurasi-runtime" title="Permalink to this heading"></a></h2>
+<p>Jika aplikasi Anda perlu melakukan perubahan saat runtime, Anda dapat mengakses instance di <code class="docutils literal notranslate"><span class="pre">$this-&gt;response-&gt;getCSP()</span></code> di controller Anda.</p>
+<p>Class ini memiliki sejumlah metode yang memetakan dengan cukup jelas ke nilai header yang sesuai yang perlu Anda atur.
+Contoh ditunjukkan di bawah, dengan kombinasi parameter yang berbeda, meskipun semuanya menerima direktif
+nama atau array dari mereka:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// get the CSP instance</span>
+<span class="nv">$csp</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">getCSP</span><span class="p">();</span>
+
+<span class="c1">// specify the default directive treatment</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">reportOnly</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// specify the origin to use if none provided for a directive</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">setDefaultSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+
+<span class="c1">// specify the URL that &quot;report-only&quot; reports get sent to</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">setReportURI</span><span class="p">(</span><span class="s1">&#39;http://example.com/csp/reports&#39;</span><span class="p">);</span>
+
+<span class="c1">// specify that HTTP requests be upgraded to HTTPS</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">upgradeInsecureRequests</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// add types or origins to CSP directives</span>
+<span class="c1">// assuming that the default treatment is to block rather than just report</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addBaseURI</span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// report only</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://youtube.com&#39;</span><span class="p">);</span> <span class="c1">// blocked</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addConnectSrc</span><span class="p">(</span><span class="s1">&#39;https://*.facebook.com&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// blocked</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addFontSrc</span><span class="p">(</span><span class="s1">&#39;fonts.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addFormAction</span><span class="p">(</span><span class="s1">&#39;self&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addFrameAncestor</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// report this one</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addImageSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addMediaSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addManifestSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addObjectSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// reject from here</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addPluginType</span><span class="p">(</span><span class="s1">&#39;application/pdf&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// reject this media type</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addScriptSrc</span><span class="p">(</span><span class="s1">&#39;scripts.example.com&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// allow but report requests from here</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addStyleSrc</span><span class="p">(</span><span class="s1">&#39;css.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addSandbox</span><span class="p">([</span><span class="s1">&#39;allow-forms&#39;</span><span class="p">,</span> <span class="s1">&#39;allow-scripts&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Parameter pertama untuk setiap metode &quot;add&quot; adalah nilai string yang sesuai,
+atau array dari mereka.</p>
+<section id="hanya-laporan">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Hanya Laporan</a><a class="headerlink" href="#hanya-laporan" title="Permalink to this heading"></a></h3>
+<p>Metode <code class="docutils literal notranslate"><span class="pre">reportOnly()</span></code> memungkinkan Anda untuk menentukan perlakuan pelaporan default
+untuk sumber-sumber berikutnya, kecuali jika ditimpa.</p>
+<p>Misalnya, Anda dapat menentukan bahwa youtube.com diizinkan, dan kemudian menyediakan beberapa sumber yang diizinkan tetapi dilaporkan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// get the CSP instance</span>
+<span class="nv">$csp</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">getCSP</span><span class="p">();</span>
+
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://youtube.com&#39;</span><span class="p">);</span> <span class="c1">// allowed</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">reportOnly</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://metube.com&#39;</span><span class="p">);</span> <span class="c1">// allowed but reported</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://ourtube.com&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// allowed</span>
+</pre></div>
+</div>
+</section>
+<section id="hapus-direktif">
+<span id="csp-clear-directives"></span><h3><a class="toc-backref" href="#id5" role="doc-backlink">Hapus Direktif</a><a class="headerlink" href="#hapus-direktif" title="Permalink to this heading"></a></h3>
+<p>Jika Anda ingin menghapus direktif CSP yang ada, Anda dapat menggunakan metode <code class="docutils literal notranslate"><span class="pre">clearDirective()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// get the CSP instance</span>
+<span class="nv">$csp</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">getCSP</span><span class="p">();</span>
+
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">clearDirective</span><span class="p">(</span><span class="s1">&#39;style-src&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="konten-inline">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Konten Inline</a><a class="headerlink" href="#konten-inline" title="Permalink to this heading"></a></h2>
+<p>Dimungkinkan untuk mengatur situs web agar tidak melindungi bahkan skrip dan gaya inline di halamannya sendiri, karena ini mungkin
+merupakan hasil dari konten yang dibuat pengguna. Untuk melindungi dari ini, CSP memungkinkan Anda untuk menentukan nonce dalam
+tag <code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code> dan <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code>, dan untuk menambahkan nilai-nilai tersebut ke header response.</p>
+<section id="menggunakan-placeholder">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Menggunakan Placeholder</a><a class="headerlink" href="#menggunakan-placeholder" title="Permalink to this heading"></a></h3>
+<p>Ini adalah hal yang merepotkan untuk ditangani dalam kehidupan nyata, dan paling aman ketika dihasilkan secara on-the-fly. Untuk membuatnya sederhana, Anda dapat menyertakan placeholder <code class="docutils literal notranslate"><span class="pre">{csp-style-nonce}</span></code> atau
+<code class="docutils literal notranslate"><span class="pre">{csp-script-nonce}</span></code> dalam tag dan itu akan ditangani secara otomatis untuk Anda:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Asli</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="p">{</span><span class="nx">csp</span><span class="o">-</span><span class="nx">script</span><span class="o">-</span><span class="nx">nonce</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="nx">console</span><span class="o">.</span><span class="nb">log</span><span class="p">(</span><span class="s2">&quot;Skrip tidak akan berjalan karena tidak mengandung atribut nonce&quot;</span><span class="p">);</span>
+<span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+
+<span class="c1">// Menjadi</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">nonce</span><span class="o">=</span><span class="s2">&quot;Eskdikejidojdk978Ad8jf&quot;</span><span class="o">&gt;</span>
+    <span class="nx">console</span><span class="o">.</span><span class="nb">log</span><span class="p">(</span><span class="s2">&quot;Skrip tidak akan berjalan karena tidak mengandung atribut nonce&quot;</span><span class="p">);</span>
+<span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+
+<span class="c1">// ATAU</span>
+<span class="o">&lt;</span><span class="nx">style</span> <span class="p">{</span><span class="nx">csp</span><span class="o">-</span><span class="nx">style</span><span class="o">-</span><span class="nx">nonce</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="o">&lt;/</span><span class="nx">style</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Peringatan</p>
+<p>Jika penyerang menyuntikkan string seperti <code class="docutils literal notranslate"><span class="pre">&lt;script</span> <span class="pre">{csp-script-nonce}&gt;</span></code>, itu mungkin menjadi atribut nonce yang sebenarnya dengan fungsionalitas ini. Anda dapat menyesuaikan string placeholder dengan properti <code class="docutils literal notranslate"><span class="pre">$scriptNonceTag</span></code> dan <code class="docutils literal notranslate"><span class="pre">$styleNonceTag</span></code> di <strong>app/Config/ContentSecurityPolicy.php</strong>.</p>
+</div>
+</section>
+<section id="menggunakan-fungsi">
+<span id="csp-using-functions"></span><h3><a class="toc-backref" href="#id8" role="doc-backlink">Menggunakan Fungsi</a><a class="headerlink" href="#menggunakan-fungsi" title="Permalink to this heading"></a></h3>
+<p>Jika Anda tidak menyukai fungsionalitas penggantian otomatis di atas, Anda dapat mematikannya
+dengan mengatur <code class="docutils literal notranslate"><span class="pre">$autoNonce</span> <span class="pre">=</span> <span class="pre">false</span></code> di <strong>app/Config/ContentSecurityPolicy.php</strong>.</p>
+<p>Dalam kasus ini, Anda dapat menggunakan fungsi <a class="reference internal" href="../general/common_functions.html#csp_script_nonce" title="csp_script_nonce"><code class="xref php php-func docutils literal notranslate"><span class="pre">csp_script_nonce()</span></code></a> dan <a class="reference internal" href="../general/common_functions.html#csp_style_nonce" title="csp_style_nonce"><code class="xref php php-func docutils literal notranslate"><span class="pre">csp_style_nonce()</span></code></a>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Asli</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="o">&lt;?=</span> <span class="nx">csp_script_nonce</span><span class="p">()</span> <span class="cp">?&gt;</span>&gt;
+    console.log(&quot;Skrip tidak akan berjalan karena tidak mengandung atribut nonce&quot;);
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+// Menjadi
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">nonce</span><span class="o">=</span><span class="s">&quot;Eskdikejidojdk978Ad8jf&quot;</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Skrip tidak akan berjalan karena tidak mengandung atribut nonce&quot;</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+// ATAU
+<span class="p">&lt;</span><span class="nt">style</span> <span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">csp_style_nonce</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="o">.</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="o">.</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api_responses.html" class="btn btn-neutral float-left" title="API Response Trait" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="localization.html" class="btn btn-neutral float-right" title="Localization (Bahasa)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

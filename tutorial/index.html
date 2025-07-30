@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membangun Aplikasi Pertama Anda &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Halaman Statis" href="static_pages.html" />
+    <link rel="prev" title="Repositori CodeIgniter" href="../installation/repositories.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Ikhtisar CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Membangun Respons (Output)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Membangun Aplikasi Pertama Anda</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="membangun-aplikasi-pertama-anda">
+<h1>Membangun Aplikasi Pertama Anda<a class="headerlink" href="#membangun-aplikasi-pertama-anda" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#gambaran-umum" id="id1">Gambaran Umum</a></p></li>
+<li><p><a class="reference internal" href="#memulai-dan-menjalankan" id="id2">Memulai dan Menjalankan</a></p>
+<ul>
+<li><p><a class="reference internal" href="#menginstal-codeigniter" id="id3">Menginstal CodeIgniter</a></p></li>
+<li><p><a class="reference internal" href="#mengatur-mode-pengembangan" id="id4">Mengatur Mode Pengembangan</a></p></li>
+<li><p><a class="reference internal" href="#menjalankan-server-pengembangan" id="id5">Menjalankan Server Pengembangan</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#halaman-selamat-datang" id="id6">Halaman Selamat Datang</a></p></li>
+<li><p><a class="reference internal" href="#debugging" id="id7">Debugging</a></p>
+<ul>
+<li><p><a class="reference internal" href="#debug-toolbar" id="id8">Debug Toolbar</a></p></li>
+<li><p><a class="reference internal" href="#halaman-kesalahan-error" id="id9">Halaman Kesalahan (Error)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="gambaran-umum">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Gambaran Umum</a><a class="headerlink" href="#gambaran-umum" title="Permalink to this heading"></a></h2>
+<p>Tutorial ini dimaksudkan untuk memperkenalkan Anda pada framework CodeIgniter4
+dan prinsip-prinsip dasar arsitektur MVC. Ini akan menunjukkan kepada Anda bagaimana
+aplikasi CodeIgniter dasar dibangun secara langkah demi langkah.</p>
+<p>Jika Anda belum familiar dengan PHP, kami merekomendasikan Anda untuk melihat
+<a class="reference external" href="https://www.w3schools.com/php/default.asp">Tutorial PHP W3Schools</a> sebelum melanjutkan.</p>
+<p>Dalam tutorial ini, Anda akan membuat <strong>aplikasi berita dasar</strong>. Anda
+akan memulai dengan menulis kode yang dapat memuat halaman statis. Selanjutnya, Anda
+akan membuat bagian berita yang membaca item berita dari database.
+Terakhir, Anda akan menambahkan formulir untuk membuat item berita di database.</p>
+<p>Tutorial ini akan berfokus utama pada:</p>
+<ul class="simple">
+<li><p>Dasar-dasar Model-View-Controller</p></li>
+<li><p>Dasar-dasar Routing</p></li>
+<li><p>Validasi formulir</p></li>
+<li><p>Melakukan kueri database dasar menggunakan Model CodeIgniter</p></li>
+</ul>
+<p>Seluruh tutorial dibagi menjadi beberapa halaman, masing-masing menjelaskan
+bagian kecil dari fungsionalitas framework CodeIgniter. Anda akan melalui
+halaman-halaman berikut:</p>
+<ul class="simple">
+<li><p>Pendahuluan, halaman ini, yang memberi Anda gambaran umum tentang apa yang
+diharapkan dan membuat aplikasi default Anda terunduh dan berjalan.</p></li>
+<li><p><a class="reference internal" href="static_pages.html"><span class="doc">Halaman statis</span></a>, yang akan mengajarkan Anda dasar-dasar
+controller, view, dan routing.</p></li>
+<li><p><a class="reference internal" href="news_section.html"><span class="doc">Bagian berita</span></a>, di mana Anda akan mulai menggunakan model
+dan akan melakukan beberapa operasi database dasar.</p></li>
+<li><p><a class="reference internal" href="create_news_items.html"><span class="doc">Membuat item berita</span></a>, yang akan memperkenalkan
+operasi database yang lebih canggih dan validasi formulir.</p></li>
+<li><p><a class="reference internal" href="conclusion.html"><span class="doc">Kesimpulan</span></a>, yang akan memberi Anda beberapa petunjuk tentang
+bacaan lebih lanjut dan sumber daya lainnya.</p></li>
+</ul>
+<p>Nikmati eksplorasi Anda terhadap framework CodeIgniter.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="memulai-dan-menjalankan">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Memulai dan Menjalankan</a><a class="headerlink" href="#memulai-dan-menjalankan" title="Permalink to this heading"></a></h2>
+<section id="menginstal-codeigniter">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Menginstal CodeIgniter</a><a class="headerlink" href="#menginstal-codeigniter" title="Permalink to this heading"></a></h3>
+<p>Anda dapat mengunduh rilis secara manual dari situs, tetapi untuk tutorial ini kita akan
+menggunakan cara yang direkomendasikan dan menginstal paket AppStarter melalui Composer.
+Dari baris perintah Anda, ketik yang berikut:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">composer create-project codeigniter4/appstarter ci-news</span>
+</pre></div>
+</div>
+<p>Ini membuat folder baru, <strong>ci-news</strong>, yang berisi kode aplikasi Anda, dengan
+CodeIgniter terinstal di folder vendor.</p>
+</section>
+<section id="mengatur-mode-pengembangan">
+<span id="setting-development-mode"></span><h3><a class="toc-backref" href="#id4" role="doc-backlink">Mengatur Mode Pengembangan</a><a class="headerlink" href="#mengatur-mode-pengembangan" title="Permalink to this heading"></a></h3>
+<p>Secara default, CodeIgniter dimulai dalam mode produksi. Ini adalah fitur keamanan
+untuk menjaga situs Anda sedikit lebih aman jika pengaturan kacau saat sudah tayang.
+Jadi, pertama-tama mari kita perbaiki itu. Salin atau ganti nama file <strong>env</strong> menjadi <strong>.env</strong>. Buka file tersebut.</p>
+<p>File ini berisi pengaturan khusus server. Ini berarti Anda tidak perlu
+melakukan commit informasi sensitif apa pun ke sistem kontrol versi Anda. Ini mencakup
+beberapa yang paling umum yang ingin Anda masukkan, meskipun semuanya sudah dikomentari.
+Jadi, hapus komentar pada baris dengan <code class="docutils literal notranslate"><span class="pre">CI_ENVIRONMENT</span></code> di dalamnya, dan ubah <code class="docutils literal notranslate"><span class="pre">production</span></code> menjadi
+<code class="docutils literal notranslate"><span class="pre">development</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">CI_ENVIRONMENT</span> <span class="o">=</span> <span class="nx">development</span>
+</pre></div>
+</div>
+</section>
+<section id="menjalankan-server-pengembangan">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Menjalankan Server Pengembangan</a><a class="headerlink" href="#menjalankan-server-pengembangan" title="Permalink to this heading"></a></h3>
+<p>Setelah itu, saatnya untuk melihat aplikasi Anda di browser. Anda dapat
+menjalankannya melalui server pilihan Anda, Apache, nginx, dll, tetapi CodeIgniter
+dilengkapi dengan perintah sederhana yang memanfaatkan server bawaan PHP untuk
+membuat Anda siap dan berjalan cepat di mesin pengembangan Anda. Ketik yang berikut di
+baris perintah dari root proyek Anda:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark serve</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="halaman-selamat-datang">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Halaman Selamat Datang</a><a class="headerlink" href="#halaman-selamat-datang" title="Permalink to this heading"></a></h2>
+<p>Sekarang arahkan browser Anda ke URL yang benar, Anda akan disambut oleh layar selamat datang.
+Coba sekarang dengan menuju ke URL berikut:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">http</span><span class="o">://</span><span class="nx">localhost</span><span class="o">:</span><span class="mi">8080</span>
+</pre></div>
+</div>
+<p>dan Anda akan disambut oleh halaman berikut:</p>
+<img alt="../_images/welcome.png" src="../_images/welcome.png" />
+<p>Ini berarti aplikasi Anda berfungsi dan Anda dapat mulai membuat perubahan padanya.</p>
+</section>
+<section id="debugging">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Debugging</a><a class="headerlink" href="#debugging" title="Permalink to this heading"></a></h2>
+<section id="debug-toolbar">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Debug Toolbar</a><a class="headerlink" href="#debug-toolbar" title="Permalink to this heading"></a></h3>
+<p>Sekarang Anda berada dalam mode pengembangan, Anda akan melihat ikon api CodeIgniter di kanan bawah aplikasi Anda. Klik ikon tersebut dan Anda akan melihat debug toolbar.</p>
+<p>Toolbar ini berisi sejumlah item bermanfaat yang dapat Anda rujuk selama pengembangan.
+Ini tidak akan pernah muncul di lingkungan produksi. Mengklik salah satu tab di bagian bawah
+akan menampilkan informasi tambahan. Mengklik X di kanan toolbar akan meminimalkannya
+menjadi kotak kecil dengan ikon api CodeIgniter di atasnya. Jika Anda mengklik itu, toolbar
+akan muncul kembali.</p>
+<img alt="../_images/debugbar.png" src="../_images/debugbar.png" />
+</section>
+<section id="halaman-kesalahan-error">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Halaman Kesalahan (Error)</a><a class="headerlink" href="#halaman-kesalahan-error" title="Permalink to this heading"></a></h3>
+<p>Selain itu, CodeIgniter memiliki beberapa halaman kesalahan yang berguna ketika Anda mengalami pengecualian atau
+kesalahan lain dalam program Anda. Buka <strong>app/Controllers/Home.php</strong> dan ubah beberapa baris
+untuk menghasilkan kesalahan (menghapus titik koma atau kurung kurawal akan berhasil!). Anda akan
+disambut oleh layar yang terlihat seperti ini:</p>
+<img alt="../_images/error.png" src="../_images/error.png" />
+<p>Ada beberapa hal yang perlu diperhatikan di sini:</p>
+<ol class="arabic simple">
+<li><p>Mengarahkan kursor ke header merah di bagian atas akan menampilkan tautan <strong>search</strong> yang akan membuka
+DuckDuckGo.com di tab baru dan mencari pengecualian tersebut.</p></li>
+<li><p>Mengklik tautan <strong>arguments</strong> pada baris mana pun di Backtrace akan memperluas daftar
+argumen yang diteruskan ke panggilan fungsi tersebut.</p></li>
+</ol>
+<p>Segala sesuatu yang lain seharusnya jelas ketika Anda melihatnya.</p>
+<p>Sekarang kita tahu cara memulai dan cara melakukan debug sedikit, mari kita mulai membangun
+aplikasi berita kecil ini.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../installation/repositories.html" class="btn btn-neutral float-left" title="Repositori CodeIgniter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="static_pages.html" class="btn btn-neutral float-right" title="Halaman Statis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factories &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Bekerja dengan Permintaan HTTP" href="http.html" />
+    <link rel="prev" title="Service" href="services.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Ikhtisar CodeIgniter4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Service</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Membangun Respons (Output)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Ikhtisar CodeIgniter4</a></li>
+      <li class="breadcrumb-item active">Factories</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="factories">
+<h1>Factories<a class="headerlink" href="#factories" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#pendahuluan" id="id1">Pendahuluan</a></p>
+<ul>
+<li><p><a class="reference internal" href="#apa-itu-factories" id="id2">Apa itu Factories?</a></p></li>
+<li><p><a class="reference internal" href="#perbedaan-dari-services" id="id3">Perbedaan dari Services</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#memuat-class" id="id4">Memuat Class</a></p>
+<ul>
+<li><p><a class="reference internal" href="#memuat-sebuah-class" id="id5">Memuat Sebuah Class</a></p>
+<ul>
+<li><p><a class="reference internal" href="#meneruskan-nama-class-tanpa-namespace" id="id6">Meneruskan Nama Class tanpa Namespace</a></p></li>
+<li><p><a class="reference internal" href="#meneruskan-nama-class-yang-sepenuhnya-berkualifikasi" id="id7">Meneruskan Nama Class yang Sepenuhnya Berkualifikasi</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#fungsi-kemudahan" id="id8">Fungsi Kemudahan</a></p>
+<ul>
+<li><p><a class="reference internal" href="#config" id="id9">config()</a></p></li>
+<li><p><a class="reference internal" href="#model" id="id10">model()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mendefinisikan-nama-class-yang-akan-dimuat" id="id11">Mendefinisikan Nama Class yang Akan Dimuat</a></p></li>
+<li><p><a class="reference internal" href="#parameter-factory" id="id12">Parameter Factory</a></p></li>
+<li><p><a class="reference internal" href="#opsi-factories" id="id13">Opsi Factories</a></p></li>
+<li><p><a class="reference internal" href="#perilaku-factories" id="id14">Perilaku Factories</a></p>
+<ul>
+<li><p><a class="reference internal" href="#konfigurasi" id="id15">Konfigurasi</a></p>
+<ul>
+<li><p><a class="reference internal" href="#contoh-filters-factories" id="id16">Contoh: Filters Factories</a></p></li>
+<li><p><a class="reference internal" href="#contoh-library-factories" id="id17">Contoh: Library Factories</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#metode-setoptions" id="id18">Metode setOptions</a></p></li>
+<li><p><a class="reference internal" href="#opsi-parameter" id="id19">Opsi Parameter</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#caching-konfigurasi" id="id20">Caching Konfigurasi</a></p>
+<ul>
+<li><p><a class="reference internal" href="#prasyarat" id="id21">Prasyarat</a></p></li>
+<li><p><a class="reference internal" href="#bagaimana-cara-kerjanya" id="id22">Bagaimana Cara Kerjanya</a></p></li>
+<li><p><a class="reference internal" href="#bagaimana-cara-memperbarui-nilai-konfigurasi" id="id23">Bagaimana Cara Memperbarui Nilai Konfigurasi</a></p></li>
+<li><p><a class="reference internal" href="#bagaimana-cara-mengaktifkan-caching-konfigurasi" id="id24">Bagaimana Cara Mengaktifkan Caching Konfigurasi</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="pendahuluan">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Pendahuluan</a><a class="headerlink" href="#pendahuluan" title="Permalink to this heading"></a></h2>
+<section id="apa-itu-factories">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Apa itu Factories?</a><a class="headerlink" href="#apa-itu-factories" title="Permalink to this heading"></a></h3>
+<p>Seperti <a class="reference internal" href="services.html"><span class="doc">Service</span></a>, <strong>Factories</strong> adalah ekstensi dari autoloading yang membantu menjaga kode Anda
+tetap ringkas namun optimal, tanpa harus meneruskan instance objek antar class.</p>
+<p>Factories mirip dengan <code class="docutils literal notranslate"><span class="pre">$this-&gt;load</span></code> di CodeIgniter 3 dalam poin-poin berikut:</p>
+<ul class="simple">
+<li><p>Memuat class</p></li>
+<li><p>Berbagi instance class yang dimuat</p></li>
+</ul>
+<p>Pada dasarnya, Factories menyediakan cara umum untuk membuat instance class dan mengaksesnya dari
+mana saja. Ini adalah cara yang bagus untuk menggunakan kembali status objek dan mengurangi beban memori dari menjaga
+beberapa instance dimuat di seluruh aplikasi Anda.</p>
+<p>Class apa pun dapat dimuat oleh Factories, tetapi contoh terbaik adalah class yang digunakan
+untuk bekerja atau mentransmisikan data umum. Framework itu sendiri menggunakan Factories secara internal, mis., untuk
+memastikan konfigurasi yang benar dimuat saat menggunakan class <code class="docutils literal notranslate"><span class="pre">Config</span></code>.</p>
+</section>
+<section id="perbedaan-dari-services">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Perbedaan dari Services</a><a class="headerlink" href="#perbedaan-dari-services" title="Permalink to this heading"></a></h3>
+<p>Factories memerlukan nama class konkret untuk diinstansiasi dan tidak memiliki kode untuk membuat instance.</p>
+<p>Jadi, Factories tidak baik untuk membuat instance kompleks yang membutuhkan banyak dependensi,
+dan Anda tidak dapat mengubah class instance yang akan dikembalikan.</p>
+<p>Di sisi lain, Services memiliki kode untuk membuat instance, sehingga dapat membuat instance kompleks
+yang membutuhkan service atau instance class lain. Ketika Anda mendapatkan service, Services memerlukan nama service,
+bukan nama class, sehingga instance yang dikembalikan dapat diubah tanpa mengubah kode klien.</p>
+</section>
+</section>
+<section id="memuat-class">
+<span id="factories-loading-class"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Memuat Class</a><a class="headerlink" href="#memuat-class" title="Permalink to this heading"></a></h2>
+<section id="memuat-sebuah-class">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Memuat Sebuah Class</a><a class="headerlink" href="#memuat-sebuah-class" title="Permalink to this heading"></a></h3>
+<p>Lihatlah <strong>Models</strong> sebagai contoh. Anda dapat mengakses Factory khusus untuk Model
+dengan menggunakan metode statis ajaib dari class Factories, <code class="docutils literal notranslate"><span class="pre">Factories::models()</span></code>.</p>
+<p>Nama metode statis disebut <em>component</em>.</p>
+<section id="meneruskan-nama-class-tanpa-namespace">
+<span id="factories-passing-classname-without-namespace"></span><h4><a class="toc-backref" href="#id6" role="doc-backlink">Meneruskan Nama Class tanpa Namespace</a><a class="headerlink" href="#meneruskan-nama-class-tanpa-namespace" title="Permalink to this heading"></a></h4>
+<p>Jika Anda meneruskan nama class tanpa namespace, Factories pertama-tama mencari di
+namespace <code class="docutils literal notranslate"><span class="pre">App</span></code> untuk jalur yang sesuai dengan nama metode statis ajaib.
+<code class="docutils literal notranslate"><span class="pre">Factories::models()</span></code> mencari di direktori <strong>app/Models</strong>.</p>
+<section id="meneruskan-nama-class-pendek">
+<h5>Meneruskan Nama Class Pendek<a class="headerlink" href="#meneruskan-nama-class-pendek" title="Permalink to this heading"></a></h5>
+<p>Dalam kode berikut, jika Anda memiliki <code class="docutils literal notranslate"><span class="pre">App\Models\UserModel</span></code>, instance akan dikembalikan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">models</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Jika Anda tidak memiliki <code class="docutils literal notranslate"><span class="pre">App\Models\UserModel</span></code>, ia mencari <code class="docutils literal notranslate"><span class="pre">Models\UserModel</span></code> di semua namespace.</p>
+<p>Lain kali Anda meminta class yang sama di mana pun dalam kode Anda, Factories akan memastikan
+Anda mendapatkan kembali instance seperti sebelumnya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SomeOtherClass</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">someFunction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$users</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">models</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="meneruskan-nama-class-pendek-dengan-sub-direktori">
+<h5>Meneruskan Nama Class Pendek dengan Sub-direktori<a class="headerlink" href="#meneruskan-nama-class-pendek-dengan-sub-direktori" title="Permalink to this heading"></a></h5>
+<p>Jika Anda ingin memuat class di sub-direktori, Anda menggunakan <code class="docutils literal notranslate"><span class="pre">/</span></code> sebagai pemisah.
+Kode berikut memuat <strong>app/Libraries/Sub/SubLib.php</strong> jika ada:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+
+<span class="nv">$lib</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">libraries</span><span class="p">(</span><span class="s1">&#39;Sub/SubLib&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="meneruskan-nama-class-yang-sepenuhnya-berkualifikasi">
+<span id="factories-passing-fully-qualified-classname"></span><h4><a class="toc-backref" href="#id7" role="doc-backlink">Meneruskan Nama Class yang Sepenuhnya Berkualifikasi</a><a class="headerlink" href="#meneruskan-nama-class-yang-sepenuhnya-berkualifikasi" title="Permalink to this heading"></a></h4>
+<p>Anda juga dapat meminta nama class yang sepenuhnya berkualifikasi:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">models</span><span class="p">(</span><span class="s1">&#39;Blog\Models\UserModel&#39;</span><span class="p">);</span>
+<span class="c1">// Or</span>
+<span class="nv">$users</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">models</span><span class="p">(</span><span class="nx">\Blog\Models\UserModel</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Ini mengembalikan instance <code class="docutils literal notranslate"><span class="pre">Blog\Models\UserModel</span></code> jika ada.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sebelum v4.4.0, ketika Anda meminta nama class yang sepenuhnya berkualifikasi,
+jika Anda hanya memiliki <code class="docutils literal notranslate"><span class="pre">Blog\Models\UserModel</span></code>, instance akan dikembalikan.
+Tetapi jika Anda memiliki keduanya <code class="docutils literal notranslate"><span class="pre">App\Models\UserModel</span></code> dan <code class="docutils literal notranslate"><span class="pre">Blog\Models\UserModel</span></code>,
+instance dari <code class="docutils literal notranslate"><span class="pre">App\Models\UserModel</span></code> akan dikembalikan.</p>
+<p>Jika Anda ingin mendapatkan <code class="docutils literal notranslate"><span class="pre">Blog\Models\UserModel</span></code>, Anda perlu menonaktifkan
+opsi <code class="docutils literal notranslate"><span class="pre">preferApp</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">models</span><span class="p">(</span><span class="s1">&#39;Blog\Models\UserModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;preferApp&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="fungsi-kemudahan">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Fungsi Kemudahan</a><a class="headerlink" href="#fungsi-kemudahan" title="Permalink to this heading"></a></h2>
+<p>Dua fungsi pintasan untuk Factories telah disediakan. Fungsi-fungsi ini selalu tersedia.</p>
+<section id="config">
+<span id="factories-config"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink">config()</a><a class="headerlink" href="#config" title="Permalink to this heading"></a></h3>
+<p>Yang pertama adalah <a class="reference internal" href="../general/common_functions.html#config" title="config"><code class="xref php php-func docutils literal notranslate"><span class="pre">config()</span></code></a> yang mengembalikan instance baru dari class Config. Satu-satunya parameter yang diperlukan adalah nama class:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$appConfig</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;App&#39;</span><span class="p">);</span>
+
+<span class="c1">// The code above is the same as the code below.</span>
+<span class="nv">$appConfig</span> <span class="o">=</span> <span class="nx">\CodeIgniter\Config\Factories</span><span class="o">::</span><span class="na">config</span><span class="p">(</span><span class="s1">&#39;App&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="model">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">model()</a><a class="headerlink" href="#model" title="Permalink to this heading"></a></h3>
+<p>Fungsi kedua, <a class="reference internal" href="../general/common_functions.html#model" title="model"><code class="xref php php-func docutils literal notranslate"><span class="pre">model()</span></code></a> mengembalikan instance baru dari class Model. Satu-satunya parameter yang diperlukan adalah nama class:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">);</span>
+
+<span class="c1">// The code above is the same as the code below.</span>
+<span class="nv">$user</span> <span class="o">=</span> <span class="nx">\CodeIgniter\Config\Factories</span><span class="o">::</span><span class="na">models</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="mendefinisikan-nama-class-yang-akan-dimuat">
+<span id="factories-defining-classname-to-be-loaded"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink">Mendefinisikan Nama Class yang Akan Dimuat</a><a class="headerlink" href="#mendefinisikan-nama-class-yang-akan-dimuat" title="Permalink to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.4.0.</span></p>
+</div>
+<p>Anda dapat mendefinisikan nama class yang akan dimuat sebelum memuat class dengan
+metode <code class="docutils literal notranslate"><span class="pre">Factories::define()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+
+<span class="nx">Factories</span><span class="o">::</span><span class="na">define</span><span class="p">(</span><span class="s1">&#39;models&#39;</span><span class="p">,</span> <span class="s1">&#39;Myth\Auth\Models\UserModel&#39;</span><span class="p">,</span> <span class="s1">&#39;App\Models\UserModel&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Parameter pertama adalah komponen. Parameter kedua adalah alias class
+(parameter pertama untuk metode statis ajaib Factories), dan parameter ketiga
+adalah nama class yang sepenuhnya berkualifikasi yang akan dimuat.</p>
+<p>Setelah itu, jika Anda memuat <code class="docutils literal notranslate"><span class="pre">Myth\Auth\Models\UserModel</span></code> dengan Factories,
+instance <code class="docutils literal notranslate"><span class="pre">App\Models\UserModel</span></code> akan dikembalikan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$users</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Myth\Auth\Models\UserModel&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="parameter-factory">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Parameter Factory</a><a class="headerlink" href="#parameter-factory" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Factories</span></code> mengambil sebagai parameter kedua array nilai opsi (dijelaskan di bawah).
+Direktif ini akan menimpa opsi default yang dikonfigurasi untuk setiap komponen.</p>
+<p>Parameter lain yang diteruskan pada saat yang sama akan diteruskan ke konstruktor class,
+memudahkan konfigurasi instance class Anda secara on-the-fly. Misalnya, katakan
+aplikasi Anda menggunakan database terpisah untuk otentikasi dan Anda ingin memastikan bahwa setiap upaya
+untuk mengakses catatan pengguna selalu melalui koneksi tersebut:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+
+<span class="nv">$conn</span>  <span class="o">=</span> <span class="nx">db_connect</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">);</span>
+<span class="nv">$users</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">models</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="nv">$conn</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Sekarang setiap kali <code class="docutils literal notranslate"><span class="pre">UserModel</span></code> dimuat dari <code class="docutils literal notranslate"><span class="pre">Factories</span></code>, itu akan mengembalikan
+instance class yang menggunakan koneksi database alternatif.</p>
+</section>
+<section id="opsi-factories">
+<span id="factories-options"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">Opsi Factories</a><a class="headerlink" href="#opsi-factories" title="Permalink to this heading"></a></h2>
+<p>Perilaku default mungkin tidak berfungsi untuk setiap komponen. Misalnya, katakan nama komponen
+Anda dan jalurnya tidak selaras, atau Anda perlu membatasi instance ke jenis class tertentu.
+Setiap komponen mengambil serangkaian opsi untuk mengarahkan penemuan dan instansiasi.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>component</p></td>
+<td><p>string or null</p></td>
+<td><p>Nama komponen (jika berbeda dari nama metode statis). Ini
+dapat digunakan untuk mengalias satu komponen ke komponen lain.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">null</span></code> (default ke nama komponen)</p></td>
+</tr>
+<tr class="row-odd"><td><p>path</p></td>
+<td><p>string or null</p></td>
+<td><p>Jalur relatif dalam namespace/folder untuk mencari class.
+namun membuat karakter pertama huruf besar)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">null</span></code> (default ke nama komponen,</p></td>
+</tr>
+<tr class="row-even"><td><p>instanceOf</p></td>
+<td><p>string or null</p></td>
+<td><p>Nama class yang diperlukan untuk dicocokkan pada instance yang
+dikembalikan.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">null</span></code> (tanpa pemfilteran)</p></td>
+</tr>
+<tr class="row-odd"><td><p>getShared</p></td>
+<td><p>boolean</p></td>
+<td><p>Apakah akan mengembalikan instance bersama dari class atau
+memuat yang baru.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>preferApp</p></td>
+<td><p>boolean</p></td>
+<td><p>Apakah class dengan nama dasar yang sama di namespace App
+menggantikan permintaan class eksplisit lainnya.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sejak v4.4.0, <code class="docutils literal notranslate"><span class="pre">preferApp</span></code> hanya berfungsi ketika Anda meminta
+<a class="reference internal" href="#factories-passing-classname-without-namespace"><span class="std std-ref">nama class tanpa namespace</span></a>.</p>
+</div>
+</section>
+<section id="perilaku-factories">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Perilaku Factories</a><a class="headerlink" href="#perilaku-factories" title="Permalink to this heading"></a></h2>
+<p>Opsi dapat diterapkan dalam salah satu dari tiga cara (terdaftar dalam prioritas naik):</p>
+<ul class="simple">
+<li><p>Class konfigurasi <code class="docutils literal notranslate"><span class="pre">Config\Factory</span></code> dengan properti yang cocok dengan nama komponen.</p></li>
+<li><p>Metode statis <code class="docutils literal notranslate"><span class="pre">Factories::setOptions()</span></code>.</p></li>
+<li><p>Meneruskan opsi langsung pada waktu panggilan dengan parameter.</p></li>
+</ul>
+<section id="konfigurasi">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Konfigurasi</a><a class="headerlink" href="#konfigurasi" title="Permalink to this heading"></a></h3>
+<p>Untuk mengatur opsi komponen default, buat file Config baru di <strong>app/Config/Factory.php</strong>
+yang menyediakan opsi sebagai properti array yang cocok dengan nama komponen.</p>
+<section id="contoh-filters-factories">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">Contoh: Filters Factories</a><a class="headerlink" href="#contoh-filters-factories" title="Permalink to this heading"></a></h4>
+<p>Misalnya, jika Anda ingin membuat <strong>Filters</strong> oleh Factories, nama komponen akan menjadi <code class="docutils literal notranslate"><span class="pre">filters</span></code>.
+Dan jika Anda ingin memastikan bahwa setiap filter adalah instance dari class yang mengimplementasikan <code class="docutils literal notranslate"><span class="pre">FilterInterface</span></code> CodeIgniter,
+file <strong>app/Config/Factory.php</strong> Anda mungkin terlihat seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\Factory</span> <span class="k">as</span> <span class="nx">BaseFactory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\Filters\FilterInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Factory</span> <span class="k">extends</span> <span class="nx">BaseFactory</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$filters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;instanceOf&#39;</span> <span class="o">=&gt;</span> <span class="nx">FilterInterface</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Sekarang Anda dapat membuat filter dengan kode seperti <code class="docutils literal notranslate"><span class="pre">Factories::filters('SomeFilter')</span></code>,
+dan instance yang dikembalikan pasti akan menjadi filter CodeIgniter.</p>
+<p>Ini akan mencegah konflik modul pihak ketiga yang kebetulan memiliki
+jalur <code class="docutils literal notranslate"><span class="pre">Filters</span></code> yang tidak terkait di namespace-nya.</p>
+</section>
+<section id="contoh-library-factories">
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">Contoh: Library Factories</a><a class="headerlink" href="#contoh-library-factories" title="Permalink to this heading"></a></h4>
+<p>Jika Anda ingin memuat class library Anda di direktori <strong>app/Libraries</strong> dengan
+<code class="docutils literal notranslate"><span class="pre">Factories::library('SomeLib')</span></code>, jalur <cite>Libraries</cite> berbeda dari
+jalur default <cite>Library</cite>.</p>
+<p>Dalam kasus ini, file <strong>app/Config/Factory.php</strong> Anda akan terlihat seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\Factory</span> <span class="k">as</span> <span class="nx">BaseFactory</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Factory</span> <span class="k">extends</span> <span class="nx">BaseFactory</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$library</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Libraries&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Sekarang Anda dapat memuat library Anda dengan metode <code class="docutils literal notranslate"><span class="pre">Factories::library()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+
+<span class="nv">$someLib</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;SomeLib&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="metode-setoptions">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Metode setOptions</a><a class="headerlink" href="#metode-setoptions" title="Permalink to this heading"></a></h3>
+<p>Class <code class="docutils literal notranslate"><span class="pre">Factories</span></code> memiliki metode statis untuk memungkinkan konfigurasi opsi runtime: cukup
+berikan array opsi yang diinginkan menggunakan metode <code class="docutils literal notranslate"><span class="pre">setOptions()</span></code> dan mereka akan
+digabungkan dengan nilai default dan disimpan untuk panggilan berikutnya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\Filters\FilterInterface</span><span class="p">;</span>
+
+<span class="nx">Factories</span><span class="o">::</span><span class="na">setOptions</span><span class="p">(</span><span class="s1">&#39;filters&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;instanceOf&#39;</span> <span class="o">=&gt;</span> <span class="nx">FilterInterface</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="s1">&#39;prefersApp&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="opsi-parameter">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Opsi Parameter</a><a class="headerlink" href="#opsi-parameter" title="Permalink to this heading"></a></h3>
+<p>Panggilan statis ajaib <code class="docutils literal notranslate"><span class="pre">Factories</span></code> mengambil sebagai parameter kedua array nilai opsi.
+Direktif ini akan menimpa opsi yang disimpan yang dikonfigurasi untuk setiap komponen dan dapat
+digunakan pada waktu panggilan untuk mendapatkan persis apa yang Anda butuhkan. Input harus berupa array dengan nama opsi
+sebagai kunci untuk setiap nilai penimpaan.</p>
+<p>Misalnya, secara default <code class="docutils literal notranslate"><span class="pre">Factories</span></code> mengasumsikan bahwa Anda ingin menemukan instance bersama dari
+komponen. Dengan menambahkan parameter kedua ke panggilan statis ajaib, Anda dapat mengontrol apakah
+panggilan tunggal itu akan mengembalikan instance baru atau bersama:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">CodeIgniter\Config\Factories</span><span class="p">;</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">models</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;getShared&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">]);</span>  <span class="c1">// Default; will always be the same instance</span>
+<span class="nv">$other</span> <span class="o">=</span> <span class="nx">Factories</span><span class="o">::</span><span class="na">models</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;getShared&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span> <span class="c1">// Will always create a new instance</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="caching-konfigurasi">
+<span id="factories-config-caching"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink">Caching Konfigurasi</a><a class="headerlink" href="#caching-konfigurasi" title="Permalink to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.4.0.</span></p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Jangan gunakan fitur ini kecuali Anda telah membaca bagian ini dengan cermat
+dan memahami cara kerja fitur ini. Jika tidak, aplikasi Anda tidak akan
+berfungsi dengan benar.</p>
+</div>
+<p>Untuk meningkatkan kinerja, Caching Konfigurasi telah diimplementasikan.</p>
+<section id="prasyarat">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Prasyarat</a><a class="headerlink" href="#prasyarat" title="Permalink to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Menggunakan fitur ini ketika prasyarat tidak terpenuhi akan mencegah
+CodeIgniter beroperasi dengan benar. Jangan gunakan fitur ini dalam kasus seperti itu.</p>
+</div>
+<ul class="simple">
+<li><p>Untuk menggunakan fitur ini, properti semua objek Config yang diinstansiasi di
+Factories tidak boleh dimodifikasi setelah instansiasi. Dengan kata lain, class Config
+harus berupa class immutable atau readonly.</p></li>
+<li><p>Secara default, setiap class Config yang di-cache harus mengimplementasikan metode <code class="docutils literal notranslate"><span class="pre">__set_state()</span></code>.</p></li>
+</ul>
+</section>
+<section id="bagaimana-cara-kerjanya">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Bagaimana Cara Kerjanya</a><a class="headerlink" href="#bagaimana-cara-kerjanya" title="Permalink to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Setelah di-cache, nilai konfigurasi tidak pernah berubah sampai cache
+dihapus, bahkan jika file konfigurasi atau <strong>.env</strong> diubah.</p>
+</div>
+<ul class="simple">
+<li><p>Simpan semua instance Config di Factories ke dalam file cache sebelum shutdown,
+jika status instance Config di Factories berubah.</p></li>
+<li><p>Pulihkan instance Config yang di-cache sebelum inisialisasi CodeIgniter jika cache
+tersedia.</p></li>
+</ul>
+<p>Sederhananya, semua instance Config yang dipegang oleh Factories di-cache segera sebelum
+shutdown, dan instance yang di-cache digunakan secara permanen.</p>
+</section>
+<section id="bagaimana-cara-memperbarui-nilai-konfigurasi">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Bagaimana Cara Memperbarui Nilai Konfigurasi</a><a class="headerlink" href="#bagaimana-cara-memperbarui-nilai-konfigurasi" title="Permalink to this heading"></a></h3>
+<p>Setelah disimpan, versi yang di-cache tidak pernah kedaluwarsa. Mengubah file Config yang ada
+(atau mengubah Variabel Lingkungan untuk itu) tidak akan memperbarui cache maupun nilai Config.</p>
+<p>Jadi jika Anda ingin memperbarui nilai Config, perbarui file Config atau Variabel Lingkungan
+untuk itu, dan Anda harus menghapus file cache secara manual.</p>
+<p>Anda dapat menggunakan perintah <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">cache:clear</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark cache:clear</span>
+</pre></div>
+</div>
+<p>Atau cukup hapus file <strong>writable/cache/FactoriesCache_config</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sejak v4.5.0, perintah <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">optimize</span></code> membersihkan cache.</p>
+</div>
+</section>
+<section id="bagaimana-cara-mengaktifkan-caching-konfigurasi">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Bagaimana Cara Mengaktifkan Caching Konfigurasi</a><a class="headerlink" href="#bagaimana-cara-mengaktifkan-caching-konfigurasi" title="Permalink to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.5.0.</span></p>
+</div>
+<p>Atur properti berikut ke <code class="docutils literal notranslate"><span class="pre">true</span></code> di <strong>app/Config/Optimize.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nx">bool</span> <span class="nv">$configCacheEnabled</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Atau Anda dapat mengaktifkan ini dengan perintah <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">optimize</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Properti ini tidak dapat ditimpa oleh
+<a class="reference internal" href="../general/configuration.html#configuration-classes-and-environment-variables"><span class="std std-ref">variabel lingkungan</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Di v4.4.x, hapus komentar kode berikut di <strong>public/index.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="nx">a</span><span class="o">/</span><span class="k">public</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span>
+<span class="o">+++</span> <span class="nx">b</span><span class="o">/</span><span class="k">public</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">49</span><span class="p">,</span><span class="mi">8</span> <span class="o">+</span><span class="mi">49</span><span class="p">,</span><span class="mi">8</span> <span class="o">@@</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;ENVIRONMENT&#39;</span><span class="p">))</span> <span class="p">{</span>
+ <span class="p">}</span>
+
+ <span class="c1">// Muat Cache Konfigurasi</span>
+<span class="o">-//</span> <span class="nv">$factoriesCache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\Cache\FactoriesCache</span><span class="p">();</span>
+<span class="o">-//</span> <span class="nv">$factoriesCache</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">);</span>
+<span class="o">+</span><span class="nv">$factoriesCache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\Cache\FactoriesCache</span><span class="p">();</span>
+<span class="o">+</span><span class="nv">$factoriesCache</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">);</span>
+ <span class="c1">// ^^^ Hapus komentar baris ini jika Anda ingin menggunakan Caching Konfigurasi.</span>
+
+ <span class="o">/*</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">79</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">79</span><span class="p">,</span><span class="mi">7</span> <span class="o">@@</span> <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">setContext</span><span class="p">(</span><span class="nv">$context</span><span class="p">);</span>
+ <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+
+ <span class="c1">// Simpan Cache Konfigurasi</span>
+<span class="o">-//</span> <span class="nv">$factoriesCache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">);</span>
+<span class="o">+</span><span class="nv">$factoriesCache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">);</span>
+ <span class="c1">// ^^^ Hapus komentar baris ini jika Anda ingin menggunakan Caching Konfigurasi.</span>
+
+ <span class="c1">// Keluar dari aplikasi, mengatur kode keluar untuk aplikasi berbasis CLI</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="services.html" class="btn btn-neutral float-left" title="Service" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="http.html" class="btn btn-neutral float-right" title="Bekerja dengan Permintaan HTTP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

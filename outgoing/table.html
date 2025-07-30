@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Table Class &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="HTTP Responses" href="response.html" />
+    <link rel="prev" title="View Decorators" href="view_decorators.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Ikhtisar CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Membangun Respons (Output)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Membangun Respons (Output)</a></li>
+      <li class="breadcrumb-item active">HTML Table Class</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="html-table-class">
+<h1>HTML Table Class<a class="headerlink" href="#html-table-class" title="Permalink to this heading"></a></h1>
+<p>Class Table menyediakan metode yang memungkinkan Anda untuk secara otomatis menghasilkan tabel HTML
+dari array atau hasil set database.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#menggunakan-class-table" id="id1">Menggunakan Class Table</a></p>
+<ul>
+<li><p><a class="reference internal" href="#menginisialisasi-class" id="id2">Menginisialisasi Class</a></p></li>
+<li><p><a class="reference internal" href="#contoh" id="id3">Contoh</a></p></li>
+<li><p><a class="reference internal" href="#mengubah-tampilan-tabel-anda" id="id4">Mengubah Tampilan Tabel Anda</a></p></li>
+<li><p><a class="reference internal" href="#menyinkronkan-baris-dengan-judul" id="id5">Menyinkronkan Baris dengan Judul</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#namespace-CodeIgniter\View" id="id6">Referensi Class</a></p></li>
+</ul>
+</nav>
+<section id="menggunakan-class-table">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Menggunakan Class Table</a><a class="headerlink" href="#menggunakan-class-table" title="Permalink to this heading"></a></h2>
+<section id="menginisialisasi-class">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Menginisialisasi Class</a><a class="headerlink" href="#menginisialisasi-class" title="Permalink to this heading"></a></h3>
+<p>Class Table tidak disediakan sebagai service, dan harus diinstansiasi
+&quot;secara normal&quot;, misalnya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="contoh">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Contoh</a><a class="headerlink" href="#contoh" title="Permalink to this heading"></a></h3>
+<p>Berikut adalah contoh yang menunjukkan bagaimana Anda dapat membuat tabel dari
+array multi-dimensi. Perhatikan bahwa indeks array pertama akan menjadi
+judul tabel (atau Anda dapat mengatur judul Anda sendiri menggunakan metode <code class="docutils literal notranslate"><span class="pre">setHeading()</span></code>
+yang dijelaskan dalam referensi fungsi di bawah).</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">();</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Size&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Fred&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Small&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Large&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">],</span>
+<span class="p">];</span>
+
+<span class="k">echo</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Berikut adalah contoh tabel yang dibuat dari hasil query database.
+Class tabel akan secara otomatis menghasilkan judul berdasarkan nama tabel
+(atau Anda dapat mengatur judul Anda sendiri menggunakan metode <code class="docutils literal notranslate"><span class="pre">setHeading()</span></code>
+yang dijelaskan dalam referensi class di bawah).</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">();</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM my_table&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="nv">$query</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Berikut adalah contoh yang menunjukkan bagaimana Anda dapat membuat tabel menggunakan
+parameter diskrit:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">();</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setHeading</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Size&#39;</span><span class="p">);</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;Fred&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Small&#39;</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Large&#39;</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Berikut adalah contoh yang sama, kecuali alih-alih parameter individual,
+array digunakan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">();</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setHeading</span><span class="p">([</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Size&#39;</span><span class="p">]);</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">([</span><span class="s1">&#39;Fred&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Small&#39;</span><span class="p">]);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">([</span><span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Large&#39;</span><span class="p">]);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">([</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">]);</span>
+
+<span class="k">echo</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="mengubah-tampilan-tabel-anda">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Mengubah Tampilan Tabel Anda</a><a class="headerlink" href="#mengubah-tampilan-tabel-anda" title="Permalink to this heading"></a></h3>
+<p>Class Table memungkinkan Anda untuk mengatur template tabel yang dengannya Anda dapat
+menentukan desain layout Anda. Berikut adalah prototipe template:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;table_open&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;table border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;thead_open&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&lt;thead&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;thead_close&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/thead&gt;&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;heading_row_start&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&lt;tr&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;heading_row_end&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/tr&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;heading_cell_start&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;th&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;heading_cell_end&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/th&gt;&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;tfoot_open&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&lt;tfoot&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tfoot_close&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/tfoot&gt;&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;footing_row_start&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&lt;tr&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;footing_row_end&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/tr&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;footing_cell_start&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;td&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;footing_cell_end&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/td&gt;&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;tbody_open&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&lt;tbody&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tbody_close&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/tbody&gt;&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;row_start&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&lt;tr&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;row_end&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/tr&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cell_start&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;td&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cell_end&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/td&gt;&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;row_alt_start&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&lt;tr&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;row_alt_end&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/tr&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cell_alt_start&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;td&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cell_alt_end&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/td&gt;&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;table_close&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;/table&gt;&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setTemplate</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Anda akan melihat ada dua set blok &quot;baris&quot; di
+template. Ini memungkinkan Anda untuk membuat warna baris bergantian atau elemen
+desain yang bergantian dengan setiap iterasi data baris.</p>
+</div>
+<p>Anda TIDAK diharuskan untuk mengirimkan template lengkap. Jika Anda hanya perlu
+mengubah bagian dari layout, Anda cukup mengirimkan elemen-elemen tersebut. Dalam
+contoh ini, hanya tag pembuka tabel yang diubah:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;table_open&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;table border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;1&quot; class=&quot;mytable&quot;&gt;&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setTemplate</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Anda juga dapat mengatur default untuk ini dengan meneruskan array pengaturan template
+ke konstruktor Table:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$customSettings</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;table_open&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;table border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;1&quot; class=&quot;mytable&quot;&gt;&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">(</span><span class="nv">$customSettings</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="menyinkronkan-baris-dengan-judul">
+<span id="table-sync-rows-with-headings"></span><h3><a class="toc-backref" href="#id5" role="doc-backlink">Menyinkronkan Baris dengan Judul</a><a class="headerlink" href="#menyinkronkan-baris-dengan-judul" title="Permalink to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.4.0.</span></p>
+</div>
+<p>Metode <code class="docutils literal notranslate"><span class="pre">setSyncRowsWithHeading(true)</span></code> memungkinkan setiap nilai data
+ditempatkan di kolom yang sama seperti yang didefinisikan dalam <code class="docutils literal notranslate"><span class="pre">setHeading()</span></code> jika
+array asosiatif digunakan sebagai parameter. Ini sangat berguna
+saat menangani data yang dimuat melalui REST API di mana urutannya tidak
+sesuai keinginan Anda, atau jika API mengembalikan terlalu banyak data.</p>
+<p>Jika baris data berisi kunci yang tidak ada di judul, nilainya
+difilter. Sebaliknya, jika baris data tidak memiliki kunci yang tercantum di judul,
+sel kosong akan ditempatkan di tempatnya.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">();</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setHeading</span><span class="p">([</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Size&#39;</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">setSyncRowsWithHeading</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addRow</span><span class="p">([</span><span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Fred&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Small&#39;</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">addRow</span><span class="p">([</span><span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Large&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;24&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Mary&#39;</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">addRow</span><span class="p">([</span><span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Green&#39;</span><span class="p">]);</span>
+
+<span class="k">echo</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+<span class="cp">?&gt;</span>
+
+<span class="cm">&lt;!-- Generates a table with this prototype: --&gt;</span>
+<span class="p">&lt;</span><span class="nt">table</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">cellpadding</span><span class="o">=</span><span class="s">&quot;4&quot;</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">&quot;0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Name<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Color<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Size<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Fred<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Blue<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Small<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Mary<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Large<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Green<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Anda harus memanggil <code class="docutils literal notranslate"><span class="pre">setSyncRowsWithHeading(true)</span></code> dan
+<code class="docutils literal notranslate"><span class="pre">setHeading([...])</span></code> sebelum menambahkan baris apa pun melalui <code class="docutils literal notranslate"><span class="pre">addRow([...])</span></code> di mana
+penataan ulang kolom terjadi.</p>
+</div>
+<p>Menggunakan array sebagai input untuk <code class="docutils literal notranslate"><span class="pre">generate()</span></code> menghasilkan hasil yang sama:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Fred&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Small&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Large&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;age&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;24&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">();</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setHeading</span><span class="p">([</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Size&#39;</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">setSyncRowsWithHeading</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="namespace-CodeIgniter\View">
+<span id="referensi-class"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Referensi Class</a><a class="headerlink" href="#namespace-CodeIgniter\View" title="Permalink to this heading"></a></h2>
+<dl class="php class">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">CodeIgniter\View\</span></span><span class="sig-name descname"><span class="pre">Table</span></span><a class="headerlink" href="#CodeIgniter\View\Table" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">$function</span> <span class="pre">=</span> <span class="pre">null</span></span></dt>
+<dd><p>Memungkinkan Anda untuk menentukan fungsi PHP native atau objek array fungsi yang valid untuk diterapkan ke semua data cell.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">();</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setHeading</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Size&#39;</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;Fred&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;strong&gt;Blue&lt;/strong&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;Small&#39;</span><span class="p">);</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">function</span> <span class="o">=</span> <span class="s1">&#39;htmlspecialchars&#39;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Dalam contoh di atas, semua data cell akan dijalankan melalui fungsi <code class="xref php php-func docutils literal notranslate"><span class="pre">htmlspecialchars()</span></code> PHP, menghasilkan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="nx">Fred</span><span class="o">&lt;/</span><span class="nx">td</span><span class="o">&gt;&lt;</span><span class="nx">td</span><span class="o">&gt;&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">strong</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="nx">Blue</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">strong</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="o">&lt;/</span><span class="nx">td</span><span class="o">&gt;&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="nx">Small</span><span class="o">&lt;/</span><span class="nx">td</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$tableData</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::generate" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$tableData</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Data untuk mengisi baris tabel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tabel HTML</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
+</dd>
+</dl>
+<p>Mengembalikan string yang berisi tabel yang dihasilkan. Menerima parameter opsional yang dapat berupa array atau objek hasil database.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::setCaption">
+<span class="sig-name descname"><span class="pre">setCaption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$caption</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::setCaption" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$caption</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Keterangan tabel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance Table (method chaining)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\View\Table" title="CodeIgniter\View\Table"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></p>
+</dd>
+</dl>
+<p>Memungkinkan Anda untuk menambahkan keterangan ke tabel.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setCaption</span><span class="p">(</span><span class="s1">&#39;Colors&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::setHeading">
+<span class="sig-name descname"><span class="pre">setHeading</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$args</span> <span class="pre">=</span> <span class="pre">[]</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">...</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::setHeading" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$args</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Sebuah array atau beberapa string yang berisi judul kolom tabel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance Table (method chaining)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\View\Table" title="CodeIgniter\View\Table"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></p>
+</dd>
+</dl>
+<p>Memungkinkan Anda untuk mengatur judul tabel. Anda dapat mengirimkan array atau parameter diskrit:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setHeading</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Size&#39;</span><span class="p">);</span> <span class="c1">// or</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setHeading</span><span class="p">([</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Size&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::setFooting">
+<span class="sig-name descname"><span class="pre">setFooting</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$args</span> <span class="pre">=</span> <span class="pre">[]</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">...</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::setFooting" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$args</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Sebuah array atau beberapa string yang berisi nilai kaki tabel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance Table (method chaining)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\View\Table" title="CodeIgniter\View\Table"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></p>
+</dd>
+</dl>
+<p>Memungkinkan Anda untuk mengatur kaki tabel. Anda dapat mengirimkan array atau parameter diskrit:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setFooting</span><span class="p">(</span><span class="s1">&#39;Subtotal&#39;</span><span class="p">,</span> <span class="nv">$subtotal</span><span class="p">,</span> <span class="nv">$notes</span><span class="p">);</span> <span class="c1">// or</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setFooting</span><span class="p">([</span><span class="s1">&#39;Subtotal&#39;</span><span class="p">,</span> <span class="nv">$subtotal</span><span class="p">,</span> <span class="nv">$notes</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::addRow">
+<span class="sig-name descname"><span class="pre">addRow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$args</span> <span class="pre">=</span> <span class="pre">[]</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">...</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::addRow" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$args</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Sebuah array atau beberapa string yang berisi nilai baris</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance Table (method chaining)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\View\Table" title="CodeIgniter\View\Table"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></p>
+</dd>
+</dl>
+<p>Memungkinkan Anda untuk menambahkan baris ke tabel Anda. Anda dapat mengirimkan array atau parameter diskrit:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">);</span> <span class="c1">// or</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">([</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Jika Anda ingin mengatur atribut tag cell individual, Anda dapat menggunakan array asosiatif untuk cell tersebut.
+Kunci asosiatif <strong>data</strong> mendefinisikan data cell. Pasangan kunci =&gt; nilai lainnya ditambahkan sebagai atribut kunci='nilai' ke tag:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cell</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;highlight&#39;</span><span class="p">,</span> <span class="s1">&#39;colspan&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">];</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="nv">$cell</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+
+<span class="cm">&lt;!-- Generates: --&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;highlight&#39;</span> <span class="na">colspan</span><span class="o">=</span><span class="s">&#39;2&#39;</span><span class="p">&gt;</span>Blue<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Red<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Green<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::makeColumns">
+<span class="sig-name descname"><span class="pre">makeColumns</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$array</span> <span class="pre">=</span> <span class="pre">[]</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$columnLimit</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::makeColumns" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$array</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- Sebuah array yang berisi data beberapa baris</p></li>
+<li><p><strong>$columnLimit</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jumlah kolom dalam tabel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebuah array kolom tabel HTML</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span></p>
+</dd>
+</dl>
+<p>Metode ini mengambil array satu dimensi sebagai input dan membuat array multi-dimensi dengan kedalaman yang sama dengan jumlah kolom yang diinginkan.
+Ini memungkinkan satu array dengan banyak elemen untuk ditampilkan dalam tabel yang memiliki jumlah kolom tetap. Pertimbangkan contoh ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="s1">&#39;five&#39;</span><span class="p">,</span> <span class="s1">&#39;six&#39;</span><span class="p">,</span> <span class="s1">&#39;seven&#39;</span><span class="p">,</span> <span class="s1">&#39;eight&#39;</span><span class="p">,</span> <span class="s1">&#39;nine&#39;</span><span class="p">,</span> <span class="s1">&#39;ten&#39;</span><span class="p">,</span> <span class="s1">&#39;eleven&#39;</span><span class="p">,</span> <span class="s1">&#39;twelve&#39;</span><span class="p">];</span>
+
+<span class="nv">$newList</span> <span class="o">=</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">makeColumns</span><span class="p">(</span><span class="nv">$list</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="nv">$newList</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+
+<span class="cm">&lt;!-- Generates a table with this prototype: --&gt;</span>
+<span class="p">&lt;</span><span class="nt">table</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">cellpadding</span><span class="o">=</span><span class="s">&quot;4&quot;</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">&quot;0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>one<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>two<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>three<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>four<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>five<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>six<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>seven<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>eight<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>nine<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>ten<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>eleven<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>twelve<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::setTemplate">
+<span class="sig-name descname"><span class="pre">setTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$template</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::setTemplate" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$template</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- Sebuah array asosiatif yang berisi nilai template</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>true jika berhasil, false jika gagal</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+<p>Memungkinkan Anda untuk mengatur template Anda. Anda dapat mengirimkan template lengkap atau sebagian.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;table_open&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;table border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;1&quot; class=&quot;mytable&quot;&gt;&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setTemplate</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::setEmpty">
+<span class="sig-name descname"><span class="pre">setEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::setEmpty" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Nilai yang akan dimasukkan ke dalam cell kosong</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance Table (method chaining)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\View\Table" title="CodeIgniter\View\Table"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></p>
+</dd>
+</dl>
+<p>Memungkinkan Anda untuk mengatur nilai default untuk digunakan di cell tabel mana pun yang kosong.
+Anda mungkin, misalnya, mengatur spasi non-breaking:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setEmpty</span><span class="p">(</span><span class="s1">&#39;&amp;nbsp;&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::clear" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Kembali<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance Table (method chaining)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><a class="reference internal" href="#CodeIgniter\View\Table" title="CodeIgniter\View\Table"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></p>
+</dd>
+</dl>
+<p>Memungkinkan Anda untuk menghapus judul tabel, data baris, dan keterangan. Jika
+Anda perlu menampilkan beberapa tabel dengan data yang berbeda, Anda
+harus memanggil metode ini setelah setiap tabel telah
+dihasilkan untuk menghapus informasi tabel sebelumnya.</p>
+<p>Contoh</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Table</span><span class="p">();</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setCaption</span><span class="p">(</span><span class="s1">&#39;Preferences&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setHeading</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Size&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;Fred&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Small&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Large&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setCaption</span><span class="p">(</span><span class="s1">&#39;Shipping&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setHeading</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Day&#39;</span><span class="p">,</span> <span class="s1">&#39;Delivery&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;Fred&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Express&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Air&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addRow</span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Overnight&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Table::setSyncRowsWithHeading">
+<span class="sig-name descname"><span class="pre">setSyncRowsWithHeading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">bool</span> <span class="pre">$orderByKey</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Table::setSyncRowsWithHeading" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Kembali<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance Table (method chaining)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><a class="reference internal" href="#CodeIgniter\View\Table" title="CodeIgniter\View\Table"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></p>
+</dd>
+</dl>
+<p>Mengaktifkan setiap kunci data baris untuk diurutkan berdasarkan kunci judul. Ini memberikan
+kontrol lebih atas data yang ditempatkan di kolom yang benar. Pastikan
+untuk mengatur nilai ini sebelum memanggil metode <code class="docutils literal notranslate"><span class="pre">addRow()</span></code> pertama.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="view_decorators.html" class="btn btn-neutral float-left" title="View Decorators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="response.html" class="btn btn-neutral float-right" title="HTTP Responses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

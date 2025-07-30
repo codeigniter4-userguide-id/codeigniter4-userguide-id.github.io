@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menggunakan Model CodeIgniter &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Menggunakan Class Entitas" href="entities.html" />
+    <link rel="prev" title="Memodelkan Data" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Ikhtisar CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Membangun Respons (Output)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Memodelkan Data</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Memodelkan Data</a></li>
+      <li class="breadcrumb-item active">Menggunakan Model CodeIgniter</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="menggunakan-model-codeigniter">
+<h1>Menggunakan Model CodeIgniter<a class="headerlink" href="#menggunakan-model-codeigniter" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#model" id="id2">Model</a></p></li>
+<li><p><a class="reference internal" href="#mengakses-model" id="id3">Mengakses Model</a></p></li>
+<li><p><a class="reference internal" href="#model-codeigniter" id="id4">Model CodeIgniter</a></p></li>
+<li><p><a class="reference internal" href="#membuat-model-anda" id="id5">Membuat Model Anda</a></p>
+<ul>
+<li><p><a class="reference internal" href="#initialize" id="id6">initialize()</a></p></li>
+<li><p><a class="reference internal" href="#menghubungkan-ke-database" id="id7">Menghubungkan ke Database</a></p></li>
+<li><p><a class="reference internal" href="#mengkonfigurasi-model-anda" id="id8">Mengkonfigurasi Model Anda</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table" id="id9">$table</a></p></li>
+<li><p><a class="reference internal" href="#primarykey" id="id10">$primaryKey</a></p></li>
+<li><p><a class="reference internal" href="#useautoincrement" id="id11">$useAutoIncrement</a></p></li>
+<li><p><a class="reference internal" href="#returntype" id="id12">$returnType</a></p></li>
+<li><p><a class="reference internal" href="#usesoftdeletes" id="id13">$useSoftDeletes</a></p></li>
+<li><p><a class="reference internal" href="#allowedfields" id="id14">$allowedFields</a></p></li>
+<li><p><a class="reference internal" href="#allowemptyinserts" id="id15">$allowEmptyInserts</a></p></li>
+<li><p><a class="reference internal" href="#updateonlychanged" id="id16">$updateOnlyChanged</a></p></li>
+<li><p><a class="reference internal" href="#casts" id="id17">$casts</a></p></li>
+<li><p><a class="reference internal" href="#tanggal" id="id18">Tanggal</a></p></li>
+<li><p><a class="reference internal" href="#validasi" id="id19">Validasi</a></p></li>
+<li><p><a class="reference internal" href="#callback" id="id20">Callback</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#casting-field-model" id="id21">Casting Field Model</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mendefinisikan-tipe-data" id="id22">Mendefinisikan Tipe Data</a></p></li>
+<li><p><a class="reference internal" href="#tipe-data" id="id23">Tipe Data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#csv" id="id24">csv</a></p></li>
+<li><p><a class="reference internal" href="#datetime" id="id25">datetime</a></p></li>
+<li><p><a class="reference internal" href="#timestamp" id="id26">timestamp</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#casting-kustom" id="id27">Casting Kustom</a></p>
+<ul>
+<li><p><a class="reference internal" href="#membuat-handler-kustom" id="id28">Membuat Handler Kustom</a></p></li>
+<li><p><a class="reference internal" href="#mendaftarkan-handler-kustom" id="id29">Mendaftarkan Handler Kustom</a></p></li>
+<li><p><a class="reference internal" href="#parameter" id="id30">Parameter</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#working-with-data" id="id31">Working with Data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#finding-data" id="id32">Finding Data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#find" id="id33">find()</a></p></li>
+<li><p><a class="reference internal" href="#findcolumn" id="id34">findColumn()</a></p></li>
+<li><p><a class="reference internal" href="#findall" id="id35">findAll()</a></p></li>
+<li><p><a class="reference internal" href="#first" id="id36">first()</a></p></li>
+<li><p><a class="reference internal" href="#withdeleted" id="id37">withDeleted()</a></p></li>
+<li><p><a class="reference internal" href="#onlydeleted" id="id38">onlyDeleted()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#menyimpan-data" id="id39">Menyimpan Data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#insert" id="id40">insert()</a></p></li>
+<li><p><a class="reference internal" href="#model-allow-empty-inserts" id="id41">allowEmptyInserts()</a></p></li>
+<li><p><a class="reference internal" href="#update" id="id42">update()</a></p></li>
+<li><p><a class="reference internal" href="#save" id="id43">save()</a></p></li>
+<li><p><a class="reference internal" href="#menyimpan-tanggal" id="id44">Menyimpan Tanggal</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#menghapus-data" id="id45">Menghapus Data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#delete" id="id46">delete()</a></p></li>
+<li><p><a class="reference internal" href="#purgedeleted" id="id47">purgeDeleted()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#validasi-dalam-model" id="id48">Validasi Dalam Model</a></p>
+<ul>
+<li><p><a class="reference internal" href="#memvalidasi-data" id="id49">Memvalidasi Data</a></p></li>
+<li><p><a class="reference internal" href="#mengatur-aturan-validasi" id="id50">Mengatur Aturan Validasi</a></p></li>
+<li><p><a class="reference internal" href="#mendapatkan-hasil-validasi" id="id51">Mendapatkan Hasil Validasi</a></p></li>
+<li><p><a class="reference internal" href="#mendapatkan-kesalahan-validasi" id="id52">Mendapatkan Kesalahan Validasi</a></p></li>
+<li><p><a class="reference internal" href="#mengambil-aturan-validasi" id="id53">Mengambil Aturan Validasi</a></p></li>
+<li><p><a class="reference internal" href="#placeholder-validasi" id="id54">Placeholder Validasi</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#melindungi-field" id="id55">Melindungi Field</a></p></li>
+<li><p><a class="reference internal" href="#perubahan-tipe-pengembalian-saat-runtime" id="id56">Perubahan Tipe Pengembalian Saat Runtime</a></p>
+<ul>
+<li><p><a class="reference internal" href="#asarray" id="id57">asArray()</a></p></li>
+<li><p><a class="reference internal" href="#asobject" id="id58">asObject()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#memproses-data-dalam-jumlah-besar" id="id59">Memproses Data dalam Jumlah Besar</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#bekerja-dengan-query-builder" id="id60">Bekerja dengan Query Builder</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mendapatkan-query-builder-untuk-tabel-model" id="id61">Mendapatkan Query Builder untuk Tabel Model</a></p></li>
+<li><p><a class="reference internal" href="#mendapatkan-query-builder-untuk-tabel-lain" id="id62">Mendapatkan Query Builder untuk Tabel Lain</a></p></li>
+<li><p><a class="reference internal" href="#mencampur-metode-query-builder-dan-model" id="id63">Mencampur Metode Query Builder dan Model</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#event-model" id="id64">Event Model</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mendefinisikan-callback" id="id65">Mendefinisikan Callback</a></p></li>
+<li><p><a class="reference internal" href="#menentukan-callback-yang-akan-dijalankan" id="id66">Menentukan Callback yang Akan Dijalankan</a></p></li>
+<li><p><a class="reference internal" href="#parameter-event" id="id67">Parameter Event</a></p></li>
+<li><p><a class="reference internal" href="#memodifikasi-data-find" id="id68">Memodifikasi Data Find*</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#pembuatan-model-manual" id="id69">Pembuatan Model Manual</a></p></li>
+</ul>
+</nav>
+<section id="model">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Model</a><a class="headerlink" href="#model" title="Permalink to this heading"></a></h2>
+<p>Model CodeIgniter menyediakan fitur kenyamanan dan fungsionalitas tambahan
+yang umum digunakan orang untuk membuat pekerjaan dengan <strong>satu tabel</strong> di database Anda lebih nyaman.</p>
+<p>Ini dilengkapi dengan metode pembantu
+untuk sebagian besar cara standar yang Anda perlukan untuk berinteraksi dengan tabel database, termasuk menemukan catatan,
+memperbarui catatan, menghapus catatan, dan banyak lagi.</p>
+</section>
+<section id="mengakses-model">
+<span id="accessing-models"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">Mengakses Model</a><a class="headerlink" href="#mengakses-model" title="Permalink to this heading"></a></h2>
+<p>Model biasanya disimpan di direktori <strong>app/Models</strong>. Mereka harus memiliki namespace yang cocok dengan
+lokasi mereka di dalam direktori, seperti <code class="docutils literal notranslate"><span class="pre">namespace</span> <span class="pre">App\Models</span></code>.</p>
+<p>Anda dapat mengakses model di dalam class Anda dengan membuat instance baru atau menggunakan fungsi pembantu <a class="reference internal" href="../general/common_functions.html#model" title="model"><code class="xref php php-func docutils literal notranslate"><span class="pre">model()</span></code></a>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Create a new class manually.</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Models\UserModel</span><span class="p">();</span>
+
+<span class="c1">// Create a shared instance of the model.</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">);</span>
+<span class="c1">// or</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;App\Models\UserModel&#39;</span><span class="p">);</span>
+<span class="c1">// or</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="nx">\App\Models\UserModel</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="c1">// Create a new class with the model() function.</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// Create shared instance with a supplied database connection.</span>
+<span class="nv">$db</span>        <span class="o">=</span> <span class="nx">db_connect</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">);</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="nv">$db</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Metode <code class="docutils literal notranslate"><span class="pre">model()</span></code> menggunakan <code class="docutils literal notranslate"><span class="pre">Factories::models()</span></code> secara internal.
+Lihat <a class="reference internal" href="../concepts/factories.html#factories-loading-class"><span class="std std-ref">Memuat Class</span></a> untuk detail tentang parameter pertama.</p>
+</section>
+<section id="model-codeigniter">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Model CodeIgniter</a><a class="headerlink" href="#model-codeigniter" title="Permalink to this heading"></a></h2>
+<p>CodeIgniter menyediakan class model yang memiliki beberapa fitur bagus, termasuk:</p>
+<ul class="simple">
+<li><p>koneksi database otomatis</p></li>
+<li><p>metode CRUD dasar</p></li>
+<li><p><a class="reference internal" href="#in-model-validation"><span class="std std-ref">validasi dalam model</span></a></p></li>
+<li><p><a class="reference internal" href="../libraries/pagination.html#paginating-with-models"><span class="std std-ref">paginasi otomatis</span></a></p></li>
+<li><p>dan banyak lagi</p></li>
+</ul>
+<p>Class ini menyediakan dasar yang kuat untuk membangun model Anda sendiri, memungkinkan Anda
+dengan cepat membangun lapisan model aplikasi Anda.</p>
+</section>
+<section id="membuat-model-anda">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Membuat Model Anda</a><a class="headerlink" href="#membuat-model-anda" title="Permalink to this heading"></a></h2>
+<p>Untuk memanfaatkan model CodeIgniter, Anda cukup membuat class model baru
+yang memperluas <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Model</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Class kosong ini menyediakan akses yang nyaman ke koneksi database, Query Builder,
+dan sejumlah metode kenyamanan tambahan.</p>
+<section id="initialize">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">initialize()</a><a class="headerlink" href="#initialize" title="Permalink to this heading"></a></h3>
+<p>Jika Anda memerlukan pengaturan tambahan di model Anda, Anda dapat memperluas metode <code class="docutils literal notranslate"><span class="pre">initialize()</span></code>
+yang akan dijalankan segera setelah konstruktor Model. Ini memungkinkan Anda untuk melakukan
+langkah-langkah tambahan tanpa mengulang parameter konstruktor, misalnya memperluas model lain:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Modules\Authentication\Models\UserAuthModel</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">UserAuthModel</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Called during initialization. Appends</span>
+<span class="sd">     * our custom field to the module&#39;s model.</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">initialize</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">allowedFields</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;middlename&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="menghubungkan-ke-database">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Menghubungkan ke Database</a><a class="headerlink" href="#menghubungkan-ke-database" title="Permalink to this heading"></a></h3>
+<p>Ketika class pertama kali diinstansiasi, jika tidak ada instance koneksi database yang diteruskan ke konstruktor,
+dan jika Anda tidak mengatur properti <code class="docutils literal notranslate"><span class="pre">$DBGroup</span></code> pada class model Anda,
+itu akan secara otomatis terhubung ke grup database default, seperti yang diatur dalam konfigurasi database.</p>
+<p>Anda dapat
+memodifikasi grup mana yang digunakan per model dengan menambahkan properti <code class="docutils literal notranslate"><span class="pre">$DBGroup</span></code> ke class Anda.
+Ini memastikan bahwa di dalam model setiap referensi ke <code class="docutils literal notranslate"><span class="pre">$this-&gt;db</span></code> dibuat melalui
+koneksi yang sesuai.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$DBGroup</span> <span class="o">=</span> <span class="s1">&#39;group_name&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Anda akan mengganti &quot;group_name&quot; dengan nama grup database yang ditentukan dari file
+konfigurasi database.</p>
+</section>
+<section id="mengkonfigurasi-model-anda">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Mengkonfigurasi Model Anda</a><a class="headerlink" href="#mengkonfigurasi-model-anda" title="Permalink to this heading"></a></h3>
+<p>Class model memiliki beberapa opsi konfigurasi yang dapat diatur untuk memungkinkan metode class
+bekerja dengan lancar untuk Anda. Dua yang pertama digunakan oleh semua metode CRUD untuk menentukan
+tabel mana yang akan digunakan dan bagaimana kita dapat menemukan catatan yang diperlukan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$table</span>      <span class="o">=</span> <span class="s1">&#39;users&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$primaryKey</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$useAutoIncrement</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$returnType</span>     <span class="o">=</span> <span class="s1">&#39;array&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$useSoftDeletes</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$allowedFields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">];</span>
+
+    <span class="k">protected</span> <span class="nx">bool</span> <span class="nv">$allowEmptyInserts</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nx">bool</span> <span class="nv">$updateOnlyChanged</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+    <span class="c1">// Dates</span>
+    <span class="k">protected</span> <span class="nv">$useTimestamps</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$dateFormat</span>    <span class="o">=</span> <span class="s1">&#39;datetime&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$createdField</span>  <span class="o">=</span> <span class="s1">&#39;created_at&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$updatedField</span>  <span class="o">=</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$deletedField</span>  <span class="o">=</span> <span class="s1">&#39;deleted_at&#39;</span><span class="p">;</span>
+
+    <span class="c1">// Validation</span>
+    <span class="k">protected</span> <span class="nv">$validationRules</span>      <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$validationMessages</span>   <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$skipValidation</span>       <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$cleanValidationRules</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+    <span class="c1">// Callbacks</span>
+    <span class="k">protected</span> <span class="nv">$allowCallbacks</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$beforeInsert</span>   <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$afterInsert</span>    <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$beforeUpdate</span>   <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$afterUpdate</span>    <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$beforeFind</span>     <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$afterFind</span>      <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$beforeDelete</span>   <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$afterDelete</span>    <span class="o">=</span> <span class="p">[];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="table">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">$table</a><a class="headerlink" href="#table" title="Permalink to this heading"></a></h4>
+<p>Menentukan tabel database yang utamanya dikerjakan oleh model ini. Ini hanya berlaku untuk
+metode CRUD bawaan. Anda tidak dibatasi untuk hanya menggunakan tabel ini dalam
+kueri Anda sendiri.</p>
+</section>
+<section id="primarykey">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">$primaryKey</a><a class="headerlink" href="#primarykey" title="Permalink to this heading"></a></h4>
+<p>Ini adalah nama kolom yang secara unik mengidentifikasi catatan dalam tabel ini. Ini
+tidak harus cocok dengan primary key yang ditentukan dalam database, tetapi
+digunakan dengan metode seperti <code class="docutils literal notranslate"><span class="pre">find()</span></code> untuk mengetahui kolom mana yang cocok dengan nilai yang ditentukan.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Semua Model harus memiliki primaryKey yang ditentukan agar semua fitur berfungsi
+seperti yang diharapkan.</p>
+</div>
+</section>
+<section id="useautoincrement">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">$useAutoIncrement</a><a class="headerlink" href="#useautoincrement" title="Permalink to this heading"></a></h4>
+<p>Menentukan apakah tabel menggunakan fitur auto-increment untuk <a class="reference internal" href="#primarykey">$primaryKey</a>. Jika diatur ke <code class="docutils literal notranslate"><span class="pre">false</span></code>
+maka Anda bertanggung jawab untuk menyediakan nilai primary key untuk setiap catatan dalam tabel. Fitur ini
+mungkin berguna ketika kita ingin mengimplementasikan relasi 1:1 atau menggunakan UUID untuk model kita. Nilai
+default adalah <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Jika Anda mengatur <a class="reference internal" href="#useautoincrement">$useAutoIncrement</a> ke <code class="docutils literal notranslate"><span class="pre">false</span></code>, maka pastikan untuk mengatur primary key Anda
+di database menjadi <code class="docutils literal notranslate"><span class="pre">unique</span></code>. Dengan cara ini Anda akan memastikan bahwa semua fitur Model
+akan tetap berfungsi sama seperti sebelumnya.</p>
+</div>
+</section>
+<section id="returntype">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">$returnType</a><a class="headerlink" href="#returntype" title="Permalink to this heading"></a></h4>
+<p>Metode <strong>find*()</strong> Model akan mengambil satu langkah kerja dari Anda dan secara otomatis
+mengembalikan data yang dihasilkan, alih-alih objek Result.</p>
+<p>Pengaturan ini memungkinkan Anda untuk menentukan jenis data yang dikembalikan. Nilai yang valid
+adalah '<strong>array</strong>' (default), '<strong>object</strong>', atau <strong>nama class yang sepenuhnya memenuhi syarat</strong>
+yang dapat digunakan dengan metode <code class="docutils literal notranslate"><span class="pre">getCustomResultObject()</span></code> objek Result.</p>
+<p>Menggunakan konstanta khusus <code class="docutils literal notranslate"><span class="pre">::class</span></code> dari class akan memungkinkan sebagian besar IDE untuk
+melengkapi nama secara otomatis dan memungkinkan fungsi seperti refactoring untuk lebih memahami
+kode Anda.</p>
+</section>
+<section id="usesoftdeletes">
+<span id="model-use-soft-deletes"></span><h4><a class="toc-backref" href="#id13" role="doc-backlink">$useSoftDeletes</a><a class="headerlink" href="#usesoftdeletes" title="Permalink to this heading"></a></h4>
+<p>Jika true, maka setiap panggilan metode <code class="docutils literal notranslate"><span class="pre">delete()</span></code> akan mengatur <code class="docutils literal notranslate"><span class="pre">deleted_at</span></code> di database, alih-alih
+benar-benar menghapus baris. Ini dapat menjaga data ketika mungkin direferensikan di tempat lain, atau
+dapat mempertahankan &quot;keranjang sampah&quot; objek yang dapat dipulihkan, atau bahkan hanya mempertahankannya sebagai
+bagian dari jejak keamanan. Jika true, metode <strong>find*()</strong> hanya akan mengembalikan baris yang tidak dihapus, kecuali
+metode <code class="docutils literal notranslate"><span class="pre">withDeleted()</span></code> dipanggil sebelum memanggil metode <strong>find*()</strong>.</p>
+<p>Ini memerlukan field DATETIME atau INTEGER di database sesuai dengan pengaturan <a class="reference internal" href="#dateformat">$dateFormat</a> model. Nama field default adalah <code class="docutils literal notranslate"><span class="pre">deleted_at</span></code> namun nama ini dapat
+dikonfigurasi ke nama pilihan Anda dengan menggunakan properti <a class="reference internal" href="#deletedfield">$deletedField</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Field <code class="docutils literal notranslate"><span class="pre">deleted_at</span></code> di database harus nullable.</p>
+</div>
+</section>
+<section id="allowedfields">
+<span id="model-allowed-fields"></span><h4><a class="toc-backref" href="#id14" role="doc-backlink">$allowedFields</a><a class="headerlink" href="#allowedfields" title="Permalink to this heading"></a></h4>
+<p>Array ini harus diperbarui dengan nama field yang dapat diatur selama metode <code class="docutils literal notranslate"><span class="pre">save()</span></code>, <code class="docutils literal notranslate"><span class="pre">insert()</span></code>, atau
+<code class="docutils literal notranslate"><span class="pre">update()</span></code>. Nama field selain ini akan dibuang. Ini membantu melindungi
+dari hanya mengambil input dari form dan melemparkannya semua ke model, yang mengakibatkan
+potensi kerentanan penetapan massal.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Field <a class="reference internal" href="#primarykey">$primaryKey</a> tidak boleh menjadi field yang diizinkan.</p>
+</div>
+</section>
+<section id="allowemptyinserts">
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">$allowEmptyInserts</a><a class="headerlink" href="#allowemptyinserts" title="Permalink to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.3.0.</span></p>
+</div>
+<p>Apakah mengizinkan penyisipan data kosong. Nilai default adalah <code class="docutils literal notranslate"><span class="pre">false</span></code>, artinya
+jika Anda mencoba menyisipkan data kosong, <code class="docutils literal notranslate"><span class="pre">DataException</span></code> dengan
+&quot;Tidak ada data untuk disisipkan.&quot; akan muncul.</p>
+<p>Anda juga dapat mengubah pengaturan ini dengan metode <a class="reference internal" href="#model-allow-empty-inserts"><span class="std std-ref">allowEmptyInserts()</span></a>.</p>
+</section>
+<section id="updateonlychanged">
+<span id="model-update-only-changed"></span><h4><a class="toc-backref" href="#id16" role="doc-backlink">$updateOnlyChanged</a><a class="headerlink" href="#updateonlychanged" title="Permalink to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.5.0.</span></p>
+</div>
+<p>Apakah hanya memperbarui field yang berubah dari <a class="reference internal" href="entities.html"><span class="doc">Entitas</span></a>. Nilai default
+adalah <code class="docutils literal notranslate"><span class="pre">true</span></code>, artinya hanya data field yang berubah yang digunakan saat memperbarui ke
+database. Jadi jika Anda mencoba memperbarui Entitas tanpa perubahan, <code class="docutils literal notranslate"><span class="pre">DataException</span></code>
+dengan &quot;Tidak ada data untuk diperbarui.&quot; akan muncul.</p>
+<p>Mengatur properti ini ke <code class="docutils literal notranslate"><span class="pre">false</span></code> akan memastikan bahwa semua field yang diizinkan dari Entitas
+diserahkan ke database dan diperbarui kapan saja.</p>
+</section>
+<section id="casts">
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">$casts</a><a class="headerlink" href="#casts" title="Permalink to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.5.0.</span></p>
+</div>
+<p>Ini memungkinkan Anda untuk mengkonversi data yang diambil dari database ke tipe PHP yang sesuai.
+Opsi ini harus berupa array di mana kunci adalah nama field, dan
+nilai adalah tipe data. Lihat <a class="reference internal" href="#model-field-casting"><span class="std std-ref">Casting Field Model</span></a> untuk detailnya.</p>
+</section>
+<section id="tanggal">
+<h4><a class="toc-backref" href="#id18" role="doc-backlink">Tanggal</a><a class="headerlink" href="#tanggal" title="Permalink to this heading"></a></h4>
+<section id="usetimestamps">
+<h5>$useTimestamps<a class="headerlink" href="#usetimestamps" title="Permalink to this heading"></a></h5>
+<p>Nilai boolean ini menentukan apakah tanggal saat ini secara otomatis ditambahkan ke semua insert
+dan update. Jika <code class="docutils literal notranslate"><span class="pre">true</span></code>, akan mengatur waktu saat ini dalam format yang ditentukan oleh <a class="reference internal" href="#dateformat">$dateFormat</a>. Ini
+memerlukan tabel memiliki kolom bernama <strong>created_at</strong>, <strong>updated_at</strong> dan <strong>deleted_at</strong> dalam tipe data yang sesuai.
+Lihat juga <a class="reference internal" href="#createdfield">$createdField</a>, <a class="reference internal" href="#updatedfield">$updatedField</a>, dan <a class="reference internal" href="#deletedfield">$deletedField</a>.</p>
+</section>
+<section id="dateformat">
+<h5>$dateFormat<a class="headerlink" href="#dateformat" title="Permalink to this heading"></a></h5>
+<p>Nilai ini bekerja dengan <a class="reference internal" href="#usetimestamps">$useTimestamps</a> dan <a class="reference internal" href="#usesoftdeletes">$useSoftDeletes</a> untuk memastikan bahwa jenis
+nilai tanggal yang benar dimasukkan ke dalam database. Secara default, ini membuat nilai DATETIME, tetapi
+opsi yang valid adalah: <code class="docutils literal notranslate"><span class="pre">'datetime'</span></code>, <code class="docutils literal notranslate"><span class="pre">'date'</span></code>, atau <code class="docutils literal notranslate"><span class="pre">'int'</span></code> (timestamp UNIX). Menggunakan <a class="reference internal" href="#usesoftdeletes">$useSoftDeletes</a> atau
+<a class="reference internal" href="#usetimestamps">$useTimestamps</a> dengan <a class="reference internal" href="#dateformat">$dateFormat</a> yang tidak valid atau hilang akan menyebabkan pengecualian.</p>
+</section>
+<section id="createdfield">
+<h5>$createdField<a class="headerlink" href="#createdfield" title="Permalink to this heading"></a></h5>
+<p>Menentukan field database mana yang akan digunakan untuk timestamp pembuatan catatan data.
+Atur ke string kosong (<code class="docutils literal notranslate"><span class="pre">''</span></code>) untuk menghindari pembaruannya (bahkan jika <a class="reference internal" href="#usetimestamps">$useTimestamps</a> diaktifkan).</p>
+</section>
+<section id="updatedfield">
+<h5>$updatedField<a class="headerlink" href="#updatedfield" title="Permalink to this heading"></a></h5>
+<p>Menentukan field database mana yang harus digunakan untuk menyimpan timestamp pembaruan catatan data.
+Atur ke string kosong (<code class="docutils literal notranslate"><span class="pre">''</span></code>) untuk menghindari pembaruannya (bahkan <a class="reference internal" href="#usetimestamps">$useTimestamps</a> diaktifkan).</p>
+</section>
+<section id="deletedfield">
+<h5>$deletedField<a class="headerlink" href="#deletedfield" title="Permalink to this heading"></a></h5>
+<p>Menentukan field database mana yang akan digunakan untuk soft deletions. Lihat <a class="reference internal" href="#model-use-soft-deletes"><span class="std std-ref">$useSoftDeletes</span></a>.</p>
+</section>
+</section>
+<section id="validasi">
+<h4><a class="toc-backref" href="#id19" role="doc-backlink">Validasi</a><a class="headerlink" href="#validasi" title="Permalink to this heading"></a></h4>
+<section id="validationrules">
+<h5>$validationRules<a class="headerlink" href="#validationrules" title="Permalink to this heading"></a></h5>
+<p>Berisi baik array aturan validasi seperti yang dijelaskan dalam <a class="reference internal" href="../libraries/validation.html#validation-array"><span class="std std-ref">How to Save Your Rules</span></a>
+atau string yang berisi nama grup validasi, seperti yang dijelaskan di bagian yang sama.
+Lihat juga <a class="reference internal" href="#model-setting-validation-rules"><span class="std std-ref">Mengatur Aturan Validasi</span></a>.</p>
+</section>
+<section id="validationmessages">
+<h5>$validationMessages<a class="headerlink" href="#validationmessages" title="Permalink to this heading"></a></h5>
+<p>Berisi array pesan kesalahan kustom yang harus digunakan selama validasi, seperti
+yang dijelaskan dalam <a class="reference internal" href="../libraries/validation.html#validation-custom-errors"><span class="std std-ref">Setting Custom Error Messages</span></a>. Lihat juga <a class="reference internal" href="#model-setting-validation-rules"><span class="std std-ref">Mengatur Aturan Validasi</span></a>.</p>
+</section>
+<section id="skipvalidation">
+<h5>$skipValidation<a class="headerlink" href="#skipvalidation" title="Permalink to this heading"></a></h5>
+<p>Apakah validasi harus dilewati selama semua <strong>inserts</strong> dan <strong>updates</strong>. Nilai default
+adalah <code class="docutils literal notranslate"><span class="pre">false</span></code>, artinya data akan selalu berusaha divalidasi. Ini
+terutama digunakan oleh metode <code class="docutils literal notranslate"><span class="pre">skipValidation()</span></code>, tetapi dapat diubah menjadi <code class="docutils literal notranslate"><span class="pre">true</span></code> sehingga
+model ini tidak akan pernah memvalidasi.</p>
+</section>
+<section id="cleanvalidationrules">
+<span id="clean-validation-rules"></span><h5>$cleanValidationRules<a class="headerlink" href="#cleanvalidationrules" title="Permalink to this heading"></a></h5>
+<p>Apakah aturan validasi harus dihapus yang tidak ada dalam data yang diteruskan.
+Ini digunakan dalam <strong>update</strong>.
+Nilai default adalah <code class="docutils literal notranslate"><span class="pre">true</span></code>, artinya aturan validasi untuk field
+yang tidak ada dalam data yang diteruskan akan (sementara) dihapus sebelum validasi.
+Ini untuk menghindari kesalahan validasi saat hanya memperbarui beberapa field.</p>
+<p>Anda juga dapat mengubah nilai dengan metode <code class="docutils literal notranslate"><span class="pre">cleanRules()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sebelum v4.2.7, <code class="docutils literal notranslate"><span class="pre">$cleanValidationRules</span></code> tidak berfungsi karena bug.</p>
+</div>
+</section>
+</section>
+<section id="callback">
+<h4><a class="toc-backref" href="#id20" role="doc-backlink">Callback</a><a class="headerlink" href="#callback" title="Permalink to this heading"></a></h4>
+<section id="allowcallbacks">
+<h5>$allowCallbacks<a class="headerlink" href="#allowcallbacks" title="Permalink to this heading"></a></h5>
+<p>Apakah callback yang didefinisikan di bawah ini harus digunakan. Lihat <a class="reference internal" href="#model-events"><span class="std std-ref">Event Model</span></a>.</p>
+</section>
+<section id="beforeinsert">
+<h5>$beforeInsert<a class="headerlink" href="#beforeinsert" title="Permalink to this heading"></a></h5>
+</section>
+<section id="afterinsert">
+<h5>$afterInsert<a class="headerlink" href="#afterinsert" title="Permalink to this heading"></a></h5>
+</section>
+<section id="beforeupdate">
+<h5>$beforeUpdate<a class="headerlink" href="#beforeupdate" title="Permalink to this heading"></a></h5>
+</section>
+<section id="afterupdate">
+<h5>$afterUpdate<a class="headerlink" href="#afterupdate" title="Permalink to this heading"></a></h5>
+</section>
+<section id="beforefind">
+<h5>$beforeFind<a class="headerlink" href="#beforefind" title="Permalink to this heading"></a></h5>
+</section>
+<section id="afterfind">
+<h5>$afterFind<a class="headerlink" href="#afterfind" title="Permalink to this heading"></a></h5>
+</section>
+<section id="beforedelete">
+<h5>$beforeDelete<a class="headerlink" href="#beforedelete" title="Permalink to this heading"></a></h5>
+</section>
+<section id="afterdelete">
+<h5>$afterDelete<a class="headerlink" href="#afterdelete" title="Permalink to this heading"></a></h5>
+</section>
+<section id="beforeinsertbatch">
+<h5>$beforeInsertBatch<a class="headerlink" href="#beforeinsertbatch" title="Permalink to this heading"></a></h5>
+</section>
+<section id="afterinsertbatch">
+<h5>$afterInsertBatch<a class="headerlink" href="#afterinsertbatch" title="Permalink to this heading"></a></h5>
+</section>
+<section id="beforeupdatebatch">
+<h5>$beforeUpdateBatch<a class="headerlink" href="#beforeupdatebatch" title="Permalink to this heading"></a></h5>
+</section>
+<section id="afterupdatebatch">
+<h5>$afterUpdateBatch<a class="headerlink" href="#afterupdatebatch" title="Permalink to this heading"></a></h5>
+<p>Array ini memungkinkan Anda untuk menentukan metode callback yang akan dijalankan pada data pada
+waktu yang ditentukan dalam nama properti. Lihat <a class="reference internal" href="#model-events"><span class="std std-ref">Event Model</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p><code class="docutils literal notranslate"><span class="pre">$beforeInsertBatch</span></code>, <code class="docutils literal notranslate"><span class="pre">$afterInsertBatch</span></code>, <code class="docutils literal notranslate"><span class="pre">$beforeUpdateBatch</span></code> dan
+<code class="docutils literal notranslate"><span class="pre">$afterUpdateBatch</span></code> dapat digunakan sejak v4.3.0.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="casting-field-model">
+<span id="model-field-casting"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink">Casting Field Model</a><a class="headerlink" href="#casting-field-model" title="Permalink to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.5.0.</span></p>
+</div>
+<p>Saat mengambil data dari database, data bertipe integer dapat dikonversi ke
+tipe string di PHP. Anda mungkin juga ingin mengkonversi data tanggal/waktu menjadi objek Time
+di PHP.</p>
+<p>Casting Field Model memungkinkan Anda untuk mengkonversi data yang diambil dari database ke
+tipe PHP yang sesuai.</p>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Jika Anda menggunakan fitur ini dengan <a class="reference internal" href="entities.html"><span class="doc">Entitas</span></a>, jangan gunakan
+<a class="reference internal" href="entities.html#entities-property-casting"><span class="std std-ref">Casting Properti Entitas</span></a>. Menggunakan kedua casting
+secara bersamaan tidak berfungsi.</p>
+<p>Casting Properti Entitas berfungsi pada (1)(4), tetapi casting ini berfungsi pada (2)(3):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nx">Kode</span> <span class="nx">Aplikasi</span><span class="p">]</span> <span class="o">---</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="p">[</span><span class="nx">Entitas</span><span class="p">]</span> <span class="o">---</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="p">[</span><span class="nx">Database</span><span class="p">]</span>
+<span class="p">[</span><span class="nx">Kode</span> <span class="nx">Aplikasi</span><span class="p">]</span> <span class="o">&lt;--</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">---</span> <span class="p">[</span><span class="nx">Entitas</span><span class="p">]</span> <span class="o">&lt;--</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">---</span> <span class="p">[</span><span class="nx">Database</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Saat menggunakan casting ini, Entitas akan memiliki nilai PHP dengan tipe yang benar di
+atribut. Perilaku ini sepenuhnya berbeda dari perilaku sebelumnya.
+Jangan berharap atribut menyimpan data mentah dari database.</p>
+</div>
+<section id="mendefinisikan-tipe-data">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Mendefinisikan Tipe Data</a><a class="headerlink" href="#mendefinisikan-tipe-data" title="Permalink to this heading"></a></h3>
+<p>Properti <code class="docutils literal notranslate"><span class="pre">$casts</span></code> mengatur definisinya. Opsi ini harus berupa array
+di mana kunci adalah nama field, dan nilainya adalah tipe data:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">protected</span> <span class="k">array</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;birthdate&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;?datetime&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;hobbies&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;json-array&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;active&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;int-bool&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="tipe-data">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Tipe Data</a><a class="headerlink" href="#tipe-data" title="Permalink to this heading"></a></h3>
+<p>Tipe berikut disediakan secara default. Tambahkan tanda tanya di awal
+tipe untuk menandai field sebagai nullable, yaitu, <code class="docutils literal notranslate"><span class="pre">?int</span></code>, <code class="docutils literal notranslate"><span class="pre">?datetime</span></code>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipe</p></th>
+<th class="head"><p>Tipe Nilai PHP</p></th>
+<th class="head"><p>Tipe Kolom DB</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p>int</p></td>
+<td><p>tipe int</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p>float</p></td>
+<td><p>tipe float (numerik)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>bool</p></td>
+<td><p>tipe bool/int/string</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int-bool</span></code></p></td>
+<td><p>bool</p></td>
+<td><p>tipe int (1 atau 0)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">array</span></code></p></td>
+<td><p>array</p></td>
+<td><p>tipe string (serial)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">csv</span></code></p></td>
+<td><p>array</p></td>
+<td><p>tipe string (CSV)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">json</span></code></p></td>
+<td><p>stdClass</p></td>
+<td><p>tipe json/string</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">json-array</span></code></p></td>
+<td><p>array</p></td>
+<td><p>tipe json/string</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></td>
+<td><p>Time</p></td>
+<td><p>tipe datetime</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code></p></td>
+<td><p>Time</p></td>
+<td><p>tipe int (timestamp UNIX)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uri</span></code></p></td>
+<td><p>URI</p></td>
+<td><p>tipe string</p></td>
+</tr>
+</tbody>
+</table>
+<section id="csv">
+<h4><a class="toc-backref" href="#id24" role="doc-backlink">csv</a><a class="headerlink" href="#csv" title="Permalink to this heading"></a></h4>
+<p>Casting sebagai <code class="docutils literal notranslate"><span class="pre">csv</span></code> menggunakan fungsi internal PHP <code class="docutils literal notranslate"><span class="pre">implode()</span></code> dan <code class="docutils literal notranslate"><span class="pre">explode()</span></code>
+dan mengasumsikan semua nilai aman untuk string dan bebas koma. Untuk data yang lebih kompleks
+coba <code class="docutils literal notranslate"><span class="pre">array</span></code> atau <code class="docutils literal notranslate"><span class="pre">json</span></code>.</p>
+</section>
+<section id="datetime">
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">datetime</a><a class="headerlink" href="#datetime" title="Permalink to this heading"></a></h4>
+<p>Anda dapat meneruskan parameter seperti <code class="docutils literal notranslate"><span class="pre">datetime[ms]</span></code> untuk tanggal/waktu dengan milidetik,
+atau <code class="docutils literal notranslate"><span class="pre">datetime[us]</span></code> untuk tanggal/waktu dengan mikrodetik.</p>
+<p>Format datetime diatur dalam array <code class="docutils literal notranslate"><span class="pre">dateFormat</span></code> dari
+<a class="reference internal" href="../database/configuration.html#database-config-explanation-of-values"><span class="std std-ref">konfigurasi database</span></a> di file
+<strong>app/Config/Database.php</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Ketika Anda mengatur <code class="docutils literal notranslate"><span class="pre">ms</span></code> atau <code class="docutils literal notranslate"><span class="pre">us</span></code> sebagai parameter, <strong>Model</strong> mengurus bagian pecahan detik
+dari Time. Tetapi <strong>Query Builder</strong> tidak. Jadi Anda masih perlu
+menggunakan metode <code class="docutils literal notranslate"><span class="pre">format()</span></code> ketika Anda meneruskan Time ke metode Query Builder
+seperti <code class="docutils literal notranslate"><span class="pre">where()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;SomeModel&#39;</span><span class="p">);</span>
+
+<span class="nv">$now</span> <span class="o">=</span> <span class="nx">\CodeIgniter\I18n\Time</span><span class="o">::</span><span class="na">now</span><span class="p">();</span>
+
+<span class="c1">// The following code passes the microseconds to Query Builder.</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;my_dt_field&#39;</span><span class="p">,</span> <span class="nv">$now</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">&#39;Y-m-d H:i:s.u&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+<span class="c1">// Generates: SELECT * FROM `my_table` WHERE `my_dt_field` = &#39;2024-07-28 18:57:58.900326&#39;</span>
+
+<span class="c1">// But the following code loses the microseconds.</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;my_dt_field&#39;</span><span class="p">,</span> <span class="nv">$now</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+<span class="c1">// Generates: SELECT * FROM `my_table` WHERE `my_dt_field` = &#39;2024-07-28 18:57:58&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sebelum v4.6.0, Anda tidak dapat menggunakan <code class="docutils literal notranslate"><span class="pre">ms</span></code> atau <code class="docutils literal notranslate"><span class="pre">us</span></code> sebagai parameter.
+Karena bagian pecahan detik dari Time hilang karena bug.</p>
+</div>
+</section>
+<section id="timestamp">
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">timestamp</a><a class="headerlink" href="#timestamp" title="Permalink to this heading"></a></h4>
+<p>Zona waktu instance <code class="docutils literal notranslate"><span class="pre">Time</span></code> yang dibuat akan menjadi zona waktu default
+(zona waktu aplikasi), bukan UTC.</p>
+</section>
+</section>
+<section id="casting-kustom">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Casting Kustom</a><a class="headerlink" href="#casting-kustom" title="Permalink to this heading"></a></h3>
+<p>Anda dapat mendefinisikan tipe konversi Anda sendiri.</p>
+<section id="membuat-handler-kustom">
+<h4><a class="toc-backref" href="#id28" role="doc-backlink">Membuat Handler Kustom</a><a class="headerlink" href="#membuat-handler-kustom" title="Permalink to this heading"></a></h4>
+<p>Pertama, Anda perlu membuat class handler untuk tipe Anda.
+Misalnya, class akan terletak di direktori <strong>app/Models/Cast</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models\Cast</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\DataCaster\Cast\BaseCast</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">InvalidArgumentException</span><span class="p">;</span>
+
+<span class="c1">// The class must inherit the CodeIgniter\DataCaster\Cast\BaseCast class</span>
+<span class="k">class</span> <span class="nc">CastBase64</span> <span class="k">extends</span> <span class="nx">BaseCast</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span>
+        <span class="nx">mixed</span> <span class="nv">$value</span><span class="p">,</span>
+        <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="o">?</span><span class="nx">object</span> <span class="nv">$helper</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">is_string</span><span class="p">(</span><span class="nv">$value</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">invalidTypeValueError</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$decoded</span> <span class="o">=</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$decoded</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">InvalidArgumentException</span><span class="p">(</span><span class="s1">&#39;Cannot decode: &#39;</span> <span class="o">.</span> <span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$decoded</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">set</span><span class="p">(</span>
+        <span class="nx">mixed</span> <span class="nv">$value</span><span class="p">,</span>
+        <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="o">?</span><span class="nx">object</span> <span class="nv">$helper</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">is_string</span><span class="p">(</span><span class="nv">$value</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">invalidTypeValueError</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Jika Anda tidak perlu mengubah nilai saat mendapatkan atau mengatur nilai. Maka cukup
+jangan mengimplementasikan metode yang sesuai:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models\Cast</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\DataCaster\Cast\BaseCast</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">InvalidArgumentException</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CastBase64</span> <span class="k">extends</span> <span class="nx">BaseCast</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span>
+        <span class="nx">mixed</span> <span class="nv">$value</span><span class="p">,</span>
+        <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="o">?</span><span class="nx">object</span> <span class="nv">$helper</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">is_string</span><span class="p">(</span><span class="nv">$value</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">invalidTypeValueError</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$decoded</span> <span class="o">=</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$decoded</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">InvalidArgumentException</span><span class="p">(</span><span class="s1">&#39;Cannot decode: &#39;</span> <span class="o">.</span> <span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$decoded</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="mendaftarkan-handler-kustom">
+<h4><a class="toc-backref" href="#id29" role="doc-backlink">Mendaftarkan Handler Kustom</a><a class="headerlink" href="#mendaftarkan-handler-kustom" title="Permalink to this heading"></a></h4>
+<p>Sekarang Anda perlu mendaftarkannya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Models\Cast\CastBase64</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// Specify the type for the field</span>
+    <span class="k">protected</span> <span class="k">array</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;column1&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;base64&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// Bind the type to the handler</span>
+    <span class="k">protected</span> <span class="k">array</span> <span class="nv">$castHandlers</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;base64&#39;</span> <span class="o">=&gt;</span> <span class="nx">CastBase64</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="parameter">
+<h4><a class="toc-backref" href="#id30" role="doc-backlink">Parameter</a><a class="headerlink" href="#parameter" title="Permalink to this heading"></a></h4>
+<p>Dalam beberapa kasus, satu tipe tidak cukup. Dalam situasi ini, Anda dapat menggunakan parameter tambahan.
+Parameter tambahan ditunjukkan dalam tanda kurung siku dan dicantumkan
+dengan koma seperti <code class="docutils literal notranslate"><span class="pre">type[param1,</span> <span class="pre">param2]</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Models\Cast\SomeHandler</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// Define a type with parameters</span>
+    <span class="k">protected</span> <span class="k">array</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;column1&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;class[App\SomeClass, param2, param3]&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// Bind the type to the handler</span>
+    <span class="k">protected</span> <span class="k">array</span> <span class="nv">$castHandlers</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="nx">SomeHandler</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models\Cast</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\DataCaster\Cast\BaseCast</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SomeHandler</span> <span class="k">extends</span> <span class="nx">BaseCast</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span>
+        <span class="nx">mixed</span> <span class="nv">$value</span><span class="p">,</span>
+        <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="o">?</span><span class="nx">object</span> <span class="nv">$helper</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">:</span> <span class="nx">mixed</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
+        <span class="cm">/*</span>
+<span class="cm">         * Output:</span>
+<span class="cm">         * array(3) {</span>
+<span class="cm">         *   [0]=&gt;</span>
+<span class="cm">         *   string(13) &quot;App\SomeClass&quot;</span>
+<span class="cm">         *   [1]=&gt;</span>
+<span class="cm">         *   string(6) &quot;param2&quot;</span>
+<span class="cm">         *   [2]=&gt;</span>
+<span class="cm">         *   string(6) &quot;param3&quot;</span>
+<span class="cm">         * }</span>
+<span class="cm">         */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Jika tipe casting ditandai sebagai nullable seperti <code class="docutils literal notranslate"><span class="pre">?bool</span></code> dan nilai yang diteruskan
+tidak null, maka parameter dengan nilai <code class="docutils literal notranslate"><span class="pre">nullable</span></code> akan
+diteruskan ke handler tipe casting. Jika tipe casting memiliki parameter yang telah ditentukan,
+maka <code class="docutils literal notranslate"><span class="pre">nullable</span></code> akan ditambahkan ke akhir daftar.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="working-with-data">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Working with Data</a><a class="headerlink" href="#working-with-data" title="Permalink to this heading"></a></h2>
+<section id="finding-data">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">Finding Data</a><a class="headerlink" href="#finding-data" title="Permalink to this heading"></a></h3>
+<p>Several functions are provided for doing basic CRUD work on your tables, including <code class="docutils literal notranslate"><span class="pre">find()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">insert()</span></code>, <code class="docutils literal notranslate"><span class="pre">update()</span></code>, <code class="docutils literal notranslate"><span class="pre">delete()</span></code> and more.</p>
+<section id="find">
+<h4><a class="toc-backref" href="#id33" role="doc-backlink">find()</a><a class="headerlink" href="#find" title="Permalink to this heading"></a></h4>
+<p>Mengembalikan satu baris di mana primary key cocok dengan nilai yang diteruskan sebagai parameter pertama:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$userId</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Nilai dikembalikan dalam format yang ditentukan dalam <a class="reference internal" href="#returntype">$returnType</a>.</p>
+<p>Anda dapat menentukan lebih dari satu baris untuk dikembalikan dengan meneruskan array nilai primaryKey sebagai ganti hanya satu:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Jika tidak ada parameter yang diteruskan, <code class="docutils literal notranslate"><span class="pre">find()</span></code> akan mengembalikan semua baris di tabel model itu,
+secara efektif bertindak seperti <code class="docutils literal notranslate"><span class="pre">findAll()</span></code>, meskipun kurang eksplisit.</p>
+</div>
+</section>
+<section id="findcolumn">
+<h4><a class="toc-backref" href="#id34" role="doc-backlink">findColumn()</a><a class="headerlink" href="#findcolumn" title="Permalink to this heading"></a></h4>
+<p>Mengembalikan null atau array terindeks dari nilai kolom:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">findColumn</span><span class="p">(</span><span class="nv">$columnName</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$columnName</span></code> harus berupa nama satu kolom, jika tidak Anda akan mendapatkan <code class="docutils literal notranslate"><span class="pre">DataException</span></code>.</p>
+</section>
+<section id="findall">
+<h4><a class="toc-backref" href="#id35" role="doc-backlink">findAll()</a><a class="headerlink" href="#findall" title="Permalink to this heading"></a></h4>
+<p>Mengembalikan semua hasil:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Kueri ini dapat dimodifikasi dengan menyisipkan perintah Query Builder sesuai kebutuhan sebelum memanggil metode ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Anda dapat meneruskan nilai limit dan offset sebagai parameter pertama dan kedua,
+masing-masing:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">(</span><span class="nv">$limit</span><span class="p">,</span> <span class="nv">$offset</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="first">
+<h4><a class="toc-backref" href="#id36" role="doc-backlink">first()</a><a class="headerlink" href="#first" title="Permalink to this heading"></a></h4>
+<p>Mengembalikan baris pertama dalam set hasil. Ini paling baik digunakan dalam kombinasi dengan query builder.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;deleted&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">first</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="withdeleted">
+<h4><a class="toc-backref" href="#id37" role="doc-backlink">withDeleted()</a><a class="headerlink" href="#withdeleted" title="Permalink to this heading"></a></h4>
+<p>Jika <a class="reference internal" href="#usesoftdeletes">$useSoftDeletes</a> adalah true, maka metode <strong>find*()</strong> tidak akan mengembalikan baris apa pun di mana <code class="docutils literal notranslate"><span class="pre">deleted_at</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>.
+Untuk sementara menimpa ini, Anda dapat menggunakan metode <code class="docutils literal notranslate"><span class="pre">withDeleted()</span></code> sebelum memanggil metode <strong>find*()</strong>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Only gets non-deleted rows (deleted = 0)</span>
+<span class="nv">$activeUsers</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+
+<span class="c1">// Gets all rows</span>
+<span class="nv">$allUsers</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">withDeleted</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="onlydeleted">
+<h4><a class="toc-backref" href="#id38" role="doc-backlink">onlyDeleted()</a><a class="headerlink" href="#onlydeleted" title="Permalink to this heading"></a></h4>
+<p>Sedangkan <code class="docutils literal notranslate"><span class="pre">withDeleted()</span></code> akan mengembalikan baris yang dihapus dan tidak dihapus, metode ini memodifikasi
+metode <strong>find*()</strong> berikutnya untuk hanya mengembalikan baris yang dihapus secara lunak:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$deletedUsers</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">onlyDeleted</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="menyimpan-data">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">Menyimpan Data</a><a class="headerlink" href="#menyimpan-data" title="Permalink to this heading"></a></h3>
+<section id="insert">
+<h4><a class="toc-backref" href="#id40" role="doc-backlink">insert()</a><a class="headerlink" href="#insert" title="Permalink to this heading"></a></h4>
+<p>Parameter pertama adalah array asosiatif data untuk membuat baris data baru di database.
+Jika sebuah objek diteruskan alih-alih array, itu akan mencoba mengkonversinya menjadi array.</p>
+<p>Kunci array harus cocok dengan nama kolom di <a class="reference internal" href="#table">$table</a>, sedangkan nilai array adalah nilai yang akan disimpan untuk kunci tersebut.</p>
+<p>Parameter opsional kedua adalah tipe boolean, dan jika diatur ke false, metode akan mengembalikan nilai boolean,
+yang menunjukkan keberhasilan atau kegagalan kueri.</p>
+<p>Anda dapat mengambil primary key baris terakhir yang disisipkan menggunakan metode <code class="docutils literal notranslate"><span class="pre">getInsertID()</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;darth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;d.vader@theempire.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="c1">// Inserts data and returns inserted row&#39;s primary key</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+
+<span class="c1">// Inserts data and returns true on success and false on failure</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// Returns inserted row&#39;s primary key</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">getInsertID</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="model-allow-empty-inserts">
+<span id="id1"></span><h4><a class="toc-backref" href="#id41" role="doc-backlink">allowEmptyInserts()</a><a class="headerlink" href="#model-allow-empty-inserts" title="Permalink to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.3.0.</span></p>
+</div>
+<p>Anda dapat menggunakan metode <code class="docutils literal notranslate"><span class="pre">allowEmptyInserts()</span></code> untuk menyisipkan data kosong. Model akan membuang pengecualian ketika Anda mencoba menyisipkan data kosong secara default. Tetapi jika Anda memanggil metode ini, pemeriksaan tidak akan lagi dilakukan.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">allowEmptyInserts</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([]);</span>
+</pre></div>
+</div>
+<p>Anda juga dapat mengubah pengaturan ini dengan properti <a class="reference internal" href="#allowemptyinserts">$allowEmptyInserts</a>.</p>
+<p>Anda dapat mengaktifkan kembali pemeriksaan dengan memanggil <code class="docutils literal notranslate"><span class="pre">allowEmptyInserts(false)</span></code>.</p>
+</section>
+<section id="update">
+<h4><a class="toc-backref" href="#id42" role="doc-backlink">update()</a><a class="headerlink" href="#update" title="Permalink to this heading"></a></h4>
+<p>Memperbarui catatan yang ada di database. Parameter pertama adalah <a class="reference internal" href="#primarykey">$primaryKey</a> dari catatan yang akan diperbarui.
+Array asosiatif data diteruskan ke metode ini sebagai parameter kedua. Kunci array harus cocok dengan nama
+kolom di <a class="reference internal" href="#table">$table</a>, sedangkan nilai array adalah nilai yang akan disimpan untuk kunci tersebut:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;darth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;d.vader@theempire.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="nv">$id</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Sejak v4.3.0, metode ini menimbulkan <code class="docutils literal notranslate"><span class="pre">DatabaseException</span></code>
+jika menghasilkan pernyataan SQL tanpa klausa WHERE.
+Dalam versi sebelumnya, jika dipanggil tanpa <a class="reference internal" href="#primarykey">$primaryKey</a> yang ditentukan dan
+pernyataan SQL dihasilkan tanpa klausa WHERE, kueri akan tetap
+dieksekusi dan semua catatan di tabel akan diperbarui.</p>
+</div>
+<p>Beberapa catatan dapat diperbarui dengan satu panggilan dengan meneruskan array primary key sebagai parameter pertama:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Ketika Anda membutuhkan solusi yang lebih fleksibel, Anda dapat membiarkan parameternya kosong dan itu berfungsi seperti perintah update Query Builder, dengan manfaat tambahan validasi, event, dll:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span>
+    <span class="o">-&gt;</span><span class="na">whereIn</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span><span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">update</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="save">
+<span id="model-save"></span><h4><a class="toc-backref" href="#id43" role="doc-backlink">save()</a><a class="headerlink" href="#save" title="Permalink to this heading"></a></h4>
+<p>Ini adalah pembungkus di sekitar metode <code class="docutils literal notranslate"><span class="pre">insert()</span></code> dan <code class="docutils literal notranslate"><span class="pre">update()</span></code> yang menangani penyisipan atau pembaruan catatan
+secara otomatis, berdasarkan apakah ia menemukan kunci array yang cocok dengan nilai <strong>primary key</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Defined as a model property</span>
+<span class="nv">$primaryKey</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span><span class="p">;</span>
+
+<span class="c1">// Does an insert()</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;darth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;d.vader@theempire.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+
+<span class="c1">// Performs an update, since the primary key, &#39;id&#39;, is found.</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;id&#39;</span>       <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;darth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;d.vader@theempire.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Metode save juga dapat membuat pekerjaan dengan objek hasil class kustom jauh lebih sederhana dengan mengenali objek non-sederhana
+dan mengambil nilai publik dan terlindungnya ke dalam array, yang kemudian diteruskan ke metode
+insert atau update yang sesuai. Ini memungkinkan Anda untuk bekerja dengan class Entitas dengan cara yang sangat bersih. Class Entitas adalah
+class sederhana yang mewakili satu instance dari tipe objek, seperti pengguna, posting blog, pekerjaan, dll. Class ini
+bertanggung jawab untuk menjaga logika bisnis di sekitar objek itu sendiri, seperti memformat
+elemen dengan cara tertentu, dll. Mereka seharusnya tidak memiliki gagasan tentang bagaimana mereka disimpan ke database. Paling sederhana, mereka mungkin terlihat seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Job</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$id</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$description</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$key</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">property_exists</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$key</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$key</span><span class="p">};</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">property_exists</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$key</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$key</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Model yang sangat sederhana untuk bekerja dengan ini mungkin terlihat seperti:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">JobModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$table</span>         <span class="o">=</span> <span class="s1">&#39;jobs&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$returnType</span>    <span class="o">=</span> <span class="nx">\App\Entities\Job</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$allowedFields</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Model ini bekerja dengan data dari tabel <code class="docutils literal notranslate"><span class="pre">jobs</span></code>, dan mengembalikan semua hasil sebagai instance dari <code class="docutils literal notranslate"><span class="pre">App\Entities\Job</span></code>.
+Ketika Anda perlu mempertahankan catatan itu ke database, Anda perlu menulis metode kustom, atau menggunakan
+metode <code class="docutils literal notranslate"><span class="pre">save()</span></code> model untuk memeriksa class, mengambil properti publik dan pribadi, dan menyimpannya ke database:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Retrieve a Job instance</span>
+<span class="nv">$job</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+
+<span class="c1">// Make some changes</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Foobar&#39;</span><span class="p">;</span>
+
+<span class="c1">// Save the changes</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$job</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Jika Anda sering bekerja dengan Entitas, CodeIgniter menyediakan <a class="reference internal" href="entities.html"><span class="doc">class Entitas bawaan</span></a>
+yang menyediakan beberapa fitur praktis yang membuat pengembangan Entitas lebih sederhana.</p>
+</div>
+</section>
+<section id="menyimpan-tanggal">
+<span id="model-saving-dates"></span><h4><a class="toc-backref" href="#id44" role="doc-backlink">Menyimpan Tanggal</a><a class="headerlink" href="#menyimpan-tanggal" title="Permalink to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.5.0.</span></p>
+</div>
+<p>Saat menyimpan data, jika Anda meneruskan instance <a class="reference internal" href="../libraries/time.html"><span class="doc">Time</span></a>, mereka
+dikonversi ke string dengan format yang ditentukan dalam <code class="docutils literal notranslate"><span class="pre">dateFormat['datetime']</span></code> dan
+<code class="docutils literal notranslate"><span class="pre">dateFormat['date']</span></code> di
+<a class="reference internal" href="../database/configuration.html#database-config-explanation-of-values"><span class="std std-ref">konfigurasi database</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sebelum v4.5.0, format tanggal/waktu di-hardcode sebagai <code class="docutils literal notranslate"><span class="pre">Y-m-d</span> <span class="pre">H:i:s</span></code>
+dan <code class="docutils literal notranslate"><span class="pre">Y-m-d</span></code> di class Model.</p>
+</div>
+</section>
+</section>
+<section id="menghapus-data">
+<h3><a class="toc-backref" href="#id45" role="doc-backlink">Menghapus Data</a><a class="headerlink" href="#menghapus-data" title="Permalink to this heading"></a></h3>
+<section id="delete">
+<h4><a class="toc-backref" href="#id46" role="doc-backlink">delete()</a><a class="headerlink" href="#delete" title="Permalink to this heading"></a></h4>
+<p>Mengambil nilai primary key sebagai parameter pertama dan menghapus catatan yang cocok dari tabel model:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Jika nilai <a class="reference internal" href="#usesoftdeletes">$useSoftDeletes</a> model adalah true, ini akan memperbarui baris untuk mengatur <code class="docutils literal notranslate"><span class="pre">deleted_at</span></code> ke tanggal dan waktu saat ini.
+Anda dapat memaksa penghapusan permanen dengan mengatur parameter kedua sebagai true.</p>
+<p>Array primary key dapat diteruskan sebagai parameter pertama untuk menghapus beberapa catatan sekaligus:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Jika tidak ada parameter yang diteruskan, akan bertindak seperti metode delete Query Builder, membutuhkan panggilan where
+sebelumnya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="purgedeleted">
+<h4><a class="toc-backref" href="#id47" role="doc-backlink">purgeDeleted()</a><a class="headerlink" href="#purgedeleted" title="Permalink to this heading"></a></h4>
+<p>Membersihkan tabel database dengan menghapus secara permanen semua baris yang memiliki 'deleted_at IS NOT NULL'.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">purgeDeleted</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="validasi-dalam-model">
+<span id="in-model-validation"></span><h3><a class="toc-backref" href="#id48" role="doc-backlink">Validasi Dalam Model</a><a class="headerlink" href="#validasi-dalam-model" title="Permalink to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Peringatan</p>
+<p>Validasi Dalam Model dilakukan tepat sebelum data disimpan di
+database. Sebelum titik itu, data belum divalidasi. Memproses
+data input pengguna sebelum validasi dapat memperkenalkan kerentanan.</p>
+</div>
+<section id="memvalidasi-data">
+<h4><a class="toc-backref" href="#id49" role="doc-backlink">Memvalidasi Data</a><a class="headerlink" href="#memvalidasi-data" title="Permalink to this heading"></a></h4>
+<p>Class Model menyediakan cara untuk secara otomatis memvalidasi semua data
+sebelum menyimpan ke database dengan metode <code class="docutils literal notranslate"><span class="pre">insert()</span></code>, <code class="docutils literal notranslate"><span class="pre">update()</span></code>, atau <code class="docutils literal notranslate"><span class="pre">save()</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Saat Anda memperbarui data, secara default, validasi di class model hanya
+memvalidasi field yang disediakan. Ini untuk menghindari kesalahan validasi saat hanya memperbarui beberapa field.</p>
+<p>Namun, ini berarti tidak semua aturan validasi yang Anda tetapkan akan diperiksa
+selama pembaruan. Dengan demikian, data yang tidak lengkap dapat melewati validasi.</p>
+<p>Misalnya, aturan <code class="docutils literal notranslate"><span class="pre">required*</span></code> atau aturan <code class="docutils literal notranslate"><span class="pre">is_unique</span></code> yang memerlukan
+nilai field lain mungkin tidak berfungsi seperti yang diharapkan.</p>
+<p>Untuk menghindari gangguan tersebut, perilaku ini dapat diubah dengan konfigurasi. Lihat
+<a class="reference internal" href="#clean-validation-rules"><span class="std std-ref">$cleanValidationRules</span></a> untuk detailnya.</p>
+</div>
+</section>
+<section id="mengatur-aturan-validasi">
+<span id="model-setting-validation-rules"></span><h4><a class="toc-backref" href="#id50" role="doc-backlink">Mengatur Aturan Validasi</a><a class="headerlink" href="#mengatur-aturan-validasi" title="Permalink to this heading"></a></h4>
+<p>Langkah pertama adalah mengisi properti class <a class="reference internal" href="#validationrules">$validationRules</a> dengan
+field dan aturan yang harus diterapkan.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Anda dapat melihat daftar aturan Validasi bawaan di <a class="reference internal" href="../libraries/validation.html#validation-available-rules"><span class="std std-ref">Available Rules</span></a>.</p>
+</div>
+<p>Jika Anda memiliki pesan kesalahan kustom yang ingin Anda gunakan, tempatkan di array <a class="reference internal" href="#validationmessages">$validationMessages</a>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="nv">$validationRules</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[30]|alpha_numeric_space|min_length[3]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[254]|valid_email|is_unique[users.email]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[255]|min_length[8]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pass_confirm&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required_with[password]|max_length[255]|matches[password]&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$validationMessages</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;is_unique&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Sorry. That email has already been taken. Please choose another.&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Jika Anda lebih suka mengatur aturan dan pesan kesalahan Anda di dalam
+<a class="reference internal" href="../libraries/validation.html#saving-validation-rules-to-config-file"><span class="std std-ref">File Konfigurasi Validasi</span></a>, Anda dapat
+melakukannya dan cukup mengatur <a class="reference internal" href="#validationrules">$validationRules</a> ke nama aturan validasi
+yang Anda buat:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="nv">$validationRules</span> <span class="o">=</span> <span class="s1">&#39;users&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cara lain untuk mengatur aturan validasi ke field dengan fungsi,</p>
+<span class="target" id="namespace-CodeIgniter"></span><dl class="php class">
+<dt class="sig sig-object php" id="CodeIgniter\Model">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">CodeIgniter\</span></span><span class="sig-name descname"><span class="pre">Model</span></span><a class="headerlink" href="#CodeIgniter\Model" title="Link permanen untuk definisi ini"></a></dt>
+<dd></dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\Model::setValidationRule">
+<span class="sig-prename descclassname"><span class="pre">CodeIgniter\Model::</span></span><span class="sig-name descname"><span class="pre">setValidationRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$field</span></em>, <em class="sig-param"><span class="pre">$fieldRules</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\Model::setValidationRule" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$field</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- </p></li>
+<li><p><strong>$fieldRules</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- </p></li>
+</ul>
+</dd>
+</dl>
+<p>Fungsi ini akan mengatur aturan validasi field.</p>
+<p>Contoh penggunaan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fieldName</span>  <span class="o">=</span> <span class="s1">&#39;username&#39;</span><span class="p">;</span>
+<span class="nv">$fieldRules</span> <span class="o">=</span> <span class="s1">&#39;required|max_length[30]|alpha_numeric_space|min_length[3]&#39;</span><span class="p">;</span>
+
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">setValidationRule</span><span class="p">(</span><span class="nv">$fieldName</span><span class="p">,</span> <span class="nv">$fieldRules</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\Model::setValidationRules">
+<span class="sig-prename descclassname"><span class="pre">CodeIgniter\Model::</span></span><span class="sig-name descname"><span class="pre">setValidationRules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$validationRules</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\Model::setValidationRules" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$validationRules</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- </p></li>
+</ul>
+</dd>
+</dl>
+<p>Fungsi ini akan mengatur aturan validasi.</p>
+<p>Contoh penggunaan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validationRules</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[30]|alpha_numeric_space|min_length[3]&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;rules&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[254]|valid_email|is_unique[users.email]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;We really need your email.&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">setValidationRules</span><span class="p">(</span><span class="nv">$validationRules</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Cara lain untuk mengatur pesan validasi ke field dengan fungsi,</p>
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\Model::setValidationMessage">
+<span class="sig-prename descclassname"><span class="pre">CodeIgniter\Model::</span></span><span class="sig-name descname"><span class="pre">setValidationMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$field</span></em>, <em class="sig-param"><span class="pre">$fieldMessages</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\Model::setValidationMessage" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$field</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- </p></li>
+<li><p><strong>$fieldMessages</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- </p></li>
+</ul>
+</dd>
+</dl>
+<p>Fungsi ini akan mengatur pesan kesalahan per field.</p>
+<p>Contoh penggunaan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fieldName</span>              <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">;</span>
+<span class="nv">$fieldValidationMessage</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Your name is required here&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">setValidationMessage</span><span class="p">(</span><span class="nv">$fieldName</span><span class="p">,</span> <span class="nv">$fieldValidationMessage</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\Model::setValidationMessages">
+<span class="sig-prename descclassname"><span class="pre">CodeIgniter\Model::</span></span><span class="sig-name descname"><span class="pre">setValidationMessages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$fieldMessages</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\Model::setValidationMessages" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$fieldMessages</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- </p></li>
+</ul>
+</dd>
+</dl>
+<p>Fungsi ini akan mengatur pesan field.</p>
+<p>Contoh penggunaan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fieldValidationMessage</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;required&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Your baby name is missing.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;min_length&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Too short, man!&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">setValidationMessages</span><span class="p">(</span><span class="nv">$fieldValidationMessage</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="mendapatkan-hasil-validasi">
+<h4><a class="toc-backref" href="#id51" role="doc-backlink">Mendapatkan Hasil Validasi</a><a class="headerlink" href="#mendapatkan-hasil-validasi" title="Permalink to this heading"></a></h4>
+<p>Sekarang, setiap kali Anda memanggil metode <code class="docutils literal notranslate"><span class="pre">insert()</span></code>, <code class="docutils literal notranslate"><span class="pre">update()</span></code>, atau <code class="docutils literal notranslate"><span class="pre">save()</span></code>, data akan divalidasi. Jika gagal,
+model akan mengembalikan boolean <strong>false</strong>.</p>
+</section>
+<section id="mendapatkan-kesalahan-validasi">
+<span id="model-getting-validation-errors"></span><h4><a class="toc-backref" href="#id52" role="doc-backlink">Mendapatkan Kesalahan Validasi</a><a class="headerlink" href="#mendapatkan-kesalahan-validasi" title="Permalink to this heading"></a></h4>
+<p>Anda dapat menggunakan metode <code class="docutils literal notranslate"><span class="pre">errors()</span></code> untuk mengambil kesalahan validasi:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$model</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;updateUser&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">()]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ini mengembalikan array dengan nama field dan kesalahan terkait yang dapat digunakan untuk menampilkan semua
+kesalahan di bagian atas form, atau untuk menampilkannya secara individual:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$errors</span><span class="p">))</span><span class="o">:</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;alert alert-danger&quot;</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$errors</span> <span class="k">as</span> <span class="nv">$field</span> <span class="o">=&gt;</span> <span class="nv">$error</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$error</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="mengambil-aturan-validasi">
+<h4><a class="toc-backref" href="#id53" role="doc-backlink">Mengambil Aturan Validasi</a><a class="headerlink" href="#mengambil-aturan-validasi" title="Permalink to this heading"></a></h4>
+<p>Anda dapat mengambil aturan validasi model dengan mengakses properti <code class="docutils literal notranslate"><span class="pre">validationRules</span></code>-nya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$rules</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">validationRules</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Anda juga dapat mengambil hanya sebagian dari aturan tersebut dengan memanggil metode aksesori
+secara langsung, dengan opsi:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$rules</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getValidationRules</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Parameter <code class="docutils literal notranslate"><span class="pre">$options</span></code> adalah array asosiatif dengan satu elemen,
+yang kuncinya adalah <code class="docutils literal notranslate"><span class="pre">'except'</span></code> atau <code class="docutils literal notranslate"><span class="pre">'only'</span></code>, dan yang memiliki sebagai
+nilainya array nama field yang diminati:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// get the rules for all but the &quot;username&quot; field</span>
+<span class="nv">$rules</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getValidationRules</span><span class="p">([</span><span class="s1">&#39;except&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]]);</span>
+<span class="c1">// get the rules for only the &quot;city&quot; and &quot;state&quot; fields</span>
+<span class="nv">$rules</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getValidationRules</span><span class="p">([</span><span class="s1">&#39;only&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">]]);</span>
+</pre></div>
+</div>
+</section>
+<section id="placeholder-validasi">
+<h4><a class="toc-backref" href="#id54" role="doc-backlink">Placeholder Validasi</a><a class="headerlink" href="#placeholder-validasi" title="Permalink to this heading"></a></h4>
+<p>Model menyediakan metode sederhana untuk mengganti bagian dari aturan Anda berdasarkan data yang diteruskan ke dalamnya. Ini
+terdengar cukup tidak jelas tetapi bisa sangat berguna dengan aturan validasi <code class="docutils literal notranslate"><span class="pre">is_unique</span></code>. Placeholder hanyalah
+nama field (atau kunci array) yang diteruskan sebagai <code class="docutils literal notranslate"><span class="pre">$data</span></code> yang dikelilingi oleh kurung kurawal. Ini akan
+diganti dengan <strong>nilai</strong> dari field masuk yang cocok. Sebuah contoh akan memperjelas ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="nv">$validationRules</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;max_length[19]|is_natural_no_zero&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[254]|valid_email|is_unique[users.email,id,{id}]&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sejak v4.3.5, Anda harus mengatur aturan validasi untuk field placeholder
+(<code class="docutils literal notranslate"><span class="pre">id</span></code>).</p>
+</div>
+<p>Dalam set aturan ini, dinyatakan bahwa alamat email harus unik di database, kecuali untuk baris
+yang memiliki id yang cocok dengan nilai placeholder. Dengan asumsi bahwa data POST form memiliki yang berikut:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$_POST</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;id&#39;</span>    <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo@example.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>maka placeholder <code class="docutils literal notranslate"><span class="pre">{id}</span></code> akan diganti dengan angka <strong>4</strong>, memberikan aturan yang direvisi ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="nv">$validationRules</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;max_length[19]|is_natural_no_zero&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[254]|valid_email|is_unique[users.email,id,4]&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Jadi itu akan mengabaikan baris di database yang memiliki <code class="docutils literal notranslate"><span class="pre">id=4</span></code> ketika memverifikasi email itu unik.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sejak v4.3.5, jika nilai placeholder (<code class="docutils literal notranslate"><span class="pre">id</span></code>) tidak lolos
+validasi, placeholder tidak akan diganti.</p>
+</div>
+<p>Ini juga dapat digunakan untuk membuat aturan yang lebih dinamis saat runtime, selama Anda berhati-hati bahwa setiap
+kunci dinamis yang diteruskan tidak bertentangan dengan data form Anda.</p>
+</section>
+</section>
+<section id="melindungi-field">
+<h3><a class="toc-backref" href="#id55" role="doc-backlink">Melindungi Field</a><a class="headerlink" href="#melindungi-field" title="Permalink to this heading"></a></h3>
+<p>Untuk membantu melindungi dari Serangan Penugasan Massal (Mass Assignment Attacks), class Model <strong>mengharuskan</strong> Anda untuk mencantumkan semua nama field
+yang dapat diubah selama penyisipan dan pembaruan dalam properti class <a class="reference internal" href="#allowedfields">$allowedFields</a>. Data apa pun yang disediakan
+selain ini akan dihapus sebelum masuk ke database. Ini bagus untuk memastikan bahwa timestamp,
+atau primary key tidak berubah.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="nv">$allowedFields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Terkadang, Anda akan menemukan waktu di mana Anda perlu dapat mengubah elemen-elemen ini. Ini sering terjadi selama
+pengujian, migrasi, atau seed. Dalam kasus ini, Anda dapat mengaktifkan atau menonaktifkan perlindungan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">protect</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">protect</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="perubahan-tipe-pengembalian-saat-runtime">
+<h3><a class="toc-backref" href="#id56" role="doc-backlink">Perubahan Tipe Pengembalian Saat Runtime</a><a class="headerlink" href="#perubahan-tipe-pengembalian-saat-runtime" title="Permalink to this heading"></a></h3>
+<p>Anda dapat menentukan format data yang harus dikembalikan saat menggunakan metode <strong>find*()</strong> sebagai properti class,
+<a class="reference internal" href="#returntype">$returnType</a>. Mungkin ada kalanya Anda ingin data kembali dalam format yang berbeda. Model
+menyediakan metode yang memungkinkan Anda melakukan hal itu.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Metode ini hanya mengubah tipe pengembalian untuk panggilan metode <strong>find*()</strong> berikutnya. Setelah itu,
+itu diatur ulang ke nilai defaultnya.</p>
+</div>
+<section id="asarray">
+<h4><a class="toc-backref" href="#id57" role="doc-backlink">asArray()</a><a class="headerlink" href="#asarray" title="Permalink to this heading"></a></h4>
+<p>Mengembalikan data dari metode <strong>find*()</strong> berikutnya sebagai array asosiatif:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">asArray</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="asobject">
+<h4><a class="toc-backref" href="#id58" role="doc-backlink">asObject()</a><a class="headerlink" href="#asobject" title="Permalink to this heading"></a></h4>
+<p>Mengembalikan data dari metode <strong>find*()</strong> berikutnya sebagai objek standar atau instance class kustom:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Return as standard objects</span>
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">asObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+
+<span class="c1">// Return as custom class instances</span>
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">asObject</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="memproses-data-dalam-jumlah-besar">
+<h3><a class="toc-backref" href="#id59" role="doc-backlink">Memproses Data dalam Jumlah Besar</a><a class="headerlink" href="#memproses-data-dalam-jumlah-besar" title="Permalink to this heading"></a></h3>
+<p>Terkadang, Anda perlu memproses data dalam jumlah besar dan berisiko kehabisan memori.
+Untuk membuatnya lebih sederhana, Anda dapat menggunakan metode chunk() untuk mendapatkan potongan data yang lebih kecil yang kemudian dapat Anda
+kerjakan. Parameter pertama adalah jumlah baris yang akan diambil dalam satu chunk. Parameter kedua
+adalah Closure yang akan dipanggil untuk setiap baris data.</p>
+<p>Ini paling baik digunakan selama cronjob, ekspor data, atau tugas besar lainnya.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">chunk</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something.</span>
+    <span class="c1">// $data is a single row of data.</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="bekerja-dengan-query-builder">
+<span id="model-events-callbacks"></span><h2><a class="toc-backref" href="#id60" role="doc-backlink">Bekerja dengan Query Builder</a><a class="headerlink" href="#bekerja-dengan-query-builder" title="Permalink to this heading"></a></h2>
+<section id="mendapatkan-query-builder-untuk-tabel-model">
+<h3><a class="toc-backref" href="#id61" role="doc-backlink">Mendapatkan Query Builder untuk Tabel Model</a><a class="headerlink" href="#mendapatkan-query-builder-untuk-tabel-model" title="Permalink to this heading"></a></h3>
+<p>Model CodeIgniter memiliki satu instance Query Builder untuk koneksi database model tersebut.
+Anda dapat mengakses instance <strong>bersama</strong> dari Query Builder kapan pun Anda membutuhkannya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$builder</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">builder</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Builder ini sudah diatur dengan <a class="reference internal" href="#table">$table</a> model.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Setelah Anda mendapatkan instance Query Builder, Anda dapat memanggil metode
+<a class="reference internal" href="../database/query_builder.html"><span class="doc">Query Builder</span></a>.
+Namun, karena Query Builder bukan Model, Anda tidak dapat memanggil metode Model.</p>
+</div>
+</section>
+<section id="mendapatkan-query-builder-untuk-tabel-lain">
+<h3><a class="toc-backref" href="#id62" role="doc-backlink">Mendapatkan Query Builder untuk Tabel Lain</a><a class="headerlink" href="#mendapatkan-query-builder-untuk-tabel-lain" title="Permalink to this heading"></a></h3>
+<p>Jika Anda memerlukan akses ke tabel lain, Anda bisa mendapatkan instance Query Builder lain.
+Teruskan nama tabel sebagai parameter, tetapi perlu diketahui bahwa ini <strong>tidak</strong> akan mengembalikan
+instance bersama:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$groupBuilder</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">builder</span><span class="p">(</span><span class="s1">&#39;groups&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="mencampur-metode-query-builder-dan-model">
+<h3><a class="toc-backref" href="#id63" role="doc-backlink">Mencampur Metode Query Builder dan Model</a><a class="headerlink" href="#mencampur-metode-query-builder-dan-model" title="Permalink to this heading"></a></h3>
+<p>Anda juga dapat menggunakan metode Query Builder dan metode CRUD Model dalam panggilan berantai yang sama, memungkinkan penggunaan
+yang sangat elegan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;last_login&#39;</span><span class="p">,</span> <span class="s1">&#39;asc&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Dalam kasus ini, ia beroperasi pada instance bersama dari Query Builder yang dipegang oleh model.</p>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Model tidak menyediakan antarmuka yang sempurna untuk Query Builder.
+Model dan Query Builder adalah class terpisah dengan tujuan yang berbeda.
+Mereka tidak diharapkan mengembalikan data yang sama.</p>
+</div>
+<p>Jika Query Builder mengembalikan hasil, itu dikembalikan apa adanya.
+Dalam kasus itu, hasilnya mungkin berbeda dari yang dikembalikan oleh metode model
+dan mungkin bukan yang diharapkan. Event model tidak terpicu.</p>
+<p>Untuk mencegah perilaku yang tidak terduga, jangan gunakan metode Query Builder yang mengembalikan hasil
+dan tentukan metode model di akhir rantai metode.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Anda juga dapat mengakses koneksi database model dengan lancar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userName</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="event-model">
+<span id="model-events"></span><h2><a class="toc-backref" href="#id64" role="doc-backlink">Event Model</a><a class="headerlink" href="#event-model" title="Permalink to this heading"></a></h2>
+<p>Ada beberapa titik dalam eksekusi model yang dapat Anda tentukan beberapa metode callback untuk dijalankan.
+Metode ini dapat digunakan untuk menormalkan data, mengenkripsi password, menyimpan entitas terkait, dan banyak lagi.</p>
+<p>Berikut ini
+titik-titik dalam eksekusi model yang dapat terpengaruh, masing-masing melalui properti class:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#beforeinsert">$beforeInsert</a>, <a class="reference internal" href="#afterinsert">$afterInsert</a></p></li>
+<li><p><a class="reference internal" href="#beforeupdate">$beforeUpdate</a>, <a class="reference internal" href="#afterupdate">$afterUpdate</a></p></li>
+<li><p><a class="reference internal" href="#beforefind">$beforeFind</a>, <a class="reference internal" href="#afterfind">$afterFind</a></p></li>
+<li><p><a class="reference internal" href="#beforedelete">$beforeDelete</a>, <a class="reference internal" href="#afterdelete">$afterDelete</a></p></li>
+<li><p><a class="reference internal" href="#beforeinsertbatch">$beforeInsertBatch</a>, <a class="reference internal" href="#afterinsertbatch">$afterInsertBatch</a></p></li>
+<li><p><a class="reference internal" href="#beforeupdatebatch">$beforeUpdateBatch</a>, <a class="reference internal" href="#afterupdatebatch">$afterUpdateBatch</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p><code class="docutils literal notranslate"><span class="pre">$beforeInsertBatch</span></code>, <code class="docutils literal notranslate"><span class="pre">$afterInsertBatch</span></code>, <code class="docutils literal notranslate"><span class="pre">$beforeUpdateBatch</span></code> dan
+<code class="docutils literal notranslate"><span class="pre">$afterUpdateBatch</span></code> dapat digunakan sejak v4.3.0.</p>
+</div>
+<section id="mendefinisikan-callback">
+<h3><a class="toc-backref" href="#id65" role="doc-backlink">Mendefinisikan Callback</a><a class="headerlink" href="#mendefinisikan-callback" title="Permalink to this heading"></a></h3>
+<p>Anda menentukan callback dengan terlebih dahulu membuat metode class baru di model Anda untuk digunakan.</p>
+<p>Metode class ini akan selalu menerima array <code class="docutils literal notranslate"><span class="pre">$data</span></code> sebagai satu-satunya parameternya.</p>
+<p>Isi pasti dari array <code class="docutils literal notranslate"><span class="pre">$data</span></code> akan bervariasi antar event, tetapi akan selalu
+berisi kunci bernama <code class="docutils literal notranslate"><span class="pre">data</span></code> yang berisi data utama yang diteruskan ke metode
+asli. Dalam kasus metode <strong>insert*()</strong> atau <strong>update*()</strong>, itu akan menjadi
+pasangan kunci/nilai yang disisipkan ke dalam database. Array <code class="docutils literal notranslate"><span class="pre">$data</span></code> utama
+juga akan berisi nilai-nilai lain yang diteruskan ke metode, dan akan dirinci
+dalam <a class="reference internal" href="#parameter-event">Parameter Event</a>.</p>
+<p>Metode callback harus mengembalikan array <code class="docutils literal notranslate"><span class="pre">$data</span></code> asli sehingga callback lain
+memiliki informasi lengkap.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">hashPassword</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;password_hash&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">password_hash</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">],</span> <span class="nx">PASSWORD_DEFAULT</span><span class="p">);</span>
+        <span class="nb">unset</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]);</span>
+
+        <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="menentukan-callback-yang-akan-dijalankan">
+<h3><a class="toc-backref" href="#id66" role="doc-backlink">Menentukan Callback yang Akan Dijalankan</a><a class="headerlink" href="#menentukan-callback-yang-akan-dijalankan" title="Permalink to this heading"></a></h3>
+<p>Anda menentukan kapan harus menjalankan callback dengan menambahkan nama metode ke properti class yang sesuai (<a class="reference internal" href="#beforeinsert">$beforeInsert</a>, <a class="reference internal" href="#afterupdate">$afterUpdate</a>,
+dll). Beberapa callback dapat ditambahkan ke satu event dan akan diproses satu per satu. Anda dapat
+menggunakan callback yang sama di beberapa event:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="nv">$beforeInsert</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hashPassword&#39;</span><span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$beforeUpdate</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hashPassword&#39;</span><span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Selain itu, setiap model dapat mengizinkan (default) atau menolak callback di seluruh class dengan mengatur properti <a class="reference internal" href="#allowcallbacks">$allowCallbacks</a> nya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="nv">$allowCallbacks</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Anda juga dapat mengubah pengaturan ini sementara untuk satu panggilan model menggunakan metode <code class="docutils literal notranslate"><span class="pre">allowCallbacks()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">allowCallbacks</span><span class="p">(</span><span class="k">false</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// No callbacks triggered</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// Callbacks subject to original property value</span>
+</pre></div>
+</div>
+</section>
+<section id="parameter-event">
+<h3><a class="toc-backref" href="#id67" role="doc-backlink">Parameter Event</a><a class="headerlink" href="#parameter-event" title="Permalink to this heading"></a></h3>
+<p>Karena data yang tepat yang diteruskan ke setiap callback sedikit bervariasi, berikut adalah detail tentang apa yang ada di parameter <code class="docutils literal notranslate"><span class="pre">$data</span></code>
+yang diteruskan ke setiap event:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Event</p></th>
+<th class="head"><p>Isi $data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>beforeInsert</p></td>
+<td><p><strong>data</strong> = pasangan kunci/nilai yang disisipkan. Jika objek atau class Entitas diteruskan ke metode
+<code class="docutils literal notranslate"><span class="pre">insert()</span></code>, itu pertama kali dikonversi menjadi array.</p></td>
+</tr>
+<tr class="row-odd"><td><p>afterInsert</p></td>
+<td><p><strong>id</strong> = primary key dari baris baru, atau 0 jika gagal.
+<strong>data</strong> = pasangan kunci/nilai yang disisipkan.
+<strong>result</strong> = hasil dari metode <code class="docutils literal notranslate"><span class="pre">insert()</span></code> yang digunakan melalui Query Builder.</p></td>
+</tr>
+<tr class="row-even"><td><p>beforeUpdate</p></td>
+<td><p><strong>id</strong> = array primary key dari baris yang diteruskan ke metode <code class="docutils literal notranslate"><span class="pre">update()</span></code>.
+<strong>data</strong> = pasangan kunci/nilai yang diperbarui. Jika objek atau class Entitas diteruskan ke metode
+<code class="docutils literal notranslate"><span class="pre">update()</span></code>, itu pertama kali dikonversi menjadi array.</p></td>
+</tr>
+<tr class="row-odd"><td><p>afterUpdate</p></td>
+<td><p><strong>id</strong> = array primary key dari baris yang diteruskan ke metode <code class="docutils literal notranslate"><span class="pre">update()</span></code>.
+<strong>data</strong> = pasangan kunci/nilai yang diperbarui.
+<strong>result</strong> = hasil dari metode <code class="docutils literal notranslate"><span class="pre">update()</span></code> yang digunakan melalui Query Builder.</p></td>
+</tr>
+<tr class="row-even"><td><p>beforeFind</p></td>
+<td><p>Nama <strong>metode</strong> yang memanggil, apakah <strong>singleton</strong> diminta, dan field tambahan ini:</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">first()</span></code></p></li>
+</ul>
+</td>
+<td><p>Tidak ada field tambahan</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">find()</span></code></p></li>
+</ul>
+</td>
+<td><p><strong>id</strong> = primary key dari baris yang dicari.</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">findAll()</span></code></p></li>
+</ul>
+</td>
+<td><p><strong>limit</strong> = jumlah baris yang akan ditemukan.
+<strong>offset</strong> = jumlah baris yang akan dilewati selama pencarian.</p></td>
+</tr>
+<tr class="row-even"><td><p>afterFind</p></td>
+<td><p>Sama seperti <strong>beforeFind</strong> tetapi termasuk baris data yang dihasilkan, atau null jika tidak ada hasil yang ditemukan.</p></td>
+</tr>
+<tr class="row-odd"><td><p>beforeDelete</p></td>
+<td><p><strong>id</strong> = array primary key dari baris yang diteruskan ke metode <code class="docutils literal notranslate"><span class="pre">delete()</span></code>.
+<strong>purge</strong> = boolean apakah baris soft-delete harus dihapus secara permanen.</p></td>
+</tr>
+<tr class="row-even"><td><p>afterDelete</p></td>
+<td><p><strong>id</strong> = array primary key dari baris yang diteruskan ke metode <code class="docutils literal notranslate"><span class="pre">delete()</span></code>.
+<strong>purge</strong> = boolean apakah baris soft-delete harus dihapus secara permanen.
+<strong>result</strong> = hasil dari panggilan <code class="docutils literal notranslate"><span class="pre">delete()</span></code> pada Query Builder.
+<strong>data</strong> = tidak digunakan.</p></td>
+</tr>
+<tr class="row-odd"><td><p>beforeInsertBatch</p></td>
+<td><p><strong>data</strong> = array asosiatif nilai yang disisipkan. Jika objek atau class Entitas diteruskan ke metode
+<code class="docutils literal notranslate"><span class="pre">insertBatch()</span></code>, itu pertama kali dikonversi menjadi array.</p></td>
+</tr>
+<tr class="row-even"><td><p>afterInsertBatch</p></td>
+<td><p><strong>data</strong> = array asosiatif nilai yang disisipkan.
+<strong>result</strong> = hasil dari metode <code class="docutils literal notranslate"><span class="pre">insertbatch()</span></code> yang digunakan melalui Query Builder.</p></td>
+</tr>
+<tr class="row-odd"><td><p>beforeUpdateBatch</p></td>
+<td><p><strong>data</strong> = array asosiatif nilai yang diperbarui. Jika objek atau class Entitas diteruskan ke metode
+<code class="docutils literal notranslate"><span class="pre">updateBatch()</span></code>, itu pertama kali dikonversi menjadi array.</p></td>
+</tr>
+<tr class="row-even"><td><p>afterUpdateBatch</p></td>
+<td><p><strong>data</strong> = pasangan kunci/nilai yang diperbarui.
+<strong>result</strong> = hasil dari metode <code class="docutils literal notranslate"><span class="pre">updateBatch()</span></code> yang digunakan melalui Query Builder.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Saat menggunakan metode <code class="docutils literal notranslate"><span class="pre">paginate()</span></code> dalam kombinasi dengan event <code class="docutils literal notranslate"><span class="pre">beforeFind</span></code> untuk memodifikasi kueri,
+hasilnya mungkin tidak berperilaku seperti yang diharapkan.</p>
+<p>Ini karena event <code class="docutils literal notranslate"><span class="pre">beforeFind</span></code> hanya memengaruhi pengambilan hasil yang sebenarnya (<code class="docutils literal notranslate"><span class="pre">findAll()</span></code>),
+tetapi <strong>tidak</strong> kueri yang digunakan untuk menghitung jumlah total baris untuk paginasi.</p>
+<p>Akibatnya, jumlah total baris yang digunakan untuk menghasilkan tautan paginasi mungkin tidak mencerminkan kondisi kueri yang dimodifikasi,
+menyebabkan inkonsistensi dalam paginasi.</p>
+</div>
+</section>
+<section id="memodifikasi-data-find">
+<h3><a class="toc-backref" href="#id68" role="doc-backlink">Memodifikasi Data Find*</a><a class="headerlink" href="#memodifikasi-data-find" title="Permalink to this heading"></a></h3>
+<p>Metode <code class="docutils literal notranslate"><span class="pre">beforeFind</span></code> dan <code class="docutils literal notranslate"><span class="pre">afterFind</span></code> keduanya dapat mengembalikan kumpulan data yang dimodifikasi untuk menimpa respons normal
+dari model. Untuk <code class="docutils literal notranslate"><span class="pre">afterFind</span></code> setiap perubahan yang dibuat pada <code class="docutils literal notranslate"><span class="pre">data</span></code> dalam array yang dikembalikan akan secara otomatis diteruskan kembali
+ke konteks pemanggilan. Agar <code class="docutils literal notranslate"><span class="pre">beforeFind</span></code> dapat mencegat alur kerja find, ia juga harus mengembalikan boolean tambahan, <code class="docutils literal notranslate"><span class="pre">returnData</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="nv">$beforeFind</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;checkCache&#39;</span><span class="p">];</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">checkCache</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Check if the requested item is already in our cache</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$item</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getCachedItem</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="nv">$item</span><span class="p">;</span>
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;returnData&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+            <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="pembuatan-model-manual">
+<h2><a class="toc-backref" href="#id69" role="doc-backlink">Pembuatan Model Manual</a><a class="headerlink" href="#pembuatan-model-manual" title="Permalink to this heading"></a></h2>
+<p>Anda tidak perlu memperluas class khusus apa pun untuk membuat model untuk aplikasi Anda. Yang Anda butuhkan hanyalah mendapatkan
+instance koneksi database dan Anda siap. Ini memungkinkan Anda untuk melewati fitur yang diberikan Model CodeIgniter
+secara langsung, dan membuat pengalaman yang sepenuhnya kustom.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Database\ConnectionInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$db</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">ConnectionInterface</span> <span class="nv">$db</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span> <span class="o">=</span> <span class="nv">$db</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Memodelkan Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="entities.html" class="btn btn-neutral float-right" title="Menggunakan Class Entitas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

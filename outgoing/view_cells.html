@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Cells &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="View Parser" href="view_parser.html" />
+    <link rel="prev" title="View Layouts" href="view_layouts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Ikhtisar CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Membangun Respons (Output)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Membangun Respons (Output)</a></li>
+      <li class="breadcrumb-item active">View Cells</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="view-cells">
+<h1>View Cells<a class="headerlink" href="#view-cells" title="Permalink to this heading"></a></h1>
+<p>Banyak aplikasi memiliki fragmen view kecil yang dapat diulang dari halaman ke halaman, atau di berbagai tempat di halaman. Ini seringkali berupa kotak bantuan, kontrol navigasi, iklan, formulir login, dll. CodeIgniter memungkinkan Anda untuk mengkapsulasi logika untuk blok presentasi ini dalam View Cells. Mereka pada dasarnya adalah mini-view yang dapat disertakan dalam view lain. Mereka dapat memiliki logika yang dibangun untuk menangani logika tampilan khusus cell. Mereka dapat digunakan untuk membuat view Anda lebih mudah dibaca dan dipelihara dengan memisahkan logika untuk setiap cell ke dalam class-nya sendiri.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#simple-dan-controlled-cells" id="id2">Simple dan Controlled Cells</a></p></li>
+<li><p><a class="reference internal" href="#memanggil-view-cell" id="id3">Memanggil View Cell</a></p>
+<ul>
+<li><p><a class="reference internal" href="#penghapusan-namespace" id="id4">Penghapusan Namespace</a></p></li>
+<li><p><a class="reference internal" href="#meneruskan-parameter-sebagai-string-kunci-nilai" id="id5">Meneruskan Parameter sebagai String Kunci/Nilai</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#simple-cells" id="id6">Simple Cells</a></p></li>
+<li><p><a class="reference internal" href="#controlled-cells" id="id7">Controlled Cells</a></p>
+<ul>
+<li><p><a class="reference internal" href="#membuat-controlled-cell" id="id8">Membuat Controlled Cell</a></p></li>
+<li><p><a class="reference internal" href="#menghasilkan-cell-melalui-command" id="id9">Menghasilkan Cell melalui Command</a></p></li>
+<li><p><a class="reference internal" href="#menggunakan-view-yang-berbeda" id="id10">Menggunakan View yang Berbeda</a></p></li>
+<li><p><a class="reference internal" href="#menyesuaikan-rendering" id="id11">Menyesuaikan Rendering</a></p></li>
+<li><p><a class="reference internal" href="#properti-terhitung-computed-properties" id="id12">Properti Terhitung (Computed Properties)</a></p></li>
+<li><p><a class="reference internal" href="#metode-presentasi" id="id13">Metode Presentasi</a></p></li>
+<li><p><a class="reference internal" href="#melakukan-logika-penyiapan" id="id14">Melakukan Logika Penyiapan</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#cell-caching" id="id15">Cell Caching</a></p></li>
+</ul>
+</nav>
+<section id="simple-dan-controlled-cells">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Simple dan Controlled Cells</a><a class="headerlink" href="#simple-dan-controlled-cells" title="Permalink to this heading"></a></h2>
+<p>CodeIgniter mendukung dua jenis View Cells: simple dan controlled.</p>
+<p><strong>Simple View Cells</strong> dapat dihasilkan dari class dan metode pilihan Anda dan tidak harus mengikuti aturan apa pun, kecuali harus mengembalikan string.</p>
+<p><strong>Controlled View Cells</strong> harus dihasilkan dari class yang memperluas class <code class="docutils literal notranslate"><span class="pre">Codeigniter\View\Cells\Cell</span></code> yang menyediakan kemampuan tambahan yang membuat View Cells Anda lebih fleksibel dan lebih cepat digunakan.</p>
+</section>
+<section id="memanggil-view-cell">
+<span id="app-cells"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">Memanggil View Cell</a><a class="headerlink" href="#memanggil-view-cell" title="Permalink to this heading"></a></h2>
+<p>Tidak peduli jenis View Cell apa yang Anda gunakan, Anda dapat memanggilnya dari view mana pun dengan menggunakan fungsi helper <code class="docutils literal notranslate"><span class="pre">view_cell()</span></code>.</p>
+<p>Parameter pertama adalah (1) <em>nama class dan metode</em> (Simple Cell) atau (2) <em>nama class dan metode opsional</em> (Controlled Cell) yang akan dipanggil,
+dan parameter kedua adalah array atau string parameter yang akan diteruskan ke metode:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// In a View.</span>
+
+<span class="c1">// Simple Cell</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;App\Cells\MyClass::myMethod&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;param1&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;param2&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value2&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span>
+
+// Controlled Cell
+<span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;App\Cells\MyCell&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;param1&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;param2&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value2&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p>String yang dikembalikan Cell akan disisipkan ke dalam view di mana
+fungsi <code class="docutils literal notranslate"><span class="pre">view_cell()</span></code> dipanggil.</p>
+<section id="penghapusan-namespace">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Penghapusan Namespace</a><a class="headerlink" href="#penghapusan-namespace" title="Permalink to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.3.0.</span></p>
+</div>
+<p>Jika Anda tidak menyertakan namespace lengkap untuk class, ia akan mengasumsikan dapat ditemukan di namespace <code class="docutils literal notranslate"><span class="pre">App\Cells</span></code>. Jadi, contoh berikut akan mencoba menemukan class <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> di <strong>app/Cells/MyClass.php</strong>. Jika tidak ditemukan di sana, semua namespace akan dipindai hingga ditemukan, mencari di dalam subdirektori <strong>Cells</strong> dari setiap namespace:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// In a View.</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;MyClass::myMethod&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;param1&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;param2&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value2&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="meneruskan-parameter-sebagai-string-kunci-nilai">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Meneruskan Parameter sebagai String Kunci/Nilai</a><a class="headerlink" href="#meneruskan-parameter-sebagai-string-kunci-nilai" title="Permalink to this heading"></a></h3>
+<p>Anda juga dapat meneruskan parameter sebagai string kunci/nilai:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// In a View.</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;MyClass::myMethod&#39;</span><span class="p">,</span> <span class="s1">&#39;param1=value1, param2=value2&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="simple-cells">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Simple Cells</a><a class="headerlink" href="#simple-cells" title="Permalink to this heading"></a></h2>
+<p>Simple Cells adalah class yang mengembalikan string dari metode yang dipilih. Contoh cell Pesan Peringatan sederhana mungkin terlihat seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AlertMessage</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="k">array</span> <span class="nv">$params</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;div class=</span><span class="se">\&quot;</span><span class="s2">alert alert-</span><span class="si">{</span><span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&gt;</span><span class="si">{</span><span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/div&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Anda akan memanggilnya dari dalam view seperti:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// In a View.</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;AlertMessage::show&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;The user has been updated.&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p>Selain itu, Anda dapat menggunakan nama parameter yang cocok dengan variabel parameter dalam metode untuk keterbacaan yang lebih baik.
+Ketika Anda menggunakannya dengan cara ini, semua parameter harus selalu ditentukan dalam panggilan view cell:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// In a View.</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;Blog::recentPosts&#39;</span><span class="p">,</span> <span class="s1">&#39;category=codeigniter, limit=5&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// In a Cell.</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Blog</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">recentPosts</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$category</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$limit</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="nv">$posts</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blogModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="nv">$category</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;published_on&#39;</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">limit</span><span class="p">(</span><span class="nv">$limit</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;recentPosts&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;posts&#39;</span> <span class="o">=&gt;</span> <span class="nv">$posts</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="controlled-cells">
+<span id="id1"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Controlled Cells</a><a class="headerlink" href="#controlled-cells" title="Permalink to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.3.0.</span></p>
+</div>
+<p>Controlled cells memiliki dua tujuan utama: (1) untuk membuatnya secepat mungkin untuk membangun cell, dan (2) menyediakan logika tambahan dan
+fleksibilitas ke view Anda, jika diperlukan.</p>
+<p>Class harus memperluas <code class="docutils literal notranslate"><span class="pre">CodeIgniter\View\Cells\Cell</span></code>. Mereka harus memiliki file view
+di folder yang sama. Sesuai konvensi, nama class harus dalam PascalCase diakhiri dengan <code class="docutils literal notranslate"><span class="pre">Cell</span></code> dan view harus
+versi snake_case dari nama class, tanpa sufiks. Misalnya, jika Anda memiliki class <code class="docutils literal notranslate"><span class="pre">MyCell</span></code>, file view
+harus <code class="docutils literal notranslate"><span class="pre">my.php</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sebelum v4.3.5, file view yang dihasilkan berakhir dengan <code class="docutils literal notranslate"><span class="pre">_cell.php</span></code>. Meskipun v4.3.5 dan yang lebih baru akan menghasilkan file view
+tanpa sufiks <code class="docutils literal notranslate"><span class="pre">_cell</span></code>, file view yang ada masih akan ditemukan dan dimuat.</p>
+</div>
+<section id="membuat-controlled-cell">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Membuat Controlled Cell</a><a class="headerlink" href="#membuat-controlled-cell" title="Permalink to this heading"></a></h3>
+<p>Pada tingkat paling dasar, yang perlu Anda implementasikan dalam class hanyalah properti publik. Properti ini akan tersedia secara otomatis untuk file view.</p>
+<p>Mengimplementasikan AlertMessage dari atas sebagai Controlled Cell akan terlihat seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// app/Cells/AlertMessageCell.php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\View\Cells\Cell</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AlertMessageCell</span> <span class="k">extends</span> <span class="nx">Cell</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$type</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$message</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// app/Cells/alert_message.php</span>
+<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;alert alert-&lt;?= esc(</span><span class="si">$type</span><span class="s2">, &#39;attr&#39;) ?&gt;&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;?=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$message</span><span class="p">)</span> <span class="cp">?&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Called in main View:</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;AlertMessageCell&#39;</span><span class="p">,</span> <span class="s1">&#39;type=warning, message=Failed.&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Jika Anda menggunakan properti bertipe, Anda harus mengatur nilai awal:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// app/Cells/AlertMessageCell.php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\View\Cells\Cell</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AlertMessageCell</span> <span class="k">extends</span> <span class="nx">Cell</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$type</span>    <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="menghasilkan-cell-melalui-command">
+<span id="generating-cell-via-command"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink">Menghasilkan Cell melalui Command</a><a class="headerlink" href="#menghasilkan-cell-melalui-command" title="Permalink to this heading"></a></h3>
+<p>Anda juga dapat membuat controlled cell melalui command bawaan dari CLI. Command-nya adalah <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span> <span class="pre">make:cell</span></code>. Ia mengambil satu argumen, nama cell yang akan dibuat. Nama harus dalam PascalCase, dan class akan dibuat di direktori <strong>app/Cells</strong>. File view juga akan dibuat di direktori <strong>app/Cells</strong>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark make:cell AlertMessageCell</span>
+</pre></div>
+</div>
+</section>
+<section id="menggunakan-view-yang-berbeda">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Menggunakan View yang Berbeda</a><a class="headerlink" href="#menggunakan-view-yang-berbeda" title="Permalink to this heading"></a></h3>
+<p>Anda dapat menentukan nama view kustom dengan mengatur properti <code class="docutils literal notranslate"><span class="pre">view</span></code> dalam class. View akan ditemukan seperti view biasanya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\View\Cells\Cell</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AlertMessageCell</span> <span class="k">extends</span> <span class="nx">Cell</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$type</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$message</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nx">string</span> <span class="nv">$view</span> <span class="o">=</span> <span class="s1">&#39;my/custom/view&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="menyesuaikan-rendering">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Menyesuaikan Rendering</a><a class="headerlink" href="#menyesuaikan-rendering" title="Permalink to this heading"></a></h3>
+<p>Jika Anda memerlukan kontrol lebih atas rendering HTML, Anda dapat mengimplementasikan metode <code class="docutils literal notranslate"><span class="pre">render()</span></code>. Metode ini memungkinkan Anda untuk melakukan logika tambahan dan meneruskan data ekstra ke view, jika diperlukan. Metode <code class="docutils literal notranslate"><span class="pre">render()</span></code> harus mengembalikan string.</p>
+<p>Untuk memanfaatkan fitur lengkap Controlled Cells, Anda harus menggunakan <code class="docutils literal notranslate"><span class="pre">$this-&gt;view()</span></code> alih-alih fungsi helper <code class="docutils literal notranslate"><span class="pre">view()</span></code> biasa:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\View\Cells\Cell</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AlertMessageCell</span> <span class="k">extends</span> <span class="nx">Cell</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$type</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$message</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;my/custom/view&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;extra&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;data&#39;</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="properti-terhitung-computed-properties">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Properti Terhitung (Computed Properties)</a><a class="headerlink" href="#properti-terhitung-computed-properties" title="Permalink to this heading"></a></h3>
+<p>Jika Anda perlu melakukan logika tambahan untuk satu atau lebih properti, Anda dapat menggunakan properti terhitung. Ini memerlukan pengaturan properti menjadi <code class="docutils literal notranslate"><span class="pre">protected</span></code> atau <code class="docutils literal notranslate"><span class="pre">private</span></code> dan mengimplementasikan metode publik yang namanya terdiri dari nama properti yang diapit oleh <code class="docutils literal notranslate"><span class="pre">get</span></code> dan <code class="docutils literal notranslate"><span class="pre">Property</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// In a View. Initialize the protected properties.</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;AlertMessageCell&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;test&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// app/Cells/AlertMessageCell.php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\View\Cells\Cell</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AlertMessageCell</span> <span class="k">extends</span> <span class="nx">Cell</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$type</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$message</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$computed</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">mount</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">computed</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;%s - %s&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">type</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getComputedProperty</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">computed</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTypeProperty</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">type</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getMessageProperty</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// app/Cells/alert_message.php</span>
+<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">type</span> <span class="o">-</span> <span class="o">&lt;?=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$type</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>message - <span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$message</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>computed: <span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$computed</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Anda tidak dapat mengatur properti yang dideklarasikan sebagai private selama inisialisasi cell.</p>
+</div>
+</section>
+<section id="metode-presentasi">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Metode Presentasi</a><a class="headerlink" href="#metode-presentasi" title="Permalink to this heading"></a></h3>
+<p>Terkadang Anda perlu melakukan logika tambahan untuk view, tetapi Anda tidak ingin meneruskannya sebagai parameter. Anda dapat mengimplementasikan metode yang akan dipanggil dari dalam view cell itu sendiri. Ini dapat membantu keterbacaan view Anda:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// app/Cells/RecentPostsCell.php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\View\Cells\Cell</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RecentPostsCell</span> <span class="k">extends</span> <span class="nx">Cell</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$posts</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">linkPost</span><span class="p">(</span><span class="nv">$post</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">anchor</span><span class="p">(</span><span class="s1">&#39;posts/&#39;</span> <span class="o">.</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// app/Cells/recent_posts.php</span>
+<span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+    <span class="o">&lt;?</span><span class="nx">php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$posts</span> <span class="k">as</span> <span class="nv">$post</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">linkPost</span><span class="p">(</span><span class="nv">$post</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="melakukan-logika-penyiapan">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Melakukan Logika Penyiapan</a><a class="headerlink" href="#melakukan-logika-penyiapan" title="Permalink to this heading"></a></h3>
+<p>Jika Anda perlu melakukan logika tambahan sebelum view dirender, Anda dapat mengimplementasikan metode <code class="docutils literal notranslate"><span class="pre">mount()</span></code>. Metode ini akan dipanggil tepat setelah class diinstansiasi, dan dapat digunakan untuk mengatur properti tambahan atau melakukan logika lain:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\View\Cells\Cell</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RecentPostsCell</span> <span class="k">extends</span> <span class="nx">Cell</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$posts</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">mount</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">posts</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;PostModel&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;DESC&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Anda dapat meneruskan parameter tambahan ke metode <code class="docutils literal notranslate"><span class="pre">mount()</span></code> dengan meneruskannya sebagai array ke fungsi helper <code class="docutils literal notranslate"><span class="pre">view_cell()</span></code>. Parameter apa pun yang dikirim yang cocok dengan nama parameter metode <code class="docutils literal notranslate"><span class="pre">mount()</span></code> akan diteruskan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// app/Cells/RecentPostsCell.php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Cells</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\View\Cells\Cell</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RecentPostsCell</span> <span class="k">extends</span> <span class="nx">Cell</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$posts</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">mount</span><span class="p">(</span><span class="o">?</span><span class="nx">int</span> <span class="nv">$categoryId</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">posts</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;PostModel&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">when</span><span class="p">(</span>
+                <span class="nv">$categoryId</span><span class="p">,</span>
+                <span class="k">static</span> <span class="nx">fn</span> <span class="p">(</span><span class="nv">$query</span><span class="p">,</span> <span class="nv">$categoryId</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;category_id&#39;</span><span class="p">,</span> <span class="nv">$categoryId</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;DESC&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Called in main View:</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;RecentPostsCell&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;categoryId&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">])</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cell-caching">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Cell Caching</a><a class="headerlink" href="#cell-caching" title="Permalink to this heading"></a></h2>
+<p>Anda dapat meng-cache hasil panggilan view cell dengan meneruskan jumlah detik untuk meng-cache data sebagai
+parameter ketiga. Ini akan menggunakan engine cache yang sedang dikonfigurasi:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Cache the view for 5 minutes</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;App\Cells\Blog::recentPosts&#39;</span><span class="p">,</span> <span class="s1">&#39;limit=5&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p>Anda dapat memberikan nama kustom untuk digunakan alih-alih yang dihasilkan secara otomatis jika Anda mau, dengan meneruskan nama baru
+sebagai parameter keempat:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Cache the view for 5 minutes</span>
+<span class="o">&lt;?=</span> <span class="nx">view_cell</span><span class="p">(</span><span class="s1">&#39;App\Cells\Blog::recentPosts&#39;</span><span class="p">,</span> <span class="s1">&#39;limit=5&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;newcacheid&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="view_layouts.html" class="btn btn-neutral float-left" title="View Layouts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="view_parser.html" class="btn btn-neutral float-right" title="View Parser" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

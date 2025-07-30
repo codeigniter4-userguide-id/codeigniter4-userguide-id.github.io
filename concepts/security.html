@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panduan Keamanan &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Tujuan Desain dan Arsitektur" href="goals.html" />
+    <link rel="prev" title="Bekerja dengan Permintaan HTTP" href="http.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Ikhtisar CodeIgniter4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Membangun Respons (Output)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Ikhtisar CodeIgniter4</a></li>
+      <li class="breadcrumb-item active">Panduan Keamanan</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="panduan-keamanan">
+<h1>Panduan Keamanan<a class="headerlink" href="#panduan-keamanan" title="Permalink to this heading"></a></h1>
+<p>Kami menganggap keamanan dengan serius.
+CodeIgniter menggabungkan sejumlah fitur dan teknik untuk menegakkan
+praktik keamanan yang baik, atau untuk memungkinkan Anda melakukannya dengan mudah.</p>
+<p>Kami merujuk pada <a class="reference external" href="https://owasp.org">Open Web Application Security Project (OWASP)</a>
+dan mengikuti rekomendasi mereka sebisa mungkin.</p>
+<p>Berikut ini berasal dari
+<a class="reference external" href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a> dan
+<a class="reference external" href="https://owasp.org/API-Security/editions/2023/en/0x11-t10/">OWASP API Security Top 10</a>
+mengidentifikasi kerentanan teratas untuk aplikasi web dan API.
+Untuk masing-masing, kami memberikan deskripsi singkat, rekomendasi OWASP, dan kemudian
+ketentuan CodeIgniter untuk mengatasi masalah tersebut.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#owasp-top-10-2021" id="id39">OWASP Top 10 2021</a></p>
+<ul>
+<li><p><a class="reference internal" href="#a01-2021-kontrol-akses-rusak" id="id40">A01:2021 Kontrol Akses Rusak</a></p></li>
+<li><p><a class="reference internal" href="#a02-2021-kegagalan-kriptografi" id="id41">A02:2021 Kegagalan Kriptografi</a></p></li>
+<li><p><a class="reference internal" href="#a03-2021-injeksi" id="id42">A03:2021 Injeksi</a></p></li>
+<li><p><a class="reference internal" href="#a04-2021-desain-tidak-aman" id="id43">A04:2021 Desain Tidak Aman</a></p></li>
+<li><p><a class="reference internal" href="#a05-2021-kesalahan-konfigurasi-keamanan" id="id44">A05:2021 Kesalahan Konfigurasi Keamanan</a></p></li>
+<li><p><a class="reference internal" href="#a06-2021-komponen-rentan-dan-usang" id="id45">A06:2021 Komponen Rentan dan Usang</a></p></li>
+<li><p><a class="reference internal" href="#a07-2021-kegagalan-identifikasi-dan-otentikasi" id="id46">A07:2021 Kegagalan Identifikasi dan Otentikasi</a></p></li>
+<li><p><a class="reference internal" href="#a08-2021-kegagalan-integritas-perangkat-lunak-dan-data" id="id47">A08:2021 Kegagalan Integritas Perangkat Lunak dan Data</a></p></li>
+<li><p><a class="reference internal" href="#a09-2021-kegagalan-logging-dan-pemantauan-keamanan" id="id48">A09:2021 Kegagalan Logging dan Pemantauan Keamanan</a></p></li>
+<li><p><a class="reference internal" href="#a10-2021-server-side-request-forgery-ssrf" id="id49">A10:2021 Server-Side Request Forgery (SSRF)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#owasp-api-security-top-10-2023" id="id50">OWASP API Security Top 10 2023</a></p>
+<ul>
+<li><p><a class="reference internal" href="#api1-2023-otorisasi-tingkat-objek-rusak" id="id51">API1:2023 Otorisasi Tingkat Objek Rusak</a></p></li>
+<li><p><a class="reference internal" href="#api2-2023-otentikasi-rusak" id="id52">API2:2023 Otentikasi Rusak</a></p></li>
+<li><p><a class="reference internal" href="#api3-2023-otorisasi-tingkat-properti-objek-rusak" id="id53">API3:2023 Otorisasi Tingkat Properti Objek Rusak</a></p></li>
+<li><p><a class="reference internal" href="#api4-2023-konsumsi-sumber-daya-tidak-terbatas" id="id54">API4:2023 Konsumsi Sumber Daya Tidak Terbatas</a></p></li>
+<li><p><a class="reference internal" href="#api5-2023-otorisasi-tingkat-fungsi-rusak" id="id55">API5:2023 Otorisasi Tingkat Fungsi Rusak</a></p></li>
+<li><p><a class="reference internal" href="#api6-2023-akses-tidak-terbatas-ke-alur-bisnis-sensitif" id="id56">API6:2023 Akses Tidak Terbatas ke Alur Bisnis Sensitif</a></p></li>
+<li><p><a class="reference internal" href="#api7-2023-server-side-request-forgery" id="id57">API7:2023 Server Side Request Forgery</a></p></li>
+<li><p><a class="reference internal" href="#api8-2023-kesalahan-konfigurasi-keamanan" id="id58">API8:2023 Kesalahan Konfigurasi Keamanan</a></p></li>
+<li><p><a class="reference internal" href="#api9-2023-manajemen-inventaris-yang-tidak-tepat" id="id59">API9:2023 Manajemen Inventaris yang Tidak Tepat</a></p></li>
+<li><p><a class="reference internal" href="#api10-2023-konsumsi-api-yang-tidak-aman" id="id60">API10:2023 Konsumsi API yang Tidak Aman</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="owasp-top-10-2021">
+<h2><a class="toc-backref" href="#id39" role="doc-backlink">OWASP Top 10 2021</a><a class="headerlink" href="#owasp-top-10-2021" title="Permalink to this heading"></a></h2>
+<section id="a01-2021-kontrol-akses-rusak">
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">A01:2021 Kontrol Akses Rusak</a><a class="headerlink" href="#a01-2021-kontrol-akses-rusak" title="Permalink to this heading"></a></h3>
+<p>Kontrol akses memberlakukan kebijakan sehingga pengguna tidak dapat bertindak di luar
+izin yang dimaksudkan. Kegagalan biasanya mengarah pada pengungkapan informasi yang tidak sah,
+modifikasi, atau penghancuran semua data atau melakukan fungsi bisnis di luar
+batas pengguna.</p>
+<p>Kerentanan kontrol akses umum meliputi:</p>
+<ul class="simple">
+<li><p>Pelanggaran prinsip hak istimewa paling rendah atau penolakan secara default, di mana akses
+seharusnya hanya diberikan untuk kemampuan, peran, atau pengguna tertentu, tetapi
+tersedia untuk siapa saja.</p></li>
+<li><p>Melewati pemeriksaan kontrol akses dengan memodifikasi URL (perusakan parameter atau
+penjelajahan paksa), status aplikasi internal, atau halaman HTML, atau dengan menggunakan
+alat serangan yang memodifikasi permintaan API.</p></li>
+<li><p>Mengizinkan melihat atau mengedit akun orang lain, dengan menyediakan pengidentifikasi uniknya
+(referensi objek langsung yang tidak aman)</p></li>
+<li><p>Mengakses API dengan kontrol akses yang hilang untuk POST, PUT, dan DELETE.</p></li>
+<li><p>Peningkatan hak istimewa. Bertindak sebagai pengguna tanpa masuk atau bertindak sebagai
+admin saat masuk sebagai pengguna.</p></li>
+<li><p>Manipulasi metadata, seperti memutar ulang atau merusak token kontrol akses JSON Web Token (JWT),
+atau cookie atau bidang tersembunyi yang dimanipulasi untuk meningkatkan
+hak istimewa atau menyalahgunakan pembatalan JWT.</p></li>
+<li><p>Kesalahan konfigurasi CORS memungkinkan akses API dari asal yang tidak sah/tidak tepercaya.</p></li>
+<li><p>Penjelajahan paksa ke halaman yang diautentikasi sebagai pengguna yang tidak diautentikasi atau ke halaman yang memiliki hak istimewa
+sebagai pengguna standar.</p></li>
+</ul>
+<section id="rekomendasi-owasp">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#rekomendasi-owasp" title="Permalink to this heading"></a></h4>
+<p>Kontrol akses hanya efektif dalam kode sisi server tepercaya atau API tanpa server,
+di mana penyerang tidak dapat memodifikasi pemeriksaan kontrol akses atau metadata.</p>
+<ul class="simple">
+<li><p>Kecuali untuk sumber daya publik, tolak secara default.</p></li>
+<li><p>Terapkan mekanisme kontrol akses sekali dan gunakan kembali di seluruh aplikasi,
+termasuk meminimalkan penggunaan Cross-Origin Resource Sharing (CORS).</p></li>
+<li><p>Kontrol akses model harus memberlakukan kepemilikan catatan daripada menerima bahwa
+pengguna dapat membuat, membaca, memperbarui, atau menghapus catatan apa pun.</p></li>
+<li><p>Persyaratan batas bisnis aplikasi yang unik harus diberlakukan oleh model domain.</p></li>
+<li><p>Nonaktifkan daftar direktori server web dan pastikan metadata file (misalnya, .git) dan
+file cadangan tidak ada di dalam akar web.</p></li>
+<li><p>Catat kegagalan kontrol akses, peringatkan admin jika sesuai (misalnya, kegagalan berulang).</p></li>
+<li><p>Batasi tingkat akses API dan controller untuk meminimalkan kerusakan dari alat serangan
+otomatis.</p></li>
+<li><p>Pengidentifikasi sesi stateful harus dibatalkan di server setelah logout.
+Token JWT tanpa status harus berumur pendek sehingga jendela peluang
+bagi penyerang diminimalkan. Untuk JWT yang berumur lebih panjang, sangat disarankan untuk
+mengikuti standar OAuth untuk mencabut akses.</p></li>
+</ul>
+</section>
+<section id="ketentuan-codeigniter">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#ketentuan-codeigniter" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Folder <a class="reference internal" href="structure.html#application-structure-public"><span class="std std-ref">Public</span></a>, dengan aplikasi dan sistem
+di luar</p></li>
+<li><p>Library <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a></p></li>
+<li><p>Library <a class="reference internal" href="../libraries/security.html"><span class="doc">Security</span></a> menyediakan
+<a class="reference internal" href="../libraries/security.html#cross-site-request-forgery"><span class="std std-ref">perlindungan CSRF</span></a></p></li>
+<li><p>Library <a class="reference internal" href="../libraries/sessions.html"><span class="doc">Session Library</span></a></p></li>
+<li><p><a class="reference internal" href="../libraries/throttler.html"><span class="doc">Throttler</span></a> untuk pembatasan tingkat</p></li>
+<li><p>Filter <a class="reference internal" href="../libraries/cors.html"><span class="doc">Cross-Origin Resource Sharing (CORS)</span></a></p></li>
+<li><p>Fungsi <a class="reference internal" href="../general/common_functions.html#log_message" title="log_message"><code class="xref php php-func docutils literal notranslate"><span class="pre">log_message()</span></code></a> untuk logging</p></li>
+<li><p>Framework otentikasi dan otorisasi resmi <a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">CodeIgniter Shield</span></a></p></li>
+<li><p>Mudah menambahkan otentikasi pihak ketiga</p></li>
+</ul>
+</section>
+</section>
+<section id="a02-2021-kegagalan-kriptografi">
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">A02:2021 Kegagalan Kriptografi</a><a class="headerlink" href="#a02-2021-kegagalan-kriptografi" title="Permalink to this heading"></a></h3>
+<p>Hal pertama adalah menentukan kebutuhan perlindungan data dalam transit dan saat
+diam. Misalnya, kata sandi, nomor kartu kredit, catatan kesehatan, informasi pribadi,
+dan rahasia bisnis memerlukan perlindungan ekstra, terutama jika data tersebut
+berada di bawah undang-undang privasi, mis. Peraturan Perlindungan Data Umum (GDPR) Uni Eropa,
+atau peraturan, mis. perlindungan data keuangan seperti Standar Keamanan Data PCI (PCI DSS).
+Untuk semua data tersebut:</p>
+<ul class="simple">
+<li><p>Apakah ada data yang ditransmisikan dalam teks biasa? Ini menyangkut protokol seperti HTTP,
+SMTP, FTP juga menggunakan peningkatan TLS seperti STARTTLS. Lalu lintas internet eksternal
+sangat berbahaya. Verifikasi semua lalu lintas internal, mis. antara penyeimbang beban, server web,
+atau sistem back-end.</p></li>
+<li><p>Apakah ada algoritma atau protokol kriptografi lama atau lemah yang digunakan baik secara default
+atau dalam kode lama?</p></li>
+<li><p>Apakah kunci kripto default digunakan, kunci kripto lemah dihasilkan atau digunakan kembali, atau
+apakah manajemen atau rotasi kunci yang tepat hilang? Apakah kunci kripto diperiksa ke repositori
+kode sumber?</p></li>
+<li><p>Apakah enkripsi tidak diberlakukan, mis. apakah ada header HTTP (browser) direktif keamanan
+atau header yang hilang?</p></li>
+<li><p>Apakah sertifikat server yang diterima dan rantai kepercayaan divalidasi dengan benar?</p></li>
+<li><p>Apakah vektor inisialisasi diabaikan, digunakan kembali, atau tidak dihasilkan cukup aman
+untuk mode operasi kriptografi? Apakah mode operasi yang tidak aman seperti
+ECB digunakan? Apakah enkripsi digunakan ketika enkripsi terautentikasi lebih tepat?</p></li>
+<li><p>Apakah kata sandi digunakan sebagai kunci kriptografi tanpa fungsi derivasi kunci berbasis kata sandi?</p></li>
+<li><p>Apakah keacakan digunakan untuk tujuan kriptografi yang tidak dirancang untuk memenuhi
+persyaratan kriptografi? Bahkan jika fungsi yang benar dipilih, apakah perlu
+disemai oleh pengembang, dan jika tidak, apakah pengembang telah menimpa
+fungsionalitas penyemaian yang kuat yang dibangun di dalamnya dengan benih yang tidak memiliki
+entropi/ketidakpastian yang cukup?</p></li>
+<li><p>Apakah fungsi hash yang tidak digunakan lagi seperti MD5 atau SHA1 digunakan, atau apakah
+fungsi hash non-kriptografi digunakan ketika fungsi hash kriptografi dibutuhkan?</p></li>
+<li><p>Apakah metode padding kriptografi yang tidak digunakan lagi seperti PKCS nomor 1 v1.5 digunakan?</p></li>
+<li><p>Apakah pesan kesalahan kriptografi atau informasi saluran samping dapat dieksploitasi, misalnya
+dalam bentuk serangan oracle padding?</p></li>
+</ul>
+<section id="id1">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<p>Lakukan hal berikut, minimal, dan konsultasikan referensi:</p>
+<ul class="simple">
+<li><p>Klasifikasikan data yang diproses, disimpan, atau ditransmisikan oleh aplikasi. Identifikasi data mana
+yang sensitif menurut undang-undang privasi, persyaratan peraturan, atau kebutuhan bisnis.</p></li>
+<li><p>Jangan menyimpan data sensitif yang tidak perlu. Buang sesegera mungkin atau gunakan
+tokenisasi yang sesuai dengan PCI DSS atau bahkan pemotongan. Data yang tidak disimpan
+tidak dapat dicuri.</p></li>
+<li><p>Pastikan untuk mengenkripsi semua data sensitif saat diam.</p></li>
+<li><p>Pastikan algoritma, protokol, dan kunci standar yang mutakhir dan kuat ada;
+gunakan manajemen kunci yang tepat.</p></li>
+<li><p>Enkripsi semua data dalam transit dengan protokol aman seperti TLS dengan cipher forward secrecy
+(FS), prioritas cipher oleh server, dan parameter aman. Terapkan enkripsi menggunakan
+direktif seperti HTTP Strict Transport Security (HSTS).</p></li>
+<li><p>Nonaktifkan caching untuk respons yang berisi data sensitif.</p></li>
+<li><p>Terapkan kontrol keamanan yang diperlukan sesuai klasifikasi data.</p></li>
+<li><p>Jangan gunakan protokol lama seperti FTP dan SMTP untuk mengangkut data sensitif.</p></li>
+<li><p>Simpan kata sandi menggunakan fungsi hashing yang kuat, adaptif, dan diberi salt dengan faktor kerja
+(faktor penundaan), seperti Argon2, scrypt, bcrypt, atau PBKDF2.</p></li>
+<li><p>Vektor inisialisasi harus dipilih sesuai untuk mode operasi.
+Untuk banyak mode, ini berarti menggunakan CSPRNG (penghasil angka pseudo-acak yang aman secara kriptografi).
+Untuk mode yang membutuhkan nonce, maka vektor inisialisasi (IV) tidak memerlukan CSPRNG.
+Dalam semua kasus, IV tidak boleh digunakan dua kali untuk kunci tetap.</p></li>
+<li><p>Selalu gunakan enkripsi terautentikasi daripada hanya enkripsi.</p></li>
+<li><p>Kunci harus dihasilkan secara acak secara kriptografi dan disimpan dalam memori sebagai array byte.
+Jika kata sandi digunakan, maka harus dikonversi ke kunci melalui fungsi derivasi kunci berbasis kata sandi yang sesuai.</p></li>
+<li><p>Pastikan keacakan kriptografi digunakan jika sesuai, dan bahwa itu belum disemai
+dengan cara yang dapat diprediksi atau dengan entropi rendah. Sebagian besar API modern tidak
+memerlukan pengembang untuk menyemai CSPRNG untuk mendapatkan keamanan.</p></li>
+<li><p>Hindari fungsi kriptografi dan skema padding yang tidak digunakan lagi, seperti MD5, SHA1,
+PKCS nomor 1 v1.5.</p></li>
+<li><p>Verifikasi secara independen efektivitas konfigurasi dan pengaturan.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Konfigurasi untuk akses aman global (<code class="docutils literal notranslate"><span class="pre">Config\App::$forceGlobalSecureRequests</span></code>)</p></li>
+<li><p>Fungsi <a class="reference internal" href="../general/common_functions.html#force_https" title="force_https"><code class="xref php php-func docutils literal notranslate"><span class="pre">force_https()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../libraries/encryption.html"><span class="doc">Encryption Service</span></a></p></li>
+<li><p>Konfigurasi <a class="reference internal" href="../database/configuration.html#database-config-explanation-of-values"><span class="std std-ref">database</span></a> (<code class="docutils literal notranslate"><span class="pre">encrypt</span></code>)</p></li>
+<li><p>Framework otentikasi dan otorisasi resmi
+<a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">CodeIgniter Shield</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="a03-2021-injeksi">
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">A03:2021 Injeksi</a><a class="headerlink" href="#a03-2021-injeksi" title="Permalink to this heading"></a></h3>
+<p>Aplikasi rentan terhadap serangan ketika:</p>
+<ul class="simple">
+<li><p>Data yang disediakan pengguna tidak divalidasi, difilter, atau disanitasi oleh aplikasi.</p></li>
+<li><p>Kueri dinamis atau panggilan non-parameter tanpa escaping yang sadar konteks
+digunakan langsung di interpreter.</p></li>
+<li><p>Data yang tidak bersahabat digunakan dalam parameter pencarian Object-Relational Mapping (ORM)
+untuk mengekstrak catatan tambahan yang sensitif.</p></li>
+<li><p>Data yang tidak bersahabat langsung digunakan atau digabungkan. SQL atau perintah berisi
+struktur dan data berbahaya dalam kueri dinamis, perintah, atau prosedur tersimpan.</p></li>
+</ul>
+<p>Beberapa injeksi yang lebih umum adalah injeksi SQL, NoSQL, perintah OS, Object Relational
+Mapping (ORM), LDAP, dan Expression Language (EL) atau Object Graph Navigation Library
+(OGNL). Konsepnya identik di antara semua interpreter. Tinjauan kode sumber adalah
+metode terbaik untuk mendeteksi apakah aplikasi rentan terhadap injeksi.
+Pengujian otomatis semua parameter, header, URL, cookie, JSON, SOAP, dan input data XML
+sangat dianjurkan. Organisasi dapat menyertakan alat pengujian keamanan aplikasi statis (SAST),
+dinamis (DAST), dan interaktif (IAST) ke dalam pipeline CI/CD untuk mengidentifikasi
+cacat injeksi yang diperkenalkan sebelum deployment produksi.</p>
+<section id="id3">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<p>Mencegah injeksi memerlukan pemisahan data dari perintah dan kueri:</p>
+<ul>
+<li><p>Opsi yang disukai adalah menggunakan API yang aman, yang menghindari penggunaan interpreter
+sepenuhnya, menyediakan antarmuka berparameter, atau bermigrasi ke Alat Object Relational Mapping (ORM).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Catatan: Bahkan ketika berparameter, prosedur tersimpan masih dapat memperkenalkan injeksi SQL
+jika PL/SQL atau T-SQL menggabungkan kueri dan data atau mengeksekusi data yang tidak bersahabat
+dengan EXECUTE IMMEDIATE atau exec().</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Gunakan validasi input sisi server positif. Ini bukan pertahanan lengkap karena
+banyak aplikasi memerlukan karakter khusus, seperti area teks atau API untuk
+aplikasi seluler.</p></li>
+<li><p>Untuk kueri dinamis yang tersisa, escape karakter khusus menggunakan sintaks escape spesifik
+untuk interpreter tersebut.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Catatan: Struktur SQL seperti nama tabel, nama kolom, dan sebagainya tidak dapat
+di-escape, sehingga nama struktur yang disediakan pengguna berbahaya. Ini adalah
+masalah umum dalam perangkat lunak penulisan laporan.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Gunakan LIMIT dan kontrol SQL lainnya dalam kueri untuk mencegah pengungkapan massal
+catatan dalam kasus injeksi SQL.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p><a class="reference internal" href="../general/urls.html#urls-uri-security"><span class="std std-ref">URI Security</span></a></p></li>
+<li><p>Filter <a class="reference internal" href="../incoming/filters.html#invalidchars"><span class="std std-ref">InvalidChars</span></a></p></li>
+<li><p>Library <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a></p></li>
+<li><p>Fungsi <a class="reference internal" href="../general/common_functions.html#esc" title="esc"><code class="xref php php-func docutils literal notranslate"><span class="pre">esc()</span></code></a></p></li>
+<li><p>Library <a class="reference internal" href="../incoming/incomingrequest.html"><span class="doc">HTTP</span></a> menyediakan
+<a class="reference internal" href="../incoming/incomingrequest.html#incomingrequest-filtering-input-data"><span class="std std-ref">pemfilteran bidang input</span></a></p></li>
+<li><p>Dukungan untuk <a class="reference internal" href="../outgoing/csp.html#content-security-policy"><span class="std std-ref">Content Security Policy (CSP)</span></a></p></li>
+<li><p><a class="reference internal" href="../database/query_builder.html"><span class="doc">Class Query Builder</span></a></p></li>
+<li><p>Metode <a class="reference internal" href="../database/queries.html#database-queries-escaping"><span class="std std-ref">escape database</span></a></p></li>
+<li><p><a class="reference internal" href="../database/queries.html#database-queries-query-bindings"><span class="std std-ref">Binding Kueri</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="a04-2021-desain-tidak-aman">
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">A04:2021 Desain Tidak Aman</a><a class="headerlink" href="#a04-2021-desain-tidak-aman" title="Permalink to this heading"></a></h3>
+<p>Desain yang tidak aman adalah kategori luas yang mewakili kelemahan yang berbeda, yang dinyatakan
+sebagai &quot;desain kontrol yang hilang atau tidak efektif.&quot; Desain yang tidak aman bukanlah sumber untuk
+semua kategori risiko Top 10 lainnya. Ada perbedaan antara desain yang tidak aman
+dan implementasi yang tidak aman. Kami membedakan antara cacat desain dan cacat implementasi
+karena suatu alasan, mereka memiliki akar penyebab dan remediasi yang berbeda.</p>
+<p>Desain yang aman masih dapat memiliki cacat implementasi yang mengarah pada kerentanan
+yang dapat dieksploitasi. Desain yang tidak aman tidak dapat diperbaiki dengan implementasi yang sempurna
+karena menurut definisi, kontrol keamanan yang dibutuhkan tidak pernah dibuat untuk bertahan dari
+serangan tertentu. Salah satu faktor yang berkontribusi pada desain yang tidak aman adalah kurangnya
+profiling risiko bisnis yang melekat pada perangkat lunak atau sistem yang sedang dikembangkan,
+dan dengan demikian kegagalan untuk menentukan tingkat desain keamanan yang diperlukan.</p>
+<section id="id5">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Tetapkan dan gunakan siklus hidup pengembangan yang aman dengan profesional AppSec untuk
+membantu mengevaluasi dan merancang kontrol terkait keamanan dan privasi</p></li>
+<li><p>Tetapkan dan gunakan perpustakaan pola desain aman atau komponen siap pakai</p></li>
+<li><p>Gunakan pemodelan ancaman untuk otentikasi kritis, kontrol akses, logika bisnis,
+dan alur kunci</p></li>
+<li><p>Integrasikan bahasa dan kontrol keamanan ke dalam user story</p></li>
+<li><p>Integrasikan pemeriksaan kelayakan di setiap tingkat aplikasi Anda (dari frontend
+hingga backend)</p></li>
+<li><p>Tulis pengujian unit dan integrasi untuk memvalidasi bahwa semua alur kritis tahan
+terhadap model ancaman. Kompilasi kasus penggunaan dan kasus penyalahgunaan untuk setiap tingkat
+aplikasi Anda.</p></li>
+<li><p>Pisahkan lapisan tingkat pada lapisan sistem dan jaringan tergantung pada paparan
+dan kebutuhan perlindungan</p></li>
+<li><p>Pisahkan penyewa secara kuat berdasarkan desain di seluruh tingkatan</p></li>
+<li><p>Batasi konsumsi sumber daya oleh pengguna atau layanan</p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p><a class="reference internal" href="../testing/overview.html"><span class="doc">Pengujian PHPUnit</span></a></p></li>
+<li><p><a class="reference internal" href="../libraries/throttler.html"><span class="doc">Throttler</span></a> untuk pembatasan tingkat</p></li>
+<li><p>Framework otentikasi dan otorisasi resmi <a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">CodeIgniter Shield</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="a05-2021-kesalahan-konfigurasi-keamanan">
+<h3><a class="toc-backref" href="#id44" role="doc-backlink">A05:2021 Kesalahan Konfigurasi Keamanan</a><a class="headerlink" href="#a05-2021-kesalahan-konfigurasi-keamanan" title="Permalink to this heading"></a></h3>
+<p>Aplikasi mungkin rentan jika aplikasi:</p>
+<ul class="simple">
+<li><p>Kehilangan pengerasan keamanan yang sesuai di setiap bagian tumpukan aplikasi
+atau izin yang salah dikonfigurasi pada layanan cloud.</p></li>
+<li><p>Fitur yang tidak perlu diaktifkan atau diinstal (misalnya, port, layanan,
+halaman, akun, atau hak istimewa yang tidak perlu).</p></li>
+<li><p>Akun default dan kata sandi mereka masih diaktifkan dan tidak diubah.</p></li>
+<li><p>Penanganan kesalahan mengungkapkan jejak tumpukan atau pesan kesalahan yang terlalu informatif
+lainnya kepada pengguna.</p></li>
+<li><p>Untuk sistem yang ditingkatkan, fitur keamanan terbaru dinonaktifkan atau tidak dikonfigurasi
+dengan aman.</p></li>
+<li><p>Pengaturan keamanan di server aplikasi, framework aplikasi (misalnya,
+Struts, Spring, ASP.NET), library, database, dll., tidak diatur ke nilai yang aman.</p></li>
+<li><p>Server tidak mengirim header atau direktif keamanan, atau tidak diatur ke
+nilai yang aman.</p></li>
+<li><p>Perangkat lunak sudah usang atau rentan (lihat A06:2021-Komponen Rentan dan Usang).</p></li>
+</ul>
+<p>Tanpa proses konfigurasi keamanan aplikasi yang terkoordinasi dan berulang,
+sistem berisiko lebih tinggi.</p>
+<section id="id7">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+<p>Proses instalasi yang aman harus diterapkan, termasuk:</p>
+<ul class="simple">
+<li><p>Proses pengerasan yang berulang membuatnya cepat dan mudah untuk menerapkan lingkungan lain
+yang terkunci dengan benar. Lingkungan pengembangan, QA, dan produksi
+harus dikonfigurasi secara identik, dengan kredensial yang berbeda digunakan di setiap
+lingkungan. Proses ini harus diotomatisasi untuk meminimalkan upaya yang diperlukan
+untuk menyiapkan lingkungan aman yang baru.</p></li>
+<li><p>Platform minimal tanpa fitur, komponen, dokumentasi,
+dan sampel yang tidak perlu. Hapus atau jangan instal fitur dan framework yang tidak digunakan.</p></li>
+<li><p>Tugas untuk meninjau dan memperbarui konfigurasi yang sesuai dengan semua catatan keamanan,
+pembaruan, dan patch sebagai bagian dari proses manajemen patch (lihat A06:2021-Komponen Rentan
+dan Usang). Tinjau izin penyimpanan cloud (misalnya, izin bucket S3).</p></li>
+<li><p>Arsitektur aplikasi yang tersegmentasi menyediakan pemisahan yang efektif dan aman
+antara komponen atau penyewa, dengan segmentasi, containerization, atau grup keamanan cloud (ACL).</p></li>
+<li><p>Mengirim direktif keamanan ke klien, mis. Header Keamanan.</p></li>
+<li><p>Proses otomatis untuk memverifikasi efektivitas konfigurasi dan
+pengaturan di semua lingkungan.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Perintah <a class="reference internal" href="../general/configuration.html#confirming-config-values"><span class="std std-ref">spark config:check</span></a></p></li>
+<li><p>Perintah <a class="reference internal" href="../installation/running.html#spark-phpini-check"><span class="std std-ref">spark phpini:check</span></a></p></li>
+<li><p><a class="reference internal" href="../general/environments.html#environment-constant"><span class="std std-ref">Mode Produksi</span></a> secara default</p></li>
+<li><p>Filter <a class="reference internal" href="../incoming/filters.html#secureheaders"><span class="std std-ref">SecureHeaders</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="a06-2021-komponen-rentan-dan-usang">
+<h3><a class="toc-backref" href="#id45" role="doc-backlink">A06:2021 Komponen Rentan dan Usang</a><a class="headerlink" href="#a06-2021-komponen-rentan-dan-usang" title="Permalink to this heading"></a></h3>
+<p>Anda kemungkinan rentan:</p>
+<ul class="simple">
+<li><p>Jika Anda tidak mengetahui versi semua komponen yang Anda gunakan (baik sisi klien
+maupun sisi server). Ini termasuk komponen yang Anda gunakan secara langsung serta
+dependensi bersarang.</p></li>
+<li><p>Jika perangkat lunak rentan, tidak didukung, atau sudah usang. Ini termasuk OS,
+server web/aplikasi, sistem manajemen database (DBMS), aplikasi, API
+dan semua komponen, lingkungan runtime, dan library.</p></li>
+<li><p>Jika Anda tidak memindai kerentanan secara teratur dan berlangganan buletin keamanan
+terkait komponen yang Anda gunakan.</p></li>
+<li><p>Jika Anda tidak memperbaiki atau meningkatkan platform, framework, dan dependensi yang mendasari
+secara berbasis risiko, tepat waktu. Ini umumnya terjadi di lingkungan ketika
+patching adalah tugas bulanan atau triwulanan di bawah kontrol perubahan, membuat organisasi
+terbuka terhadap hari atau bulan paparan yang tidak perlu terhadap kerentanan yang telah diperbaiki.</p></li>
+<li><p>Jika pengembang perangkat lunak tidak menguji kompatibilitas library yang diperbarui, ditingkatkan, atau
+dipatch.</p></li>
+<li><p>Jika Anda tidak mengamankan konfigurasi komponen (lihat A05:2021-Kesalahan Konfigurasi Keamanan).</p></li>
+</ul>
+<section id="id9">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
+<p>Harus ada proses manajemen patch yang berlaku untuk:</p>
+<ul class="simple">
+<li><p>Hapus dependensi yang tidak digunakan, fitur yang tidak perlu, komponen, file, dan
+dokumentasi.</p></li>
+<li><p>Terus-menerus menginventarisasi versi komponen sisi klien dan sisi server
+(misalnya, framework, library) dan dependensi mereka menggunakan alat seperti versi,
+OWASP Dependency Check, retire.js, dll. Terus-menerus memantau sumber seperti Common
+Vulnerability and Exposures (CVE) dan National Vulnerability Database (NVD) untuk
+kerentanan dalam komponen. Gunakan alat analisis komposisi perangkat lunak untuk
+mengotomatisasi proses. Berlangganan peringatan email untuk kerentanan keamanan
+terkait komponen yang Anda gunakan.</p></li>
+<li><p>Hanya dapatkan komponen dari sumber resmi melalui tautan aman. Lebih suka paket yang ditandatangani
+untuk mengurangi kemungkinan menyertakan komponen yang dimodifikasi, berbahaya
+(Lihat A08:2021-Kegagalan Integritas Perangkat Lunak dan Data).</p></li>
+<li><p>Pantau library dan komponen yang tidak terpelihara atau tidak membuat
+patch keamanan untuk versi lama. Jika patching tidak memungkinkan, pertimbangkan
+untuk menerapkan patch virtual untuk memantau, mendeteksi, atau melindungi dari masalah yang ditemukan.</p></li>
+</ul>
+<p>Setiap organisasi harus memastikan rencana berkelanjutan untuk memantau, meninjau, dan
+menerapkan pembaruan atau perubahan konfigurasi selama masa pakai aplikasi atau
+portofolio.</p>
+</section>
+<section id="id10">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p><a class="reference internal" href="../installation/installing_composer.html#app-starter-upgrading"><span class="std std-ref">Peningkatan (Upgrading)</span></a> yang mudah oleh Composer</p></li>
+</ul>
+</section>
+</section>
+<section id="a07-2021-kegagalan-identifikasi-dan-otentikasi">
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">A07:2021 Kegagalan Identifikasi dan Otentikasi</a><a class="headerlink" href="#a07-2021-kegagalan-identifikasi-dan-otentikasi" title="Permalink to this heading"></a></h3>
+<p>Konfirmasi identitas pengguna, otentikasi, dan manajemen sesi sangat
+penting untuk melindungi dari serangan terkait otentikasi. Mungkin ada
+kelemahan otentikasi jika aplikasi:</p>
+<ul class="simple">
+<li><p>Mengizinkan serangan otomatis seperti credential stuffing, di mana penyerang memiliki
+daftar nama pengguna dan kata sandi yang valid.</p></li>
+<li><p>Mengizinkan brute force atau serangan otomatis lainnya.</p></li>
+<li><p>Mengizinkan kata sandi default, lemah, atau terkenal, seperti &quot;Password1&quot; atau &quot;admin/admin&quot;.</p></li>
+<li><p>Menggunakan proses pemulihan kredensial dan lupa kata sandi yang lemah atau tidak efektif,
+seperti &quot;jawaban berbasis pengetahuan,&quot; yang tidak dapat dibuat aman.</p></li>
+<li><p>Menggunakan teks biasa, terenkripsi, atau penyimpanan data kata sandi yang di-hash secara lemah
+(lihat A02:2021-Kegagalan Kriptografi).</p></li>
+<li><p>Memiliki otentikasi multi-faktor yang hilang atau tidak efektif.</p></li>
+<li><p>Mengekspos pengidentifikasi sesi di URL.</p></li>
+<li><p>Menggunakan kembali pengidentifikasi sesi setelah login berhasil.</p></li>
+<li><p>Tidak membatalkan ID Sesi dengan benar. Sesi pengguna atau token otentikasi
+(terutama token single sign-on (SSO)) tidak dibatalkan dengan benar selama logout
+atau periode tidak aktif.</p></li>
+</ul>
+<section id="id11">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Jika memungkinkan, terapkan otentikasi multi-faktor untuk mencegah serangan
+credential stuffing otomatis, brute force, dan serangan penggunaan kembali kredensial yang dicuri.</p></li>
+<li><p>Jangan mengirim atau menerapkan dengan kredensial default apa pun, terutama untuk pengguna admin.</p></li>
+<li><p>Terapkan pemeriksaan kata sandi lemah, seperti menguji kata sandi baru atau yang diubah terhadap
+daftar 10.000 kata sandi terburuk.</p></li>
+<li><p>Sesuaikan panjang kata sandi, kompleksitas, dan kebijakan rotasi dengan pedoman
+National Institute of Standards and Technology (NIST) 800-63b di bagian 5.1.1 untuk
+Memorized Secrets atau kebijakan kata sandi modern berbasis bukti lainnya.</p></li>
+<li><p>Pastikan pendaftaran, pemulihan kredensial, dan jalur API diperkuat terhadap
+serangan enumerasi akun dengan menggunakan pesan yang sama untuk semua hasil.</p></li>
+<li><p>Batasi atau tunda secara bertahap upaya login yang gagal, tetapi berhati-hatilah agar tidak membuat
+skenario penolakan layanan. Catat semua kegagalan dan peringatkan administrator ketika
+credential stuffing, brute force, atau serangan lain terdeteksi.</p></li>
+<li><p>Gunakan manajer sesi sisi server yang aman dan bawaan yang menghasilkan ID sesi acak baru
+dengan entropi tinggi setelah login. Pengidentifikasi sesi tidak boleh ada di
+URL, harus disimpan dengan aman, dan dibatalkan setelah logout, idle, dan batas waktu mutlak.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Library <a class="reference internal" href="../libraries/sessions.html"><span class="doc">Session</span></a></p></li>
+<li><p>Framework otentikasi dan otorisasi resmi
+<a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">CodeIgniter Shield</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="a08-2021-kegagalan-integritas-perangkat-lunak-dan-data">
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">A08:2021 Kegagalan Integritas Perangkat Lunak dan Data</a><a class="headerlink" href="#a08-2021-kegagalan-integritas-perangkat-lunak-dan-data" title="Permalink to this heading"></a></h3>
+<p>Kegagalan integritas perangkat lunak dan data berkaitan dengan kode dan infrastruktur yang tidak
+melindungi terhadap pelanggaran integritas. Contohnya adalah di mana aplikasi
+bergantung pada plugin, library, atau modul dari sumber yang tidak tepercaya, repositori,
+dan jaringan pengiriman konten (CDN). Pipeline CI/CD yang tidak aman dapat memperkenalkan
+potensi akses tidak sah, kode berbahaya, atau kompromi sistem.</p>
+<p>Terakhir, banyak aplikasi sekarang menyertakan fungsionalitas pembaruan otomatis, di mana pembaruan
+diunduh tanpa verifikasi integritas yang memadai dan diterapkan ke aplikasi yang sebelumnya
+dipercaya. Penyerang berpotensi mengunggah pembaruan mereka sendiri untuk didistribusikan dan dijalankan
+di semua instalasi.</p>
+<p>Contoh lain adalah di mana objek atau data dikodekan atau diserialkan ke dalam struktur
+yang dapat dilihat dan dimodifikasi oleh penyerang rentan terhadap deserialisasi yang tidak aman.</p>
+<section id="id13">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Gunakan tanda tangan digital atau mekanisme serupa untuk memverifikasi perangkat lunak atau data
+berasal dari sumber yang diharapkan dan belum diubah.</p></li>
+<li><p>Pastikan library dan dependensi, seperti npm atau Maven, mengonsumsi repositori tepercaya.
+Jika Anda memiliki profil risiko yang lebih tinggi, pertimbangkan untuk menghosting repositori internal
+yang diketahui baik dan telah diverifikasi.</p></li>
+<li><p>Pastikan alat keamanan rantai pasokan perangkat lunak, seperti OWASP Dependency
+Check atau OWASP CycloneDX, digunakan untuk memverifikasi bahwa komponen tidak mengandung
+kerentanan yang diketahui.</p></li>
+<li><p>Pastikan ada proses peninjauan untuk perubahan kode dan konfigurasi untuk
+meminimalkan kemungkinan kode atau konfigurasi berbahaya dapat diperkenalkan
+ke dalam pipeline perangkat lunak Anda.</p></li>
+<li><p>Pastikan pipeline CI/CD Anda memiliki pemisahan, konfigurasi, dan
+kontrol akses yang tepat untuk memastikan integritas kode yang mengalir melalui proses
+pembuatan dan deployment.</p></li>
+<li><p>Pastikan data serial yang tidak ditandatangani atau tidak terenkripsi tidak dikirim ke
+klien yang tidak tepercaya tanpa beberapa bentuk pemeriksaan integritas atau tanda tangan digital
+untuk mendeteksi perusakan atau pemutaran ulang data serial.</p></li>
+</ul>
+</section>
+<section id="id14">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>n/a</p></li>
+</ul>
+</section>
+</section>
+<section id="a09-2021-kegagalan-logging-dan-pemantauan-keamanan">
+<h3><a class="toc-backref" href="#id48" role="doc-backlink">A09:2021 Kegagalan Logging dan Pemantauan Keamanan</a><a class="headerlink" href="#a09-2021-kegagalan-logging-dan-pemantauan-keamanan" title="Permalink to this heading"></a></h3>
+<p>Kategori ini adalah untuk membantu mendeteksi, meningkatkan, dan menanggapi pelanggaran aktif. Tanpa
+logging dan pemantauan, pelanggaran tidak dapat dideteksi. Logging, deteksi,
+pemantauan, dan respons aktif yang tidak memadai terjadi kapan saja:</p>
+<ul class="simple">
+<li><p>Peristiwa yang dapat diaudit, seperti login, login gagal, dan transaksi bernilai tinggi,
+tidak dicatat.</p></li>
+<li><p>Peringatan dan kesalahan tidak menghasilkan pesan log yang memadai atau tidak jelas.</p></li>
+<li><p>Log aplikasi dan API tidak dipantau untuk aktivitas mencurigakan.</p></li>
+<li><p>Log hanya disimpan secara lokal.</p></li>
+<li><p>Ambang batas peringatan dan proses eskalasi respons yang sesuai tidak ada
+atau tidak efektif.</p></li>
+<li><p>Pengujian penetrasi dan pemindaian oleh alat pengujian keamanan aplikasi dinamis (DAST)
+(seperti OWASP ZAP) tidak memicu peringatan.</p></li>
+<li><p>Aplikasi tidak dapat mendeteksi, meningkatkan, atau memperingatkan serangan aktif secara real-time
+atau mendekati real-time.</p></li>
+</ul>
+<p>Anda rentan terhadap kebocoran informasi dengan membuat peristiwa logging dan peringatan
+terlihat oleh pengguna atau penyerang (lihat A01:2021-Kontrol Akses Rusak).</p>
+<section id="id15">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h4>
+<p>Pengembang harus menerapkan beberapa atau semua kontrol berikut, tergantung pada risiko aplikasi:</p>
+<ul class="simple">
+<li><p>Pastikan semua kegagalan login, kontrol akses, dan validasi input sisi server dapat
+dicatat dengan konteks pengguna yang cukup untuk mengidentifikasi akun yang mencurigakan atau berbahaya
+dan disimpan cukup lama untuk memungkinkan analisis forensik yang tertunda.</p></li>
+<li><p>Pastikan log dihasilkan dalam format yang mudah dikonsumsi oleh solusi manajemen log.</p></li>
+<li><p>Pastikan data log dikodekan dengan benar untuk mencegah injeksi atau serangan pada
+sistem logging atau pemantauan.</p></li>
+<li><p>Pastikan transaksi bernilai tinggi memiliki jejak audit dengan kontrol integritas untuk
+mencegah perusakan atau penghapusan, seperti tabel database hanya-tambah atau yang serupa.</p></li>
+<li><p>Tim DevSecOps harus menetapkan pemantauan dan peringatan yang efektif sehingga
+aktivitas mencurigakan terdeteksi dan ditanggapi dengan cepat.</p></li>
+<li><p>Menetapkan atau mengadopsi rencana respons insiden dan pemulihan, seperti National
+Institute of Standards and Technology (NIST) 800-61r2 atau yang lebih baru.</p></li>
+</ul>
+<p>Ada framework perlindungan aplikasi komersial dan open-source seperti
+OWASP ModSecurity Core Rule Set, dan perangkat lunak korelasi log open-source,
+seperti stack Elasticsearch, Logstash, Kibana (ELK), yang menampilkan
+dashboard kustom dan peringatan.</p>
+</section>
+<section id="id16">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Library <a class="reference internal" href="../general/logging.html"><span class="doc">Logging</span></a></p></li>
+<li><p>Framework otentikasi dan otorisasi resmi
+<a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">CodeIgniter Shield</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="a10-2021-server-side-request-forgery-ssrf">
+<h3><a class="toc-backref" href="#id49" role="doc-backlink">A10:2021 Server-Side Request Forgery (SSRF)</a><a class="headerlink" href="#a10-2021-server-side-request-forgery-ssrf" title="Permalink to this heading"></a></h3>
+<p>Cacat SSRF terjadi setiap kali aplikasi web mengambil sumber daya jarak jauh tanpa
+memvalidasi URL yang disediakan pengguna. Ini memungkinkan penyerang untuk memaksa aplikasi
+mengirim permintaan yang dibuat ke tujuan yang tidak terduga, bahkan ketika dilindungi oleh
+firewall, VPN, atau jenis daftar kontrol akses jaringan (ACL) lainnya.</p>
+<p>Karena aplikasi web modern menyediakan fitur yang nyaman bagi pengguna akhir, mengambil
+URL menjadi skenario umum. Akibatnya, insiden SSRF meningkat.
+Juga, tingkat keparahan SSRF semakin tinggi karena layanan cloud dan
+kompleksitas arsitektur.</p>
+<section id="id17">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h4>
+<p>Pengembang dapat mencegah SSRF dengan menerapkan beberapa atau semua kontrol pertahanan mendalam berikut:</p>
+<p>Dari lapisan Jaringan:</p>
+<ul>
+<li><p>Segmentasikan fungsionalitas akses sumber daya jarak jauh di jaringan terpisah untuk mengurangi
+dampak SSRF</p></li>
+<li><p>Terapkan kebijakan firewall &quot;tolak secara default&quot; atau aturan kontrol akses jaringan untuk
+memblokir semua kecuali lalu lintas intranet penting.</p>
+<blockquote>
+<div><ul>
+<li><p>Petunjuk:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Tetapkan kepemilikan dan siklus hidup untuk aturan firewall berdasarkan
+aplikasi.</p></li>
+<li><p>Catat semua aliran jaringan yang diterima dan diblokir pada firewall
+(lihat A09:2021-Kegagalan Logging dan Pemantauan Keamanan).</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Dari lapisan Aplikasi:</p>
+<ul class="simple">
+<li><p>Sanitasi dan validasi semua data input yang disediakan klien</p></li>
+<li><p>Terapkan skema URL, port, dan tujuan dengan daftar izin positif</p></li>
+<li><p>Jangan mengirim respons mentah ke klien</p></li>
+<li><p>Nonaktifkan pengalihan HTTP</p></li>
+<li><p>Sadari konsistensi URL untuk menghindari serangan seperti DNS rebinding dan
+kondisi balapan &quot;waktu pemeriksaan, waktu penggunaan&quot; (TOCTOU)</p></li>
+</ul>
+<p>Jangan mitigasi SSRF melalui penggunaan daftar tolak atau ekspresi reguler. Penyerang
+memiliki daftar payload, alat, dan keterampilan untuk melewati daftar tolak.</p>
+</section>
+<section id="id18">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Library <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a></p></li>
+<li><p>Library <a class="reference internal" href="../incoming/incomingrequest.html"><span class="doc">HTTP</span></a> menyediakan
+<a class="reference internal" href="../incoming/incomingrequest.html#incomingrequest-filtering-input-data"><span class="std std-ref">pemfilteran bidang input</span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="owasp-api-security-top-10-2023">
+<h2><a class="toc-backref" href="#id50" role="doc-backlink">OWASP API Security Top 10 2023</a><a class="headerlink" href="#owasp-api-security-top-10-2023" title="Permalink to this heading"></a></h2>
+<section id="api1-2023-otorisasi-tingkat-objek-rusak">
+<h3><a class="toc-backref" href="#id51" role="doc-backlink">API1:2023 Otorisasi Tingkat Objek Rusak</a><a class="headerlink" href="#api1-2023-otorisasi-tingkat-objek-rusak" title="Permalink to this heading"></a></h3>
+<p>API cenderung mengekspos endpoint yang menangani pengidentifikasi objek, menciptakan luasnya
+permukaan serangan masalah Kontrol Akses Tingkat Objek. Pemeriksaan otorisasi tingkat objek
+harus dipertimbangkan di setiap fungsi yang mengakses sumber data menggunakan
+ID dari pengguna.</p>
+<section id="id19">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Terapkan mekanisme otorisasi yang tepat yang bergantung pada kebijakan pengguna dan
+hierarki.</p></li>
+<li><p>Gunakan mekanisme otorisasi untuk memeriksa apakah pengguna yang masuk memiliki akses untuk
+melakukan tindakan yang diminta pada catatan di setiap fungsi yang menggunakan input
+dari klien untuk mengakses catatan di database.</p></li>
+<li><p>Lebih suka menggunakan nilai acak dan tidak dapat diprediksi sebagai GUID untuk ID catatan.</p></li>
+<li><p>Tulis pengujian untuk mengevaluasi kerentanan mekanisme otorisasi. Jangan
+menerapkan perubahan yang menyebabkan pengujian gagal.</p></li>
+</ul>
+</section>
+<section id="id20">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Framework otentikasi dan otorisasi resmi
+<a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">CodeIgniter Shield</span></a></p></li>
+<li><p><a class="reference internal" href="../testing/overview.html"><span class="doc">Pengujian PHPUnit</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="api2-2023-otentikasi-rusak">
+<h3><a class="toc-backref" href="#id52" role="doc-backlink">API2:2023 Otentikasi Rusak</a><a class="headerlink" href="#api2-2023-otentikasi-rusak" title="Permalink to this heading"></a></h3>
+<p>Mekanisme otentikasi sering diimplementasikan dengan tidak benar, memungkinkan penyerang
+untuk mengkompromikan token otentikasi atau untuk mengeksploitasi cacat implementasi untuk mengambil
+identitas pengguna lain sementara atau permanen. Mengkompromikan kemampuan sistem
+untuk mengidentifikasi klien/pengguna, mengkompromikan keamanan API secara keseluruhan.</p>
+<section id="id21">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Pastikan Anda mengetahui semua alur yang mungkin untuk otentikasi ke API (seluler/
+web/deep links yang mengimplementasikan otentikasi satu klik/dll.). Tanyakan kepada engineer Anda
+alur apa yang Anda lewatkan.</p></li>
+<li><p>Baca tentang mekanisme otentikasi Anda. Pastikan Anda memahami apa dan
+bagaimana mereka digunakan. OAuth bukanlah otentikasi, begitu juga kunci API.</p></li>
+<li><p>Jangan menciptakan kembali roda dalam otentikasi, pembuatan token, atau penyimpanan kata sandi.
+Gunakan standar.</p></li>
+<li><p>Endpoint pemulihan kredensial/lupa kata sandi harus diperlakukan sebagai endpoint login
+dalam hal brute force, pembatasan tingkat, dan perlindungan penguncian.</p></li>
+<li><p>Membutuhkan otentikasi ulang untuk operasi sensitif (misalnya mengubah email pemilik akun/nomor telepon 2FA).</p></li>
+<li><p>Gunakan OWASP Authentication Cheatsheet.</p></li>
+<li><p>Jika memungkinkan, terapkan otentikasi multi-faktor.</p></li>
+<li><p>Terapkan mekanisme anti-brute force untuk mengurangi credential stuffing, serangan kamus,
+dan serangan brute force pada endpoint otentikasi Anda. Mekanisme ini
+harus lebih ketat daripada mekanisme pembatasan tingkat reguler pada API Anda.</p></li>
+<li><p>Terapkan mekanisme penguncian akun/captcha untuk mencegah serangan brute force
+terhadap pengguna tertentu. Terapkan pemeriksaan kata sandi lemah.</p></li>
+<li><p>Kunci API tidak boleh digunakan untuk otentikasi pengguna. Mereka hanya boleh digunakan
+untuk otentikasi klien API.</p></li>
+</ul>
+</section>
+<section id="id22">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p><a class="reference internal" href="../incoming/filters.html"><span class="doc">Controller Filters</span></a></p></li>
+<li><p>Perintah <a class="reference internal" href="../incoming/routing.html#routing-spark-routes"><span class="std std-ref">spark routes</span></a></p></li>
+<li><p>Framework otentikasi dan otorisasi resmi
+<a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">CodeIgniter Shield</span></a></p></li>
+<li><p><a class="reference internal" href="../libraries/throttler.html"><span class="doc">Throttler</span></a> untuk pembatasan tingkat</p></li>
+</ul>
+</section>
+</section>
+<section id="api3-2023-otorisasi-tingkat-properti-objek-rusak">
+<h3><a class="toc-backref" href="#id53" role="doc-backlink">API3:2023 Otorisasi Tingkat Properti Objek Rusak</a><a class="headerlink" href="#api3-2023-otorisasi-tingkat-properti-objek-rusak" title="Permalink to this heading"></a></h3>
+<p>Kategori ini menggabungkan API3:2019 Excessive Data Exposure dan API6:2019 - Mass
+Assignment, berfokus pada akar penyebab: kurangnya atau validasi otorisasi yang tidak tepat
+pada tingkat properti objek. Ini mengarah pada pengungkapan informasi atau
+manipulasi oleh pihak yang tidak berwenang.</p>
+<section id="id23">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Saat mengekspos objek menggunakan endpoint API, selalu pastikan bahwa pengguna
+harus memiliki akses ke properti objek yang Anda ekspos.</p></li>
+<li><p>Hindari menggunakan metode generik seperti to_json() dan to_string(). Sebaliknya,
+pilih properti objek tertentu yang ingin Anda kembalikan.</p></li>
+<li><p>Jika memungkinkan, hindari menggunakan fungsi yang secara otomatis mengikat input klien
+ke dalam variabel kode, objek internal, atau properti objek (&quot;Mass Assignment&quot;).</p></li>
+<li><p>Izinkan perubahan hanya pada properti objek yang harus diperbarui oleh
+klien.</p></li>
+<li><p>Terapkan mekanisme validasi respons berbasis skema sebagai lapisan keamanan tambahan.
+Sebagai bagian dari mekanisme ini, definisikan dan terapkan data yang dikembalikan oleh semua
+metode API.</p></li>
+<li><p>Pertahankan struktur data yang dikembalikan seminimal mungkin, sesuai dengan
+persyaratan bisnis/fungsional untuk endpoint.</p></li>
+</ul>
+</section>
+<section id="id24">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Model <a class="reference internal" href="../models/model.html#model-allowed-fields"><span class="std std-ref">$allowedFields</span></a></p></li>
+<li><p>Framework otentikasi dan otorisasi resmi
+<a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">CodeIgniter Shield</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="api4-2023-konsumsi-sumber-daya-tidak-terbatas">
+<h3><a class="toc-backref" href="#id54" role="doc-backlink">API4:2023 Konsumsi Sumber Daya Tidak Terbatas</a><a class="headerlink" href="#api4-2023-konsumsi-sumber-daya-tidak-terbatas" title="Permalink to this heading"></a></h3>
+<p>Memenuhi permintaan API membutuhkan sumber daya seperti bandwidth jaringan, CPU, memori,
+dan penyimpanan. Sumber daya lain seperti email/SMS/panggilan telepon atau validasi biometrik
+disediakan oleh penyedia layanan melalui integrasi API, dan dibayar per
+permintaan. Serangan yang berhasil dapat menyebabkan Penolakan Layanan atau peningkatan
+biaya operasional.</p>
+<section id="id25">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Gunakan solusi yang memudahkan pembatasan memori, CPU, jumlah restart,
+deskriptor file, dan proses seperti Kontainer / kode Tanpa Server (misalnya Lambda).</p></li>
+<li><p>Tentukan dan terapkan ukuran maksimum data pada semua parameter dan payload yang masuk,
+seperti panjang maksimum untuk string, jumlah maksimum elemen dalam array, dan
+ukuran file unggahan maksimum (terlepas dari apakah disimpan secara lokal atau di
+penyimpanan cloud).</p></li>
+<li><p>Terapkan batasan seberapa sering klien dapat berinteraksi dengan API dalam
+jangka waktu yang ditentukan (pembatasan tingkat).</p></li>
+<li><p>Pembatasan tingkat harus disesuaikan berdasarkan kebutuhan bisnis. Beberapa Endpoint API
+mungkin memerlukan kebijakan yang lebih ketat.</p></li>
+<li><p>Batasi/throttle berapa kali atau seberapa sering satu klien/pengguna API dapat mengeksekusi
+satu operasi (misalnya memvalidasi OTP, atau meminta pemulihan kata sandi tanpa
+mengunjungi URL satu kali).</p></li>
+<li><p>Tambahkan validasi sisi server yang tepat untuk string kueri dan parameter badan permintaan,
+khususnya yang mengontrol jumlah catatan yang akan dikembalikan dalam
+respons.</p></li>
+<li><p>Konfigurasi batas pengeluaran untuk semua penyedia layanan/integrasi API. Saat menetapkan
+batas pengeluaran tidak memungkinkan, peringatan penagihan harus dikonfigurasi sebagai gantinya.</p></li>
+</ul>
+</section>
+<section id="id26">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Library <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a></p></li>
+<li><p><a class="reference internal" href="../libraries/throttler.html"><span class="doc">Throttler</span></a> untuk pembatasan tingkat</p></li>
+</ul>
+</section>
+</section>
+<section id="api5-2023-otorisasi-tingkat-fungsi-rusak">
+<h3><a class="toc-backref" href="#id55" role="doc-backlink">API5:2023 Otorisasi Tingkat Fungsi Rusak</a><a class="headerlink" href="#api5-2023-otorisasi-tingkat-fungsi-rusak" title="Permalink to this heading"></a></h3>
+<p>Kebijakan kontrol akses yang kompleks dengan hierarki, grup, dan peran yang berbeda,
+dan pemisahan yang tidak jelas antara fungsi administratif dan reguler, cenderung
+mengarah pada cacat otorisasi. Dengan mengeksploitasi masalah ini, penyerang dapat memperoleh
+akses ke sumber daya pengguna lain dan/atau fungsi administratif.</p>
+<section id="id27">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h4>
+<p>Aplikasi Anda harus memiliki modul otorisasi yang konsisten dan mudah dianalisis
+yang dipanggil dari semua fungsi bisnis Anda. Seringkali, perlindungan tersebut
+disediakan oleh satu atau lebih komponen di luar kode aplikasi.</p>
+<ul class="simple">
+<li><p>Mekanisme penegakan harus menolak semua akses secara default, membutuhkan
+izin eksplisit ke peran tertentu untuk akses ke setiap fungsi.</p></li>
+<li><p>Tinjau endpoint API Anda terhadap cacat otorisasi tingkat fungsi, sambil
+mempertimbangkan logika bisnis aplikasi dan hierarki grup.</p></li>
+<li><p>Pastikan bahwa semua controller administratif Anda mewarisi dari
+controller abstrak administratif yang mengimplementasikan pemeriksaan otorisasi berdasarkan
+grup/peran pengguna.</p></li>
+<li><p>Pastikan bahwa fungsi administratif di dalam controller reguler mengimplementasikan
+pemeriksaan otorisasi berdasarkan grup dan peran pengguna.</p></li>
+</ul>
+</section>
+<section id="id28">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p><a class="reference internal" href="../incoming/filters.html"><span class="doc">Controller Filters</span></a></p></li>
+<li><p>Framework otentikasi dan otorisasi resmi
+<a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">CodeIgniter Shield</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="api6-2023-akses-tidak-terbatas-ke-alur-bisnis-sensitif">
+<h3><a class="toc-backref" href="#id56" role="doc-backlink">API6:2023 Akses Tidak Terbatas ke Alur Bisnis Sensitif</a><a class="headerlink" href="#api6-2023-akses-tidak-terbatas-ke-alur-bisnis-sensitif" title="Permalink to this heading"></a></h3>
+<p>API yang rentan terhadap risiko ini mengekspos alur bisnis - seperti membeli tiket,
+atau memposting komentar - tanpa mengkompensasi bagaimana fungsionalitas tersebut dapat membahayakan
+bisnis jika digunakan secara berlebihan secara otomatis. Ini tidak selalu
+berasal dari bug implementasi.</p>
+<section id="id29">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h4>
+<p>Perencanaan mitigasi harus dilakukan dalam dua lapisan:</p>
+<ul class="simple">
+<li><p>Bisnis - identifikasi alur bisnis yang dapat membahayakan bisnis jika
+digunakan secara berlebihan.</p></li>
+<li><p>Rekayasa - pilih mekanisme perlindungan yang tepat untuk mengurangi risiko bisnis.</p></li>
+</ul>
+<p>Beberapa mekanisme perlindungan lebih sederhana sementara yang lain lebih sulit
+untuk diimplementasikan. Metode-metode berikut digunakan untuk memperlambat ancaman otomatis:</p>
+<ul class="simple">
+<li><p>Sidik jari perangkat: menolak layanan ke perangkat klien yang tidak terduga (misalnya
+browser tanpa kepala) cenderung membuat aktor ancaman menggunakan solusi yang lebih canggih,
+sehingga lebih mahal bagi mereka</p></li>
+<li><p>Deteksi manusia: menggunakan captcha atau solusi biometrik yang lebih canggih
+(misalnya pola mengetik)</p></li>
+<li><p>Pola non-manusia: menganalisis alur pengguna untuk mendeteksi pola non-manusia
+(misalnya pengguna mengakses fungsi &quot;tambah ke keranjang&quot; dan &quot;selesaikan pembelian&quot; dalam
+kurang dari satu detik)</p></li>
+<li><p>Pertimbangkan untuk memblokir alamat IP node keluar Tor dan proxy yang terkenal</p></li>
+</ul>
+<p>Amankan dan batasi akses ke API yang dikonsumsi langsung oleh mesin (seperti
+API pengembang dan B2B). Mereka cenderung menjadi target mudah bagi penyerang karena
+mereka sering tidak mengimplementasikan semua mekanisme perlindungan yang diperlukan.</p>
+</section>
+<section id="id30">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id30" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>n/a</p></li>
+</ul>
+</section>
+</section>
+<section id="api7-2023-server-side-request-forgery">
+<h3><a class="toc-backref" href="#id57" role="doc-backlink">API7:2023 Server Side Request Forgery</a><a class="headerlink" href="#api7-2023-server-side-request-forgery" title="Permalink to this heading"></a></h3>
+<p>Cacat Server-Side Request Forgery (SSRF) dapat terjadi ketika API mengambil
+sumber daya jarak jauh tanpa memvalidasi URI yang disediakan pengguna. Ini memungkinkan penyerang
+untuk memaksa aplikasi mengirim permintaan yang dibuat ke tujuan yang tidak terduga,
+bahkan ketika dilindungi oleh firewall atau VPN.</p>
+<section id="id31">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id31" title="Permalink to this heading"></a></h4>
+<ul>
+<li><p>Isolasi mekanisme pengambilan sumber daya di jaringan Anda: biasanya fitur-fitur ini
+bertujuan untuk mengambil sumber daya jarak jauh dan bukan sumber daya internal.</p></li>
+<li><p>Kapan pun memungkinkan, gunakan daftar izin untuk:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Asal jarak jauh yang diharapkan pengguna untuk mengunduh sumber daya dari (misalnya Google Drive,
+Gravatar, dll.)</p></li>
+<li><p>Skema URL dan port</p></li>
+<li><p>Tipe media yang diterima untuk fungsionalitas tertentu</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Nonaktifkan pengalihan HTTP.</p></li>
+<li><p>Gunakan parser URL yang teruji dengan baik dan terpelihara untuk menghindari masalah yang disebabkan oleh
+inkonsistensi parsing URL.</p></li>
+<li><p>Validasi dan sanitasi semua data input yang disediakan klien.</p></li>
+<li><p>Jangan mengirim respons mentah ke klien.</p></li>
+</ul>
+</section>
+<section id="id32">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id32" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Library <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a></p></li>
+<li><p>Library <a class="reference internal" href="../incoming/incomingrequest.html"><span class="doc">HTTP</span></a> menyediakan
+<a class="reference internal" href="../incoming/incomingrequest.html#incomingrequest-filtering-input-data"><span class="std std-ref">pemfilteran bidang input</span></a></p></li>
+<li><p>Class <a class="reference internal" href="../libraries/curlrequest.html"><span class="doc">CURLRequest</span></a></p></li>
+<li><p>Class <a class="reference internal" href="../libraries/uri.html"><span class="doc">URI</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="api8-2023-kesalahan-konfigurasi-keamanan">
+<h3><a class="toc-backref" href="#id58" role="doc-backlink">API8:2023 Kesalahan Konfigurasi Keamanan</a><a class="headerlink" href="#api8-2023-kesalahan-konfigurasi-keamanan" title="Permalink to this heading"></a></h3>
+<p>API dan sistem pendukungnya biasanya berisi konfigurasi yang kompleks,
+dimaksudkan untuk membuat API lebih dapat disesuaikan. Insinyur perangkat lunak dan DevOps dapat melewatkan
+konfigurasi ini, atau tidak mengikuti praktik terbaik keamanan dalam hal
+konfigurasi, membuka pintu untuk berbagai jenis serangan.</p>
+<section id="id33">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id33" title="Permalink to this heading"></a></h4>
+<p>Siklus hidup API harus mencakup:</p>
+<ul class="simple">
+<li><p>Proses pengerasan yang berulang yang mengarah pada deployment lingkungan yang terkunci dengan benar
+yang cepat dan mudah</p></li>
+<li><p>Tugas untuk meninjau dan memperbarui konfigurasi di seluruh tumpukan API. Peninjauan
+harus mencakup: file orkestrasi, komponen API, dan layanan cloud
+(misalnya izin bucket S3)</p></li>
+<li><p>Proses otomatis untuk terus-menerus menilai efektivitas konfigurasi
+dan pengaturan di semua lingkungan</p></li>
+</ul>
+<p>Selanjutnya:</p>
+<ul>
+<li><p>Pastikan semua komunikasi API dari klien ke server API dan komponen
+downstream/upstream terjadi melalui saluran komunikasi terenkripsi
+(TLS), terlepas dari apakah itu API internal atau publik.</p></li>
+<li><p>Bersikaplah spesifik tentang verb HTTP mana yang dapat diakses oleh setiap API: semua verb HTTP
+lainnya harus dinonaktifkan (misalnya HEAD).</p></li>
+<li><p>API yang diharapkan diakses dari klien berbasis browser (misalnya, front-end WebApp)
+harus, setidaknya:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>mengimplementasikan kebijakan Cross-Origin Resource Sharing (CORS) yang tepat</p></li>
+<li><p>menyertakan Header Keamanan yang berlaku</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Batasi jenis konten/format data yang masuk ke yang memenuhi persyaratan
+bisnis/fungsional.</p></li>
+<li><p>Pastikan semua server dalam rantai server HTTP (misalnya penyeimbang beban, proxy terbalik dan
+maju, dan server back-end) memproses permintaan masuk secara seragam
+untuk menghindari masalah desync.</p></li>
+<li><p>Jika berlaku, definisikan dan terapkan semua skema payload respons API, termasuk
+respons kesalahan, untuk mencegah jejak pengecualian dan informasi berharga lainnya
+dikirim kembali ke penyerang.</p></li>
+</ul>
+</section>
+<section id="id34">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id34" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Konfigurasi untuk akses aman global (<code class="docutils literal notranslate"><span class="pre">Config\App::$forceGlobalSecureRequests</span></code>)</p></li>
+<li><p>Fungsi <a class="reference internal" href="../general/common_functions.html#force_https" title="force_https"><code class="xref php php-func docutils literal notranslate"><span class="pre">force_https()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../incoming/routing.html#defined-route-routing"><span class="std std-ref">Defined Route Routing</span></a></p></li>
+<li><p><a class="reference internal" href="../incoming/auto_routing_improved.html#auto-routing-improved"><span class="std std-ref">Auto Routing (Improved)</span></a></p></li>
+<li><p><a class="reference internal" href="../libraries/cors.html"><span class="doc">Cross-Origin Resource Sharing (CORS)</span></a> filter</p></li>
+</ul>
+</section>
+</section>
+<section id="api9-2023-manajemen-inventaris-yang-tidak-tepat">
+<h3><a class="toc-backref" href="#id59" role="doc-backlink">API9:2023 Manajemen Inventaris yang Tidak Tepat</a><a class="headerlink" href="#api9-2023-manajemen-inventaris-yang-tidak-tepat" title="Permalink to this heading"></a></h3>
+<p>API cenderung mengekspos lebih banyak endpoint daripada aplikasi web tradisional, membuat
+dokumentasi yang tepat dan terbaru sangat penting. Inventaris host
+dan versi API yang di-deploy juga penting untuk mengurangi masalah seperti versi
+API yang tidak digunakan lagi dan endpoint debug yang terekspos.</p>
+<section id="id35">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id35" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Inventaris semua host API dan dokumentasikan aspek-aspek penting dari masing-masing,
+berfokus pada lingkungan API (misalnya produksi, staging, pengujian, pengembangan),
+siapa yang seharusnya memiliki akses jaringan ke host (misalnya publik, internal, mitra)
+dan versi API.</p></li>
+<li><p>Inventaris layanan terintegrasi dan dokumentasikan aspek-aspek penting seperti
+peran mereka dalam sistem, data apa yang dipertukarkan (alur data), dan sensitivitasnya.</p></li>
+<li><p>Dokumentasikan semua aspek API Anda seperti otentikasi, kesalahan, pengalihan,
+pembatasan tingkat, kebijakan cross-origin resource sharing (CORS), dan endpoint,
+termasuk parameter, permintaan, dan responsnya.</p></li>
+<li><p>Hasilkan dokumentasi secara otomatis dengan mengadopsi standar terbuka. Sertakan
+pembuatan dokumentasi dalam pipeline CI/CD Anda.</p></li>
+<li><p>Jadikan dokumentasi API hanya tersedia bagi mereka yang berwenang untuk menggunakan API.</p></li>
+<li><p>Gunakan tindakan perlindungan eksternal seperti solusi khusus keamanan API untuk
+semua versi API Anda yang terekspos, tidak hanya untuk versi produksi saat ini.</p></li>
+<li><p>Hindari menggunakan data produksi dengan deployment API non-produksi. Jika ini
+tidak dapat dihindari, endpoint ini harus mendapatkan perlakuan keamanan yang sama dengan
+yang produksi.</p></li>
+<li><p>Ketika versi API yang lebih baru menyertakan peningkatan keamanan, lakukan analisis risiko
+untuk menginformasikan tindakan mitigasi yang diperlukan untuk versi yang lebih lama. Misalnya,
+apakah mungkin untuk mem-backport peningkatan tanpa merusak
+kompatibilitas API atau jika Anda perlu menghapus versi lama dengan cepat dan
+memaksa semua klien untuk beralih ke versi terbaru.</p></li>
+</ul>
+</section>
+<section id="id36">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id36" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Perintah <a class="reference internal" href="../incoming/routing.html#routing-spark-routes"><span class="std std-ref">spark routes</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="api10-2023-konsumsi-api-yang-tidak-aman">
+<h3><a class="toc-backref" href="#id60" role="doc-backlink">API10:2023 Konsumsi API yang Tidak Aman</a><a class="headerlink" href="#api10-2023-konsumsi-api-yang-tidak-aman" title="Permalink to this heading"></a></h3>
+<p>Pengembang cenderung lebih mempercayai data yang diterima dari API pihak ketiga daripada input pengguna,
+dan karenanya cenderung mengadopsi standar keamanan yang lebih lemah. Untuk mengkompromikan API,
+penyerang mengejar layanan pihak ketiga yang terintegrasi daripada mencoba mengkompromikan
+API target secara langsung.</p>
+<section id="id37">
+<h4>Rekomendasi OWASP<a class="headerlink" href="#id37" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Saat mengevaluasi penyedia layanan, nilai postur keamanan API mereka.</p></li>
+<li><p>Pastikan semua interaksi API terjadi melalui saluran komunikasi yang aman (TLS).</p></li>
+<li><p>Selalu validasi dan sanitasi data yang diterima dari API terintegrasi sebelum
+menggunakannya.</p></li>
+<li><p>Pertahankan daftar izin lokasi terkenal yang mungkin dialihkan oleh API terintegrasi
+Anda: jangan mengikuti pengalihan secara membabi buta.</p></li>
+</ul>
+</section>
+<section id="id38">
+<h4>Ketentuan CodeIgniter<a class="headerlink" href="#id38" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Class <a class="reference internal" href="../libraries/curlrequest.html"><span class="doc">CURLRequest</span></a></p></li>
+<li><p>Library <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="http.html" class="btn btn-neutral float-left" title="Bekerja dengan Permintaan HTTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="goals.html" class="btn btn-neutral float-right" title="Tujuan Desain dan Arsitektur" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

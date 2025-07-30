@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bagian Berita &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Membuat Item Berita" href="create_news_items.html" />
+    <link rel="prev" title="Halaman Statis" href="static_pages.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Membangun Aplikasi Pertama Anda</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Ikhtisar CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Membangun Respons (Output)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Membangun Aplikasi Pertama Anda</a></li>
+      <li class="breadcrumb-item active">Bagian Berita</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bagian-berita">
+<h1>Bagian Berita<a class="headerlink" href="#bagian-berita" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#membuat-database-untuk-digunakan" id="id1">Membuat Database untuk Digunakan</a></p></li>
+<li><p><a class="reference internal" href="#menghubungkan-ke-database-anda" id="id2">Menghubungkan ke Database Anda</a></p></li>
+<li><p><a class="reference internal" href="#menyiapkan-model-anda" id="id3">Menyiapkan Model Anda</a></p>
+<ul>
+<li><p><a class="reference internal" href="#membuat-newsmodel" id="id4">Membuat NewsModel</a></p></li>
+<li><p><a class="reference internal" href="#menambahkan-metode-newsmodel-getnews" id="id5">Menambahkan Metode NewsModel::getNews()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#menampilkan-berita" id="id6">Menampilkan Berita</a></p>
+<ul>
+<li><p><a class="reference internal" href="#menambahkan-aturan-routing" id="id7">Menambahkan Aturan Routing</a></p></li>
+<li><p><a class="reference internal" href="#membuat-news-controller" id="id8">Membuat News Controller</a></p></li>
+<li><p><a class="reference internal" href="#menyelesaikan-metode-news-index" id="id9">Menyelesaikan Metode News::index()</a></p></li>
+<li><p><a class="reference internal" href="#membuat-file-view-news-index" id="id10">Membuat File View news/index</a></p></li>
+<li><p><a class="reference internal" href="#menyelesaikan-metode-news-show" id="id11">Menyelesaikan Metode News::show()</a></p></li>
+<li><p><a class="reference internal" href="#membuat-file-view-news-view" id="id12">Membuat File View news/view</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Pada bagian terakhir, kita membahas beberapa konsep dasar framework
+dengan menulis sebuah class yang mereferensikan halaman statis. Kita membersihkan URI dengan
+menambahkan aturan routing kustom. Sekarang saatnya untuk memperkenalkan konten dinamis
+dan mulai menggunakan database.</p>
+<section id="membuat-database-untuk-digunakan">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Membuat Database untuk Digunakan</a><a class="headerlink" href="#membuat-database-untuk-digunakan" title="Permalink to this heading"></a></h2>
+<p>Instalasi CodeIgniter mengasumsikan bahwa Anda telah menyiapkan database yang sesuai,
+seperti yang diuraikan dalam <a class="reference internal" href="../intro/requirements.html#requirements-supported-databases"><span class="std std-ref">persyaratan</span></a>.
+Dalam tutorial ini, kami menyediakan kode SQL untuk database MySQL, dan
+kami juga mengasumsikan bahwa Anda memiliki klien yang sesuai untuk mengeluarkan perintah database
+(mysql, MySQL Workbench, atau phpMyAdmin).</p>
+<p>Anda perlu membuat database <code class="docutils literal notranslate"><span class="pre">ci4tutorial</span></code> yang dapat digunakan untuk tutorial ini,
+dan kemudian mengkonfigurasi CodeIgniter untuk menggunakannya.</p>
+<p>Menggunakan klien database Anda, sambungkan ke database Anda dan jalankan perintah SQL di bawah ini (MySQL):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">CREATE</span> <span class="nx">TABLE</span> <span class="nx">news</span> <span class="p">(</span>
+    <span class="nx">id</span> <span class="nx">INT</span> <span class="nx">UNSIGNED</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="nx">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="nx">title</span> <span class="nx">VARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="nx">slug</span> <span class="nx">VARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="nx">body</span> <span class="nx">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="nx">PRIMARY</span> <span class="nx">KEY</span> <span class="p">(</span><span class="nx">id</span><span class="p">),</span>
+    <span class="nx">UNIQUE</span> <span class="nx">slug</span> <span class="p">(</span><span class="nx">slug</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Juga, tambahkan beberapa catatan seed. Untuk saat ini, kami hanya akan menunjukkan kepada Anda pernyataan SQL yang diperlukan
+untuk membuat tabel, tetapi Anda harus menyadari bahwa ini dapat dilakukan secara terprogram
+setelah Anda lebih familiar dengan CodeIgniter; Anda dapat membaca tentang <a class="reference internal" href="../dbmgmt/migration.html"><span class="doc">Migrasi</span></a>
+dan <a class="reference internal" href="../dbmgmt/seeds.html"><span class="doc">Seeds</span></a> untuk membuat pengaturan database yang lebih berguna nanti.</p>
+<p>Catatan menarik: &quot;slug&quot;, dalam konteks penerbitan web, adalah
+teks pendek yang ramah pengguna dan SEO yang digunakan dalam URL untuk mengidentifikasi dan mendeskripsikan sumber daya.</p>
+<p>Catatan seed mungkin seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">INSERT</span> <span class="nx">INTO</span> <span class="nx">news</span> <span class="nx">VALUES</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Elvis terlihat&#39;</span><span class="p">,</span><span class="s1">&#39;elvis-sighted&#39;</span><span class="p">,</span><span class="s1">&#39;Elvis terlihat di kafe internet Podunk. Sepertinya dia sedang menulis aplikasi CodeIgniter.&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Jangan bilang begitu!&#39;</span><span class="p">,</span><span class="s1">&#39;say-it-isnt-so&#39;</span><span class="p">,</span><span class="s1">&#39;Para ilmuwan menyimpulkan bahwa beberapa programmer memiliki selera humor.&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;Kafeinasi, Ya!&#39;</span><span class="p">,</span><span class="s1">&#39;caffeination-yes&#39;</span><span class="p">,</span><span class="s1">&#39;Toko kopi terbesar di dunia buka toko kopi di tempat hanya untuk staf.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="menghubungkan-ke-database-anda">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Menghubungkan ke Database Anda</a><a class="headerlink" href="#menghubungkan-ke-database-anda" title="Permalink to this heading"></a></h2>
+<p>File konfigurasi lokal, <strong>.env</strong>, yang Anda buat saat menginstal
+CodeIgniter, seharusnya memiliki pengaturan properti database yang tidak dikomentari dan
+diatur dengan benar untuk database yang ingin Anda gunakan. Pastikan Anda telah mengkonfigurasi
+database Anda dengan benar seperti yang dijelaskan dalam <a class="reference internal" href="../database/configuration.html"><span class="doc">Konfigurasi Database</span></a>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">database</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="nx">hostname</span> <span class="o">=</span> <span class="nx">localhost</span>
+<span class="nx">database</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="nx">database</span> <span class="o">=</span> <span class="nx">ci4tutorial</span>
+<span class="nx">database</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="nx">username</span> <span class="o">=</span> <span class="nx">root</span>
+<span class="nx">database</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="nx">password</span> <span class="o">=</span> <span class="nx">root</span>
+<span class="nx">database</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="nx">DBDriver</span> <span class="o">=</span> <span class="nx">MySQLi</span>
+</pre></div>
+</div>
+</section>
+<section id="menyiapkan-model-anda">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Menyiapkan Model Anda</a><a class="headerlink" href="#menyiapkan-model-anda" title="Permalink to this heading"></a></h2>
+<p>Alih-alih menulis operasi database langsung di controller, kueri
+harus ditempatkan di model, sehingga dapat dengan mudah digunakan kembali nanti. Model
+adalah tempat di mana Anda mengambil, menyisipkan, dan memperbarui informasi di database Anda
+atau penyimpanan data lainnya. Mereka menyediakan akses ke data Anda.
+Anda dapat membaca lebih lanjut tentangnya di <a class="reference internal" href="../models/model.html"><span class="doc">Menggunakan Model CodeIgniter</span></a>.</p>
+<section id="membuat-newsmodel">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Membuat NewsModel</a><a class="headerlink" href="#membuat-newsmodel" title="Permalink to this heading"></a></h3>
+<p>Buka direktori <strong>app/Models</strong> dan buat file baru bernama
+<strong>NewsModel.php</strong> dan tambahkan kode berikut.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">NewsModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;news&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Kode ini terlihat mirip dengan kode controller yang digunakan sebelumnya. Ini
+membuat model baru dengan memperluas <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Model</span></code> dan memuat library database.
+Ini akan membuat class database tersedia melalui objek <code class="docutils literal notranslate"><span class="pre">$this-&gt;db</span></code>.</p>
+</section>
+<section id="menambahkan-metode-newsmodel-getnews">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Menambahkan Metode NewsModel::getNews()</a><a class="headerlink" href="#menambahkan-metode-newsmodel-getnews" title="Permalink to this heading"></a></h3>
+<p>Sekarang database dan model telah diatur, Anda akan membutuhkan metode
+untuk mendapatkan semua postingan kita dari database kita. Untuk melakukan ini, lapisan
+abstraksi database yang disertakan dengan CodeIgniter -
+<a class="reference internal" href="../database/query_builder.html"><span class="doc">Query Builder</span></a> - digunakan dalam <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Model</span></code>. Ini memungkinkan
+untuk menulis 'kueri' Anda sekali dan membuatnya berfungsi pada <a class="reference internal" href="../intro/requirements.html"><span class="doc">semua
+sistem database yang didukung</span></a>. Class Model
+juga memungkinkan Anda untuk dengan mudah bekerja dengan Query Builder dan menyediakan
+beberapa alat tambahan untuk membuat pekerjaan dengan data menjadi lebih sederhana. Tambahkan
+kode berikut ke model Anda.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span>    <span class="sd">/**</span>
+<span class="sd">     * @param false|string $slug</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return array|null</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getNews</span><span class="p">(</span><span class="nv">$slug</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$slug</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">([</span><span class="s1">&#39;slug&#39;</span> <span class="o">=&gt;</span> <span class="nv">$slug</span><span class="p">])</span><span class="o">-&gt;</span><span class="na">first</span><span class="p">();</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Dengan kode ini, Anda dapat melakukan dua kueri yang berbeda. Anda bisa mendapatkan semua
+catatan berita, atau mendapatkan item berita berdasarkan slug-nya. Anda mungkin telah
+memperhatikan bahwa variabel <code class="docutils literal notranslate"><span class="pre">$slug</span></code> tidak di-escape sebelum menjalankan
+kueri; <a class="reference internal" href="../database/query_builder.html"><span class="doc">Query Builder</span></a> melakukannya untuk Anda.</p>
+<p>Dua metode yang digunakan di sini, <code class="docutils literal notranslate"><span class="pre">findAll()</span></code> dan <code class="docutils literal notranslate"><span class="pre">first()</span></code>, disediakan
+oleh class <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Model</span></code>. Mereka sudah tahu tabel yang akan digunakan berdasarkan properti <code class="docutils literal notranslate"><span class="pre">$table</span></code>
+yang kita atur di class <code class="docutils literal notranslate"><span class="pre">NewsModel</span></code>, sebelumnya. Mereka adalah metode pembantu
+yang menggunakan Query Builder untuk menjalankan perintah mereka pada tabel saat ini, dan
+mengembalikan array hasil dalam format pilihan Anda. Dalam contoh ini,
+<code class="docutils literal notranslate"><span class="pre">findAll()</span></code> mengembalikan array dari array.</p>
+</section>
+</section>
+<section id="menampilkan-berita">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Menampilkan Berita</a><a class="headerlink" href="#menampilkan-berita" title="Permalink to this heading"></a></h2>
+<p>Sekarang kueri telah ditulis, model harus diikat ke view
+yang akan menampilkan item berita kepada pengguna. Ini bisa dilakukan
+di controller <code class="docutils literal notranslate"><span class="pre">Pages</span></code> kita yang dibuat sebelumnya, tetapi demi kejelasan,
+controller <code class="docutils literal notranslate"><span class="pre">News</span></code> baru didefinisikan.</p>
+<section id="menambahkan-aturan-routing">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Menambahkan Aturan Routing</a><a class="headerlink" href="#menambahkan-aturan-routing" title="Permalink to this heading"></a></h3>
+<p>Modifikasi file <strong>app/Config/Routes.php</strong> Anda, sehingga terlihat sebagai berikut:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">App\Controllers\News</span><span class="p">;</span> <span class="c1">// Add this line</span>
+<span class="k">use</span> <span class="nx">App\Controllers\Pages</span><span class="p">;</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">News</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>           <span class="c1">// Add this line</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;news/(:segment)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">News</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">]);</span> <span class="c1">// Add this line</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;pages&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Pages</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;(:segment)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Pages</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;view&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Ini memastikan permintaan mencapai controller <code class="docutils literal notranslate"><span class="pre">News</span></code> alih-alih
+langsung menuju controller <code class="docutils literal notranslate"><span class="pre">Pages</span></code>. Baris kedua <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get()</span></code>
+merutekan URI dengan slug ke metode <code class="docutils literal notranslate"><span class="pre">show()</span></code> di controller <code class="docutils literal notranslate"><span class="pre">News</span></code>.</p>
+</section>
+<section id="membuat-news-controller">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Membuat News Controller</a><a class="headerlink" href="#membuat-news-controller" title="Permalink to this heading"></a></h3>
+<p>Buat controller baru di <strong>app/Controllers/News.php</strong>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Models\NewsModel</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">News</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="nx">NewsModel</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;news_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getNews</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="o">?</span><span class="nx">string</span> <span class="nv">$slug</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="nx">NewsModel</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;news&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getNews</span><span class="p">(</span><span class="nv">$slug</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Melihat kode, Anda mungkin melihat beberapa kesamaan dengan file yang kita
+buat sebelumnya. Pertama, ia memperluas <code class="docutils literal notranslate"><span class="pre">BaseController</span></code> yang memperluas class inti CodeIgniter, <code class="docutils literal notranslate"><span class="pre">Controller</span></code>,
+yang menyediakan beberapa metode pembantu, dan memastikan bahwa Anda memiliki
+akses ke objek <code class="docutils literal notranslate"><span class="pre">Request</span></code> dan <code class="docutils literal notranslate"><span class="pre">Response</span></code> saat ini, serta class
+<code class="docutils literal notranslate"><span class="pre">Logger</span></code>, untuk menyimpan informasi ke disk.</p>
+<p>Selanjutnya, ada dua metode, satu untuk melihat semua item berita, dan satu untuk berita
+item tertentu.</p>
+<p>Selanjutnya, fungsi <a class="reference internal" href="../general/common_functions.html#model" title="model"><code class="xref php php-func docutils literal notranslate"><span class="pre">model()</span></code></a> digunakan untuk membuat instance <code class="docutils literal notranslate"><span class="pre">NewsModel</span></code>.
+Ini adalah fungsi pembantu. Anda dapat membaca lebih lanjut tentangnya di <a class="reference internal" href="../general/common_functions.html"><span class="doc">Global Functions and Constants</span></a>.
+Anda juga bisa menulis <code class="docutils literal notranslate"><span class="pre">$model</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">NewsModel();</span></code>, jika Anda tidak menggunakannya.</p>
+<p>Anda dapat melihat bahwa variabel <code class="docutils literal notranslate"><span class="pre">$slug</span></code> diteruskan ke metode
+model di metode kedua. Model menggunakan slug ini untuk mengidentifikasi
+item berita yang akan dikembalikan.</p>
+</section>
+<section id="menyelesaikan-metode-news-index">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Menyelesaikan Metode News::index()</a><a class="headerlink" href="#menyelesaikan-metode-news-index" title="Permalink to this heading"></a></h3>
+<p>Sekarang data diambil oleh controller melalui model kita, tetapi
+belum ada yang ditampilkan. Hal berikutnya yang harus dilakukan adalah, meneruskan data ini ke
+view. Modifikasi metode <code class="docutils literal notranslate"><span class="pre">index()</span></code> agar terlihat seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Models\NewsModel</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">News</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="nx">NewsModel</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;news_list&#39;</span> <span class="o">=&gt;</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getNews</span><span class="p">(),</span>
+            <span class="s1">&#39;title&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;News archive&#39;</span><span class="p">,</span>
+        <span class="p">];</span>
+
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/header&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">)</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;news/index&#39;</span><span class="p">)</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/footer&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Kode di atas mendapatkan semua catatan berita dari model dan menetapkannya ke sebuah
+variabel. Nilai untuk judul juga ditetapkan ke elemen <code class="docutils literal notranslate"><span class="pre">$data['title']</span></code>
+dan semua data diteruskan ke view. Anda sekarang perlu membuat
+view untuk merender item berita.</p>
+</section>
+<section id="membuat-file-view-news-index">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Membuat File View news/index</a><a class="headerlink" href="#membuat-file-view-news-index" title="Permalink to this heading"></a></h3>
+<p>Buat <strong>app/Views/news/index.php</strong> dan tambahkan potongan kode berikutnya.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;&lt;?=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$title</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$news_list</span> <span class="o">!==</span> <span class="p">[])</span><span class="o">:</span> <span class="cp">?&gt;</span>
+
+    <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$news_list</span> <span class="k">as</span> <span class="nv">$news_item</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$news_item</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>
+            <span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$news_item</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/news/</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$news_item</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">],</span> <span class="s1">&#39;url&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>View article<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+    <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">else</span><span class="o">:</span> <span class="cp">?&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>No News<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Unable to find any news for you.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Kita kembali menggunakan <a class="reference internal" href="../general/common_functions.html#esc" title="esc"><code class="xref php php-func docutils literal notranslate"><span class="pre">esc()</span></code></a> untuk membantu mencegah serangan XSS.
+Tapi kali ini kita juga meneruskan &quot;url&quot; sebagai parameter kedua. Itu karena
+pola serangan berbeda tergantung pada konteks di mana output
+digunakan.</p>
+</div>
+<p>Di sini, setiap item berita diulang dan ditampilkan kepada pengguna. Anda bisa melihat kita
+menulis template kita dalam PHP yang dicampur dengan HTML. Jika Anda lebih suka menggunakan bahasa template,
+Anda dapat menggunakan <a class="reference internal" href="../outgoing/view_parser.html"><span class="doc">View Parser</span></a> CodeIgniter atau parser pihak ketiga.</p>
+</section>
+<section id="menyelesaikan-metode-news-show">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Menyelesaikan Metode News::show()</a><a class="headerlink" href="#menyelesaikan-metode-news-show" title="Permalink to this heading"></a></h3>
+<p>Halaman ikhtisar berita sekarang selesai, tetapi halaman untuk menampilkan
+item berita individual masih belum ada. Model yang dibuat sebelumnya dibuat sedemikian
+rupa sehingga dapat dengan mudah digunakan untuk fungsionalitas ini. Anda hanya perlu
+menambahkan beberapa kode ke controller dan membuat view baru. Kembali ke
+controller <code class="docutils literal notranslate"><span class="pre">News</span></code> dan perbarui metode <code class="docutils literal notranslate"><span class="pre">show()</span></code> dengan yang berikut:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Models\NewsModel</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\Exceptions\PageNotFoundException</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">News</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="o">?</span><span class="nx">string</span> <span class="nv">$slug</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="nx">NewsModel</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;news&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getNews</span><span class="p">(</span><span class="nv">$slug</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;news&#39;</span><span class="p">]</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">PageNotFoundException</span><span class="p">(</span><span class="s1">&#39;Cannot find the news item: &#39;</span> <span class="o">.</span> <span class="nv">$slug</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;news&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/header&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">)</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;news/view&#39;</span><span class="p">)</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/footer&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Jangan lupa untuk menambahkan <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">CodeIgniter\Exceptions\PageNotFoundException;</span></code> untuk mengimpor
+class <code class="docutils literal notranslate"><span class="pre">PageNotFoundException</span></code>.</p>
+<p>Alih-alih memanggil metode <code class="docutils literal notranslate"><span class="pre">getNews()</span></code> tanpa parameter, variabel
+<code class="docutils literal notranslate"><span class="pre">$slug</span></code> diteruskan, sehingga akan mengembalikan item berita tertentu.</p>
+</section>
+<section id="membuat-file-view-news-view">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Membuat File View news/view</a><a class="headerlink" href="#membuat-file-view-news-view" title="Permalink to this heading"></a></h3>
+<p>Satu-satunya hal yang tersisa untuk dilakukan adalah membuat view yang sesuai di
+<strong>app/Views/news/view.php</strong>. Masukkan kode berikut ke dalam file ini.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;&lt;?=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$news</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$news</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Arahkan browser Anda ke halaman &quot;news&quot; Anda, yaitu, <strong>localhost:8080/news</strong>,
+Anda akan melihat daftar item berita, yang masing-masing memiliki tautan
+untuk menampilkan hanya satu artikel.</p>
+<img alt="../_images/tutorial2.png" class="align-center" src="../_images/tutorial2.png" />
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="static_pages.html" class="btn btn-neutral float-left" title="Halaman Statis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="create_news_items.html" class="btn btn-neutral float-right" title="Membuat Item Berita" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

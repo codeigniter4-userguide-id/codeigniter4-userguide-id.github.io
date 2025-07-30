@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Parser &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="View Decorators" href="view_decorators.html" />
+    <link rel="prev" title="View Cells" href="view_cells.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Ikhtisar CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Membangun Respons (Output)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_cells.html">View Cells</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Membangun Respons (Output)</a></li>
+      <li class="breadcrumb-item active">View Parser</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="view-parser">
+<h1>View Parser<a class="headerlink" href="#view-parser" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#menggunakan-view-parser-class" id="id1">Menggunakan View Parser Class</a></p>
+<ul>
+<li><p><a class="reference internal" href="#apa-yang-dilakukannya" id="id2">Apa yang Dilakukannya</a></p></li>
+<li><p><a class="reference internal" href="#parser-templates" id="id3">Parser Templates</a></p></li>
+<li><p><a class="reference internal" href="#opsi-konfigurasi-parser" id="id4">Opsi Konfigurasi Parser</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#variasi-substitusi" id="id5">Variasi Substitusi</a></p>
+<ul>
+<li><p><a class="reference internal" href="#substitusi-perulangan" id="id6">Substitusi Perulangan</a></p></li>
+<li><p><a class="reference internal" href="#substitusi-bersarang" id="id7">Substitusi Bersarang</a></p></li>
+<li><p><a class="reference internal" href="#komentar" id="id8">Komentar</a></p></li>
+<li><p><a class="reference internal" href="#data-bertingkat-cascading-data" id="id9">Data Bertingkat (Cascading Data)</a></p></li>
+<li><p><a class="reference internal" href="#mencegah-parsing" id="id10">Mencegah Parsing</a></p></li>
+<li><p><a class="reference internal" href="#logika-kondisional" id="id11">Logika Kondisional</a></p></li>
+<li><p><a class="reference internal" href="#meng-escape-data" id="id12">Meng-escape Data</a></p></li>
+<li><p><a class="reference internal" href="#filter" id="id13">Filter</a></p></li>
+<li><p><a class="reference internal" href="#parser-plugins" id="id14">Parser Plugins</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#catatan-penggunaan" id="id15">Catatan Penggunaan</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fragmen-view" id="id16">Fragmen View</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#namespace-CodeIgniter\View" id="id17">Referensi Class</a></p></li>
+</ul>
+</nav>
+<p>View Parser dapat melakukan substitusi teks sederhana untuk
+pseudo-variabel yang terdapat dalam file view Anda.
+Ini dapat mengurai variabel sederhana atau pasangan tag variabel.</p>
+<p>Nama pseudo-variabel atau konstruksi kontrol diapit dalam kurung kurawal, seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">blog_title</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">blog_heading</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>
+
+    <span class="p">{</span><span class="nx">blog_entries</span><span class="p">}</span>
+        <span class="o">&lt;</span><span class="nx">h5</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">h5</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">body</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">/</span><span class="nx">blog_entries</span><span class="p">}</span>
+
+<span class="o">&lt;/</span><span class="nx">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Variabel-variabel ini bukanlah variabel PHP yang sebenarnya, melainkan representasi teks biasa
+yang memungkinkan Anda untuk menghilangkan PHP dari template Anda
+(file view).</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>CodeIgniter <strong>tidak</strong> mengharuskan Anda untuk menggunakan class ini karena
+menggunakan PHP murni di halaman view Anda (misalnya menggunakan
+<a class="reference internal" href="view_renderer.html"><span class="doc">View renderer</span></a>)
+membuatnya berjalan sedikit lebih cepat.
+Namun, beberapa developer lebih suka menggunakan beberapa bentuk template engine jika
+mereka bekerja dengan desainer yang mereka rasa akan menemukan
+kebingungan bekerja dengan PHP.</p>
+</div>
+<section id="menggunakan-view-parser-class">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Menggunakan View Parser Class</a><a class="headerlink" href="#menggunakan-view-parser-class" title="Permalink to this heading"></a></h2>
+<p>Metode paling sederhana untuk memuat class parser adalah melalui service-nya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$parser</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;parser&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternatifnya, jika Anda tidak menggunakan class <code class="docutils literal notranslate"><span class="pre">Parser</span></code> sebagai renderer default Anda, Anda
+dapat menginstansinya secara langsung:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$parser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\Parser</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Kemudian Anda dapat menggunakan salah satu dari tiga metode rendering standar yang disediakannya:
+<code class="docutils literal notranslate"><span class="pre">render()</span></code>, <code class="docutils literal notranslate"><span class="pre">setVar()</span></code> dan
+<code class="docutils literal notranslate"><span class="pre">setData()</span></code>. Anda juga dapat menentukan delimiter secara langsung,
+melalui metode <code class="docutils literal notranslate"><span class="pre">setDelimiters()</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Menggunakan <code class="docutils literal notranslate"><span class="pre">Parser</span></code>, template view Anda hanya diproses oleh Parser
+itu sendiri, dan tidak seperti skrip PHP view konvensional. Kode PHP dalam skrip tersebut
+diabaikan oleh parser, dan hanya substitusi yang dilakukan.</p>
+<p>Ini disengaja: file view tanpa PHP.</p>
+</div>
+<section id="apa-yang-dilakukannya">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Apa yang Dilakukannya</a><a class="headerlink" href="#apa-yang-dilakukannya" title="Permalink to this heading"></a></h3>
+<p>Class <code class="docutils literal notranslate"><span class="pre">Parser</span></code> memproses &quot;skrip PHP/HTML&quot; yang disimpan di jalur view aplikasi.
+Skrip ini tidak boleh mengandung PHP.</p>
+<p>Setiap parameter view (yang kami sebut sebagai pseudo-variabel) memicu substitusi,
+berdasarkan jenis nilai yang Anda berikan untuknya. Pseudo-variabel tidak
+diekstraksi ke dalam variabel PHP; sebaliknya nilainya diakses melalui sintaks pseudo-variabel,
+di mana namanya direferensikan di dalam kurung kurawal.</p>
+<p>Class Parser menggunakan array asosiatif secara internal, untuk mengumpulkan pengaturan pseudo-variabel
+hingga Anda memanggil <code class="docutils literal notranslate"><span class="pre">render()</span></code>. Ini berarti nama pseudo-variabel Anda
+harus unik, atau pengaturan parameter yang lebih baru akan menimpa yang sebelumnya.</p>
+<p>Ini juga berdampak pada nilai parameter escaping untuk konteks yang berbeda di dalam
+skrip Anda. Anda harus memberikan setiap nilai yang di-escape nama parameter yang unik.</p>
+</section>
+<section id="parser-templates">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Parser Templates</a><a class="headerlink" href="#parser-templates" title="Permalink to this heading"></a></h3>
+<p>Anda dapat menggunakan metode <code class="docutils literal notranslate"><span class="pre">render()</span></code> untuk mengurai (atau merender) template sederhana,
+seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;blog_title&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Title&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;blog_heading&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Heading&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;blog_template&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Parameter view diteruskan ke <code class="docutils literal notranslate"><span class="pre">setData()</span></code> sebagai array asosiatif
+data untuk diganti dalam template.</p>
+<p>Dalam contoh di atas, template akan berisi dua variabel: <code class="docutils literal notranslate"><span class="pre">{blog_title}</span></code> dan <code class="docutils literal notranslate"><span class="pre">{blog_heading}</span></code></p>
+<p>Parameter pertama untuk <code class="docutils literal notranslate"><span class="pre">render()</span></code> berisi nama template, di mana
+<code class="docutils literal notranslate"><span class="pre">blog_template</span></code> adalah nama file template view Anda.</p>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Jika ekstensi file dihilangkan, maka view diharapkan berakhir dengan ekstensi .php.</p>
+</div>
+</section>
+<section id="opsi-konfigurasi-parser">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Opsi Konfigurasi Parser</a><a class="headerlink" href="#opsi-konfigurasi-parser" title="Permalink to this heading"></a></h3>
+<p>Beberapa opsi dapat diteruskan ke metode <code class="docutils literal notranslate"><span class="pre">render()</span></code> atau <code class="docutils literal notranslate"><span class="pre">renderString()</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cache</span></code> - waktu dalam detik, untuk menyimpan hasil view; diabaikan untuk <code class="docutils literal notranslate"><span class="pre">renderString()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache_name</span></code> - ID yang digunakan untuk menyimpan/mengambil hasil view yang di-cache; default ke viewpath;
+diabaikan untuk renderString()</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saveData</span></code> - true jika parameter data view harus dipertahankan untuk panggilan berikutnya;
+default adalah <strong>true</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cascadeData</span></code> - true jika pengaturan pseudo-variabel harus diteruskan ke
+substitusi bersarang; default adalah <strong>true</strong></p></li>
+</ul>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;blog_template&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;cache&#39;</span>      <span class="o">=&gt;</span> <span class="nx">HOUR</span><span class="p">,</span>
+    <span class="s1">&#39;cache_name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;something_unique&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="variasi-substitusi">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Variasi Substitusi</a><a class="headerlink" href="#variasi-substitusi" title="Permalink to this heading"></a></h2>
+<p>Ada tiga jenis substitusi yang didukung: sederhana, perulangan, dan bersarang.
+Substitusi dilakukan dalam urutan yang sama dengan penambahan pseudo-variabel.</p>
+<p><strong>Substitusi sederhana</strong> yang dilakukan oleh parser adalah penggantian satu-ke-satu
+pseudo-variabel di mana parameter data yang sesuai
+memiliki nilai skalar atau string, seperti dalam contoh ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;&lt;head&gt;&lt;title&gt;{blog_title}&lt;/title&gt;&lt;/head&gt;&#39;</span><span class="p">;</span>
+<span class="nv">$data</span>     <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blog_title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My ramblings&#39;</span><span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+<span class="c1">// Result: &lt;head&gt;&lt;title&gt;My ramblings&lt;/title&gt;&lt;/head&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parser</span></code> membawa substitusi jauh lebih jauh dengan &quot;pasangan variabel&quot;,
+digunakan untuk substitusi bersarang atau perulangan, dan dengan beberapa
+konstruksi lanjutan untuk substitusi kondisional.</p>
+<p>Ketika parser dieksekusi, umumnya akan</p>
+<ul class="simple">
+<li><p>menangani setiap substitusi kondisional</p></li>
+<li><p>menangani setiap substitusi bersarang/perulangan</p></li>
+<li><p>menangani substitusi tunggal yang tersisa</p></li>
+</ul>
+<section id="substitusi-perulangan">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Substitusi Perulangan</a><a class="headerlink" href="#substitusi-perulangan" title="Permalink to this heading"></a></h3>
+<p>Substitusi perulangan terjadi ketika nilai untuk pseudo-variabel adalah
+array sekuensial dari array, seperti array pengaturan baris.</p>
+<p>Kode contoh di atas memungkinkan variabel sederhana untuk diganti. Bagaimana jika
+Anda ingin seluruh blok variabel diulang, dengan setiap
+iterasi berisi nilai baru? Pertimbangkan contoh template yang kami tunjukkan
+di bagian atas halaman:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">blog_title</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">blog_heading</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>
+
+    <span class="p">{</span><span class="nx">blog_entries</span><span class="p">}</span>
+        <span class="o">&lt;</span><span class="nx">h5</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">h5</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">body</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">/</span><span class="nx">blog_entries</span><span class="p">}</span>
+
+<span class="o">&lt;/</span><span class="nx">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Dalam kode di atas Anda akan melihat sepasang variabel: <code class="docutils literal notranslate"><span class="pre">{blog_entries}</span></code>
+data... <code class="docutils literal notranslate"><span class="pre">{/blog_entries}</span></code>. Dalam kasus seperti ini, seluruh bagian data
+antara pasangan ini akan diulang beberapa kali, sesuai dengan
+jumlah baris dalam elemen &quot;blog_entries&quot; dari array parameter.</p>
+<p>Mengurai pasangan variabel dilakukan menggunakan kode identik yang ditunjukkan di atas untuk
+mengurai variabel tunggal, kecuali, Anda akan menambahkan array multi-dimensi
+yang sesuai dengan data pasangan variabel Anda. Pertimbangkan contoh ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;blog_title&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Title&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;blog_heading&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Heading&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;blog_entries&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Title 1&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Body 1&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Title 2&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Body 2&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Title 3&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Body 3&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Title 4&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Body 4&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Title 5&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Body 5&#39;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;blog_template&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Nilai untuk pseudo-variabel <code class="docutils literal notranslate"><span class="pre">blog_entries</span></code> adalah array
+asosiatif sekuensial dari array. Tingkat luar tidak memiliki kunci yang terkait
+dengan setiap &quot;baris&quot; bersarang.</p>
+<p>Jika data &quot;pasangan&quot; Anda berasal dari hasil database, yang sudah merupakan
+array multi-dimensi, Anda cukup menggunakan metode database <code class="docutils literal notranslate"><span class="pre">getResultArray()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM blog&#39;</span><span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;blog_title&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Title&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;blog_heading&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Heading&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;blog_entries&#39;</span> <span class="o">=&gt;</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getResultArray</span><span class="p">(),</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;blog_template&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Jika array yang Anda coba ulangi berisi object alih-alih array,
+parser akan terlebih dahulu mencari metode <code class="docutils literal notranslate"><span class="pre">asArray()</span></code> pada object. Jika ada,
+metode tersebut akan dipanggil dan array yang dihasilkan kemudian diulang seperti
+yang dijelaskan di atas. Jika tidak ada metode <code class="docutils literal notranslate"><span class="pre">asArray()</span></code>, object akan di-cast sebagai
+array dan properti publiknya akan tersedia untuk Parser.</p>
+<p>Ini sangat berguna dengan class Entity, yang memiliki metode <code class="docutils literal notranslate"><span class="pre">asArray()</span></code>
+yang mengembalikan semua properti publik dan terproteksi (dikurangi properti _options) dan
+membuatnya tersedia untuk Parser.</p>
+</section>
+<section id="substitusi-bersarang">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Substitusi Bersarang</a><a class="headerlink" href="#substitusi-bersarang" title="Permalink to this heading"></a></h3>
+<p>Substitusi bersarang terjadi ketika nilai untuk pseudo-variabel adalah
+array asosiatif dari nilai, seperti record dari database:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;blog_title&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Title&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;blog_heading&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Heading&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;blog_entries&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Title 1&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;body&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Body 1&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;blog_template&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Nilai untuk pseudo-variabel <code class="docutils literal notranslate"><span class="pre">blog_entries</span></code> adalah array asosiatif.
+Pasangan kunci/nilai yang didefinisikan di dalamnya akan diekspos di dalam
+perulangan pasangan variabel untuk variabel tersebut.</p>
+<p>Sebuah <strong>blog_template.php</strong> yang mungkin berfungsi untuk di atas:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">blog_title</span><span class="p">}</span> <span class="o">-</span> <span class="p">{</span><span class="nx">blog_heading</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="nx">blog_entries</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">h2</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">body</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">/</span><span class="nx">blog_entries</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Jika Anda ingin pseudo-variabel lain dapat diakses di dalam scope <code class="docutils literal notranslate"><span class="pre">blog_entries</span></code>,
+maka pastikan opsi <code class="docutils literal notranslate"><span class="pre">cascadeData</span></code> diatur ke true.</p>
+</section>
+<section id="komentar">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Komentar</a><a class="headerlink" href="#komentar" title="Permalink to this heading"></a></h3>
+<p>Anda dapat menempatkan komentar di template Anda yang akan diabaikan dan dihapus selama parsing dengan membungkus
+komentar dalam simbol <code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">#}</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="c1"># Komentar ini dihapus selama parsing. #}</span>
+<span class="p">{</span><span class="nx">blog_entry</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">h2</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">body</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">/</span><span class="nx">blog_entry</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="data-bertingkat-cascading-data">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Data Bertingkat (Cascading Data)</a><a class="headerlink" href="#data-bertingkat-cascading-data" title="Permalink to this heading"></a></h3>
+<p>Dengan substitusi bersarang dan perulangan, Anda memiliki opsi untuk mengalirkan
+pasangan data ke dalam substitusi bagian dalam.</p>
+<p>Contoh berikut tidak terpengaruh oleh cascading:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;{name} lives in {locations}{city} on {planet}{/locations}.&#39;</span><span class="p">;</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;name&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;George&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;locations&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;city&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Red City&#39;</span><span class="p">,</span> <span class="s1">&#39;planet&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Mars&#39;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+<span class="c1">// Result: George lives in Red City on Mars.</span>
+</pre></div>
+</div>
+<p>Contoh ini memberikan hasil yang berbeda, tergantung pada cascading:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;{locations}{name} lives in {city} on {planet}{/locations}.&#39;</span><span class="p">;</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;name&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;George&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;locations&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;city&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Red City&#39;</span><span class="p">,</span> <span class="s1">&#39;planet&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Mars&#39;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;cascadeData&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span>
+<span class="c1">// Result: {name} lives in Red City on Mars.</span>
+
+<span class="c1">// or</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;cascadeData&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">]);</span>
+<span class="c1">// Result: George lives in Red City on Mars.</span>
+</pre></div>
+</div>
+</section>
+<section id="mencegah-parsing">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Mencegah Parsing</a><a class="headerlink" href="#mencegah-parsing" title="Permalink to this heading"></a></h3>
+<p>Anda dapat menentukan bagian halaman agar tidak diurai dengan pasangan tag <code class="docutils literal notranslate"><span class="pre">{noparse}</span></code> <code class="docutils literal notranslate"><span class="pre">{/noparse}</span></code>. Apa pun di bagian ini
+akan tetap persis seperti adanya, tanpa substitusi variabel, perulangan, dll., yang terjadi pada markup di antara kurung kurawal.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nx">noparse</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Kode</span> <span class="nx">Tidak</span> <span class="nx">Tersentuh</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">/</span><span class="nx">noparse</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="logika-kondisional">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Logika Kondisional</a><a class="headerlink" href="#logika-kondisional" title="Permalink to this heading"></a></h3>
+<p>Class Parser mendukung beberapa kondisional dasar untuk menangani sintaks <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, dan <code class="docutils literal notranslate"><span class="pre">elseif</span></code>. Semua blok <code class="docutils literal notranslate"><span class="pre">if</span></code>
+harus ditutup dengan tag <code class="docutils literal notranslate"><span class="pre">endif</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="k">if</span> <span class="nv">$role</span><span class="o">==</span><span class="s1">&#39;admin&#39;</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Selamat</span> <span class="nx">Datang</span><span class="p">,</span> <span class="nx">Admin</span><span class="o">!&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="k">endif</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Blok sederhana ini diubah menjadi berikut selama parsing:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$role</span> <span class="o">===</span> <span class="s1">&#39;admin&#39;</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome, Admin!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p>Semua variabel yang digunakan dalam pernyataan if harus telah diatur sebelumnya dengan nama yang sama. Selain itu, ini
+diperlakukan persis seperti kondisional PHP standar, dan semua aturan PHP standar akan berlaku di sini. Anda dapat menggunakan
+operator perbandingan apa pun yang biasa Anda gunakan, seperti <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">===</span></code>, <code class="docutils literal notranslate"><span class="pre">!==</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, dll.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="k">if</span> <span class="nv">$role</span><span class="o">==</span><span class="s1">&#39;admin&#39;</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Selamat</span> <span class="nx">Datang</span><span class="p">,</span> <span class="nx">Admin</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="k">elseif</span> <span class="nv">$role</span><span class="o">==</span><span class="s1">&#39;moderator&#39;</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Selamat</span> <span class="nx">Datang</span><span class="p">,</span> <span class="nx">Moderator</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="k">else</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Selamat</span> <span class="nx">Datang</span><span class="p">,</span> <span class="nx">Pengguna</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="k">endif</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Peringatan</p>
+<p>Di latar belakang, kondisional diurai menggunakan <code class="docutils literal notranslate"><span class="pre">eval()</span></code>, jadi Anda harus memastikan bahwa Anda berhati-hati
+dengan data pengguna yang digunakan dalam kondisional, atau Anda dapat membuka aplikasi Anda terhadap risiko keamanan.</p>
+</div>
+<section id="mengubah-delimiter-kondisional">
+<h4>Mengubah Delimiter Kondisional<a class="headerlink" href="#mengubah-delimiter-kondisional" title="Permalink to this heading"></a></h4>
+<p>Jika Anda memiliki kode JavaScript seperti berikut di template Anda, Parser akan menimbulkan kesalahan sintaks karena ada string yang dapat diinterpretasikan sebagai kondisional:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+    <span class="k">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">hasAlert</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;{message}&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Dalam kasus tersebut, Anda dapat mengubah delimiter untuk kondisional dengan metode <code class="docutils literal notranslate"><span class="pre">setConditionalDelimiters()</span></code> untuk menghindari salah tafsir:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setConditionalDelimiters</span><span class="p">(</span><span class="s1">&#39;{%&#39;</span><span class="p">,</span> <span class="s1">&#39;%}&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Dalam kasus ini, Anda akan menulis kode di template Anda:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="nv">$role</span><span class="o">==</span><span class="s1">&#39;admin&#39;</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Selamat</span> <span class="nx">Datang</span><span class="p">,</span> <span class="nx">Admin</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Selamat</span> <span class="nx">Datang</span><span class="p">,</span> <span class="nx">Pengguna</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">%</span> <span class="k">endif</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="meng-escape-data">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Meng-escape Data</a><a class="headerlink" href="#meng-escape-data" title="Permalink to this heading"></a></h3>
+<p>Secara default, semua substitusi variabel di-escape untuk membantu mencegah serangan XSS pada halaman Anda. Metode <code class="docutils literal notranslate"><span class="pre">esc()</span></code> CodeIgniter
+mendukung beberapa konteks yang berbeda, seperti <code class="docutils literal notranslate"><span class="pre">html</span></code> umum, ketika berada di <code class="docutils literal notranslate"><span class="pre">attr</span></code> HTML, di <code class="docutils literal notranslate"><span class="pre">css</span></code>, dll. Jika tidak ada
+yang lain ditentukan, data akan diasumsikan berada dalam konteks HTML. Anda dapat menentukan konteks yang digunakan dengan menggunakan filter <code class="docutils literal notranslate"><span class="pre">esc()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nx">user_styles</span> <span class="o">|</span> <span class="nx">esc</span><span class="p">(</span><span class="nx">css</span><span class="p">)</span> <span class="p">}</span>
+<span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;{ user_link | esc(attr) }&quot;</span><span class="o">&gt;</span><span class="p">{</span> <span class="nx">title</span> <span class="p">}</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Akan ada saat-saat ketika Anda benar-benar membutuhkan sesuatu untuk digunakan dan TIDAK di-escape. Anda dapat melakukan ini dengan menambahkan tanda seru
+ke kurung kurawal pembuka dan penutup:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">!</span> <span class="nx">unescaped_var</span> <span class="o">!</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="filter">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Filter</a><a class="headerlink" href="#filter" title="Permalink to this heading"></a></h3>
+<p>Setiap substitusi variabel tunggal dapat memiliki satu atau lebih filter yang diterapkan padanya untuk memodifikasi cara disajikannya. Ini
+tidak dimaksudkan untuk secara drastis mengubah output, tetapi menyediakan cara untuk menggunakan kembali data variabel yang sama tetapi dengan presentasi yang berbeda. Filter <code class="docutils literal notranslate"><span class="pre">esc</span></code> yang dibahas di atas adalah salah satu contohnya. Tanggal adalah kasus penggunaan umum lainnya, di mana Anda mungkin
+perlu memformat data yang sama secara berbeda di beberapa bagian pada halaman yang sama.</p>
+<p>Filter adalah perintah yang datang setelah nama pseudo-variabel, dan dipisahkan oleh simbol pipa, <code class="docutils literal notranslate"><span class="pre">|</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// -55 ditampilkan sebagai 55</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">|</span><span class="nb">abs</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Jika parameter mengambil argumen, argumen tersebut harus dipisahkan oleh koma dan diapit dalam tanda kurung:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nx">created_at</span><span class="o">|</span><span class="nb">date</span><span class="p">(</span><span class="nx">Y</span><span class="o">-</span><span class="nx">m</span><span class="o">-</span><span class="nx">d</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Beberapa filter dapat diterapkan ke nilai dengan menggabungkan beberapa filter bersama. Filter tersebut diproses secara berurutan, dari
+kiri ke kanan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nx">created_at</span><span class="o">|</span><span class="nb">date_modify</span><span class="p">(</span><span class="o">+</span><span class="mi">5</span> <span class="nx">days</span><span class="p">)</span><span class="o">|</span><span class="nb">date</span><span class="p">(</span><span class="nx">Y</span><span class="o">-</span><span class="nx">m</span><span class="o">-</span><span class="nx">d</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+</div>
+<section id="filter-yang-tersedia">
+<h4>Filter yang Tersedia<a class="headerlink" href="#filter-yang-tersedia" title="Permalink to this heading"></a></h4>
+<p>Filter berikut tersedia saat menggunakan parser:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Filter</p></th>
+<th class="head"><p>Argumen</p></th>
+<th class="head"><p>Deskripsi</p></th>
+<th class="head"><p>Contoh</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>abs</p></td>
+<td></td>
+<td><p>Menampilkan nilai absolut dari sebuah angka.</p></td>
+<td><p>{ v|abs }</p></td>
+</tr>
+<tr class="row-odd"><td><p>capitalize</p></td>
+<td></td>
+<td><p>Menampilkan string dalam format kalimat: semua huruf kecil
+dengan huruf pertama dikapitalisasi.</p></td>
+<td><p>{ v|capitalize}</p></td>
+</tr>
+<tr class="row-even"><td><p>date</p></td>
+<td><p>format (Y-m-d)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code>, pemformatan yang kompatibel dengan PHP <strong>date</strong>.</p></td>
+<td><p>{ v|date(Y-m-d) }</p></td>
+</tr>
+<tr class="row-odd"><td><p>date_modify</p></td>
+<td><p>nilai yang akan ditambah/
+dikurangi</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code>, yang kompatibel dengan <strong>strtotime</strong>,
+untuk memodifikasi tanggal seperti <code class="docutils literal notranslate"><span class="pre">+5</span> <span class="pre">day</span></code> atau <code class="docutils literal notranslate"><span class="pre">-1</span> <span class="pre">week</span></code>.</p></td>
+<td><p>{ v|date_modify(+1 day) }</p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td><p>nilai default</p></td>
+<td><p>Menampilkan nilai default jika variabel <a class="reference external" href="https://www.php.net/manual/en/function.empty.php">empty()</a>.</p></td>
+<td><p>{ v|default(just in case) }</p></td>
+</tr>
+<tr class="row-odd"><td><p>esc</p></td>
+<td><p>html, attr,
+css, js</p></td>
+<td><p>Menentukan konteks untuk meng-escape data.</p></td>
+<td><p>{ v|esc(attr) }</p></td>
+</tr>
+<tr class="row-even"><td><p>excerpt</p></td>
+<td><p>frasa, radius</p></td>
+<td><p>Mengembalikan teks dalam radius kata dari frasa yang diberikan.
+Sama dengan fungsi helper <strong>excerpt</strong>.</p></td>
+<td><p>{ v|excerpt(green giant, 20) }</p></td>
+</tr>
+<tr class="row-odd"><td><p>highlight</p></td>
+<td><p>frasa</p></td>
+<td><p>Menyorot frasa tertentu dalam teks menggunakan
+tag '&lt;mark&gt;&lt;/mark&gt;'.</p></td>
+<td><p>{ v|highlight(view parser) }</p></td>
+</tr>
+<tr class="row-even"><td><p>highlight_code</p></td>
+<td></td>
+<td><p>Menyorot contoh kode dengan HTML/CSS.</p></td>
+<td><p>{ v|highlight_code }</p></td>
+</tr>
+<tr class="row-odd"><td><p>limit_chars</p></td>
+<td><p>limit</p></td>
+<td><p>Membatasi jumlah karakter hingga <code class="docutils literal notranslate"><span class="pre">$limit</span></code>.</p></td>
+<td><p>{ v|limit_chars(100) }</p></td>
+</tr>
+<tr class="row-even"><td><p>limit_words</p></td>
+<td><p>limit</p></td>
+<td><p>Membatasi jumlah kata hingga <code class="docutils literal notranslate"><span class="pre">$limit</span></code>.</p></td>
+<td><p>{ v|limit_words(20) }</p></td>
+</tr>
+<tr class="row-odd"><td><p>local_currency</p></td>
+<td><p>mata uang,
+locale,
+pecahan</p></td>
+<td><p>Menampilkan versi mata uang yang dilokalkan.
+Nilai &quot;currency&quot; adalah kode mata uang ISO 4217 3 huruf.</p></td>
+<td><p>{ v|local_currency(EUR,en_US) }</p></td>
+</tr>
+<tr class="row-even"><td><p>local_number</p></td>
+<td><p>tipe, presisi,
+locale</p></td>
+<td><p>Menampilkan versi angka yang dilokalkan. &quot;tipe&quot; bisa
+salah satu dari: decimal, currency, percent,
+scientific, spellout, ordinal, duration.</p></td>
+<td><p>{ v|local_number(decimal,2,en_US) }</p></td>
+</tr>
+<tr class="row-odd"><td><p>lower</p></td>
+<td></td>
+<td><p>Mengonversi string menjadi huruf kecil.</p></td>
+<td><p>{ v|lower }</p></td>
+</tr>
+<tr class="row-even"><td><p>nl2br</p></td>
+<td></td>
+<td><p>Mengganti semua karakter baris baru (n) menjadi
+tag HTML &lt;br/&gt;.</p></td>
+<td><p>{ v|nl2br }</p></td>
+</tr>
+<tr class="row-odd"><td><p>number_format</p></td>
+<td><p>place</p></td>
+<td><p>Membungkus fungsi PHP <strong>number_format</strong> untuk digunakan
+dalam parser.</p></td>
+<td><p>{ v|number_format(3) }</p></td>
+</tr>
+<tr class="row-even"><td><p>prose</p></td>
+<td></td>
+<td><p>Mengambil bagian teks dan menggunakan metode
+<strong>auto_typography()</strong> untuk mengubahnya menjadi prosa yang
+lebih indah dan mudah dibaca.</p></td>
+<td><p>{ v|prose }</p></td>
+</tr>
+<tr class="row-odd"><td><p>round</p></td>
+<td><p>place, tipe</p></td>
+<td><p>Membulatkan angka ke tempat yang ditentukan. Tipe <strong>ceil</strong>
+dan <strong>floor</strong> dapat diteruskan untuk menggunakan
+fungsi tersebut sebagai gantinya.</p></td>
+<td><p>{ v|round(3) } { v|round(ceil) }</p></td>
+</tr>
+<tr class="row-even"><td><p>strip_tags</p></td>
+<td><p>karakter yang
+diizinkan</p></td>
+<td><p>Membungkus PHP <strong>strip_tags</strong>. Dapat menerima string
+dari tag yang diizinkan.</p></td>
+<td><p>{ v|strip_tags(&lt;br&gt;) }</p></td>
+</tr>
+<tr class="row-odd"><td><p>title</p></td>
+<td></td>
+<td><p>Menampilkan versi &quot;title case&quot; dari string, dengan semua
+huruf kecil, dan setiap kata dikapitalisasi.</p></td>
+<td><p>{ v|title }</p></td>
+</tr>
+<tr class="row-even"><td><p>upper</p></td>
+<td></td>
+<td><p>Menampilkan string dalam semua huruf kapital.</p></td>
+<td><p>{ v|upper }</p></td>
+</tr>
+</tbody>
+</table>
+<p>Lihat <a class="reference external" href="https://www.php.net/manual/en/numberformatter.create.php">PHP's NumberFormatter</a> untuk detail yang relevan dengan
+filter &quot;local_number&quot;.</p>
+</section>
+<section id="filter-kustom">
+<h4>Filter Kustom<a class="headerlink" href="#filter-kustom" title="Permalink to this heading"></a></h4>
+<p>Anda dapat dengan mudah membuat filter Anda sendiri dengan mengedit <strong>app/Config/View.php</strong> dan menambahkan entri baru ke
+array <code class="docutils literal notranslate"><span class="pre">$filters</span></code>. Setiap kunci adalah nama yang digunakan filter dalam view, dan nilainya adalah PHP callable yang valid:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\View</span> <span class="k">as</span> <span class="nx">BaseView</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">View</span> <span class="k">extends</span> <span class="nx">BaseView</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$filters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;foo&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;\Some\Class::methodName&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;str_repeat&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;str_repeat&#39;</span><span class="p">,</span> <span class="c1">// native php function</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="parser-plugins">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Parser Plugins</a><a class="headerlink" href="#parser-plugins" title="Permalink to this heading"></a></h3>
+<p>Plugin memungkinkan Anda untuk memperluas parser, menambahkan fitur kustom untuk setiap proyek. Mereka bisa berupa PHP callable apa pun, membuatnya
+sangat sederhana untuk diimplementasikan. Dalam template, plugin ditentukan oleh tag <code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">+}</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">+</span> <span class="nx">foo</span> <span class="o">+</span><span class="p">}</span> <span class="nx">inner</span> <span class="nx">content</span> <span class="p">{</span><span class="o">+</span> <span class="o">/</span><span class="nx">foo</span> <span class="o">+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Contoh ini menunjukkan plugin bernama <strong>foo</strong>. Ini dapat memanipulasi konten apa pun antara tag pembuka dan penutupnya.
+Dalam contoh ini, ia dapat bekerja dengan teks &quot; inner content &quot;. Plugin diproses sebelum substitusi pseudo-variabel terjadi.</p>
+<p>Meskipun plugin seringkali terdiri dari pasangan tag, seperti yang ditunjukkan di atas, mereka juga bisa berupa tag tunggal, tanpa tag penutup:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">+</span> <span class="nx">foo</span> <span class="o">+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Tag pembuka juga dapat berisi parameter yang dapat menyesuaikan cara kerja plugin. Parameter direpresentasikan sebagai
+pasangan kunci/nilai:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">+</span> <span class="nx">foo</span> <span class="nx">bar</span><span class="o">=</span><span class="mi">2</span> <span class="nx">baz</span><span class="o">=</span><span class="s2">&quot;x y&quot;</span> <span class="o">+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Parameter juga bisa berupa nilai tunggal:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">+</span> <span class="k">include</span> <span class="nx">somefile</span><span class="o">.</span><span class="nx">php</span> <span class="o">+</span><span class="p">}</span>
+</pre></div>
+</div>
+<section id="plugin-yang-disediakan">
+<h4>Plugin yang Disediakan<a class="headerlink" href="#plugin-yang-disediakan" title="Permalink to this heading"></a></h4>
+<p>Plugin berikut tersedia saat menggunakan parser:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plugin</p></th>
+<th class="head"><p>Argumen</p></th>
+<th class="head"><p>Deskripsi</p></th>
+<th class="head"><p>Contoh</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>current_url</p></td>
+<td></td>
+<td><p>Alias untuk fungsi helper current_url.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">current_url</span> <span class="pre">+}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>previous_url</p></td>
+<td></td>
+<td><p>Alias untuk fungsi helper previous_url.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">previous_url</span> <span class="pre">+}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>siteURL</p></td>
+<td></td>
+<td><p>Alias untuk fungsi helper site_url.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">siteURL</span> <span class="pre">&quot;login&quot;</span> <span class="pre">+}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>mailto</p></td>
+<td><p>email, title, attributes</p></td>
+<td><p>Alias untuk fungsi helper mailto.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">mailto</span> <span class="pre">email=foo&#64;example.com</span> <span class="pre">title=&quot;Stranger</span> <span class="pre">Things&quot;</span> <span class="pre">+}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>safe_mailto</p></td>
+<td><p>email, title, attributes</p></td>
+<td><p>Alias untuk fungsi helper safe_mailto.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">safe_mailto</span> <span class="pre">email=foo&#64;example.com</span> <span class="pre">title=&quot;Stranger</span> <span class="pre">Things&quot;</span> <span class="pre">+}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>lang</p></td>
+<td><p>language string</p></td>
+<td><p>Alias untuk fungsi helper lang.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">lang</span> <span class="pre">number.terabyteAbbr</span> <span class="pre">+}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>validation_errors</p></td>
+<td><p>fieldname(optional)</p></td>
+<td><p>Mengembalikan string error untuk field
+(jika ditentukan) atau semua error validasi.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">validation_errors</span> <span class="pre">+}</span> <span class="pre">,</span> <span class="pre">{+</span> <span class="pre">validation_errors</span> <span class="pre">field=&quot;email&quot;</span> <span class="pre">+}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>route</p></td>
+<td><p>route name</p></td>
+<td><p>Alias untuk fungsi helper route_to.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">route</span> <span class="pre">&quot;login&quot;</span> <span class="pre">+}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>csp_script_nonce</p></td>
+<td></td>
+<td><p>Alias untuk fungsi helper csp_script_nonce.
+function.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">csp_script_nonce</span> <span class="pre">+}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>csp_style_nonce</p></td>
+<td></td>
+<td><p>Alias untuk fungsi helper csp_style_nonce.
+function.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{+</span> <span class="pre">csp_style_nonce</span> <span class="pre">+}</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mendaftarkan-plugin">
+<h4>Mendaftarkan Plugin<a class="headerlink" href="#mendaftarkan-plugin" title="Permalink to this heading"></a></h4>
+<p>Paling sederhana, yang perlu Anda lakukan untuk mendaftarkan plugin baru dan membuatnya siap digunakan adalah menambahkannya ke
+<strong>app/Config/View.php</strong>, di bawah array <code class="docutils literal notranslate"><span class="pre">$plugins</span></code>. Kunci adalah nama plugin yang
+digunakan dalam file template. Nilainya adalah PHP callable yang valid, termasuk metode class statis:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\View</span> <span class="k">as</span> <span class="nx">BaseView</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">View</span> <span class="k">extends</span> <span class="nx">BaseView</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$plugins</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\Some\Class::methodName&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Anda juga dapat menggunakan closure, tetapi ini hanya dapat didefinisikan dalam konstruktor file config:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\View</span> <span class="k">as</span> <span class="nx">BaseView</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">View</span> <span class="k">extends</span> <span class="nx">BaseView</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$plugins</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">plugins</span><span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">static</span> <span class="nx">fn</span> <span class="p">(</span><span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">??</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Jika callable berdiri sendiri, itu diperlakukan sebagai tag tunggal, bukan tag buka/tutup. Ini akan diganti dengan
+nilai pengembalian dari plugin:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\View</span> <span class="k">as</span> <span class="nx">BaseView</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">View</span> <span class="k">extends</span> <span class="nx">BaseView</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$plugins</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\Some\Class::methodName&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Tag is replaced by the return value of Some\Class::methodName() static function.</span>
+<span class="cm"> * {+ foo +}</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<p>Jika callable dibungkus dalam array, itu diperlakukan sebagai pasangan tag buka/tutup yang dapat beroperasi pada
+konten apa pun di antara tagnya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\View</span> <span class="k">as</span> <span class="nx">BaseView</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">View</span> <span class="k">extends</span> <span class="nx">BaseView</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$plugins</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;\Some\Class::methodName&#39;</span><span class="p">],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// {+ foo +} inner content {+ /foo +}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="catatan-penggunaan">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Catatan Penggunaan</a><a class="headerlink" href="#catatan-penggunaan" title="Permalink to this heading"></a></h2>
+<p>Jika Anda menyertakan parameter substitusi yang tidak direferensikan dalam
+template Anda, parameter tersebut diabaikan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;Hello, {firstname} {lastname}&#39;</span><span class="p">;</span>
+<span class="nv">$data</span>     <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;title&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;Mr&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;firstname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;lastname&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Doe&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+<span class="c1">// Result: Hello, John Doe</span>
+</pre></div>
+</div>
+<p>Jika Anda tidak menyertakan parameter substitusi yang direferensikan dalam
+template Anda, pseudo-variabel asli ditampilkan dalam hasilnya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;Hello, {firstname} {initials} {lastname}&#39;</span><span class="p">;</span>
+<span class="nv">$data</span>     <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;title&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;Mr&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;firstname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;lastname&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Doe&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+<span class="c1">// Result: Hello, John {initials} Doe</span>
+</pre></div>
+</div>
+<p>Jika Anda memberikan parameter substitusi string ketika array diharapkan,
+yaitu, untuk pasangan variabel, substitusi dilakukan untuk tag pasangan variabel pembuka,
+tetapi tag pasangan variabel penutup tidak dirender dengan benar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;Hello, {firstname} {lastname} ({degrees}{degree} {/degrees})&#39;</span><span class="p">;</span>
+<span class="nv">$data</span>     <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;degrees&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Mr&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;firstname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;lastname&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Doe&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;titles&#39;</span>    <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;degree&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;BSc&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;degree&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;PhD&#39;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+<span class="c1">// Result: Hello, John Doe (Mr{degree} {/degrees})</span>
+</pre></div>
+</div>
+<section id="fragmen-view">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Fragmen View</a><a class="headerlink" href="#fragmen-view" title="Permalink to this heading"></a></h3>
+<p>Anda tidak harus menggunakan pasangan variabel untuk mendapatkan efek iterasi di
+view Anda. Dimungkinkan untuk menggunakan fragmen view untuk apa yang akan ada di dalam
+pasangan variabel, dan untuk mengontrol iterasi di controller Anda alih-alih
+di view.</p>
+<p>Contoh dengan iterasi yang dikontrol dalam view:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;{menuitems}</span>
+<span class="s1">    &lt;li&gt;&lt;a href=&quot;{link}&quot;&gt;{title}&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">{/menuitems}&lt;/ul&gt;&#39;</span><span class="p">;</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;menuitems&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Link Pertama&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/first&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Link Kedua&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/second&#39;</span><span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Hasil:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/first&quot;</span><span class="o">&gt;</span><span class="nx">Link</span> <span class="nx">Pertama</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/second&quot;</span><span class="o">&gt;</span><span class="nx">Link</span> <span class="nx">Kedua</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">ul</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Contoh dengan iterasi yang dikontrol dalam controller,
+menggunakan fragmen view:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$temp</span>      <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="nv">$template1</span> <span class="o">=</span> <span class="s1">&#39;&lt;li&gt;&lt;a href=&quot;{link}&quot;&gt;{title}&lt;/a&gt;&lt;/li&gt;&#39;</span><span class="p">;</span>
+<span class="nv">$data1</span>     <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;First Link&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/first&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Second Link&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/second&#39;</span><span class="p">],</span>
+<span class="p">];</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$data1</span> <span class="k">as</span> <span class="nv">$menuItem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$temp</span> <span class="o">.=</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$menuItem</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nv">$template2</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;{menuitems}&lt;/ul&gt;&#39;</span><span class="p">;</span>
+<span class="nv">$data</span>      <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;menuitems&#39;</span> <span class="o">=&gt;</span> <span class="nv">$temp</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="nv">$template2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Hasil:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/first&quot;</span><span class="o">&gt;</span><span class="nx">Link</span> <span class="nx">Pertama</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/second&quot;</span><span class="o">&gt;</span><span class="nx">Link</span> <span class="nx">Kedua</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">ul</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="namespace-CodeIgniter\View">
+<span id="referensi-class"></span><h2><a class="toc-backref" href="#id17" role="doc-backlink">Referensi Class</a><a class="headerlink" href="#namespace-CodeIgniter\View" title="Permalink to this heading"></a></h2>
+<dl class="php class">
+<dt class="sig sig-object php" id="CodeIgniter\View\Parser">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">CodeIgniter\View\</span></span><span class="sig-name descname"><span class="pre">Parser</span></span><a class="headerlink" href="#CodeIgniter\View\Parser" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Parser::render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$view</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$options</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$saveData</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Parser::render" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$view</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama file sumber view</p></li>
+<li><p><strong>$options</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- Array opsi, sebagai pasangan kunci/nilai</p></li>
+<li><p><strong>$saveData</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">boolean</span></code></span>) -- Jika true, akan menyimpan data untuk digunakan dengan panggilan lain, jika false, akan membersihkan data setelah merender view.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Teks yang dirender untuk view yang dipilih</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
+</dd>
+</dl>
+<p>Membangun output berdasarkan nama file dan data apa pun yang telah diatur:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;myview&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Opsi yang didukung:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cache</span></code> - waktu dalam detik, untuk menyimpan hasil view</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache_name</span></code> - ID yang digunakan untuk menyimpan/mengambil hasil view yang di-cache; default ke viewpath</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cascadeData</span></code> - true jika pasangan data yang berlaku ketika substitusi bersarang atau perulangan terjadi harus disebarkan</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saveData</span></code> - true jika parameter data view harus dipertahankan untuk panggilan berikutnya</p></li>
+</ul>
+</div></blockquote>
+<p>Setiap substitusi kondisional dilakukan terlebih dahulu, kemudian substitusi
+yang tersisa dilakukan untuk setiap pasangan data.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Parser::renderString">
+<span class="sig-name descname"><span class="pre">renderString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$template</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$options</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$saveData</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Parser::renderString" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$template</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Sumber view yang disediakan sebagai string</p></li>
+<li><p><strong>$options</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- Array opsi, sebagai pasangan kunci/nilai</p></li>
+<li><p><strong>$saveData</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">boolean</span></code></span>) -- Jika true, akan menyimpan data untuk digunakan dengan panggilan lain, jika false, akan membersihkan data setelah merender view.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Teks yang dirender untuk view yang dipilih</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
+</dd>
+</dl>
+<p>Membangun output berdasarkan sumber template yang disediakan dan data apa pun yang telah diatur:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">return</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">renderString</span><span class="p">(</span><span class="s1">&#39;&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Opsi yang didukung, dan perilaku, seperti di atas.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Parser::setData">
+<span class="sig-name descname"><span class="pre">setData</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$data</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$context</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Parser::setData" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- Array string data view, sebagai pasangan kunci/nilai</p></li>
+<li><p><strong>$context</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Konteks yang digunakan untuk meng-escape data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Renderer, untuk chaining method</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\View\RendererInterface.</span></code></span></p>
+</dd>
+</dl>
+<p>Mengatur beberapa bagian data view sekaligus:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">([</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;George&#39;</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Boss&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Konteks escape yang didukung: html, css, js, url, atau attr atau raw.
+Jika 'raw', tidak ada escaping yang akan terjadi.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Parser::setVar">
+<span class="sig-name descname"><span class="pre">setVar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$name</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$value</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$context</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Parser::setVar" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama variabel data view</p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Nilai data view ini</p></li>
+<li><p><strong>$context</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Konteks yang digunakan untuk meng-escape data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Renderer, untuk chaining method</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\View\RendererInterface.</span></code></span></p>
+</dd>
+</dl>
+<p>Mengatur satu bagian data view:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setVar</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Konteks escape yang didukung: html, css, js, url, attr atau raw.
+Jika 'raw', tidak ada escaping yang akan terjadi.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Parser::setDelimiters">
+<span class="sig-name descname"><span class="pre">setDelimiters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$leftDelimiter</span> <span class="pre">=</span> <span class="pre">'{'</span></em>, <em class="sig-param"><span class="pre">$rightDelimiter</span> <span class="pre">=</span> <span class="pre">'}'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Parser::setDelimiters" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$leftDelimiter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Delimiter kiri untuk bidang substitusi</p></li>
+<li><p><strong>$rightDelimiter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Delimiter kanan untuk bidang substitusi</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Renderer, untuk chaining method</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\View\RendererInterface.</span></code></span></p>
+</dd>
+</dl>
+<p>Menimpa delimiter bidang substitusi:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setDelimiters</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\View\Parser::setConditionalDelimiters">
+<span class="sig-name descname"><span class="pre">setConditionalDelimiters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$leftDelimiter</span> <span class="pre">=</span> <span class="pre">'{'</span></em>, <em class="sig-param"><span class="pre">$rightDelimiter</span> <span class="pre">=</span> <span class="pre">'}'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\View\Parser::setConditionalDelimiters" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$leftDelimiter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Delimiter kiri untuk kondisional</p></li>
+<li><p><strong>$rightDelimiter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Delimiter kanan untuk kondisional</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Renderer, untuk chaining method</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\View\RendererInterface.</span></code></span></p>
+</dd>
+</dl>
+<p>Menimpa delimiter kondisional:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">setConditionalDelimiters</span><span class="p">(</span><span class="s1">&#39;{%&#39;</span><span class="p">,</span> <span class="s1">&#39;%}&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="view_cells.html" class="btn btn-neutral float-left" title="View Cells" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="view_decorators.html" class="btn btn-neutral float-right" title="View Decorators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menggunakan Class Entitas &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Managing Databases" href="../dbmgmt/index.html" />
+    <link rel="prev" title="Menggunakan Model CodeIgniter" href="model.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Ikhtisar CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Membangun Respons (Output)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Memodelkan Data</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Memodelkan Data</a></li>
+      <li class="breadcrumb-item active">Menggunakan Class Entitas</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="menggunakan-class-entitas">
+<h1>Menggunakan Class Entitas<a class="headerlink" href="#menggunakan-class-entitas" title="Permalink to this heading"></a></h1>
+<p>CodeIgniter mendukung class Entitas sebagai warga kelas satu, sambil tetap
+menjaga penggunaannya sepenuhnya opsional. Class ini umumnya digunakan sebagai bagian dari pola Repository, tetapi dapat
+digunakan secara langsung dengan <a class="reference internal" href="model.html"><span class="doc">Model</span></a> jika itu lebih sesuai dengan kebutuhan Anda.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#penggunaan-entitas" id="id1">Penggunaan Entitas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#membuat-class-entitas" id="id2">Membuat Class Entitas</a></p></li>
+<li><p><a class="reference internal" href="#membuat-model" id="id3">Membuat Model</a></p></li>
+<li><p><a class="reference internal" href="#bekerja-dengan-class-entitas" id="id4">Bekerja dengan Class Entitas</a></p></li>
+<li><p><a class="reference internal" href="#mengisi-properti-dengan-cepat" id="id5">Mengisi Properti dengan Cepat</a></p></li>
+<li><p><a class="reference internal" href="#mengakses-properti-secara-massal" id="id6">Mengakses Properti Secara Massal</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#menangani-logika-bisnis" id="id7">Menangani Logika Bisnis</a></p>
+<ul>
+<li><p><a class="reference internal" href="#getter-setter-khusus" id="id8">Getter/Setter Khusus</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#pemetaan-data" id="id9">Pemetaan Data</a></p></li>
+<li><p><a class="reference internal" href="#mutator" id="id10">Mutator</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mutator-tanggal" id="id11">Mutator Tanggal</a></p></li>
+<li><p><a class="reference internal" href="#casting-properti" id="id12">Casting Properti</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#memeriksa-atribut-yang-berubah" id="id13">Memeriksa Atribut yang Berubah</a></p></li>
+</ul>
+</nav>
+<section id="penggunaan-entitas">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Penggunaan Entitas</a><a class="headerlink" href="#penggunaan-entitas" title="Permalink to this heading"></a></h2>
+<p>Pada intinya, class Entitas hanyalah sebuah class yang merepresentasikan satu baris database. Class ini memiliki properti
+untuk merepresentasikan kolom database, dan menyediakan metode tambahan apa pun untuk mengimplementasikan logika bisnis untuk
+baris tersebut.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Untuk kemudahan pemahaman, penjelasan di sini didasarkan pada kasus
+penggunaan database. Namun, Entitas juga dapat digunakan untuk data yang tidak berasal
+dari database.</p>
+</div>
+<p>Fitur intinya, bagaimanapun, adalah bahwa ia tidak tahu apa-apa tentang bagaimana cara mempertahankan dirinya sendiri. Itu adalah
+tanggung jawab dari model atau class repository. Dengan begitu, jika ada perubahan pada cara Anda perlu menyimpan
+objek, Anda tidak perlu mengubah cara objek tersebut digunakan di seluruh aplikasi.</p>
+<p>Ini memungkinkan untuk
+menggunakan file JSON atau XML untuk menyimpan objek selama tahap prototipe cepat, dan kemudian dengan mudah beralih ke
+database ketika Anda telah membuktikan konsepnya berhasil.</p>
+<p>Mari kita bahas Entitas Pengguna yang sangat sederhana dan bagaimana kita akan bekerja dengannya untuk membantu memperjelas.</p>
+<p>Asumsikan Anda memiliki tabel database bernama <code class="docutils literal notranslate"><span class="pre">users</span></code> yang memiliki skema berikut:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">id</span>          <span class="o">-</span> <span class="nx">integer</span>
+<span class="nx">username</span>    <span class="o">-</span> <span class="nx">string</span>
+<span class="nx">email</span>       <span class="o">-</span> <span class="nx">string</span>
+<span class="nx">password</span>    <span class="o">-</span> <span class="nx">string</span>
+<span class="nx">created_at</span>  <span class="o">-</span> <span class="nx">datetime</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p><code class="docutils literal notranslate"><span class="pre">attributes</span></code> adalah kata yang dicadangkan untuk penggunaan internal. Jika Anda menggunakannya sebagai nama kolom, Entitas tidak berfungsi dengan benar.</p>
+</div>
+<section id="membuat-class-entitas">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Membuat Class Entitas</a><a class="headerlink" href="#membuat-class-entitas" title="Permalink to this heading"></a></h3>
+<p>Sekarang buat class Entitas baru. Karena tidak ada lokasi default untuk menyimpan class-class ini, dan itu tidak cocok
+dengan struktur direktori yang ada, buat direktori baru di <strong>app/Entities</strong>. Buat
+Entitas itu sendiri di <strong>app/Entities/User.php</strong>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Paling sederhana, ini semua yang perlu Anda lakukan, meskipun kita akan membuatnya lebih berguna sebentar lagi.</p>
+</section>
+<section id="membuat-model">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Membuat Model</a><a class="headerlink" href="#membuat-model" title="Permalink to this heading"></a></h3>
+<p>Buat model terlebih dahulu di <strong>app/Models/UserModel.php</strong> agar kita dapat berinteraksi dengannya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$table</span>         <span class="o">=</span> <span class="s1">&#39;users&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$allowedFields</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$returnType</span>    <span class="o">=</span> <span class="nx">\App\Entities\User</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$useTimestamps</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Model ini menggunakan tabel <code class="docutils literal notranslate"><span class="pre">users</span></code> di database untuk semua aktivitasnya.</p>
+<p>Kita telah mengatur properti <code class="docutils literal notranslate"><span class="pre">$allowedFields</span></code> untuk menyertakan semua field yang kita
+ingin class eksternal ubah. Field <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">created_at</span></code>, dan <code class="docutils literal notranslate"><span class="pre">updated_at</span></code>
+ditangani secara otomatis oleh class atau database, jadi kita tidak ingin
+mengubahnya.</p>
+<p>Terakhir, kita telah mengatur class Entitas kita sebagai <code class="docutils literal notranslate"><span class="pre">$returnType</span></code>. Ini memastikan bahwa semua
+metode bawaan pada model yang mengembalikan baris dari database akan mengembalikan
+instance dari class Entitas Pengguna kita alih-alih objek atau array seperti biasa.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Tentu saja, jika Anda menambahkan metode kustom ke model Anda, Anda harus mengimplementasikannya
+sehingga instance dari <code class="docutils literal notranslate"><span class="pre">$returnType</span></code> dikembalikan.</p>
+</div>
+</section>
+<section id="bekerja-dengan-class-entitas">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Bekerja dengan Class Entitas</a><a class="headerlink" href="#bekerja-dengan-class-entitas" title="Permalink to this heading"></a></h3>
+<p>Sekarang semua bagian sudah ada, Anda akan bekerja dengan class Entitas seperti Anda bekerja dengan class lainnya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+
+<span class="c1">// Display</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">;</span>
+
+<span class="c1">// Updating</span>
+<span class="nb">unset</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span> <span class="o">=</span> <span class="s1">&#39;something new&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+
+<span class="c1">// Create</span>
+<span class="nv">$user</span>           <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">();</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">email</span>    <span class="o">=</span> <span class="s1">&#39;foo@example.com&#39;</span><span class="p">;</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Anda mungkin telah memperhatikan bahwa class <code class="docutils literal notranslate"><span class="pre">User</span></code> belum mengatur properti apa pun untuk kolom-kolomnya, tetapi Anda masih dapat
+mengaksesnya seolah-olah itu adalah properti publik. Class dasar, <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Entity\Entity</span></code>, mengurus ini untuk Anda, serta
+menyediakan kemampuan untuk memeriksa properti dengan <code class="docutils literal notranslate"><span class="pre">isset()</span></code>, atau <code class="docutils literal notranslate"><span class="pre">unset()</span></code> properti, dan melacak
+kolom mana yang telah berubah sejak objek dibuat atau ditarik dari database.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Class Entitas menyimpan data dalam properti class <code class="docutils literal notranslate"><span class="pre">$attributes</span></code> secara internal.</p>
+</div>
+<p>Ketika Pengguna diteruskan ke metode <code class="docutils literal notranslate"><span class="pre">save()</span></code> model, secara otomatis ia akan membaca properti
+dan menyimpan setiap perubahan pada kolom yang terdaftar dalam properti <code class="docutils literal notranslate"><span class="pre">$allowedFields</span></code> model. Ia juga tahu apakah akan membuat
+baris baru, atau memperbarui yang sudah ada.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Ketika kita memanggil <code class="docutils literal notranslate"><span class="pre">insert()</span></code> semua nilai dari Entitas diteruskan ke metode, tetapi ketika kita
+memanggil <code class="docutils literal notranslate"><span class="pre">update()</span></code>, maka hanya nilai yang telah berubah yang diteruskan.</p>
+</div>
+</section>
+<section id="mengisi-properti-dengan-cepat">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Mengisi Properti dengan Cepat</a><a class="headerlink" href="#mengisi-properti-dengan-cepat" title="Permalink to this heading"></a></h3>
+<p>Class Entitas juga menyediakan metode, <code class="docutils literal notranslate"><span class="pre">fill()</span></code> yang memungkinkan Anda memasukkan array pasangan kunci/nilai ke dalam class
+dan mengisi properti class. Properti apa pun dalam array akan diatur pada Entitas. Namun, saat menyimpan melalui
+model, hanya field dalam <code class="docutils literal notranslate"><span class="pre">$allowedFields</span></code> yang benar-benar akan disimpan ke database, sehingga Anda dapat menyimpan data tambahan
+pada entitas Anda tanpa terlalu khawatir tentang field yang menyimpang yang disimpan secara tidak benar.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">();</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">();</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">fill</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Anda juga dapat meneruskan data di konstruktor dan data akan diteruskan melalui metode <code class="docutils literal notranslate"><span class="pre">fill()</span></code> selama instansiasi.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">();</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="mengakses-properti-secara-massal">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Mengakses Properti Secara Massal</a><a class="headerlink" href="#mengakses-properti-secara-massal" title="Permalink to this heading"></a></h3>
+<p>Class Entitas memiliki dua metode untuk mengekstrak semua properti yang tersedia ke dalam array: <code class="docutils literal notranslate"><span class="pre">toArray()</span></code> dan <code class="docutils literal notranslate"><span class="pre">toRawArray()</span></code>.
+Menggunakan versi raw akan melewati metode &quot;getter&quot; ajaib dan casting. Kedua metode dapat mengambil parameter boolean pertama
+untuk menentukan apakah nilai yang dikembalikan harus difilter oleh nilai yang telah berubah, dan parameter boolean terakhir untuk
+membuat metode rekursif, jika ada Entitas bersarang.</p>
+</section>
+</section>
+<section id="menangani-logika-bisnis">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Menangani Logika Bisnis</a><a class="headerlink" href="#menangani-logika-bisnis" title="Permalink to this heading"></a></h2>
+<p>Meskipun contoh di atas nyaman, mereka tidak membantu menegakkan logika bisnis apa pun. Class Entitas dasar mengimplementasikan
+beberapa metode <code class="docutils literal notranslate"><span class="pre">__get()</span></code> dan <code class="docutils literal notranslate"><span class="pre">__set()</span></code> cerdas yang akan memeriksa metode khusus dan menggunakannya alih-alih menggunakan
+atribut secara langsung, memungkinkan Anda untuk menegakkan logika bisnis atau konversi data apa pun yang Anda butuhkan.</p>
+<p>Berikut adalah entitas Pengguna yang diperbarui untuk memberikan beberapa contoh bagaimana ini dapat digunakan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\I18n\Time</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setPassword</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$pass</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">password_hash</span><span class="p">(</span><span class="nv">$pass</span><span class="p">,</span> <span class="nx">PASSWORD_BCRYPT</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setCreatedAt</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$dateString</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Time</span><span class="p">(</span><span class="nv">$dateString</span><span class="p">,</span> <span class="s1">&#39;UTC&#39;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCreatedAt</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$format</span> <span class="o">=</span> <span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Convert to CodeIgniter\I18n\Time object</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mutateDate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]);</span>
+
+        <span class="nv">$timezone</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">timezone</span> <span class="o">??</span> <span class="nx">app_timezone</span><span class="p">();</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">setTimezone</span><span class="p">(</span><span class="nv">$timezone</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nv">$format</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Hal pertama yang perlu diperhatikan adalah nama metode yang telah kita tambahkan. Untuk setiap metode, class mengharapkan nama kolom snake_case
+dikonversi menjadi PascalCase, dan diawali dengan <code class="docutils literal notranslate"><span class="pre">set</span></code> atau <code class="docutils literal notranslate"><span class="pre">get</span></code>. Metode-metode ini kemudian
+akan secara otomatis dipanggil setiap kali Anda mengatur atau mengambil properti class menggunakan sintaks langsung (yaitu, <code class="docutils literal notranslate"><span class="pre">$user-&gt;email</span></code>).
+Metode-metode tersebut tidak perlu bersifat publik kecuali Anda ingin mereka diakses dari class lain. Misalnya, properti class <code class="docutils literal notranslate"><span class="pre">created_at</span></code>
+akan diakses melalui metode <code class="docutils literal notranslate"><span class="pre">setCreatedAt()</span></code> dan <code class="docutils literal notranslate"><span class="pre">getCreatedAt()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Ini hanya berfungsi saat mencoba mengakses properti dari luar class. Setiap metode internal ke
+class harus memanggil metode <code class="docutils literal notranslate"><span class="pre">setX()</span></code> dan <code class="docutils literal notranslate"><span class="pre">getX()</span></code> secara langsung.</p>
+</div>
+<p>Dalam metode <code class="docutils literal notranslate"><span class="pre">setPassword()</span></code> kita memastikan bahwa password selalu di-hash.</p>
+<p>Dalam <code class="docutils literal notranslate"><span class="pre">setCreatedAt()</span></code> kita mengubah string yang kita terima dari model menjadi objek DateTime, memastikan bahwa zona waktu kita
+adalah UTC sehingga kita dapat dengan mudah mengkonversi zona waktu pengguna saat ini. Dalam <code class="docutils literal notranslate"><span class="pre">getCreatedAt()</span></code>, itu mengubah waktu menjadi
+string yang diformat dalam zona waktu aplikasi saat ini.</p>
+<p>Meskipun cukup sederhana, contoh-contoh ini menunjukkan bahwa menggunakan class Entitas dapat memberikan cara yang sangat fleksibel untuk menegakkan
+logika bisnis dan membuat objek yang menyenangkan untuk digunakan.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Auto-hash the password - both do the same thing</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">password</span> <span class="o">=</span> <span class="s1">&#39;my great password&#39;</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="s1">&#39;my great password&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<section id="getter-setter-khusus">
+<span id="entities-special-getter-setter"></span><h3><a class="toc-backref" href="#id8" role="doc-backlink">Getter/Setter Khusus</a><a class="headerlink" href="#getter-setter-khusus" title="Permalink to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.4.0.</span></p>
+</div>
+<p>Misalnya, jika class induk Entitas Anda sudah memiliki metode <code class="docutils literal notranslate"><span class="pre">getParent()</span></code>
+yang didefinisikan, dan Entitas Anda juga memiliki kolom bernama <code class="docutils literal notranslate"><span class="pre">parent</span></code>, ketika Anda mencoba menambahkan
+logika bisnis ke metode <code class="docutils literal notranslate"><span class="pre">getParent()</span></code> di class Entitas Anda, metode tersebut
+sudah didefinisikan.</p>
+<p>Dalam kasus seperti itu, Anda dapat menggunakan getter/setter khusus. Alih-alih <code class="docutils literal notranslate"><span class="pre">getX()</span></code>/<code class="docutils literal notranslate"><span class="pre">setX()</span></code>,
+atur <code class="docutils literal notranslate"><span class="pre">_getX()</span></code>/<code class="docutils literal notranslate"><span class="pre">_setX()</span></code>.</p>
+<p>Dalam contoh di atas, jika Entitas Anda memiliki metode <code class="docutils literal notranslate"><span class="pre">_getParent()</span></code>, metode tersebut
+akan digunakan ketika Anda mendapatkan <code class="docutils literal notranslate"><span class="pre">$entity-&gt;parent</span></code>, dan metode <code class="docutils literal notranslate"><span class="pre">_setParent()</span></code>
+akan digunakan ketika Anda mengatur <code class="docutils literal notranslate"><span class="pre">$entity-&gt;parent</span></code>.</p>
+</section>
+</section>
+<section id="pemetaan-data">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Pemetaan Data</a><a class="headerlink" href="#pemetaan-data" title="Permalink to this heading"></a></h2>
+<p>Di banyak titik dalam karier Anda, Anda akan menemukan situasi di mana penggunaan aplikasi telah berubah dan
+nama kolom asli di database tidak lagi masuk akal. Atau Anda menemukan bahwa gaya pengkodean Anda lebih menyukai properti class camelCase,
+tetapi skema database Anda membutuhkan nama snake_case. Situasi ini dapat dengan mudah ditangani
+dengan fitur pemetaan data class Entitas.</p>
+<p>Sebagai contoh, bayangkan Anda memiliki Entitas Pengguna yang disederhanakan yang digunakan di seluruh aplikasi Anda:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>         <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span>       <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span> <span class="c1">// Represents a username</span>
+        <span class="s1">&#39;email&#39;</span>      <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>   <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;created_at&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;updated_at&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Bos Anda datang kepada Anda dan mengatakan bahwa tidak ada yang menggunakan nama pengguna lagi, jadi Anda beralih untuk hanya menggunakan email untuk login.
+Tetapi mereka ingin mempersonalisasi aplikasi sedikit, jadi mereka ingin Anda mengubah field <code class="docutils literal notranslate"><span class="pre">name</span></code> untuk mewakili
+nama lengkap pengguna sekarang, bukan nama pengguna mereka seperti yang terjadi saat ini. Untuk menjaga semuanya tetap rapi dan memastikan semuanya terus masuk akal
+di database, Anda membuat migrasi untuk mengganti nama field <code class="docutils literal notranslate"><span class="pre">name</span></code> menjadi <code class="docutils literal notranslate"><span class="pre">full_name</span></code> untuk kejelasan.</p>
+<p>Mengabaikan betapa dibuat-buatnya contoh ini, kita sekarang memiliki dua pilihan tentang cara memperbaiki class Pengguna. Kita bisa memodifikasi properti class
+dari <code class="docutils literal notranslate"><span class="pre">$name</span></code> menjadi <code class="docutils literal notranslate"><span class="pre">$full_name</span></code>, tetapi itu akan memerlukan perubahan di seluruh aplikasi. Sebagai gantinya, kita dapat
+cukup memetakan kolom <code class="docutils literal notranslate"><span class="pre">full_name</span></code> di database ke properti <code class="docutils literal notranslate"><span class="pre">$name</span></code>, dan selesai dengan perubahan Entitas:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>         <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;full_name&#39;</span>  <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span> <span class="c1">// In the $attributes, the key is the db column name</span>
+        <span class="s1">&#39;email&#39;</span>      <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>   <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;created_at&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;updated_at&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="k">protected</span> <span class="nv">$datamap</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="c1">// property_name =&gt; db_column_name</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;full_name&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dengan menambahkan nama database baru kita ke array <code class="docutils literal notranslate"><span class="pre">$datamap</span></code>, kita dapat memberi tahu class properti class mana yang harus diakses
+melalui kolom database. Kunci array adalah properti class untuk memetakannya, di mana nilai dalam array adalah
+nama kolom di database.</p>
+<p>Dalam contoh ini, ketika model mengatur field <code class="docutils literal notranslate"><span class="pre">full_name</span></code> pada class Pengguna, itu sebenarnya menetapkan nilai tersebut ke
+properti <code class="docutils literal notranslate"><span class="pre">$name</span></code> class, sehingga dapat diatur dan diambil melalui <code class="docutils literal notranslate"><span class="pre">$user-&gt;name</span></code>. Nilai tersebut masih akan dapat diakses
+melalui <code class="docutils literal notranslate"><span class="pre">$user-&gt;full_name</span></code> asli juga, karena ini diperlukan agar model dapat mengambil data kembali dan menyimpannya
+ke database. Namun, <code class="docutils literal notranslate"><span class="pre">unset()</span></code> dan <code class="docutils literal notranslate"><span class="pre">isset()</span></code> hanya berfungsi pada properti yang dipetakan, <code class="docutils literal notranslate"><span class="pre">$user-&gt;name</span></code>, bukan pada nama kolom database,
+<code class="docutils literal notranslate"><span class="pre">$user-&gt;full_name</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Saat Anda menggunakan Pemetaan Data, Anda harus mendefinisikan metode <code class="docutils literal notranslate"><span class="pre">set*()</span></code> dan <code class="docutils literal notranslate"><span class="pre">get*()</span></code>
+untuk nama kolom database. Dalam contoh ini, Anda harus mendefinisikan <code class="docutils literal notranslate"><span class="pre">setFullName()</span></code> dan
+<code class="docutils literal notranslate"><span class="pre">getFullName()</span></code>.</p>
+</div>
+</section>
+<section id="mutator">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Mutator</a><a class="headerlink" href="#mutator" title="Permalink to this heading"></a></h2>
+<section id="mutator-tanggal">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Mutator Tanggal</a><a class="headerlink" href="#mutator-tanggal" title="Permalink to this heading"></a></h3>
+<p>Secara default, class Entitas akan mengubah field bernama <cite>created_at</cite>, <cite>updated_at</cite>, atau <cite>deleted_at</cite> menjadi
+instance <a class="reference internal" href="../libraries/time.html"><span class="doc">Time</span></a> setiap kali diatur atau diambil. Class Time menyediakan sejumlah besar
+metode yang membantu dengan cara yang tidak dapat diubah dan terlokalisasi.</p>
+<p>Anda dapat menentukan properti mana yang secara otomatis dikonversi dengan menambahkan nama ke properti <code class="docutils literal notranslate"><span class="pre">$dates</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s1">&#39;deleted_at&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Sekarang, ketika salah satu properti tersebut diatur, mereka akan dikonversi ke instance Time, menggunakan
+zona waktu aplikasi saat ini, seperti yang diatur di <strong>app/Config/App.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">();</span>
+
+<span class="c1">// Converted to Time instance</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">created_at</span> <span class="o">=</span> <span class="s1">&#39;April 15, 2017 10:30:00&#39;</span><span class="p">;</span>
+
+<span class="c1">// Can now use any Time methods:</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">created_at</span><span class="o">-&gt;</span><span class="na">humanize</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">created_at</span><span class="o">-&gt;</span><span class="na">setTimezone</span><span class="p">(</span><span class="s1">&#39;Europe/London&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toDateString</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="casting-properti">
+<span id="entities-property-casting"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink">Casting Properti</a><a class="headerlink" href="#casting-properti" title="Permalink to this heading"></a></h3>
+<p>Anda dapat menentukan bahwa properti di Entitas Anda harus dikonversi ke tipe data umum dengan properti <code class="docutils literal notranslate"><span class="pre">$casts</span></code>.
+Opsi ini harus berupa array di mana kunci adalah nama properti class, dan nilainya adalah tipe data yang
+harus di-cast.</p>
+<p>Casting properti memengaruhi pembacaan (get) dan penulisan (set), tetapi beberapa tipe memengaruhi
+hanya pembacaan (get).</p>
+<section id="casting-tipe-skalar">
+<h4>Casting Tipe Skalar<a class="headerlink" href="#casting-tipe-skalar" title="Permalink to this heading"></a></h4>
+<p>Properti dapat di-cast ke salah satu tipe data berikut:
+<strong>integer</strong>, <strong>float</strong>, <strong>double</strong>, <strong>string</strong>, <strong>boolean</strong>, <strong>object</strong>, <strong>array</strong>, <strong>datetime</strong>, <strong>timestamp</strong>, <strong>uri</strong> dan <strong>int-bool</strong>.
+Tambahkan tanda tanya di awal tipe untuk menandai properti sebagai nullable, yaitu, <strong>?string</strong>, <strong>?integer</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p><strong>int-bool</strong> dapat digunakan sejak v4.3.0.</p>
+</div>
+<p>Misalnya, jika Anda memiliki entitas Pengguna dengan properti <code class="docutils literal notranslate"><span class="pre">is_banned</span></code>, Anda dapat meng-cast-nya sebagai boolean:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;is_banned&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;boolean&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;is_banned_nullable&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;?boolean&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="casting-array-json">
+<h4>Casting Array/Json<a class="headerlink" href="#casting-array-json" title="Permalink to this heading"></a></h4>
+<p>Casting Array/Json sangat berguna dengan field yang menyimpan array atau json yang diserialkan di dalamnya. Ketika di-cast sebagai:</p>
+<ul class="simple">
+<li><p>sebuah <strong>array</strong>, mereka akan secara otomatis di-unserialize,</p></li>
+<li><p>sebuah <strong>json</strong>, mereka akan secara otomatis diatur sebagai nilai dari <code class="docutils literal notranslate"><span class="pre">json_decode($value,</span> <span class="pre">false)</span></code>,</p></li>
+<li><p>sebuah <strong>json-array</strong>, mereka akan secara otomatis diatur sebagai nilai dari <code class="docutils literal notranslate"><span class="pre">json_decode($value,</span> <span class="pre">true)</span></code>,</p></li>
+</ul>
+<p>ketika Anda mengatur nilai properti.
+Tidak seperti tipe data lainnya yang dapat Anda cast properti, tipe cast:</p>
+<ul class="simple">
+<li><p><strong>array</strong> akan melakukan serialisasi,</p></li>
+<li><p><strong>json</strong> dan <strong>json-array</strong> akan menggunakan fungsi json_encode pada</p></li>
+</ul>
+<p>nilai setiap kali properti diatur:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;options&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;options_object&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;options_array&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;json-array&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span>    <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<span class="nv">$options</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">;</span>
+
+<span class="nv">$options</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
+
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nv">$options</span><span class="p">;</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="casting-csv">
+<h4>Casting CSV<a class="headerlink" href="#casting-csv" title="Permalink to this heading"></a></h4>
+<p>Jika Anda tahu Anda memiliki array datar dengan nilai-nilai sederhana, mengodekannya sebagai string serial atau JSON
+mungkin lebih kompleks daripada struktur aslinya. Casting sebagai Comma-Separated Values (CSV) adalah
+alternatif yang lebih sederhana akan menghasilkan string yang menggunakan lebih sedikit ruang dan lebih mudah dibaca
+oleh manusia:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Widget</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;colors&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;csv&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Disimpan di database sebagai &quot;red,yellow,green&quot;:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$widget</span><span class="o">-&gt;</span><span class="na">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Casting sebagai CSV menggunakan metode internal PHP <code class="docutils literal notranslate"><span class="pre">implode</span></code> dan <code class="docutils literal notranslate"><span class="pre">explode</span></code> dan mengasumsikan semua nilai aman untuk string dan bebas koma. Untuk cast data yang lebih kompleks coba <code class="docutils literal notranslate"><span class="pre">array</span></code> atau <code class="docutils literal notranslate"><span class="pre">json</span></code>.</p>
+</div>
+</section>
+<section id="casting-kustom">
+<h4>Casting Kustom<a class="headerlink" href="#casting-kustom" title="Permalink to this heading"></a></h4>
+<p>Anda dapat mendefinisikan tipe konversi Anda sendiri untuk mendapatkan dan mengatur data.</p>
+<p>Pertama, Anda perlu membuat class handler untuk tipe Anda.
+Misalnya, class akan terletak di direktori <strong>app/Entities/Cast</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities\Cast</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Cast\BaseCast</span><span class="p">;</span>
+
+<span class="c1">// The class must inherit the CodeIgniter\Entity\Cast\BaseCast class</span>
+<span class="k">class</span> <span class="nc">CastBase64</span> <span class="k">extends</span> <span class="nx">BaseCast</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">set</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Sekarang Anda perlu mendaftarkannya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyEntity</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="c1">// Specify the type for the field</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;base64&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// Bind the type to the handler</span>
+    <span class="k">protected</span> <span class="nv">$castHandlers</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;base64&#39;</span> <span class="o">=&gt;</span> <span class="nx">Cast\CastBase64</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+
+<span class="c1">// ...</span>
+
+<span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">key</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span> <span class="c1">// dGVzdA==</span>
+<span class="k">echo</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">key</span><span class="p">;</span>     <span class="c1">// test</span>
+</pre></div>
+</div>
+<p>Jika Anda tidak perlu mengubah nilai saat mendapatkan atau mengatur nilai. Maka cukup jangan mengimplementasikan metode yang sesuai:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities\Cast</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Cast\BaseCast</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CastBase64</span> <span class="k">extends</span> <span class="nx">BaseCast</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="parameter">
+<h4>Parameter<a class="headerlink" href="#parameter" title="Permalink to this heading"></a></h4>
+<p>Dalam beberapa kasus, satu tipe tidak cukup. Dalam situasi ini, Anda dapat menggunakan parameter tambahan.
+Parameter tambahan ditunjukkan dalam tanda kurung siku dan dicantumkan dengan koma
+seperti <code class="docutils literal notranslate"><span class="pre">type[param1,</span> <span class="pre">param2]</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyEntity</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="c1">// Define a type with parameters</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;some_attribute&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;class[App\SomeClass, param2, param3]&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// Bind the type to the handler</span>
+    <span class="k">protected</span> <span class="nv">$castHandlers</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;SomeHandler&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities\Cast</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity\Cast\BaseCast</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SomeHandler</span> <span class="k">extends</span> <span class="nx">BaseCast</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
+        <span class="cm">/*</span>
+<span class="cm">         * Output:</span>
+<span class="cm">         * array(3) {</span>
+<span class="cm">         *   [0]=&gt;</span>
+<span class="cm">         *   string(13) &quot;App\SomeClass&quot;</span>
+<span class="cm">         *   [1]=&gt;</span>
+<span class="cm">         *   string(6) &quot;param2&quot;</span>
+<span class="cm">         *   [2]=&gt;</span>
+<span class="cm">         *   string(6) &quot;param3&quot;</span>
+<span class="cm">         * }</span>
+<span class="cm">         */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Jika tipe casting ditandai sebagai nullable seperti <code class="docutils literal notranslate"><span class="pre">?bool</span></code> dan nilai yang diteruskan tidak null, maka parameter dengan
+nilai <code class="docutils literal notranslate"><span class="pre">nullable</span></code> akan diteruskan ke handler tipe casting.
+Jika tipe casting memiliki parameter yang telah ditentukan, maka <code class="docutils literal notranslate"><span class="pre">nullable</span></code> akan ditambahkan ke akhir daftar.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="memeriksa-atribut-yang-berubah">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Memeriksa Atribut yang Berubah</a><a class="headerlink" href="#memeriksa-atribut-yang-berubah" title="Permalink to this heading"></a></h2>
+<p>Anda dapat memeriksa apakah atribut Entitas telah berubah sejak dibuat. Satu-satunya parameter adalah nama
+atribut yang akan diperiksa:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">();</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">hasChanged</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="c1">// false</span>
+
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Fred&#39;</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">hasChanged</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>Atau untuk memeriksa seluruh entitas untuk nilai yang berubah, hilangkan parameternya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">hasChanged</span><span class="p">();</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="model.html" class="btn btn-neutral float-left" title="Menggunakan Model CodeIgniter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../dbmgmt/index.html" class="btn btn-neutral float-right" title="Managing Databases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

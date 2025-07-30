@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Factories" href="factories.html" />
+    <link rel="prev" title="Autoloading File" href="autoloader.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Ikhtisar CodeIgniter4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Membangun Respons (Output)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Ikhtisar CodeIgniter4</a></li>
+      <li class="breadcrumb-item active">Service</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="service">
+<h1>Service<a class="headerlink" href="#service" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#pendahuluan" id="id2">Pendahuluan</a></p>
+<ul>
+<li><p><a class="reference internal" href="#apa-itu-service" id="id3">Apa itu Service?</a></p></li>
+<li><p><a class="reference internal" href="#mengapa-menggunakan-service" id="id4">Mengapa Menggunakan Service?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#bagaimana-cara-mendapatkan-service" id="id5">Bagaimana Cara Mendapatkan Service</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mendapatkan-instance-baru" id="id6">Mendapatkan Instance Baru</a></p></li>
+<li><p><a class="reference internal" href="#fungsi-kemudahan" id="id7">Fungsi Kemudahan</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mendefinisikan-service" id="id8">Mendefinisikan Service</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mengizinkan-parameter" id="id9">Mengizinkan Parameter</a></p></li>
+<li><p><a class="reference internal" href="#class-bersama" id="id10">Class Bersama</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#diskoveri-service" id="id11">Diskoveri Service</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mengatur-ulang-cache-service" id="id12">Mengatur Ulang Cache Service</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="pendahuluan">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Pendahuluan</a><a class="headerlink" href="#pendahuluan" title="Permalink to this heading"></a></h2>
+<section id="apa-itu-service">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Apa itu Service?</a><a class="headerlink" href="#apa-itu-service" title="Permalink to this heading"></a></h3>
+<p><strong>Service</strong> di CodeIgniter 4 menyediakan fungsionalitas untuk membuat dan berbagi instance class baru.
+Ini diimplementasikan sebagai class <code class="docutils literal notranslate"><span class="pre">Config\Services</span></code>.</p>
+<p>Semua class inti dalam CodeIgniter disediakan sebagai &quot;service&quot;. Ini berarti bahwa, alih-alih
+mengkodekan nama class untuk dimuat, class yang akan dipanggil didefinisikan dalam file
+konfigurasi yang sangat sederhana. File ini bertindak sebagai jenis pabrik untuk membuat instance baru dari class yang diperlukan.</p>
+</section>
+<section id="mengapa-menggunakan-service">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Mengapa Menggunakan Service?</a><a class="headerlink" href="#mengapa-menggunakan-service" title="Permalink to this heading"></a></h3>
+<p>Contoh singkat mungkin akan membuat segalanya lebih jelas, jadi bayangkan Anda perlu menarik instance
+dari class Timer. Metode paling sederhana adalah dengan membuat instance baru dari class tersebut:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\Debug\Timer</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Dan ini berfungsi dengan baik. Sampai Anda memutuskan bahwa Anda ingin menggunakan class timer yang berbeda sebagai gantinya.
+Mungkin yang ini memiliki pelaporan canggih yang tidak disediakan oleh timer default. Untuk melakukan ini,
+Anda sekarang harus menemukan semua lokasi di aplikasi Anda tempat Anda menggunakan class timer.
+Karena Anda mungkin meninggalkannya di tempat untuk menyimpan log kinerja aplikasi Anda yang terus-menerus
+berjalan, ini mungkin cara yang memakan waktu dan rawan kesalahan untuk menanganinya. Di situlah service
+berguna.</p>
+<p>Alih-alih membuat instance sendiri, kita membiarkan class pusat membuat instance
+class untuk kita. Class ini dijaga sangat sederhana. Ini hanya berisi metode untuk setiap class yang ingin
+kita gunakan sebagai service. Metode ini biasanya mengembalikan <strong>instance bersama</strong> dari class tersebut, meneruskan dependensi
+apa pun yang mungkin dimilikinya. Kemudian, kita akan mengganti kode pembuatan timer kita dengan kode yang memanggil fungsi global ini atau class Services:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$timer</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;timer&#39;</span><span class="p">);</span>
+
+<span class="c1">// The code above is the same as the code below.</span>
+<span class="nv">$timer</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">timer</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Ketika Anda perlu mengubah implementasi yang digunakan, Anda dapat memodifikasi file konfigurasi service, dan
+perubahan terjadi secara otomatis di seluruh aplikasi Anda tanpa Anda harus melakukan apa pun. Sekarang
+Anda hanya perlu memanfaatkan fungsionalitas baru apa pun dan Anda siap. Sangat sederhana dan
+tahan kesalahan.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Disarankan untuk hanya membuat service di dalam controller. File lain, seperti model dan library harus memiliki dependensi yang diteruskan ke konstruktor atau melalui metode setter.</p>
+</div>
+</section>
+</section>
+<section id="bagaimana-cara-mendapatkan-service">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Bagaimana Cara Mendapatkan Service</a><a class="headerlink" href="#bagaimana-cara-mendapatkan-service" title="Permalink to this heading"></a></h2>
+<p>Karena banyak class CodeIgniter disediakan sebagai service, Anda bisa mendapatkannya seperti berikut:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$timer</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;timer&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$timer</span></code> adalah instance dari class Timer, dan jika Anda memanggil <code class="docutils literal notranslate"><span class="pre">service('timer')</span></code> lagi, Anda akan mendapatkan instance yang sama persis.</p>
+<p>Service biasanya mengembalikan <strong>instance bersama</strong> dari class. Kode berikut membuat instance <code class="docutils literal notranslate"><span class="pre">CURLRequest</span></code> pada panggilan pertama. Dan panggilan kedua mengembalikan instance yang sama persis.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$options1</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;baseURI&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.com/api/v1/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;timeout&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$client1</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;curlrequest&#39;</span><span class="p">,</span> <span class="nv">$options1</span><span class="p">);</span>
+
+<span class="nv">$options2</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;baseURI&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://another.example.com/api/v2/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;timeout&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$client2</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;curlrequest&#39;</span><span class="p">,</span> <span class="nv">$options2</span><span class="p">);</span>
+<span class="c1">// $options2 does not work.</span>
+<span class="c1">// $client2 is the exactly same instance as $client1.</span>
+</pre></div>
+</div>
+<p>Oleh karena itu, parameter <code class="docutils literal notranslate"><span class="pre">$options2</span></code> untuk <code class="docutils literal notranslate"><span class="pre">$client2</span></code> tidak berfungsi. Itu hanya diabaikan.</p>
+<section id="mendapatkan-instance-baru">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Mendapatkan Instance Baru</a><a class="headerlink" href="#mendapatkan-instance-baru" title="Permalink to this heading"></a></h3>
+<p>Jika Anda ingin mendapatkan instance baru dari class Timer, Anda perlu meneruskan <code class="docutils literal notranslate"><span class="pre">false</span></code> ke argumen <code class="docutils literal notranslate"><span class="pre">$getShared</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$timer</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">timer</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="fungsi-kemudahan">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Fungsi Kemudahan</a><a class="headerlink" href="#fungsi-kemudahan" title="Permalink to this heading"></a></h3>
+<p>Dua fungsi telah disediakan untuk mendapatkan service. Fungsi-fungsi ini selalu tersedia.</p>
+<section id="id1">
+<h4>service()<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<p>Yang pertama adalah <code class="docutils literal notranslate"><span class="pre">service()</span></code> yang mengembalikan instance baru dari service yang diminta. Satu-satunya
+parameter yang diperlukan adalah nama service. Ini sama dengan nama metode dalam file Services
+selalu mengembalikan instance SHARED dari class, jadi memanggil fungsi beberapa kali seharusnya
+selalu mengembalikan instance yang sama:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$logger</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">);</span>
+
+<span class="c1">// The code above is the same as the code below.</span>
+<span class="nv">$logger</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">logger</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sejak v4.5.0, ketika Anda tidak meneruskan parameter ke service, fungsi global <code class="docutils literal notranslate"><span class="pre">service()</span></code> direkomendasikan karena peningkatan kinerja.</p>
+</div>
+<p>Jika metode pembuatan memerlukan parameter tambahan, mereka dapat diteruskan setelah nama service:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$renderer</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;renderer&#39;</span><span class="p">,</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;views/&#39;</span><span class="p">);</span>
+
+<span class="c1">// The code above is the same as the code below.</span>
+<span class="nv">$renderer</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">renderer</span><span class="p">(</span><span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;views/&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="single-service">
+<h4>single_service()<a class="headerlink" href="#single-service" title="Permalink to this heading"></a></h4>
+<p>Fungsi kedua, <code class="docutils literal notranslate"><span class="pre">single_service()</span></code> berfungsi persis seperti <code class="docutils literal notranslate"><span class="pre">service()</span></code> tetapi mengembalikan instance baru dari
+class:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$logger</span> <span class="o">=</span> <span class="nx">single_service</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">);</span>
+
+<span class="c1">// The code above is the same as the code below.</span>
+<span class="nv">$logger</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">logger</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="mendefinisikan-service">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Mendefinisikan Service</a><a class="headerlink" href="#mendefinisikan-service" title="Permalink to this heading"></a></h2>
+<p>Agar service berfungsi dengan baik, Anda harus dapat mengandalkan setiap class yang memiliki API konstan, atau
+<a class="reference external" href="https://www.php.net/manual/en/language.oop5.interfaces.php">interface</a>, untuk digunakan. Hampir semua
+class CodeIgniter menyediakan interface yang mereka patuhi. Ketika Anda ingin memperluas atau mengganti
+class inti, Anda hanya perlu memastikan Anda memenuhi persyaratan interface dan Anda tahu bahwa
+class tersebut kompatibel.</p>
+<p>Misalnya, class <code class="docutils literal notranslate"><span class="pre">RouteCollection</span></code> mengimplementasikan <code class="docutils literal notranslate"><span class="pre">RouteCollectionInterface</span></code>. Ketika Anda
+ingin membuat pengganti yang menyediakan cara berbeda untuk membuat rute, Anda hanya perlu
+membuat class baru yang mengimplementasikan <code class="docutils literal notranslate"><span class="pre">RouteCollectionInterface</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Router</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Router\RouteCollectionInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyRouteCollection</span> <span class="k">implements</span> <span class="nx">RouteCollectionInterface</span>
+<span class="p">{</span>
+    <span class="c1">// Implement required methods here.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Terakhir, tambahkan metode <code class="docutils literal notranslate"><span class="pre">routes()</span></code> ke <strong>app/Config/Services.php</strong> untuk membuat instance baru dari <code class="docutils literal notranslate"><span class="pre">MyRouteCollection</span></code>
+alih-alih <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Router\RouteCollection</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\BaseService</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Services</span> <span class="k">extends</span> <span class="nx">BaseService</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">routes</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">\App\Router\MyRouteCollection</span><span class="p">(</span><span class="k">static</span><span class="o">::</span><span class="na">locator</span><span class="p">(),</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;Modules&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="mengizinkan-parameter">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Mengizinkan Parameter</a><a class="headerlink" href="#mengizinkan-parameter" title="Permalink to this heading"></a></h3>
+<p>Dalam beberapa kasus, Anda ingin memiliki opsi untuk meneruskan pengaturan ke class selama instansiasi.
+Karena file service adalah class yang sangat sederhana, mudah untuk membuat ini berfungsi.</p>
+<p>Contoh yang baik adalah service <code class="docutils literal notranslate"><span class="pre">renderer</span></code>. Secara default, kita ingin class ini dapat
+menemukan view di <code class="docutils literal notranslate"><span class="pre">APPPATH</span> <span class="pre">.</span> <span class="pre">'views/'</span></code>. Kita ingin pengembang memiliki opsi untuk
+mengubah jalur itu, jika kebutuhan mereka mengharuskannya. Jadi class menerima <code class="docutils literal notranslate"><span class="pre">$viewPath</span></code>
+sebagai parameter konstruktor. Metode service terlihat seperti ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\BaseService</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Services</span> <span class="k">extends</span> <span class="nx">BaseService</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">renderer</span><span class="p">(</span><span class="nv">$viewPath</span> <span class="o">=</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;views/&#39;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\View</span><span class="p">(</span><span class="nv">$viewPath</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ini menetapkan jalur default dalam metode konstruktor, tetapi memungkinkan untuk dengan mudah mengubah
+jalur yang digunakannya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$renderer</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">renderer</span><span class="p">(</span><span class="s1">&#39;/shared/views/&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="class-bersama">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Class Bersama</a><a class="headerlink" href="#class-bersama" title="Permalink to this heading"></a></h3>
+<p>Ada kalanya Anda perlu mensyaratkan bahwa hanya satu instance service
+yang dibuat. Ini mudah ditangani dengan metode <code class="docutils literal notranslate"><span class="pre">getSharedInstance()</span></code> yang dipanggil dari dalam
+metode pabrik. Ini menangani pemeriksaan apakah instance telah dibuat dan disimpan
+di dalam class, dan, jika tidak, membuat yang baru. Semua metode pabrik menyediakan nilai
+<code class="docutils literal notranslate"><span class="pre">$getShared</span> <span class="pre">=</span> <span class="pre">true</span></code> sebagai parameter terakhir. Anda harus tetap pada metode juga:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\BaseService</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Services</span> <span class="k">extends</span> <span class="nx">BaseService</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">routes</span><span class="p">(</span><span class="nv">$getShared</span> <span class="o">=</span> <span class="k">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$getShared</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">static</span><span class="o">::</span><span class="na">getSharedInstance</span><span class="p">(</span><span class="s1">&#39;routes&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">\App\Router\MyRouteCollection</span><span class="p">(</span><span class="k">static</span><span class="o">::</span><span class="na">locator</span><span class="p">(),</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;Modules&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="diskoveri-service">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Diskoveri Service</a><a class="headerlink" href="#diskoveri-service" title="Permalink to this heading"></a></h2>
+<p>CodeIgniter dapat secara otomatis menemukan file <strong>Config/Services.php</strong> apa pun yang mungkin telah Anda buat dalam namespace yang ditentukan.
+Ini memungkinkan penggunaan sederhana dari file Service modul apa pun. Agar file Service kustom ditemukan, mereka harus
+memenuhi persyaratan ini:</p>
+<ul class="simple">
+<li><p>Namespace-nya harus didefinisikan di <strong>app/Config/Autoload.php</strong></p></li>
+<li><p>Di dalam namespace, file harus ditemukan di <strong>Config/Services.php</strong></p></li>
+<li><p>Itu harus memperluas <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Config\BaseService</span></code></p></li>
+</ul>
+<p>Contoh kecil akan memperjelas ini.</p>
+<p>Bayangkan Anda telah membuat direktori baru, <strong>Blog</strong> di direktori root proyek Anda. Ini akan berisi <strong>modul Blog</strong> dengan controller,
+model, dll, dan Anda ingin membuat beberapa class tersedia sebagai service. Langkah pertama adalah membuat file baru:
+<strong>Blog/Config/Services.php</strong>. Kerangka file seharusnya:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Blog\Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\BaseService</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Services</span> <span class="k">extends</span> <span class="nx">BaseService</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">postManager</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Sekarang Anda dapat menggunakan file ini seperti yang dijelaskan di atas. Ketika Anda ingin mengambil service posting dari controller mana pun, Anda
+cukup menggunakan class <code class="docutils literal notranslate"><span class="pre">Config\Services</span></code> dari framework untuk mengambil service Anda:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$postManager</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;postManager&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Jika beberapa file Service memiliki nama metode yang sama, yang pertama ditemukan akan menjadi instance yang dikembalikan.</p>
+</div>
+<section id="mengatur-ulang-cache-service">
+<span id="resetting-services-cache"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink">Mengatur Ulang Cache Service</a><a class="headerlink" href="#mengatur-ulang-cache-service" title="Permalink to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Baru pada versi 4.6.0.</span></p>
+</div>
+<p>Ketika class Services pertama kali dipanggil cukup awal dalam proses inisialisasi framework,
+class Services yang ditemukan oleh penemuan otomatis di-cache dalam properti,
+dan itu tidak akan diperbarui.</p>
+<p>Jika modul dimuat secara dinamis nanti, dan ada Service di modul,
+cache harus diperbarui.</p>
+<p>Ini dapat dilakukan dengan menjalankan <code class="docutils literal notranslate"><span class="pre">Config\Services::resetServicesCache()</span></code>. Ini akan
+membersihkan cache, dan memaksa penemuan service lagi saat dibutuhkan.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="autoloader.html" class="btn btn-neutral float-left" title="Autoloading File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="factories.html" class="btn btn-neutral float-right" title="Factories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

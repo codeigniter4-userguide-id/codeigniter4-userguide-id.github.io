@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTTP Responses &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="API Response Trait" href="api_responses.html" />
+    <link rel="prev" title="HTML Table Class" href="table.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/ci-logo-text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Instalasi Menggunakan Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalasi Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Menjalankan Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Pemecahan Masalah</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositori CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Membangun Aplikasi Pertama Anda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Ikhtisar CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Struktur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Model, View, dan Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Bekerja dengan Permintaan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Panduan Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/goals.html">Tujuan Desain dan Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Membangun Respons (Output)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="views.html">View (Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table.html">HTML Table Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csp.html">Content Security Policy (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization.html">Localization (Bahasa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaks PHP Alternatif untuk File View</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Bekerja dengan Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Mulai Cepat: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menghasilkan Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Kumpulan Metode (Fungsi) Pembantu Kueri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Class Query Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transaksi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Panggilan Fungsi Kustom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilitas Database</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Memodelkan Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Menggunakan Model CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Menggunakan Class Entitas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cors.html">Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/cli.html">Testing CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Creating Composer Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Membangun Respons (Output)</a></li>
+      <li class="breadcrumb-item active">HTTP Responses</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="http-responses">
+<h1>HTTP Responses<a class="headerlink" href="#http-responses" title="Permalink to this heading"></a></h1>
+<p>Class Response memperluas <a class="reference internal" href="../incoming/message.html"><span class="doc">HTTP Message Class</span></a> dengan metode yang hanya sesuai untuk
+server yang merespons klien yang memanggilnya.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#bekerja-dengan-response" id="id1">Bekerja dengan Response</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mengatur-output" id="id2">Mengatur Output</a></p></li>
+<li><p><a class="reference internal" href="#mengatur-header" id="id3">Mengatur Header</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#redirect" id="id4">Redirect</a></p>
+<ul>
+<li><p><a class="reference internal" href="#redirect-ke-jalur-uri" id="id5">Redirect ke Jalur URI</a></p></li>
+<li><p><a class="reference internal" href="#redirect-ke-route-yang-didefinisikan" id="id6">Redirect ke Route yang Didefinisikan</a></p></li>
+<li><p><a class="reference internal" href="#redirect-kembali" id="id7">Redirect Kembali</a></p></li>
+<li><p><a class="reference internal" href="#redirect-dengan-cookies" id="id8">Redirect dengan Cookies</a></p></li>
+<li><p><a class="reference internal" href="#redirect-dengan-header" id="id9">Redirect dengan Header</a></p></li>
+<li><p><a class="reference internal" href="#kode-status-redirect" id="id10">Kode Status Redirect</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#paksa-unduh-file" id="id11">Paksa Unduh File</a></p>
+<ul>
+<li><p><a class="reference internal" href="#buka-file-di-browser" id="id12">Buka File di Browser</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#http-caching" id="id13">HTTP Caching</a></p></li>
+<li><p><a class="reference internal" href="#referensi-class" id="id14">Referensi Class</a></p></li>
+</ul>
+</nav>
+<section id="bekerja-dengan-response">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Bekerja dengan Response</a><a class="headerlink" href="#bekerja-dengan-response" title="Permalink to this heading"></a></h2>
+<p>Sebuah class Response diinstansiasi untuk Anda dan diteruskan ke controller Anda. Ini dapat
+diakses melalui <code class="docutils literal notranslate"><span class="pre">$this-&gt;response</span></code>. Ini adalah instance yang sama yang
+dikembalikan oleh <code class="docutils literal notranslate"><span class="pre">Services::response()</span></code>. Kami menyebutnya instance response global.</p>
+<p>Seringkali Anda tidak perlu menyentuh class secara langsung, karena CodeIgniter mengurus
+pengiriman header dan body untuk Anda. Ini bagus jika halaman berhasil membuat konten yang diminta.
+Ketika ada yang salah, atau Anda perlu mengirim kode status yang sangat spesifik kembali, atau bahkan memanfaatkan
+caching HTTP yang kuat, itu ada untuk Anda.</p>
+<section id="mengatur-output">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Mengatur Output</a><a class="headerlink" href="#mengatur-output" title="Permalink to this heading"></a></h3>
+<p>Ketika Anda perlu mengatur output skrip secara langsung, dan tidak bergantung pada CodeIgniter untuk mendapatkannya secara otomatis, Anda
+melakukannya secara manual dengan metode <code class="docutils literal notranslate"><span class="pre">setBody</span></code>. Ini biasanya digunakan bersamaan dengan pengaturan kode status
+response:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setBody</span><span class="p">(</span><span class="nv">$body</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Frasa alasan ('OK', 'Created', 'Moved Permanently') akan secara otomatis ditambahkan, tetapi Anda dapat menambahkan alasan kustom
+sebagai parameter kedua dari metode <code class="docutils literal notranslate"><span class="pre">setStatusCode()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="s1">&#39;Nope. Not here.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Anda dapat mengatur format array menjadi JSON atau XML dan mengatur header tipe konten ke mime yang sesuai dengan
+metode <code class="docutils literal notranslate"><span class="pre">setJSON()</span></code> dan <code class="docutils literal notranslate"><span class="pre">setXML()</span></code>. Biasanya, Anda akan mengirimkan array data untuk dikonversi:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;success&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s1">&#39;id&#39;</span>      <span class="o">=&gt;</span> <span class="mi">123</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setJSON</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+
+<span class="c1">// or</span>
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setXML</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="mengatur-header">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Mengatur Header</a><a class="headerlink" href="#mengatur-header" title="Permalink to this heading"></a></h3>
+<section id="setheader">
+<h4>setHeader()<a class="headerlink" href="#setheader" title="Permalink to this heading"></a></h4>
+<p>Seringkali, Anda perlu mengatur header untuk response. Class Response membuatnya sangat mudah untuk dilakukan,
+dengan metode <code class="docutils literal notranslate"><span class="pre">setHeader()</span></code>.</p>
+<p>Parameter pertama adalah nama header. Parameter kedua adalah nilai,
+yang bisa berupa string atau array nilai yang akan digabungkan dengan benar saat dikirim ke klien.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s1">&#39;WWW-Authenticate&#39;</span><span class="p">,</span> <span class="s1">&#39;Negotiate&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Menggunakan fungsi-fungsi ini alih-alih menggunakan fungsi PHP native memungkinkan Anda untuk memastikan bahwa tidak ada header yang dikirim
+terlalu dini, menyebabkan kesalahan, dan memungkinkan pengujian.</p>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Sejak v4.6.0, jika Anda mengatur header menggunakan fungsi PHP native <code class="docutils literal notranslate"><span class="pre">header()</span></code>
+dan kemudian menggunakan class <code class="docutils literal notranslate"><span class="pre">Response</span></code> untuk mengatur header yang sama, yang
+sebelumnya akan ditimpa.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Metode ini hanya mengatur header ke instance response. Jadi, jika Anda membuat
+dan mengembalikan instance response lain (misalnya, jika Anda memanggil <a class="reference internal" href="../general/common_functions.html#redirect" title="redirect"><code class="xref php php-func docutils literal notranslate"><span class="pre">redirect()</span></code></a>),
+header yang diatur di sini tidak akan dikirim secara otomatis.</p>
+</div>
+</section>
+<section id="appendheader">
+<h4>appendHeader()<a class="headerlink" href="#appendheader" title="Permalink to this heading"></a></h4>
+<p>Jika header ada dan dapat memiliki lebih dari satu nilai, Anda dapat menggunakan metode <code class="docutils literal notranslate"><span class="pre">appendHeader()</span></code> dan <code class="docutils literal notranslate"><span class="pre">prependHeader()</span></code>
+untuk menambahkan nilai ke akhir atau awal daftar nilai, masing-masing. Parameter pertama adalah nama
+header, sedangkan yang kedua adalah nilai yang akan ditambahkan atau diawali.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s1">&#39;Cache-Control&#39;</span><span class="p">,</span> <span class="s1">&#39;no-cache&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">appendHeader</span><span class="p">(</span><span class="s1">&#39;Cache-Control&#39;</span><span class="p">,</span> <span class="s1">&#39;must-revalidate&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="removeheader">
+<h4>removeHeader()<a class="headerlink" href="#removeheader" title="Permalink to this heading"></a></h4>
+<p>Header dapat dihapus dari response dengan metode <code class="docutils literal notranslate"><span class="pre">removeHeader()</span></code>, yang mengambil nama header sebagai satu-satunya
+parameter. Ini tidak peka huruf besar/kecil.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">removeHeader</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="redirect">
+<span id="response-redirect"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Redirect</a><a class="headerlink" href="#redirect" title="Permalink to this heading"></a></h2>
+<p>Jika Anda ingin membuat redirect, gunakan fungsi <a class="reference internal" href="../general/common_functions.html#redirect" title="redirect"><code class="xref php php-func docutils literal notranslate"><span class="pre">redirect()</span></code></a>.</p>
+<p>Ini mengembalikan instance <code class="docutils literal notranslate"><span class="pre">RedirectResponse</span></code>. Ini adalah instance yang berbeda dari
+instance response global yang dikembalikan oleh <code class="docutils literal notranslate"><span class="pre">Services::response()</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Peringatan</p>
+<p>Jika Anda mengatur Cookies atau Response Headers sebelum Anda memanggil <code class="docutils literal notranslate"><span class="pre">redirect()</span></code>,
+mereka diatur ke instance response global, dan mereka tidak secara otomatis
+disalin ke instance <code class="docutils literal notranslate"><span class="pre">RedirectResponse</span></code>. Untuk mengirimnya, Anda perlu memanggil
+metode <code class="docutils literal notranslate"><span class="pre">withCookies()</span></code> atau <code class="docutils literal notranslate"><span class="pre">withHeaders()</span></code> secara manual.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Penting</p>
+<p>Jika Anda ingin mengarahkan ulang, instance <code class="docutils literal notranslate"><span class="pre">RedirectResponse</span></code> harus
+dikembalikan dalam metode <a class="reference internal" href="../incoming/controllers.html"><span class="doc">Controller</span></a> atau
+<a class="reference internal" href="../incoming/filters.html"><span class="doc">Controller Filter</span></a>. Perhatikan bahwa metode <code class="docutils literal notranslate"><span class="pre">__construct()</span></code>
+atau <code class="docutils literal notranslate"><span class="pre">initController()</span></code> tidak dapat mengembalikan nilai apa pun.
+Jika Anda lupa mengembalikan <code class="docutils literal notranslate"><span class="pre">RedirectResponse</span></code>, tidak ada pengalihan yang akan terjadi.</p>
+</div>
+<section id="redirect-ke-jalur-uri">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Redirect ke Jalur URI</a><a class="headerlink" href="#redirect-ke-jalur-uri" title="Permalink to this heading"></a></h3>
+<p>Ketika Anda ingin meneruskan jalur URI (relatif terhadap baseURL), gunakan <code class="docutils literal notranslate"><span class="pre">redirect()-&gt;to()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Go to specific URI path. &quot;admin/home&quot; is the URI path relative to baseURL.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="s1">&#39;admin/home&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Jika ada fragmen di URL Anda yang ingin Anda hapus, Anda dapat
+menggunakan parameter refresh dalam metode.
+Seperti <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">redirect()-&gt;to('admin/home',</span> <span class="pre">null,</span> <span class="pre">'refresh');</span></code>.</p>
+</div>
+</section>
+<section id="redirect-ke-route-yang-didefinisikan">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Redirect ke Route yang Didefinisikan</a><a class="headerlink" href="#redirect-ke-route-yang-didefinisikan" title="Permalink to this heading"></a></h3>
+<p>Ketika Anda ingin meneruskan <a class="reference internal" href="../incoming/routing.html#using-named-routes"><span class="std std-ref">nama route</span></a> atau Controller::method
+untuk <a class="reference internal" href="../incoming/routing.html#reverse-routing"><span class="std std-ref">reverse routing</span></a>, gunakan <code class="docutils literal notranslate"><span class="pre">redirect()-&gt;route()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Go to a named route. &quot;user_gallery&quot; is the route name, not a URI path.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">route</span><span class="p">(</span><span class="s1">&#39;user_gallery&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Ketika meneruskan argumen ke dalam fungsi, itu diperlakukan sebagai nama route atau
+Controller::method untuk reverse routing, bukan URI relatif/lengkap,
+memperlakukan itu sama dengan menggunakan <code class="docutils literal notranslate"><span class="pre">redirect()-&gt;route()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Go to a named/reverse-routed URI.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;named_route&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="redirect-kembali">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Redirect Kembali</a><a class="headerlink" href="#redirect-kembali" title="Permalink to this heading"></a></h3>
+<p>Ketika Anda ingin mengarahkan ulang kembali, gunakan <code class="docutils literal notranslate"><span class="pre">redirect()-&gt;back()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Go back to the previous page.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">();</span>
+
+<span class="c1">// Keep the old input values upon redirect so they can be used by the `old()` function.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withInput</span><span class="p">();</span>
+
+<span class="c1">// Set a flash message.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p><code class="docutils literal notranslate"><span class="pre">redirect()-&gt;back()</span></code> tidak sama dengan tombol &quot;kembali&quot; browser.
+Ini membawa pengunjung ke &quot;halaman terakhir yang dilihat selama Session&quot; ketika Session tersedia.
+Jika Session belum dimuat, atau tidak tersedia, maka versi HTTP_REFERER yang telah dibersihkan akan digunakan.</p>
+</div>
+</section>
+<section id="redirect-dengan-cookies">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Redirect dengan Cookies</a><a class="headerlink" href="#redirect-dengan-cookies" title="Permalink to this heading"></a></h3>
+<p>Jika Anda mengatur Cookies sebelum Anda memanggil <code class="docutils literal notranslate"><span class="pre">redirect()</span></code>, mereka diatur ke instance
+response global, dan mereka tidak secara otomatis disalin ke instance <code class="docutils literal notranslate"><span class="pre">RedirectResponse</span></code>.</p>
+<p>Untuk mengirim Cookies, Anda perlu memanggil metode <code class="docutils literal notranslate"><span class="pre">withCookies()</span></code> secara manual.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copies all cookies from global response instance.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withCookies</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="redirect-dengan-header">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Redirect dengan Header</a><a class="headerlink" href="#redirect-dengan-header" title="Permalink to this heading"></a></h3>
+<p>Jika Anda mengatur Response Headers sebelum Anda memanggil <code class="docutils literal notranslate"><span class="pre">redirect()</span></code>, mereka diatur ke
+instance response global, dan mereka tidak secara otomatis disalin ke
+instance <code class="docutils literal notranslate"><span class="pre">RedirectResponse</span></code>.</p>
+<p>Untuk mengirim Header, Anda perlu memanggil metode <code class="docutils literal notranslate"><span class="pre">withHeaders()</span></code> secara manual.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copies all headers from the global response instance.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withHeaders</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="kode-status-redirect">
+<span id="response-redirect-status-code"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Kode Status Redirect</a><a class="headerlink" href="#kode-status-redirect" title="Permalink to this heading"></a></h3>
+<p>Kode status HTTP default untuk permintaan GET adalah 302. Namun, ketika menggunakan HTTP/1.1
+atau yang lebih baru, 303 digunakan untuk permintaan POST/PUT/DELETE dan 307 untuk semua permintaan lainnya.</p>
+<p>Anda dapat menentukan kode status:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Redirect to a URI path relative to baseURL with status code 301.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="s1">&#39;admin/home&#39;</span><span class="p">,</span> <span class="mi">301</span><span class="p">);</span>
+
+<span class="c1">// Redirect to a route with status code 308.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">route</span><span class="p">(</span><span class="s1">&#39;user_gallery&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">308</span><span class="p">);</span>
+
+<span class="c1">// Redirect back with status code 302.</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">(</span><span class="mi">302</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Karena bug, di v4.3.3 atau versi sebelumnya, kode status
+response redirect yang sebenarnya mungkin berubah bahkan jika kode status telah ditentukan.
+Lihat <a class="reference internal" href="../changelogs/v4.3.4.html#v434-redirect-status-code"><span class="std std-ref">ChangeLog v4.3.4</span></a>.</p>
+</div>
+<p>Jika Anda tidak tahu kode status HTTP untuk pengalihan, disarankan untuk membaca
+<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections">Redirections in HTTP</a>.</p>
+</section>
+</section>
+<section id="paksa-unduh-file">
+<span id="force-file-download"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink">Paksa Unduh File</a><a class="headerlink" href="#paksa-unduh-file" title="Permalink to this heading"></a></h2>
+<p>Class Response menyediakan cara sederhana untuk mengirim file ke klien, meminta browser untuk mengunduh data
+ke komputer Anda. Ini mengatur header yang sesuai untuk mewujudkannya.</p>
+<p>Parameter pertama adalah <strong>nama yang Anda inginkan untuk file yang diunduh</strong>, parameter kedua adalah
+data file.</p>
+<p>Jika Anda mengatur parameter kedua ke null dan <code class="docutils literal notranslate"><span class="pre">$filename</span></code> adalah jalur file yang ada dan dapat dibaca,
+maka kontennya akan dibaca sebagai gantinya.</p>
+<p>Jika Anda mengatur parameter ketiga ke boolean true, maka tipe MIME file yang sebenarnya
+(berdasarkan ekstensi nama file) akan dikirim, sehingga jika browser Anda memiliki
+handler untuk tipe tersebut - ia dapat menggunakannya.</p>
+<p>Contoh:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;Here is some text!&#39;</span><span class="p">;</span>
+<span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;mytext.txt&#39;</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">download</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Jika Anda ingin mengunduh file yang ada dari server Anda, Anda perlu
+meneruskan <code class="docutils literal notranslate"><span class="pre">null</span></code> secara eksplisit untuk parameter kedua:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Contents of photo.jpg will be automatically read</span>
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">download</span><span class="p">(</span><span class="s1">&#39;/path/to/photo.jpg&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Gunakan metode opsional <code class="docutils literal notranslate"><span class="pre">setFileName()</span></code> untuk mengubah nama file saat dikirim ke browser klien:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">download</span><span class="p">(</span><span class="s1">&#39;awkwardEncryptedFileName.fakeExt&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setFileName</span><span class="p">(</span><span class="s1">&#39;expenses.csv&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Objek response HARUS dikembalikan agar unduhan dapat dikirim ke klien. Ini memungkinkan response
+untuk melewati semua filter <strong>setelah</strong> sebelum dikirim ke klien.</p>
+</div>
+<section id="buka-file-di-browser">
+<span id="open-file-in-browser"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink">Buka File di Browser</a><a class="headerlink" href="#buka-file-di-browser" title="Permalink to this heading"></a></h3>
+<p>Beberapa browser dapat menampilkan file seperti PDF. Untuk memberi tahu browser agar menampilkan file alih-alih menyimpannya, panggil
+metode <code class="docutils literal notranslate"><span class="pre">DownloadResponse::inline()</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;Here is some text!&#39;</span><span class="p">;</span>
+<span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;mytext.txt&#39;</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">download</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">inline</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="http-caching">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">HTTP Caching</a><a class="headerlink" href="#http-caching" title="Permalink to this heading"></a></h2>
+<p>Dibangun dalam spesifikasi HTTP adalah alat yang membantu klien (seringkali browser web) meng-cache hasilnya. Digunakan dengan benar,
+ini dapat menyebabkan peningkatan kinerja yang besar pada aplikasi Anda karena akan memberi tahu klien bahwa mereka tidak perlu
+menghubungi server sama sekali karena tidak ada yang berubah. Dan Anda tidak bisa lebih cepat dari itu.</p>
+<p>Ini ditangani melalui header <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> dan <code class="docutils literal notranslate"><span class="pre">ETag</span></code>. Panduan ini bukan tempat yang tepat untuk
+pengantar menyeluruh tentang semua kekuatan header cache, tetapi Anda bisa mendapatkan pemahaman yang baik di
+<a class="reference external" href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching">Google Developers</a>.</p>
+<p>Secara default, semua objek response yang dikirim melalui CodeIgniter memiliki caching HTTP dimatikan. Opsi dan keadaan
+yang tepat terlalu bervariasi bagi kami untuk dapat membuat default yang baik selain mematikannya. Sangat mudah
+untuk mengatur nilai Cache sesuai kebutuhan Anda, melalui metode <code class="docutils literal notranslate"><span class="pre">setCache()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;max-age&#39;</span>  <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="s1">&#39;s-maxage&#39;</span> <span class="o">=&gt;</span> <span class="mi">900</span><span class="p">,</span>
+    <span class="s1">&#39;etag&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;abcde&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setCache</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Array <code class="docutils literal notranslate"><span class="pre">$options</span></code> hanya mengambil array pasangan kunci/nilai yang, dengan beberapa pengecualian, ditetapkan
+ke header <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code>. Anda bebas mengatur semua opsi persis seperti yang Anda butuhkan untuk situasi
+spesifik Anda. Meskipun sebagian besar opsi diterapkan ke header <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code>, ia secara cerdas menangani
+opsi <code class="docutils literal notranslate"><span class="pre">etag</span></code> dan <code class="docutils literal notranslate"><span class="pre">last-modified</span></code> ke header yang sesuai.</p>
+</section>
+<section id="referensi-class">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Referensi Class</a><a class="headerlink" href="#referensi-class" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Selain metode yang tercantum di sini, class ini mewarisi metode dari
+<a class="reference internal" href="../incoming/message.html"><span class="doc">Message Class</span></a>.</p>
+</div>
+<p>Metode yang diwarisi dari Message Class adalah:</p>
+<ul class="simple">
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::body()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::setBody()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::populateHeaders()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::headers()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::header()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::headerLine()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::setHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::removeHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::appendHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::protocolVersion()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::setProtocolVersion()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateMedia()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateCharset()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateEncoding()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateLanguage()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateLanguage()</span></code></p></li>
+</ul>
+<span class="target" id="namespace-CodeIgniter\HTTP"></span><dl class="php class">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">CodeIgniter\HTTP\</span></span><span class="sig-name descname"><span class="pre">Response</span></span><a class="headerlink" href="#CodeIgniter\HTTP\Response" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::getStatusCode">
+<span class="sig-name descname"><span class="pre">getStatusCode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::getStatusCode" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Kembali<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Kode status HTTP saat ini untuk response ini</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+<p>Mengembalikan kode status saat ini untuk response ini. Jika tidak ada kode status yang diatur,
+BadMethodCallException akan dilemparkan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::setStatusCode">
+<span class="sig-name descname"><span class="pre">setStatusCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$code</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$reason=''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::setStatusCode" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$code</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Kode status HTTP</p></li>
+<li><p><strong>$reason</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Frasa alasan opsional.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance Response saat ini</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Mengatur kode status HTTP yang harus dikirim dengan response ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">404</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Frasa alasan akan secara otomatis dihasilkan berdasarkan daftar resmi. Jika Anda perlu mengatur sendiri
+untuk kode status kustom, Anda dapat meneruskan frasa alasan sebagai parameter kedua:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="s1">&#39;Tardis initiated&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::getReasonPhrase">
+<span class="sig-name descname"><span class="pre">getReasonPhrase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::getReasonPhrase" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Kembali<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Frasa alasan saat ini.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
+</dd>
+</dl>
+<p>Mengembalikan kode status saat ini untuk response ini. Jika tidak ada status yang diatur, akan mengembalikan string kosong:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getReasonPhrase</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::setDate">
+<span class="sig-name descname"><span class="pre">setDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::setDate" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$date</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">DateTime</span></code></span>) -- Instance DateTime dengan waktu yang akan diatur untuk response ini.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance response saat ini.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Mengatur tanggal yang digunakan untuk response ini. Argumen <code class="docutils literal notranslate"><span class="pre">$date</span></code> harus berupa instance <code class="docutils literal notranslate"><span class="pre">DateTime</span></code>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::setContentType">
+<span class="sig-name descname"><span class="pre">setContentType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$mime</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$charset='UTF-8'</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::setContentType" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$mime</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Tipe konten yang diwakili oleh response ini.</p></li>
+<li><p><strong>$charset</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Set karakter yang digunakan oleh response ini.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance response saat ini.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Mengatur tipe konten yang diwakili oleh response ini:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">&#39;text/html&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Secara default, metode ini mengatur set karakter ke <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>. Jika Anda perlu mengubah ini, Anda dapat
+meneruskan set karakter sebagai parameter kedua:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">&#39;text/plain&#39;</span><span class="p">,</span> <span class="s1">&#39;x-pig-latin&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::noCache">
+<span class="sig-name descname"><span class="pre">noCache</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::noCache" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Kembali<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance response saat ini.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Mengatur header <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> untuk mematikan semua caching HTTP. Ini adalah pengaturan default
+dari semua pesan response:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">noCache</span><span class="p">();</span>
+<span class="cm">/*</span>
+<span class="cm"> * Sets the following header:</span>
+<span class="cm"> * Cache-Control: no-store, max-age=0, no-cache</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::setCache">
+<span class="sig-name descname"><span class="pre">setCache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::setCache" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$options</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- Array pengaturan kontrol cache kunci/nilai</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance response saat ini.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Mengatur header <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code>, termasuk <code class="docutils literal notranslate"><span class="pre">ETags</span></code> dan <code class="docutils literal notranslate"><span class="pre">Last-Modified</span></code>. Kunci umum adalah:</p>
+<ul class="simple">
+<li><p>etag</p></li>
+<li><p>last-modified</p></li>
+<li><p>max-age</p></li>
+<li><p>s-maxage</p></li>
+<li><p>private</p></li>
+<li><p>public</p></li>
+<li><p>must-revalidate</p></li>
+<li><p>proxy-revalidate</p></li>
+<li><p>no-transform</p></li>
+</ul>
+<p>Ketika meneruskan opsi last-modified, itu bisa berupa string tanggal, atau objek DateTime.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::setLastModified">
+<span class="sig-name descname"><span class="pre">setLastModified</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::setLastModified" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$date</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string|DateTime</span></code></span>) -- Tanggal untuk mengatur header Last-Modified</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance response saat ini.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Mengatur header <code class="docutils literal notranslate"><span class="pre">Last-Modified</span></code>. Objek <code class="docutils literal notranslate"><span class="pre">$date</span></code> bisa berupa string atau instance <code class="docutils literal notranslate"><span class="pre">DateTime</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setLastModified</span><span class="p">(</span><span class="nb">date</span><span class="p">(</span><span class="s1">&#39;D, d M Y H:i:s&#39;</span><span class="p">));</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setLastModified</span><span class="p">(</span><span class="nx">\DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">&#39;!U&#39;</span><span class="p">,</span> <span class="nv">$timestamp</span><span class="p">));</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#CodeIgniter\HTTP\Response::send" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Kembali<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance response saat ini.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Memberi tahu response untuk mengirim semuanya kembali ke klien. Ini akan terlebih dahulu mengirim header,
+diikuti oleh body response. Untuk response aplikasi utama, Anda tidak perlu memanggil
+ini karena ditangani secara otomatis oleh CodeIgniter.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::setCookie">
+<span class="sig-name descname"><span class="pre">setCookie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$value</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$expire</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$domain</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$path</span> <span class="pre">=</span> <span class="pre">'/'</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$prefix</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$secure</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$httponly</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$samesite</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::setCookie" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|Cookie|string</span></code></span>) -- Nama cookie <em>atau</em> array asosiatif dari semua parameter yang tersedia untuk metode ini <em>atau</em> instance <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Cookie\Cookie</span></code></p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nilai cookie</p></li>
+<li><p><strong>$expire</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Waktu kedaluwarsa cookie dalam detik. Jika diatur ke <code class="docutils literal notranslate"><span class="pre">0</span></code>, cookie hanya akan berlaku selama browser terbuka</p></li>
+<li><p><strong>$domain</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Domain cookie</p></li>
+<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Jalur cookie</p></li>
+<li><p><strong>$prefix</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Prefiks nama cookie. Jika diatur ke <code class="docutils literal notranslate"><span class="pre">''</span></code>, nilai default dari <strong>app/Config/Cookie.php</strong> akan digunakan</p></li>
+<li><p><strong>$secure</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) -- Apakah hanya mentransfer cookie melalui HTTPS. Jika diatur ke <code class="docutils literal notranslate"><span class="pre">null</span></code>, nilai default dari <strong>app/Config/Cookie.php</strong> akan digunakan</p></li>
+<li><p><strong>$httponly</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) -- Apakah hanya membuat cookie dapat diakses untuk permintaan HTTP (tanpa JavaScript). Jika diatur ke <code class="docutils literal notranslate"><span class="pre">null</span></code>, nilai default dari <strong>app/Config/Cookie.php</strong> akan digunakan</p></li>
+<li><p><strong>$samesite</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nilai untuk parameter cookie SameSite. Jika diatur ke <code class="docutils literal notranslate"><span class="pre">''</span></code>, tidak ada atribut SameSite yang akan diatur pada cookie. Jika diatur ke <code class="docutils literal notranslate"><span class="pre">null</span></code>, nilai default dari <strong>app/Config/Cookie.php</strong> akan digunakan</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Sebelum v4.2.7, nilai default <code class="docutils literal notranslate"><span class="pre">$secure</span></code> dan <code class="docutils literal notranslate"><span class="pre">$httponly</span></code> adalah <code class="docutils literal notranslate"><span class="pre">false</span></code>
+karena bug, dan nilai-nilai ini dari <strong>app/Config/Cookie.php</strong> tidak pernah digunakan.</p>
+</div>
+<p>Mengatur cookie yang berisi nilai yang Anda tentukan ke instance Response.</p>
+<p>Ada dua cara untuk
+meneruskan informasi ke metode ini agar cookie dapat diatur: Metode Array, dan Parameter Diskrit:</p>
+<p><strong>Metode Array</strong></p>
+<p>Menggunakan metode ini, array asosiatif diteruskan sebagai parameter pertama:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cookie</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;name&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;The Cookie Name&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;value&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;The Value&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;expire&#39;</span>   <span class="o">=&gt;</span> <span class="mi">86500</span><span class="p">,</span>
+    <span class="s1">&#39;domain&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;.some-domain.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;path&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;prefix&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;myprefix_&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;secure&#39;</span>   <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s1">&#39;httponly&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="s1">&#39;samesite&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Lax&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setCookie</span><span class="p">(</span><span class="nv">$cookie</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Hanya <code class="docutils literal notranslate"><span class="pre">name</span></code> dan <code class="docutils literal notranslate"><span class="pre">value</span></code> yang wajib. Untuk menghapus cookie, atur dengan
+<code class="docutils literal notranslate"><span class="pre">value</span></code> kosong.</p>
+<p><code class="docutils literal notranslate"><span class="pre">expire</span></code> diatur dalam <strong>detik</strong>, yang akan ditambahkan ke waktu saat ini.
+Jangan sertakan waktu, melainkan hanya jumlah detik
+dari <em>sekarang</em> yang Anda inginkan agar cookie valid. Jika <code class="docutils literal notranslate"><span class="pre">expire</span></code> diatur ke nol,
+cookie hanya akan berlaku selama browser terbuka.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Tetapi jika <code class="docutils literal notranslate"><span class="pre">value</span></code> diatur ke string kosong dan <code class="docutils literal notranslate"><span class="pre">expire</span></code> diatur ke <code class="docutils literal notranslate"><span class="pre">0</span></code>,
+cookie akan dihapus.</p>
+</div>
+<p>Untuk cookie seluruh situs terlepas dari bagaimana situs Anda diminta, tambahkan
+URL Anda ke <code class="docutils literal notranslate"><span class="pre">domain</span></code> dimulai dengan titik, seperti ini:
+.domain-anda.com</p>
+<p><code class="docutils literal notranslate"><span class="pre">path</span></code> biasanya tidak diperlukan karena metode ini mengatur jalur root.</p>
+<p><code class="docutils literal notranslate"><span class="pre">prefix</span></code> hanya diperlukan jika Anda perlu menghindari tabrakan nama dengan
+cookie lain yang namanya sama untuk server Anda.</p>
+<p>Flag <code class="docutils literal notranslate"><span class="pre">secure</span></code> hanya diperlukan jika Anda ingin menjadikannya cookie aman
+dengan mengaturnya ke <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>Nilai <code class="docutils literal notranslate"><span class="pre">samesite</span></code> mengontrol bagaimana cookie dibagikan antara domain dan sub-domain.
+Nilai yang diizinkan adalah <code class="docutils literal notranslate"><span class="pre">'None'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Lax'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Strict'</span></code> atau string kosong <code class="docutils literal notranslate"><span class="pre">''</span></code>.
+Jika diatur ke string kosong, atribut SameSite default akan diatur.</p>
+<p><strong>Parameter Diskrit</strong></p>
+<p>Jika Anda lebih suka, Anda dapat mengatur cookie dengan meneruskan data menggunakan
+parameter individual:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setCookie</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">,</span> <span class="nv">$expire</span><span class="p">,</span> <span class="nv">$domain</span><span class="p">,</span> <span class="nv">$path</span><span class="p">,</span> <span class="nv">$prefix</span><span class="p">,</span> <span class="nv">$secure</span><span class="p">,</span> <span class="nv">$httponly</span><span class="p">,</span> <span class="nv">$samesite</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::deleteCookie">
+<span class="sig-name descname"><span class="pre">deleteCookie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$domain</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$path</span> <span class="pre">=</span> <span class="pre">'/'</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$prefix</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::deleteCookie" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Nama cookie atau array parameter</p></li>
+<li><p><strong>$domain</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Domain cookie</p></li>
+<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Jalur cookie</p></li>
+<li><p><strong>$prefix</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Prefiks nama cookie</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+<p>Menghapus cookie yang ada.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Ini juga hanya mengatur cookie browser untuk menghapus cookie.</p>
+</div>
+<p>Hanya <code class="docutils literal notranslate"><span class="pre">name</span></code> yang wajib.</p>
+<p><code class="docutils literal notranslate"><span class="pre">prefix</span></code> hanya diperlukan jika Anda perlu menghindari tabrakan nama dengan
+cookie lain yang namanya sama untuk server Anda.</p>
+<p>Berikan <code class="docutils literal notranslate"><span class="pre">prefix</span></code> jika cookie hanya boleh dihapus untuk subset tersebut.
+Berikan nama <code class="docutils literal notranslate"><span class="pre">domain</span></code> jika cookie hanya boleh dihapus untuk domain tersebut.
+Berikan nama <code class="docutils literal notranslate"><span class="pre">path</span></code> jika cookie hanya boleh dihapus untuk jalur tersebut.</p>
+<p>Jika salah satu parameter opsional kosong, maka cookie dengan nama yang sama
+akan dihapus di seluruh yang berlaku.</p>
+<p>Contoh:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">deleteCookie</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::hasCookie">
+<span class="sig-name descname"><span class="pre">hasCookie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$value</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$prefix</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::hasCookie" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Nama cookie atau array parameter</p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nilai cookie</p></li>
+<li><p><strong>$prefix</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Prefiks nama cookie</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+<p>Memeriksa apakah Response memiliki cookie yang ditentukan atau tidak.</p>
+<p><strong>Catatan</strong></p>
+<p>Hanya <code class="docutils literal notranslate"><span class="pre">name</span></code> yang wajib. Jika <code class="docutils literal notranslate"><span class="pre">prefix</span></code> ditentukan, itu akan ditambahkan ke nama cookie.</p>
+<p>Jika tidak ada <code class="docutils literal notranslate"><span class="pre">value</span></code> yang diberikan, metode hanya memeriksa keberadaan cookie yang disebutkan.
+Jika <code class="docutils literal notranslate"><span class="pre">value</span></code> diberikan, maka metode memeriksa bahwa cookie ada, dan bahwa ia
+memiliki nilai yang ditentukan.</p>
+<p>Contoh:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">hasCookie</span><span class="p">(</span><span class="nv">$name</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::getCookie">
+<span class="sig-name descname"><span class="pre">getCookie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$prefix</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::getCookie" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama cookie</p></li>
+<li><p><strong>$prefix</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Prefiks nama cookie</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Cookie|Cookie[]|null</span></code></p>
+</dd>
+</dl>
+<p>Mengembalikan cookie yang disebutkan, jika ditemukan, atau <code class="docutils literal notranslate"><span class="pre">null</span></code>.
+Jika tidak ada <code class="docutils literal notranslate"><span class="pre">name</span></code> yang diberikan, mengembalikan array objek <code class="docutils literal notranslate"><span class="pre">Cookie</span></code>.</p>
+<p>Contoh:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cookie</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getCookie</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="CodeIgniter\HTTP\Response::getCookies">
+<span class="sig-name descname"><span class="pre">getCookies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Response::getCookies" title="Link permanen untuk definisi ini"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">Cookie[]</span></code></p>
+</dd>
+</dl>
+<p>Mengembalikan semua cookie yang saat ini diatur dalam instance Response.
+Ini adalah cookie apa pun yang telah Anda tentukan secara khusus untuk diatur selama
+permintaan saat ini saja.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="table.html" class="btn btn-neutral float-left" title="HTML Table Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api_responses.html" class="btn btn-neutral float-right" title="API Response Trait" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

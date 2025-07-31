@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creating Spark Commands &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+  <title>Membuat Perintah (Command) Spark &mdash; Dokumentasi CodeIgniter 4.6.2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
@@ -27,8 +27,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Indeks" href="../genindex.html" />
     <link rel="search" title="Pencarian" href="../search.html" />
-    <link rel="next" title="CLI Generators" href="cli_generators.html" />
-    <link rel="prev" title="Spark Commands" href="spark_commands.html" /> 
+    <link rel="next" title="Generator CLI" href="cli_generators.html" />
+    <link rel="prev" title="Command Spark" href="spark_commands.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command Line Usage</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cli_overview.html">CLI Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spark_commands.html">Spark Commands</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_generators.html">CLI Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Penggunaan Command Line</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cli_overview.html">Ikhtisar CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_controllers.html">Menjalankan Controller via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark_commands.html">Command Spark</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Membuat Perintah (Command) Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_generators.html">Generator CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_library.html">Library CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_request.html">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -278,8 +278,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Command Line Usage</a></li>
-      <li class="breadcrumb-item active">Creating Spark Commands</li>
+          <li class="breadcrumb-item"><a href="index.html">Penggunaan Command Line</a></li>
+      <li class="breadcrumb-item active">Membuat Perintah (Command) Spark</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -288,54 +288,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="creating-spark-commands">
-<h1>Creating Spark Commands<a class="headerlink" href="#creating-spark-commands" title="Permalink to this heading"></a></h1>
-<p>While the ability to use Controllers via CLI like any other route is convenient, you might find times where you
-need a little something different. That's where Spark commands come in. They are simple classes that do not
-need to have routes defined for, making them perfect for building tools that developers can use to make
-their jobs simpler, whether by handling migrations or database seeding, checking cronjob status, or even
-building out custom code generators for your company.</p>
+  <section id="membuat-perintah-command-spark">
+<h1>Membuat Perintah (Command) Spark<a class="headerlink" href="#membuat-perintah-command-spark" title="Permalink to this heading"></a></h1>
+<p>Meskipun kemampuan untuk menggunakan Controller melalui CLI seperti route lainnya nyaman, Anda mungkin menemukan saat-saat di mana Anda
+membutuhkan sesuatu yang sedikit berbeda. Di situlah perintah Spark berperan. Mereka adalah class sederhana yang tidak
+perlu memiliki route yang ditentukan, menjadikannya sempurna untuk membangun alat yang dapat digunakan pengembang untuk membuat
+pekerjaan mereka lebih sederhana, baik dengan menangani migrasi atau seeding database, memeriksa status cronjob, atau bahkan
+membangun generator kode kustom untuk perusahaan Anda.</p>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#creating-new-commands" id="id1">Creating New Commands</a></p>
+<li><p><a class="reference internal" href="#membuat-perintah-baru" id="id1">Membuat Perintah Baru</a></p>
 <ul>
-<li><p><a class="reference internal" href="#file-location" id="id2">File Location</a></p></li>
-<li><p><a class="reference internal" href="#an-example-command" id="id3">An Example Command</a></p></li>
+<li><p><a class="reference internal" href="#lokasi-berkas" id="id2">Lokasi Berkas</a></p></li>
+<li><p><a class="reference internal" href="#contoh-perintah" id="id3">Contoh Perintah</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#basecommand" id="id4">BaseCommand</a></p></li>
 </ul>
 </nav>
-<section id="creating-new-commands">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Creating New Commands</a><a class="headerlink" href="#creating-new-commands" title="Permalink to this heading"></a></h2>
-<p>You can very easily create new commands to use in your own development. Each class must be in its own file,
-and must extend <code class="docutils literal notranslate"><span class="pre">CodeIgniter\CLI\BaseCommand</span></code>, and implement the <code class="docutils literal notranslate"><span class="pre">run()</span></code> method.</p>
-<p>The following properties should be used in order to get listed in CLI commands and to add help functionality to your command:</p>
+<section id="membuat-perintah-baru">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Membuat Perintah Baru</a><a class="headerlink" href="#membuat-perintah-baru" title="Permalink to this heading"></a></h2>
+<p>Anda dapat dengan sangat mudah membuat perintah baru untuk digunakan dalam pengembangan Anda sendiri. Setiap class harus berada dalam berkasnya sendiri,
+dan harus meng-extend <code class="docutils literal notranslate"><span class="pre">CodeIgniter\CLI\BaseCommand</span></code>, dan mengimplementasikan metode <code class="docutils literal notranslate"><span class="pre">run()</span></code>.</p>
+<p>Properti berikut harus digunakan agar terdaftar dalam perintah CLI dan untuk menambahkan fungsionalitas bantuan ke perintah Anda:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">$group</span></code>: a string to describe the group the command is lumped under when listing commands. For example: <code class="docutils literal notranslate"><span class="pre">Database</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$name</span></code>: a string to describe the command's name. For example: <code class="docutils literal notranslate"><span class="pre">make:controller</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$description</span></code>: a string to describe the command. For example: <code class="docutils literal notranslate"><span class="pre">Generates</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">controller</span> <span class="pre">file.</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$usage</span></code>: a string to describe the command usage. For example: <code class="docutils literal notranslate"><span class="pre">make:controller</span> <span class="pre">&lt;name&gt;</span> <span class="pre">[options]</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$arguments</span></code>: an array of strings to describe each command argument. For example: <code class="docutils literal notranslate"><span class="pre">'name'</span> <span class="pre">=&gt;</span> <span class="pre">'The</span> <span class="pre">controller</span> <span class="pre">class</span> <span class="pre">name.'</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$options</span></code>: an array of strings to describe each command option. For example: <code class="docutils literal notranslate"><span class="pre">'--force'</span> <span class="pre">=&gt;</span> <span class="pre">'Force</span> <span class="pre">overwrite</span> <span class="pre">existing</span> <span class="pre">file.'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$group</span></code>: string untuk mendeskripsikan grup tempat perintah dikelompokkan saat mencantumkan perintah. Contoh: <code class="docutils literal notranslate"><span class="pre">Database</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$name</span></code>: string untuk mendeskripsikan nama perintah. Contoh: <code class="docutils literal notranslate"><span class="pre">make:controller</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$description</span></code>: string untuk mendeskripsikan perintah. Contoh: <code class="docutils literal notranslate"><span class="pre">Menghasilkan</span> <span class="pre">berkas</span> <span class="pre">controller</span> <span class="pre">baru.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$usage</span></code>: string untuk mendeskripsikan penggunaan perintah. Contoh: <code class="docutils literal notranslate"><span class="pre">make:controller</span> <span class="pre">&lt;nama&gt;</span> <span class="pre">[opsi]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$arguments</span></code>: array string untuk mendeskripsikan setiap argumen perintah. Contoh: <code class="docutils literal notranslate"><span class="pre">'name'</span> <span class="pre">=&gt;</span> <span class="pre">'Nama</span> <span class="pre">class</span> <span class="pre">controller.'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$options</span></code>: array string untuk mendeskripsikan setiap opsi perintah. Contoh: <code class="docutils literal notranslate"><span class="pre">'--force'</span> <span class="pre">=&gt;</span> <span class="pre">'Paksa</span> <span class="pre">timpa</span> <span class="pre">berkas</span> <span class="pre">yang</span> <span class="pre">sudah</span> <span class="pre">ada.'</span></code></p></li>
 </ul>
-<p><strong>Help description will be automatically generated according to the above parameters.</strong></p>
-<section id="file-location">
-<h3><a class="toc-backref" href="#id2" role="doc-backlink">File Location</a><a class="headerlink" href="#file-location" title="Permalink to this heading"></a></h3>
-<p>Commands must be stored within a directory named <strong>Commands</strong>. However, that directory has to be located in the PSR-4 namespaces
-so that the <a class="reference internal" href="../concepts/autoloader.html"><span class="doc">Autoloader</span></a> can locate it. This could be in <strong>app/Commands</strong>, or
-a directory that you keep commands in to use in all of your project development, like <strong>Acme/Commands</strong>.</p>
+<p><strong>Deskripsi bantuan akan secara otomatis dihasilkan sesuai dengan parameter di atas.</strong></p>
+<section id="lokasi-berkas">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Lokasi Berkas</a><a class="headerlink" href="#lokasi-berkas" title="Permalink to this heading"></a></h3>
+<p>Perintah harus disimpan dalam direktori bernama <strong>Commands</strong>. Namun, direktori tersebut harus berada di namespace PSR-4
+agar <a class="reference internal" href="../concepts/autoloader.html"><span class="doc">Autoloader</span></a> dapat menemukannya. Ini bisa di <strong>app/Commands</strong>, atau
+direktori tempat Anda menyimpan perintah untuk digunakan dalam semua pengembangan proyek Anda, seperti <strong>Acme/Commands</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>When the commands are executed, the full CodeIgniter CLI environment has been loaded, making it
-possible to get environment information, path information, and to use any of the tools you would use when making a Controller.</p>
+<p>Ketika perintah dieksekusi, seluruh environment CLI CodeIgniter telah dimuat, sehingga
+memungkinkan untuk mendapatkan informasi environment, informasi path, dan menggunakan alat apa pun yang akan Anda gunakan saat membuat Controller.</p>
 </div>
 </section>
-<section id="an-example-command">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">An Example Command</a><a class="headerlink" href="#an-example-command" title="Permalink to this heading"></a></h3>
-<p>Let's step through an example command whose only function is to report basic information about the application
-itself, for demonstration purposes. Start by creating a new file at <strong>app/Commands/AppInfo.php</strong>. It
-should contain the following code:</p>
+<section id="contoh-perintah">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Contoh Perintah</a><a class="headerlink" href="#contoh-perintah" title="Permalink to this heading"></a></h3>
+<p>Mari kita telusuri contoh perintah yang fungsi satu-satunya adalah melaporkan informasi dasar tentang aplikasi
+itu sendiri, untuk tujuan demonstrasi. Mulailah dengan membuat berkas baru di <strong>app/Commands/AppInfo.php</strong>. Ini
+harus berisi kode berikut:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Commands</span><span class="p">;</span>
@@ -356,31 +356,31 @@ should contain the following code:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If you run the <strong>list</strong> command, you will see the new command listed under its own <code class="docutils literal notranslate"><span class="pre">Demo</span></code> group. If you take
-a close look, you should see how this works fairly easily. The <code class="docutils literal notranslate"><span class="pre">$group</span></code> property simply tells it how to organize
-this command with all of the other commands that exist, telling it what heading to list it under.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">$name</span></code> property is the name this command can be called by. The only requirement is that it must not contain
-a space, and all characters must be valid on the command line itself. By convention, though, commands are lowercase,
-with further grouping of commands being done by using a colon with the command name itself. This helps keep
-multiple commands from having naming collisions.</p>
-<p>The final property, <code class="docutils literal notranslate"><span class="pre">$description</span></code> is a short string that is displayed in the <strong>list</strong> command and should describe
-what the command does.</p>
+<p>Jika Anda menjalankan perintah <strong>list</strong>, Anda akan melihat perintah baru terdaftar di bawah grup <code class="docutils literal notranslate"><span class="pre">Demo</span></code>-nya sendiri. Jika Anda
+melihat lebih dekat, Anda akan melihat bagaimana ini bekerja dengan cukup mudah. Properti <code class="docutils literal notranslate"><span class="pre">$group</span></code> hanya memberi tahu bagaimana mengorganisir
+perintah ini dengan semua perintah lain yang ada, memberi tahu di bawah judul apa untuk mencantumkannya.</p>
+<p>Properti <code class="docutils literal notranslate"><span class="pre">$name</span></code> adalah nama perintah ini dapat dipanggil. Satu-satunya persyaratan adalah tidak boleh mengandung
+spasi, dan semua karakter harus valid di baris perintah itu sendiri. Namun, berdasarkan konvensi, perintah adalah huruf kecil,
+dengan pengelompokan perintah lebih lanjut dilakukan dengan menggunakan titik dua dengan nama perintah itu sendiri. Ini membantu menjaga
+beberapa perintah agar tidak mengalami tabrakan nama.</p>
+<p>Properti terakhir, <code class="docutils literal notranslate"><span class="pre">$description</span></code> adalah string singkat yang ditampilkan dalam perintah <strong>list</strong> dan harus mendeskripsikan
+apa yang dilakukan perintah.</p>
 <section id="run">
 <h4>run()<a class="headerlink" href="#run" title="Permalink to this heading"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">run()</span></code> method is the method that is called when the command is being run. The <code class="docutils literal notranslate"><span class="pre">$params</span></code> array is a list of
-any CLI arguments after the command name for your use. If the CLI string was:</p>
+<p>Metode <code class="docutils literal notranslate"><span class="pre">run()</span></code> adalah metode yang dipanggil saat perintah sedang dijalankan. Array <code class="docutils literal notranslate"><span class="pre">$params</span></code> adalah daftar
+argumen CLI apa pun setelah nama perintah untuk penggunaan Anda. Jika string CLI adalah:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark foo bar baz</span>
 </pre></div>
 </div>
-<p>Then <strong>foo</strong> is the command name, and the <code class="docutils literal notranslate"><span class="pre">$params</span></code> array would be:</p>
+<p>Maka <strong>foo</strong> adalah nama perintah, dan array <code class="docutils literal notranslate"><span class="pre">$params</span></code> akan menjadi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$params</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
 </pre></div>
 </div>
-<p>This can also be accessed through the <a class="reference internal" href="cli_library.html"><span class="doc">CLI</span></a> library, but this already has your command removed
-from the string. These parameters can be used to customize how your scripts behave.</p>
-<p>Our demo command might have a <code class="docutils literal notranslate"><span class="pre">run()</span></code> method something like:</p>
+<p>Ini juga dapat diakses melalui library <a class="reference internal" href="cli_library.html"><span class="doc">CLI</span></a>, tetapi ini sudah menghapus perintah Anda
+dari string. Parameter ini dapat digunakan untuk menyesuaikan bagaimana skrip Anda berperilaku.</p>
+<p>Perintah demo kami mungkin memiliki metode <code class="docutils literal notranslate"><span class="pre">run()</span></code> seperti:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Commands</span><span class="p">;</span>
@@ -404,22 +404,22 @@ from the string. These parameters can be used to customize how your scripts beha
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>See the <a class="reference internal" href="cli_library.html"><span class="doc">CLI Library</span></a> page for detailed information.</p>
+<p>Lihat halaman <a class="reference internal" href="cli_library.html"><span class="doc">CLI Library</span></a> untuk informasi rinci.</p>
 </section>
-<section id="command-termination">
-<h4>Command Termination<a class="headerlink" href="#command-termination" title="Permalink to this heading"></a></h4>
-<p>By default, the command exits with a success code of <code class="docutils literal notranslate"><span class="pre">0</span></code>. If an error is encountered while executing a command,
-you can terminate the command by using the <code class="docutils literal notranslate"><span class="pre">return</span></code> language construct with an exit code in the <code class="docutils literal notranslate"><span class="pre">run()</span></code> method.</p>
-<p>For example, <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EXIT_ERROR;</span></code></p>
-<p>This approach can help with debugging at the system level, if the command, for example, is run via crontab.</p>
-<p>You can use the <code class="docutils literal notranslate"><span class="pre">EXIT_*</span></code> exit code constants defined in the <strong>app/Config/Constants.php</strong> file.</p>
+<section id="penghentian-perintah">
+<h4>Penghentian Perintah<a class="headerlink" href="#penghentian-perintah" title="Permalink to this heading"></a></h4>
+<p>Secara default, perintah keluar dengan kode sukses <code class="docutils literal notranslate"><span class="pre">0</span></code>. Jika error ditemukan saat menjalankan perintah,
+Anda dapat menghentikan perintah dengan menggunakan konstruksi bahasa <code class="docutils literal notranslate"><span class="pre">return</span></code> dengan kode keluar di metode <code class="docutils literal notranslate"><span class="pre">run()</span></code>.</p>
+<p>Misalnya, <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EXIT_ERROR;</span></code></p>
+<p>Pendekatan ini dapat membantu dalam debugging di tingkat sistem, jika perintah, misalnya, dijalankan melalui crontab.</p>
+<p>Anda dapat menggunakan konstanta kode keluar <code class="docutils literal notranslate"><span class="pre">EXIT_*</span></code> yang didefinisikan dalam berkas <strong>app/Config/Constants.php</strong>.</p>
 </section>
 </section>
 </section>
 <section id="basecommand">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">BaseCommand</a><a class="headerlink" href="#basecommand" title="Permalink to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">BaseCommand</span></code> class that all commands must extend have a couple of helpful utility methods that you should
-be familiar with when creating your own commands. It also has a <a class="reference internal" href="../general/logging.html"><span class="doc">Logger</span></a> available at
+<p>Class <code class="docutils literal notranslate"><span class="pre">BaseCommand</span></code> yang harus di-extend oleh semua perintah memiliki beberapa metode utilitas yang berguna yang harus Anda
+biasakan saat membuat perintah Anda sendiri. Ia juga memiliki <a class="reference internal" href="../general/logging.html"><span class="doc">Logger</span></a> yang tersedia di
 <code class="docutils literal notranslate"><span class="pre">$this-&gt;logger</span></code>.</p>
 <span class="target" id="namespace-CodeIgniter\CLI"></span><dl class="php class">
 <dt class="sig sig-object php" id="CodeIgniter\CLI\BaseCommand">
@@ -430,12 +430,12 @@ be familiar with when creating your own commands. It also has a <a class="refere
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$command</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of another command to call.</p></li>
-<li><p><strong>$params</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- Additional CLI arguments to make available to that command.</p></li>
+<li><p><strong>$command</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama perintah lain yang akan dipanggil.</p></li>
+<li><p><strong>$params</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- Argumen CLI tambahan untuk tersedia bagi perintah tersebut.</p></li>
 </ul>
 </dd>
 </dl>
-<p>This method allows you to run other commands during the execution of your current command:</p>
+<p>Metode ini memungkinkan Anda untuk menjalankan perintah lain selama eksekusi perintah Anda saat ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">&#39;command_one&#39;</span><span class="p">);</span>
@@ -450,11 +450,11 @@ be familiar with when creating your own commands. It also has a <a class="refere
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$e</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Throwable</span></code></span>) -- The exception to use for error reporting.</p></li>
+<li><p><strong>$e</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Throwable</span></code></span>) -- Exception yang akan digunakan untuk pelaporan error.</p></li>
 </ul>
 </dd>
 </dl>
-<p>A convenience method to maintain a consistent and clear error output to the CLI:</p>
+<p>Metode kenyamanan untuk menjaga output error yang konsisten dan jelas ke CLI:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">try</span> <span class="p">{</span>
@@ -469,7 +469,7 @@ be familiar with when creating your own commands. It also has a <a class="refere
 <dl class="php method">
 <dt class="sig sig-object php" id="CodeIgniter\CLI\BaseCommand::showHelp">
 <span class="sig-name descname"><span class="pre">showHelp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\CLI\BaseCommand::showHelp" title="Link permanen untuk definisi ini"></a></dt>
-<dd><p>A method to show command help: (usage,arguments,description,options)</p>
+<dd><p>Metode untuk menampilkan bantuan perintah: (penggunaan, argumen, deskripsi, opsi)</p>
 </dd></dl>
 
 <dl class="php method">
@@ -478,15 +478,15 @@ be familiar with when creating your own commands. It also has a <a class="refere
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$item</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The string item.</p></li>
-<li><p><strong>$max</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) -- The max size.</p></li>
-<li><p><strong>$extra</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) -- How many extra spaces to add at the end.</p></li>
-<li><p><strong>$indent</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) -- The indent spaces.</p></li>
+<li><p><strong>$item</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Item string.</p></li>
+<li><p><strong>$max</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) -- Ukuran maksimum.</p></li>
+<li><p><strong>$extra</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) -- Berapa banyak spasi tambahan yang akan ditambahkan di akhir.</p></li>
+<li><p><strong>$indent</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) -- Spasi indentasi.</p></li>
 </ul>
 </dd>
 </dl>
-<p>Pads our string out so that all titles are the same length to nicely line
-up descriptions:</p>
+<p>Mengisi string kita sehingga semua judul memiliki panjang yang sama untuk berbaris dengan rapi
+deskripsi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">CodeIgniter\CLI\CLI</span><span class="p">;</span>
 
 <span class="nv">$length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">array_map</span><span class="p">(</span><span class="s1">&#39;strlen&#39;</span><span class="p">,</span> <span class="nb">array_keys</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">)));</span>
@@ -508,17 +508,17 @@ up descriptions:</p>
 <dt class="sig sig-object php" id="CodeIgniter\CLI\BaseCommand::getPad">
 <span class="sig-name descname"><span class="pre">getPad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$array</span></em>, <em class="sig-param"><span class="pre">$pad</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\CLI\BaseCommand::getPad" title="Link permanen untuk definisi ini"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.0.5: </span>Use <a class="reference internal" href="#CodeIgniter\CLI\BaseCommand::setPad" title="CodeIgniter\CLI\BaseCommand::setPad"><code class="xref php php-meth docutils literal notranslate"><span class="pre">CodeIgniter\CLI\BaseCommand::setPad()</span></code></a> instead.</p>
+<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.0.5: </span>Gunakan <a class="reference internal" href="#CodeIgniter\CLI\BaseCommand::setPad" title="CodeIgniter\CLI\BaseCommand::setPad"><code class="xref php php-meth docutils literal notranslate"><span class="pre">CodeIgniter\CLI\BaseCommand::setPad()</span></code></a> sebagai gantinya.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$array</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- The  $key =&gt; $value array.</p></li>
-<li><p><strong>$pad</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) -- The pad spaces.</p></li>
+<li><p><strong>$array</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) -- Array $key =&gt; $value.</p></li>
+<li><p><strong>$pad</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) -- Spasi padding.</p></li>
 </ul>
 </dd>
 </dl>
-<p>A method to calculate padding for <code class="docutils literal notranslate"><span class="pre">$key</span> <span class="pre">=&gt;</span> <span class="pre">$value</span></code> array output. The padding can be used to output a will formatted table in CLI.</p>
+<p>Metode untuk menghitung padding untuk output array <code class="docutils literal notranslate"><span class="pre">$key</span> <span class="pre">=&gt;</span> <span class="pre">$value</span></code>. Padding dapat digunakan untuk menghasilkan tabel yang diformat dengan baik di CLI.</p>
 </dd></dl>
 
 </dd></dl>
@@ -530,15 +530,15 @@ up descriptions:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="spark_commands.html" class="btn btn-neutral float-left" title="Spark Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="cli_generators.html" class="btn btn-neutral float-right" title="CLI Generators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="spark_commands.html" class="btn btn-neutral float-left" title="Command Spark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cli_generators.html" class="btn btn-neutral float-right" title="Generator CLI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

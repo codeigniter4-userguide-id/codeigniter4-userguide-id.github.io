@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IncomingRequest Class &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+  <title>Class IncomingRequest &mdash; Dokumentasi CodeIgniter 4.6.2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
@@ -28,7 +28,7 @@
     <link rel="index" title="Indeks" href="../genindex.html" />
     <link rel="search" title="Pencarian" href="../search.html" />
     <link rel="next" title="Content Negotiation" href="content_negotiation.html" />
-    <link rel="prev" title="Request Class" href="request.html" /> 
+    <link rel="prev" title="Class Request" href="request.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -113,17 +113,17 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controller dan Router</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Perutean URI (Routing)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_routing_improved.html">Auto Routing (Improved)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="request.html">Request Class</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">Pesan HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Class Request</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Class IncomingRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">HTTP Method Spoofing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="restful.html">RESTful Resource Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Penanganan Resource RESTful</a></li>
 </ul>
 </li>
 </ul>
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Penggunaan Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Ikhtisar CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Menjalankan Controller via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Command Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Membuat Perintah (Command) Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generator CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">Library CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -278,8 +278,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
-      <li class="breadcrumb-item active">IncomingRequest Class</li>
+          <li class="breadcrumb-item"><a href="index.html">Controller dan Router</a></li>
+      <li class="breadcrumb-item active">Class IncomingRequest</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -288,40 +288,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="incomingrequest-class">
-<h1>IncomingRequest Class<a class="headerlink" href="#incomingrequest-class" title="Permalink to this heading"></a></h1>
-<p>The IncomingRequest class provides an object-oriented representation of an HTTP request from a client, like a browser.
-It extends from, and has access to all the methods of the <a class="reference internal" href="request.html"><span class="doc">Request</span></a> and <a class="reference internal" href="message.html"><span class="doc">Message</span></a>
-classes, in addition to the methods listed below.</p>
+  <section id="class-incomingrequest">
+<h1>Class IncomingRequest<a class="headerlink" href="#class-incomingrequest" title="Permalink to this heading"></a></h1>
+<p>Class IncomingRequest menyediakan representasi berorientasi objek dari permintaan HTTP dari klien, seperti browser.
+Ini memperluas dari, dan memiliki akses ke semua method dari <a class="reference internal" href="request.html"><span class="doc">Class Request</span></a> dan <a class="reference internal" href="message.html"><span class="doc">Class Message</span></a>
+, selain method yang tercantum di bawah ini.</p>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#accessing-the-request" id="id2">Accessing the Request</a></p></li>
-<li><p><a class="reference internal" href="#determining-request-type" id="id3">Determining Request Type</a></p>
+<li><p><a class="reference internal" href="#mengakses-permintaan" id="id2">Mengakses Permintaan</a></p></li>
+<li><p><a class="reference internal" href="#menentukan-jenis-permintaan" id="id3">Menentukan Jenis Permintaan</a></p>
 <ul>
 <li><p><a class="reference internal" href="#is" id="id4">is()</a></p></li>
 <li><p><a class="reference internal" href="#getmethod" id="id5">getMethod()</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#retrieving-input" id="id6">Retrieving Input</a></p>
+<li><p><a class="reference internal" href="#mengambil-input" id="id6">Mengambil Input</a></p>
 <ul>
-<li><p><a class="reference internal" href="#getting-data" id="id7">Getting Data</a></p></li>
-<li><p><a class="reference internal" href="#getting-json-data" id="id8">Getting JSON Data</a></p></li>
-<li><p><a class="reference internal" href="#getting-specific-data-from-json" id="id9">Getting Specific Data from JSON</a></p></li>
-<li><p><a class="reference internal" href="#retrieving-raw-data-put-patch-delete" id="id10">Retrieving Raw Data (PUT, PATCH, DELETE)</a></p></li>
-<li><p><a class="reference internal" href="#filtering-input-data" id="id11">Filtering Input Data</a></p></li>
+<li><p><a class="reference internal" href="#mendapatkan-data" id="id7">Mendapatkan Data</a></p></li>
+<li><p><a class="reference internal" href="#mendapatkan-data-json" id="id8">Mendapatkan Data JSON</a></p></li>
+<li><p><a class="reference internal" href="#mendapatkan-data-spesifik-dari-json" id="id9">Mendapatkan Data Spesifik dari JSON</a></p></li>
+<li><p><a class="reference internal" href="#mengambil-data-mentah-put-patch-delete" id="id10">Mengambil Data Mentah (PUT, PATCH, DELETE)</a></p></li>
+<li><p><a class="reference internal" href="#memfilter-data-input" id="id11">Memfilter Data Input</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#retrieving-headers" id="id12">Retrieving Headers</a></p></li>
-<li><p><a class="reference internal" href="#the-request-url" id="id13">The Request URL</a></p></li>
-<li><p><a class="reference internal" href="#uploaded-files" id="id14">Uploaded Files</a></p></li>
-<li><p><a class="reference internal" href="#content-negotiation" id="id15">Content Negotiation</a></p></li>
-<li><p><a class="reference internal" href="#class-reference" id="id16">Class Reference</a></p></li>
+<li><p><a class="reference internal" href="#mengambil-header" id="id12">Mengambil Header</a></p></li>
+<li><p><a class="reference internal" href="#url-permintaan" id="id13">URL Permintaan</a></p></li>
+<li><p><a class="reference internal" href="#berkas-yang-diunggah" id="id14">Berkas yang Diunggah</a></p></li>
+<li><p><a class="reference internal" href="#negosiasi-konten" id="id15">Negosiasi Konten</a></p></li>
+<li><p><a class="reference internal" href="#referensi-class" id="id16">Referensi Class</a></p></li>
 </ul>
 </nav>
-<section id="accessing-the-request">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Accessing the Request</a><a class="headerlink" href="#accessing-the-request" title="Permalink to this heading"></a></h2>
-<p>An instance of the request class already populated for you if the current class is a descendant of
-<code class="docutils literal notranslate"><span class="pre">CodeIgniter\Controller</span></code> and can be accessed as a class property:</p>
+<section id="mengakses-permintaan">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Mengakses Permintaan</a><a class="headerlink" href="#mengakses-permintaan" title="Permalink to this heading"></a></h2>
+<p>Sebuah instance dari class request sudah diisi untuk Anda jika class saat ini adalah turunan dari
+<code class="docutils literal notranslate"><span class="pre">CodeIgniter\Controller</span></code> dan dapat diakses sebagai properti class:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
@@ -339,15 +339,15 @@ classes, in addition to the methods listed below.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If you are not within a controller, but still need access to the application's Request object, you can
-get a copy of it through the <a class="reference internal" href="../concepts/services.html"><span class="doc">Services class</span></a>:</p>
+<p>Jika Anda tidak berada dalam controller, tetapi masih membutuhkan akses ke objek Request aplikasi, Anda dapat
+mendapatkan salinannya melalui <a class="reference internal" href="../concepts/services.html"><span class="doc">class Services</span></a>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>It's preferable, though, to pass the request in as a dependency if the class is anything other than
-the controller, where you can save it as a class property:</p>
+<p>Namun, lebih baik untuk meneruskan permintaan sebagai dependensi jika class tersebut bukan
+controller, di mana Anda dapat menyimpannya sebagai properti class:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Libraries</span><span class="p">;</span>
@@ -368,10 +368,10 @@ the controller, where you can save it as a class property:</p>
 </pre></div>
 </div>
 </section>
-<section id="determining-request-type">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Determining Request Type</a><a class="headerlink" href="#determining-request-type" title="Permalink to this heading"></a></h2>
-<p>A request could be of several types, including an AJAX request or a request from the command line. This can
-be checked with the <code class="docutils literal notranslate"><span class="pre">isAJAX()</span></code> and <code class="docutils literal notranslate"><span class="pre">isCLI()</span></code> methods:</p>
+<section id="menentukan-jenis-permintaan">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Menentukan Jenis Permintaan</a><a class="headerlink" href="#menentukan-jenis-permintaan" title="Permalink to this heading"></a></h2>
+<p>Sebuah permintaan bisa dari beberapa jenis, termasuk permintaan AJAX atau permintaan dari baris perintah. Ini dapat
+diperiksa dengan method <code class="docutils literal notranslate"><span class="pre">isAJAX()</span></code> dan <code class="docutils literal notranslate"><span class="pre">isCLI()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Check for AJAX request.</span>
@@ -387,20 +387,20 @@ be checked with the <code class="docutils literal notranslate"><span class="pre"
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">isAJAX()</span></code> method depends on the <code class="docutils literal notranslate"><span class="pre">X-Requested-With</span></code> header,
-which in some cases is not sent by default in XHR requests via JavaScript (i.e., fetch).
-See the <a class="reference internal" href="../general/ajax.html"><span class="doc">AJAX Requests</span></a> section on how to avoid this problem.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">isAJAX()</span></code> bergantung pada header <code class="docutils literal notranslate"><span class="pre">X-Requested-With</span></code>,
+yang dalam beberapa kasus tidak dikirim secara default dalam permintaan XHR melalui JavaScript (yaitu, fetch).
+Lihat bagian <a class="reference internal" href="../general/ajax.html"><span class="doc">Permintaan AJAX</span></a> tentang cara menghindari masalah ini.</p>
 </div>
 <section id="is">
 <span id="incomingrequest-is"></span><h3><a class="toc-backref" href="#id4" role="doc-backlink">is()</a><a class="headerlink" href="#is" title="Permalink to this heading"></a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.3.0.</span></p>
 </div>
-<p>Since v4.3.0, you can use the <code class="docutils literal notranslate"><span class="pre">is()</span></code> method. It accepts an HTTP method, <code class="docutils literal notranslate"><span class="pre">'ajax'</span></code>,
-or <code class="docutils literal notranslate"><span class="pre">'json'</span></code>, and returns boolean.</p>
+<p>Sejak v4.3.0, Anda dapat menggunakan method <code class="docutils literal notranslate"><span class="pre">is()</span></code>. Ini menerima method HTTP, <code class="docutils literal notranslate"><span class="pre">'ajax'</span></code>,
+atau <code class="docutils literal notranslate"><span class="pre">'json'</span></code>, dan mengembalikan boolean.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>HTTP method should be case-sensitive, but the parameter is case-insensitive.</p>
+<p>Method HTTP harus peka huruf besar/kecil, tetapi parameternya tidak peka huruf besar/kecil.</p>
 </div>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
@@ -423,26 +423,26 @@ or <code class="docutils literal notranslate"><span class="pre">'json'</span></c
 </section>
 <section id="getmethod">
 <h3><a class="toc-backref" href="#id5" role="doc-backlink">getMethod()</a><a class="headerlink" href="#getmethod" title="Permalink to this heading"></a></h3>
-<p>You can check the HTTP method that this request represents with the <code class="docutils literal notranslate"><span class="pre">getMethod()</span></code> method:</p>
+<p>Anda dapat memeriksa method HTTP yang diwakili oleh permintaan ini dengan method <code class="docutils literal notranslate"><span class="pre">getMethod()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Returns &#39;POST&#39;</span>
 <span class="nv">$method</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The HTTP method is case-sensitive, and by convention, standardized methods are
-defined in all-uppercase US-ASCII letters.</p>
+<p>Method HTTP peka huruf besar/kecil, dan menurut konvensi, method standar
+didefinisikan dalam huruf besar US-ASCII.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.5.0, by default, the method was returned as a lowercase
-string (i.e., <code class="docutils literal notranslate"><span class="pre">'get'</span></code>, <code class="docutils literal notranslate"><span class="pre">'post'</span></code>, etc). But it was a bug.</p>
+<p>Sebelum v4.5.0, secara default, method dikembalikan sebagai string huruf kecil
+(yaitu, <code class="docutils literal notranslate"><span class="pre">'get'</span></code>, <code class="docutils literal notranslate"><span class="pre">'post'</span></code>, dll). Tapi itu adalah bug.</p>
 </div>
-<p>You can get a lowercase version by wrapping the call in <code class="docutils literal notranslate"><span class="pre">strtolower()</span></code>:</p>
-<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Returns &#39;get&#39;</span>
+<p>Anda bisa mendapatkan versi huruf kecil dengan membungkus panggilan di <code class="docutils literal notranslate"><span class="pre">strtolower()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Mengembalikan &#39;get&#39;</span>
 <span class="nv">$method</span> <span class="o">=</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>You can also check if the request was made through and HTTPS connection with the <code class="docutils literal notranslate"><span class="pre">isSecure()</span></code> method:</p>
+<p>Anda juga dapat memeriksa apakah permintaan dibuat melalui koneksi HTTPS dengan method <code class="docutils literal notranslate"><span class="pre">isSecure()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isSecure</span><span class="p">())</span> <span class="p">{</span>
@@ -452,58 +452,58 @@ string (i.e., <code class="docutils literal notranslate"><span class="pre">'get'
 </div>
 </section>
 </section>
-<section id="retrieving-input">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Retrieving Input</a><a class="headerlink" href="#retrieving-input" title="Permalink to this heading"></a></h2>
-<p>You can retrieve input from <code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code>, <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>
-and <code class="docutils literal notranslate"><span class="pre">$_ENV</span></code> through the Request object.
-The data is not automatically filtered and returns the raw input data as passed in the request.</p>
+<section id="mengambil-input">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Mengambil Input</a><a class="headerlink" href="#mengambil-input" title="Permalink to this heading"></a></h2>
+<p>Anda dapat mengambil input dari <code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code>, <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>
+dan <code class="docutils literal notranslate"><span class="pre">$_ENV</span></code> melalui objek Request.
+Data tidak secara otomatis difilter dan mengembalikan data input mentah seperti yang diteruskan dalam permintaan.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>It is bad practice to use global variables. Basically, it should be avoided
-and it is recommended to use methods of the Request object.</p>
+<p>Merupakan praktik yang buruk untuk menggunakan variabel global. Pada dasarnya, itu harus dihindari
+dan disarankan untuk menggunakan method objek Request.</p>
 </div>
-<p>The main
-advantages to using these methods instead of accessing them directly (<code class="docutils literal notranslate"><span class="pre">$_POST['something']</span></code>), is that they
-will return null if the item doesn't exist, and you can have the data filtered. This lets you conveniently
-use data without having to test whether an item exists first. In other words, normally you might do something
-like this:</p>
+<p>Keuntungan utama
+menggunakan method ini daripada mengaksesnya secara langsung (<code class="docutils literal notranslate"><span class="pre">$_POST['something']</span></code>), adalah bahwa method ini
+akan mengembalikan null jika item tidak ada, dan Anda dapat memfilter data. Ini memungkinkan Anda dengan mudah
+menggunakan data tanpa harus menguji apakah item ada terlebih dahulu. Dengan kata lain, biasanya Anda mungkin melakukan sesuatu
+seperti ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$something</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="k">null</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>With CodeIgniter's built-in methods you can simply do this:</p>
+<p>Dengan method bawaan CodeIgniter Anda cukup melakukan ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$something</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<section id="getting-data">
-<span id="incomingrequest-getting-data"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">Getting Data</a><a class="headerlink" href="#getting-data" title="Permalink to this heading"></a></h3>
+<section id="mendapatkan-data">
+<span id="incomingrequest-getting-data"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">Mendapatkan Data</a><a class="headerlink" href="#mendapatkan-data" title="Permalink to this heading"></a></h3>
 <section id="getget">
 <h4>getGet()<a class="headerlink" href="#getget" title="Permalink to this heading"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> method will pull from <code class="docutils literal notranslate"><span class="pre">$_GET</span></code>.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> akan menarik dari <code class="docutils literal notranslate"><span class="pre">$_GET</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getGet()</span></code></p></li>
 </ul>
 </section>
 <section id="getpost">
 <h4>getPost()<a class="headerlink" href="#getpost" title="Permalink to this heading"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> method will pull from <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> akan menarik dari <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getPost()</span></code></p></li>
 </ul>
 </section>
 <section id="getcookie">
 <h4>getCookie()<a class="headerlink" href="#getcookie" title="Permalink to this heading"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code> method will pull from <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code>.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code> akan menarik dari <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getCookie()</span></code></p></li>
 </ul>
 </section>
 <section id="getserver">
 <h4>getServer()<a class="headerlink" href="#getserver" title="Permalink to this heading"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">getServer()</span></code> method will pull from <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">getServer()</span></code> akan menarik dari <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getServer()</span></code></p></li>
 </ul>
@@ -511,73 +511,73 @@ like this:</p>
 <section id="getenv">
 <h4>getEnv()<a class="headerlink" href="#getenv" title="Permalink to this heading"></a></h4>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.4.4: </span>This method does not work from the beginning. Use
-<a class="reference internal" href="../general/common_functions.html#env" title="env"><code class="xref php php-func docutils literal notranslate"><span class="pre">env()</span></code></a> instead.</p>
+<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.4.4: </span>Method ini tidak berfungsi sejak awal. Gunakan
+<a class="reference internal" href="../general/common_functions.html#env" title="env"><code class="xref php php-func docutils literal notranslate"><span class="pre">env()</span></code></a> sebagai gantinya.</p>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">getEnv()</span></code> method will pull from <code class="docutils literal notranslate"><span class="pre">$_ENV</span></code>.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">getEnv()</span></code> akan menarik dari <code class="docutils literal notranslate"><span class="pre">$_ENV</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getEnv()</span></code></p></li>
 </ul>
 </section>
 <section id="getpostget">
 <h4>getPostGet()<a class="headerlink" href="#getpostget" title="Permalink to this heading"></a></h4>
-<p>In addition, there are a few utility methods for retrieving information from either <code class="docutils literal notranslate"><span class="pre">$_GET</span></code> or <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, while
-maintaining the ability to control the order you look for it:</p>
+<p>Selain itu, ada beberapa method utilitas untuk mengambil informasi dari <code class="docutils literal notranslate"><span class="pre">$_GET</span></code> atau <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, sambil
+mempertahankan kemampuan untuk mengontrol urutan Anda mencarinya:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getPostGet()</span></code> - checks <code class="docutils literal notranslate"><span class="pre">$_POST</span></code> first, then <code class="docutils literal notranslate"><span class="pre">$_GET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getPostGet()</span></code> - memeriksa <code class="docutils literal notranslate"><span class="pre">$_POST</span></code> terlebih dahulu, lalu <code class="docutils literal notranslate"><span class="pre">$_GET</span></code></p></li>
 </ul>
 </section>
 <section id="getgetpost">
 <h4>getGetPost()<a class="headerlink" href="#getgetpost" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getGetPost()</span></code> - checks <code class="docutils literal notranslate"><span class="pre">$_GET</span></code> first, then <code class="docutils literal notranslate"><span class="pre">$_POST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getGetPost()</span></code> - memeriksa <code class="docutils literal notranslate"><span class="pre">$_GET</span></code> terlebih dahulu, lalu <code class="docutils literal notranslate"><span class="pre">$_POST</span></code></p></li>
 </ul>
 </section>
 <section id="getvar">
 <h4>getVar()<a class="headerlink" href="#getvar" title="Permalink to this heading"></a></h4>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>This method exists only for backward compatibility. Do not use it
-in new projects. Even if you are already using it, we recommend that you use
-another, more appropriate method.</p>
+<p>Method ini hanya ada untuk kompatibilitas mundur. Jangan menggunakannya
+dalam proyek baru. Bahkan jika Anda sudah menggunakannya, kami merekomendasikan Anda untuk menggunakan
+method lain yang lebih sesuai.</p>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">getVar()</span></code> method will pull from <code class="docutils literal notranslate"><span class="pre">$_REQUEST</span></code>, so will return any data from <code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$POST</span></code>, or <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code> (depending on php.ini <a class="reference external" href="https://www.php.net/manual/en/ini.core.php#ini.request-order">request-order</a>).</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">getVar()</span></code> akan menarik dari <code class="docutils literal notranslate"><span class="pre">$_REQUEST</span></code>, jadi akan mengembalikan data apa pun dari <code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$POST</span></code>, atau <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code> (tergantung pada <a class="reference external" href="https://www.php.net/manual/en/ini.core.php#ini.request-order">request-order</a> php.ini).</p>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>If you want to validate POST data only, don't use <code class="docutils literal notranslate"><span class="pre">getVar()</span></code>.
-Newer values override older values. POST values may be overridden by the
-cookies if they have the same name, and you set &quot;C&quot; after &quot;P&quot; in
+<p>Jika Anda ingin memvalidasi data POST saja, jangan gunakan <code class="docutils literal notranslate"><span class="pre">getVar()</span></code>.
+Nilai yang lebih baru menimpa nilai yang lebih lama. Nilai POST dapat ditimpa oleh
+cookie jika memiliki nama yang sama, dan Anda mengatur &quot;C&quot; setelah &quot;P&quot; di
 <a class="reference external" href="https://www.php.net/manual/en/ini.core.php#ini.request-order">request-order</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>If the incoming request has a <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> header set to <code class="docutils literal notranslate"><span class="pre">application/json</span></code>,
-the <code class="docutils literal notranslate"><span class="pre">getVar()</span></code> method returns the JSON data instead of <code class="docutils literal notranslate"><span class="pre">$_REQUEST</span></code> data.</p>
+<p>Jika permintaan masuk memiliki header <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> yang diatur ke <code class="docutils literal notranslate"><span class="pre">application/json</span></code>,
+method <code class="docutils literal notranslate"><span class="pre">getVar()</span></code> mengembalikan data JSON daripada data <code class="docutils literal notranslate"><span class="pre">$_REQUEST</span></code>.</p>
 </div>
 </section>
 </section>
-<section id="getting-json-data">
-<span id="incomingrequest-getting-json-data"></span><h3><a class="toc-backref" href="#id8" role="doc-backlink">Getting JSON Data</a><a class="headerlink" href="#getting-json-data" title="Permalink to this heading"></a></h3>
-<p>You can grab the contents of <code class="docutils literal notranslate"><span class="pre">php://input</span></code> as a JSON stream with <code class="docutils literal notranslate"><span class="pre">getJSON()</span></code>.</p>
+<section id="mendapatkan-data-json">
+<span id="incomingrequest-getting-json-data"></span><h3><a class="toc-backref" href="#id8" role="doc-backlink">Mendapatkan Data JSON</a><a class="headerlink" href="#mendapatkan-data-json" title="Permalink to this heading"></a></h3>
+<p>Anda dapat mengambil konten <code class="docutils literal notranslate"><span class="pre">php://input</span></code> sebagai aliran JSON dengan <code class="docutils literal notranslate"><span class="pre">getJSON()</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>This has no way of checking if the incoming data is valid JSON or not, you should only use this
-method if you know that you're expecting JSON.</p>
+<p>Ini tidak memiliki cara untuk memeriksa apakah data masuk adalah JSON yang valid atau tidak, Anda hanya boleh menggunakan
+method ini jika Anda tahu bahwa Anda mengharapkan JSON.</p>
 </div>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$json</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getJSON</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>By default, this will return any objects in the JSON data as objects. If you want that converted to associative
-arrays, pass in <code class="docutils literal notranslate"><span class="pre">true</span></code> as the first parameter.</p>
-<p>The second and third parameters match up to the <code class="docutils literal notranslate"><span class="pre">$depth</span></code> and <code class="docutils literal notranslate"><span class="pre">$flags</span></code> arguments of the
-<a class="reference external" href="https://www.php.net/manual/en/function.json-decode.php">json_decode()</a> PHP function.</p>
+<p>Secara default, ini akan mengembalikan objek apa pun dalam data JSON sebagai objek. Jika Anda ingin itu dikonversi ke array asosiatif,
+teruskan <code class="docutils literal notranslate"><span class="pre">true</span></code> sebagai parameter pertama.</p>
+<p>Parameter kedua dan ketiga cocok dengan argumen <code class="docutils literal notranslate"><span class="pre">$depth</span></code> dan <code class="docutils literal notranslate"><span class="pre">$flags</span></code> dari fungsi PHP
+<a class="reference external" href="https://www.php.net/manual/en/function.json-decode.php">json_decode()</a>.</p>
 </section>
-<section id="getting-specific-data-from-json">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Getting Specific Data from JSON</a><a class="headerlink" href="#getting-specific-data-from-json" title="Permalink to this heading"></a></h3>
-<p>You can get a specific piece of data from a JSON stream by passing a variable name into <code class="docutils literal notranslate"><span class="pre">getJsonVar()</span></code> for the
-data that you want or you can use &quot;dot&quot; notation to dig into the JSON to get data that is not on the root level.</p>
+<section id="mendapatkan-data-spesifik-dari-json">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Mendapatkan Data Spesifik dari JSON</a><a class="headerlink" href="#mendapatkan-data-spesifik-dari-json" title="Permalink to this heading"></a></h3>
+<p>Anda bisa mendapatkan bagian data tertentu dari aliran JSON dengan meneruskan nama variabel ke <code class="docutils literal notranslate"><span class="pre">getJsonVar()</span></code> untuk
+data yang Anda inginkan atau Anda dapat menggunakan notasi &quot;titik&quot; untuk menggali JSON untuk mendapatkan data yang tidak berada di tingkat root.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="cm">/*</span>
@@ -597,8 +597,8 @@ data that you want or you can use &quot;dot&quot; notation to dig into the JSON 
 <span class="c1">// $data = &quot;baz&quot;</span>
 </pre></div>
 </div>
-<p>If you want the result to be an associative array instead of an object, you can
-pass true in the second parameter:</p>
+<p>Jika Anda ingin hasilnya menjadi array asosiatif daripada objek, Anda dapat
+meneruskan true di parameter kedua:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// With the same request as above</span>
@@ -611,18 +611,18 @@ pass true in the second parameter:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>See the documentation for <a class="reference internal" href="../helpers/array_helper.html#dot_array_search" title="dot_array_search"><code class="xref php php-func docutils literal notranslate"><span class="pre">dot_array_search()</span></code></a> in the <code class="docutils literal notranslate"><span class="pre">Array</span></code> helper for more information on &quot;dot&quot; notation.</p>
+<p>Lihat dokumentasi untuk <a class="reference internal" href="../helpers/array_helper.html#dot_array_search" title="dot_array_search"><code class="xref php php-func docutils literal notranslate"><span class="pre">dot_array_search()</span></code></a> di pembantu <code class="docutils literal notranslate"><span class="pre">Array</span></code> untuk informasi lebih lanjut tentang notasi &quot;titik&quot;.</p>
 </div>
 </section>
-<section id="retrieving-raw-data-put-patch-delete">
-<span id="incomingrequest-retrieving-raw-data"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Retrieving Raw Data (PUT, PATCH, DELETE)</a><a class="headerlink" href="#retrieving-raw-data-put-patch-delete" title="Permalink to this heading"></a></h3>
-<p>Finally, you can grab the contents of <code class="docutils literal notranslate"><span class="pre">php://input</span></code> as a raw stream with <code class="docutils literal notranslate"><span class="pre">getRawInput()</span></code>:</p>
+<section id="mengambil-data-mentah-put-patch-delete">
+<span id="incomingrequest-retrieving-raw-data"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Mengambil Data Mentah (PUT, PATCH, DELETE)</a><a class="headerlink" href="#mengambil-data-mentah-put-patch-delete" title="Permalink to this heading"></a></h3>
+<p>Akhirnya, Anda dapat mengambil konten <code class="docutils literal notranslate"><span class="pre">php://input</span></code> sebagai aliran mentah dengan <code class="docutils literal notranslate"><span class="pre">getRawInput()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getRawInput</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>This will retrieve data and convert it to an array. Like this:</p>
+<p>Ini akan mengambil data dan mengubahnya menjadi array. Seperti ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getRawInput</span><span class="p">());</span>
@@ -636,7 +636,7 @@ pass true in the second parameter:</p>
 <span class="cm"> */</span>
 </pre></div>
 </div>
-<p>You can also use <code class="docutils literal notranslate"><span class="pre">getRawInputVar()</span></code>, to get the specified variable from raw stream and filter it.</p>
+<p>Anda juga dapat menggunakan <code class="docutils literal notranslate"><span class="pre">getRawInputVar()</span></code>, untuk mendapatkan variabel yang ditentukan dari aliran mentah dan memfilternya.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// When the request body is &#39;foo=one&amp;bar=two&amp;baz[]=10&amp;baz[]=20&#39;</span>
@@ -669,26 +669,26 @@ pass true in the second parameter:</p>
 </pre></div>
 </div>
 </section>
-<section id="filtering-input-data">
-<span id="incomingrequest-filtering-input-data"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink">Filtering Input Data</a><a class="headerlink" href="#filtering-input-data" title="Permalink to this heading"></a></h3>
-<p>To maintain security of your application, you will want to filter all input as you access it. You can
-pass the type of filter to use as the second parameter of any of these methods. The native <code class="docutils literal notranslate"><span class="pre">filter_var()</span></code>
-function is used for the filtering. Head over to the PHP manual for a list of <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">valid
-filter types</a>.</p>
-<p>Filtering a POST variable would look like this:</p>
+<section id="memfilter-data-input">
+<span id="incomingrequest-filtering-input-data"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink">Memfilter Data Input</a><a class="headerlink" href="#memfilter-data-input" title="Permalink to this heading"></a></h3>
+<p>Untuk menjaga keamanan aplikasi Anda, Anda akan ingin memfilter semua input saat Anda mengaksesnya. Anda dapat
+meneruskan jenis filter yang akan digunakan sebagai parameter kedua dari method ini. Fungsi asli <code class="docutils literal notranslate"><span class="pre">filter_var()</span></code>
+digunakan untuk pemfilteran. Kunjungi manual PHP untuk daftar <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">jenis filter
+yang valid</a>.</p>
+<p>Memfilter variabel POST akan terlihat seperti ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$email</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_EMAIL</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>All of the methods mentioned above support the filter type passed in as the second parameter, with the
-exception of <code class="docutils literal notranslate"><span class="pre">getJSON()</span></code> and <code class="docutils literal notranslate"><span class="pre">getRawInput()</span></code>.</p>
+<p>Semua method yang disebutkan di atas mendukung jenis filter yang diteruskan sebagai parameter kedua, dengan
+pengecualian <code class="docutils literal notranslate"><span class="pre">getJSON()</span></code> dan <code class="docutils literal notranslate"><span class="pre">getRawInput()</span></code>.</p>
 </section>
 </section>
-<section id="retrieving-headers">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Retrieving Headers</a><a class="headerlink" href="#retrieving-headers" title="Permalink to this heading"></a></h2>
-<p>You can get access to any header that was sent with the request with the <code class="docutils literal notranslate"><span class="pre">headers()</span></code> method, which returns
-an array of all headers, with the key as the name of the header, and the value is an instance of
+<section id="mengambil-header">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Mengambil Header</a><a class="headerlink" href="#mengambil-header" title="Permalink to this heading"></a></h2>
+<p>Anda dapat mengakses header apa pun yang dikirim dengan permintaan dengan method <code class="docutils literal notranslate"><span class="pre">headers()</span></code>, yang mengembalikan
+array semua header, dengan kunci sebagai nama header, dan nilainya adalah instance dari
 <code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Header</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
@@ -704,8 +704,8 @@ an array of all headers, with the key as the name of the header, and the value i
 <span class="cm"> */</span>
 </pre></div>
 </div>
-<p>If you only need a single header, you can pass the name into the <code class="docutils literal notranslate"><span class="pre">header()</span></code> method. This will grab the
-specified header object in a case-insensitive manner if it exists. If not, then it will return <code class="docutils literal notranslate"><span class="pre">null</span></code>:</p>
+<p>Jika Anda hanya membutuhkan satu header, Anda dapat meneruskan nama ke method <code class="docutils literal notranslate"><span class="pre">header()</span></code>. Ini akan mengambil
+objek header yang ditentukan secara tidak peka huruf besar/kecil jika ada. Jika tidak, maka akan mengembalikan <code class="docutils literal notranslate"><span class="pre">null</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// these are all equivalent</span>
@@ -714,7 +714,7 @@ specified header object in a case-insensitive manner if it exists. If not, then 
 <span class="nv">$host</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;HOST&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>You can always use <code class="docutils literal notranslate"><span class="pre">hasHeader()</span></code> to see if the header existed in this request:</p>
+<p>Anda selalu dapat menggunakan <code class="docutils literal notranslate"><span class="pre">hasHeader()</span></code> untuk melihat apakah header ada dalam permintaan ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">hasHeader</span><span class="p">(</span><span class="s1">&#39;DNT&#39;</span><span class="p">))</span> <span class="p">{</span>
@@ -722,30 +722,30 @@ specified header object in a case-insensitive manner if it exists. If not, then 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If you need the value of header as a string with all values on one line, you can use the <code class="docutils literal notranslate"><span class="pre">getHeaderLine()</span></code> method:</p>
+<p>Jika Anda membutuhkan nilai header sebagai string dengan semua nilai dalam satu baris, Anda dapat menggunakan method <code class="docutils literal notranslate"><span class="pre">getHeaderLine()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Accept-Encoding: gzip, deflate, sdch</span>
 <span class="k">echo</span> <span class="s1">&#39;Accept-Encoding: &#39;</span> <span class="o">.</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getHeaderLine</span><span class="p">(</span><span class="s1">&#39;accept-encoding&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If you need the entire header, with the name and values in a single string, simply cast the header as a string:</p>
+<p>Jika Anda membutuhkan seluruh header, dengan nama dan nilai dalam satu string, cukup ubah header menjadi string:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">echo</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$header</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
-<section id="the-request-url">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">The Request URL</a><a class="headerlink" href="#the-request-url" title="Permalink to this heading"></a></h2>
-<p>You can retrieve a <a class="reference internal" href="../libraries/uri.html"><span class="doc">URI</span></a> object that represents the current URI for this request through the
-<code class="docutils literal notranslate"><span class="pre">$request-&gt;getUri()</span></code> method. You can cast this object as a string to get a full URL for the current request:</p>
+<section id="url-permintaan">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">URL Permintaan</a><a class="headerlink" href="#url-permintaan" title="Permalink to this heading"></a></h2>
+<p>Anda dapat mengambil objek <a class="reference internal" href="../libraries/uri.html"><span class="doc">URI</span></a> yang mewakili URI saat ini untuk permintaan ini melalui
+method <code class="docutils literal notranslate"><span class="pre">$request-&gt;getUri()</span></code>. Anda dapat mengubah objek ini menjadi string untuk mendapatkan URL lengkap untuk permintaan saat ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$uri</span> <span class="o">=</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The object gives you full abilities to grab any part of the request on it's own:</p>
+<p>Objek memberi Anda kemampuan penuh untuk mengambil bagian mana pun dari permintaan secara mandiri:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">();</span>
@@ -763,32 +763,32 @@ specified header object in a case-insensitive manner if it exists. If not, then 
 <span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getTotalSegments</span><span class="p">();</span>  <span class="c1">// 3</span>
 </pre></div>
 </div>
-<p>You can work with the current URI string (the path relative to your baseURL) using the <code class="docutils literal notranslate"><span class="pre">getRoutePath()</span></code>.</p>
+<p>Anda dapat bekerja dengan string URI saat ini (jalur relatif terhadap baseURL Anda) menggunakan <code class="docutils literal notranslate"><span class="pre">getRoutePath()</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">getRoutePath()</span></code> method can be used since v4.4.0. Prior to v4.4.0,
-the <code class="docutils literal notranslate"><span class="pre">getPath()</span></code> method returned the path relative to your baseURL.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">getRoutePath()</span></code> dapat digunakan sejak v4.4.0. Sebelum v4.4.0,
+method <code class="docutils literal notranslate"><span class="pre">getPath()</span></code> mengembalikan jalur relatif terhadap baseURL Anda.</p>
 </div>
 </section>
-<section id="uploaded-files">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">Uploaded Files</a><a class="headerlink" href="#uploaded-files" title="Permalink to this heading"></a></h2>
-<p>Information about all uploaded files can be retrieved through <code class="docutils literal notranslate"><span class="pre">$request-&gt;getFiles()</span></code>, which returns an array of
-<code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Files\UploadedFile</span></code> instance. This helps to ease the pain of working with uploaded files,
-and uses best practices to minimize any security risks.</p>
+<section id="berkas-yang-diunggah">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Berkas yang Diunggah</a><a class="headerlink" href="#berkas-yang-diunggah" title="Permalink to this heading"></a></h2>
+<p>Informasi tentang semua berkas yang diunggah dapat diambil melalui <code class="docutils literal notranslate"><span class="pre">$request-&gt;getFiles()</span></code>, yang mengembalikan array instance
+<code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Files\UploadedFile</span></code>. Ini membantu meringankan kesulitan bekerja dengan berkas yang diunggah,
+dan menggunakan praktik terbaik untuk meminimalkan risiko keamanan.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$files</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getFiles</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="../libraries/uploaded_files.html#uploaded-files-accessing-files"><span class="std std-ref">Working with Uploaded Files</span></a> for the details.</p>
-<p>You can retrieve a single file uploaded on its own, based on the filename given in the HTML file input:</p>
+<p>Lihat <a class="reference internal" href="../libraries/uploaded_files.html#uploaded-files-accessing-files"><span class="std std-ref">Bekerja dengan Berkas yang Diunggah</span></a> untuk detailnya.</p>
+<p>Anda dapat mengambil satu berkas yang diunggah secara terpisah, berdasarkan nama berkas yang diberikan dalam input berkas HTML:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getFile</span><span class="p">(</span><span class="s1">&#39;userfile&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>You can retrieve an array of same-named files uploaded as part of a
-multi-file upload, based on the filename given in the HTML file input:</p>
+<p>Anda dapat mengambil array berkas dengan nama yang sama yang diunggah sebagai bagian dari
+pengunggahan multi-berkas, berdasarkan nama berkas yang diberikan dalam input berkas HTML:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$files</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getFileMultiple</span><span class="p">(</span><span class="s1">&#39;userfile&#39;</span><span class="p">);</span>
@@ -796,12 +796,12 @@ multi-file upload, based on the filename given in the HTML file input:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The files here correspond to <code class="docutils literal notranslate"><span class="pre">$_FILES</span></code>. Even if a user just clicks submit button of a form and does not upload any file, the file will still exist. You can check that the file was actually uploaded by the <code class="docutils literal notranslate"><span class="pre">isValid()</span></code> method in UploadedFile. See <a class="reference internal" href="../libraries/uploaded_files.html#verify-a-file"><span class="std std-ref">Verify a File</span></a> for more details.</p>
+<p>Berkas-berkas di sini sesuai dengan <code class="docutils literal notranslate"><span class="pre">$_FILES</span></code>. Bahkan jika pengguna hanya mengklik tombol submit form dan tidak mengunggah berkas apa pun, berkas tersebut akan tetap ada. Anda dapat memeriksa bahwa berkas tersebut benar-benar diunggah dengan method <code class="docutils literal notranslate"><span class="pre">isValid()</span></code> di UploadedFile. Lihat <a class="reference internal" href="../libraries/uploaded_files.html#verify-a-file"><span class="std std-ref">Verify a File</span></a> untuk detail lebih lanjut.</p>
 </div>
 </section>
-<section id="content-negotiation">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">Content Negotiation</a><a class="headerlink" href="#content-negotiation" title="Permalink to this heading"></a></h2>
-<p>You can easily negotiate content types with the request through the <code class="docutils literal notranslate"><span class="pre">negotiate()</span></code> method:</p>
+<section id="negosiasi-konten">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Negosiasi Konten</a><a class="headerlink" href="#negosiasi-konten" title="Permalink to this heading"></a></h2>
+<p>Anda dapat dengan mudah menegosiasikan jenis konten dengan permintaan melalui method <code class="docutils literal notranslate"><span class="pre">negotiate()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$language</span>    <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;en-US&#39;</span><span class="p">,</span> <span class="s1">&#39;en-GB&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">,</span> <span class="s1">&#39;es-mx&#39;</span><span class="p">]);</span>
@@ -811,16 +811,16 @@ multi-file upload, based on the filename given in the HTML file input:</p>
 <span class="nv">$encoding</span>    <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;encoding&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;gzip&#39;</span><span class="p">,</span> <span class="s1">&#39;compress&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>See the <a class="reference internal" href="content_negotiation.html"><span class="doc">Content Negotiation</span></a> page for more details.</p>
+<p>Lihat halaman <a class="reference internal" href="content_negotiation.html"><span class="doc">Negosiasi Konten</span></a> untuk detail lebih lanjut.</p>
 </section>
-<section id="class-reference">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this heading"></a></h2>
+<section id="referensi-class">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Referensi Class</a><a class="headerlink" href="#referensi-class" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>In addition to the methods listed here, this class inherits the methods from the
-<a class="reference internal" href="request.html"><span class="doc">Request Class</span></a> and the <a class="reference internal" href="message.html"><span class="doc">Message Class</span></a>.</p>
+<p>Selain method yang tercantum di sini, class ini mewarisi method dari
+<a class="reference internal" href="request.html"><span class="doc">Class Request</span></a> dan <a class="reference internal" href="message.html"><span class="doc">Class Message</span></a>.</p>
 </div>
-<p>The methods provided by the parent classes that are available are:</p>
+<p>Method yang disediakan oleh class induk yang tersedia adalah:</p>
 <ul class="simple">
 <li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::getIPAddress()</span></code></p></li>
 <li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::isValidIP()</span></code></p></li>
@@ -853,7 +853,7 @@ multi-file upload, based on the filename given in the HTML file input:</p>
 <span class="sig-name descname"><span class="pre">isCLI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\IncomingRequest::isCLI" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the request was initiated from the command line, otherwise false.</p>
+<dd class="field-odd"><p>True jika permintaan dimulai dari baris perintah, jika tidak false.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
@@ -866,7 +866,7 @@ multi-file upload, based on the filename given in the HTML file input:</p>
 <span class="sig-name descname"><span class="pre">isAJAX</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\IncomingRequest::isAJAX" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the request is an AJAX request, otherwise false.</p>
+<dd class="field-odd"><p>True jika permintaan adalah permintaan AJAX, jika tidak false.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
@@ -879,7 +879,7 @@ multi-file upload, based on the filename given in the HTML file input:</p>
 <span class="sig-name descname"><span class="pre">isSecure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\IncomingRequest::isSecure" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the request is an HTTPS request, otherwise false.</p>
+<dd class="field-odd"><p>True jika permintaan adalah permintaan HTTPS, jika tidak false.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
@@ -893,15 +893,15 @@ multi-file upload, based on the filename given in the HTML file input:</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the variable/key to look for.</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Types of filters</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flags to apply. A list of flags can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Filter flags</a>.</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama variabel/kunci yang akan dicari.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Jenis filter</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Flag filter</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_REQUEST</span></code> if no parameters supplied, otherwise the REQUEST value if found, or null if not</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_REQUEST</span></code> jika tidak ada parameter yang diberikan, jika tidak nilai REQUEST jika ditemukan, atau null jika tidak</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|bool|float|int|object|string|null</span></code></span></p>
@@ -909,11 +909,11 @@ multi-file upload, based on the filename given in the HTML file input:</p>
 </dl>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>This method exists only for backward compatibility. Do not use it
-in new projects. Even if you are already using it, we recommend that you use
-another, more appropriate method.</p>
+<p>Method ini hanya ada untuk kompatibilitas mundur. Jangan menggunakannya
+dalam proyek baru. Bahkan jika Anda sudah menggunakannya, kami merekomendasikan Anda untuk menggunakan
+method lain yang lebih sesuai.</p>
 </div>
-<p>This method is identical to <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, only it fetches REQUEST data.</p>
+<p>Method ini identik dengan <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, hanya saja ini mengambil data REQUEST.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -922,53 +922,53 @@ another, more appropriate method.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the variable/key to look for.</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Types of filters</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flags to apply. A list of flags can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Filter flags</a>.</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama variabel/kunci yang akan dicari.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Jenis filter</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Flag filter</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_GET</span></code> if no parameters supplied, otherwise the GET value if found, or null if not</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_GET</span></code> jika tidak ada parameter yang diberikan, jika tidak nilai GET jika ditemukan, atau null jika tidak</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|bool|float|int|object|string|null</span></code></span></p>
 </dd>
 </dl>
-<p>The first parameter will contain the name of the GET item you are looking for:</p>
+<p>Parameter pertama akan berisi nama item GET yang Anda cari:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getGet</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The method returns null if the item you are attempting to retrieve
-does not exist.</p>
-<p>The second optional parameter lets you run the data through the PHP's
-filters. Pass in the desired filter type as the second parameter:</p>
+<p>Method mengembalikan null jika item yang Anda coba ambil
+tidak ada.</p>
+<p>Parameter opsional kedua memungkinkan Anda menjalankan data melalui
+filter PHP. Berikan jenis filter yang diinginkan sebagai parameter kedua:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getGet</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_FULL_SPECIAL_CHARS</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>To return an array of all GET items call without any parameters.</p>
-<p>To return all GET items and pass them through the filter, set the
-first parameter to null while setting the second parameter to the filter
-you want to use:</p>
+<p>Untuk mengembalikan array dari semua item GET panggil tanpa parameter apa pun.</p>
+<p>Untuk mengembalikan semua item GET dan meneruskannya melalui filter, atur
+parameter pertama ke null sambil mengatur parameter kedua ke filter
+yang ingin Anda gunakan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getGet</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_FULL_SPECIAL_CHARS</span><span class="p">);</span>
 <span class="c1">// returns all GET items with string sanitation</span>
 </pre></div>
 </div>
-<p>To return an array of multiple GET parameters, pass all the required keys as an array:</p>
+<p>Untuk mengembalikan array dari beberapa parameter GET, berikan semua kunci yang diperlukan sebagai array:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getGet</span><span class="p">([</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>Same rule applied here, to retrieve the parameters with filtering, set the second parameter to
-the filter type to apply:</p>
+<p>Aturan yang sama berlaku di sini, untuk mengambil parameter dengan pemfilteran, atur parameter kedua ke
+jenis filter yang akan diterapkan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getGet</span><span class="p">([</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">],</span> <span class="nx">FILTER_SANITIZE_FULL_SPECIAL_CHARS</span><span class="p">);</span>
@@ -982,21 +982,21 @@ the filter type to apply:</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the variable/key to look for.</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be
-found <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">here</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flags to apply. A list of flags can be found
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">here</a>.</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama variabel/kunci yang akan dicari.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat
+ditemukan <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">di sini</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">di sini</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_POST</span></code> if no parameters supplied, otherwise the POST value if found, or null if not</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_POST</span></code> jika tidak ada parameter yang diberikan, jika tidak nilai POST jika ditemukan, atau null jika tidak</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|bool|float|int|object|string|null</span></code></span></p>
 </dd>
 </dl>
-<p>This method is identical to <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, only it fetches POST data.</p>
+<p>Method ini identik dengan <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, hanya saja ini mengambil data POST.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -1005,31 +1005,31 @@ found <a class="reference external" href="https://www.php.net/manual/en/filter.f
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the variable/key to look for.</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Types of filters</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flags to apply. A list of flags can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Filter flags</a>.</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama variabel/kunci yang akan dicari.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Jenis filter</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Flag filter</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_POST</span></code> and <code class="docutils literal notranslate"><span class="pre">$_GET</span></code> combined if no parameters specified (prefer POST value on conflict),
-otherwise looks for POST value, if nothing found looks for GET value, if no value found returns null</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_POST</span></code> dan <code class="docutils literal notranslate"><span class="pre">$_GET</span></code> digabungkan jika tidak ada parameter yang ditentukan (lebih suka nilai POST jika terjadi konflik),
+jika tidak mencari nilai POST, jika tidak ada yang ditemukan mencari nilai GET, jika tidak ada nilai yang ditemukan mengembalikan null</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|bool|float|int|object|string|null</span></code></span></p>
 </dd>
 </dl>
-<p>This method works pretty much the same way as <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> and <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, only combined.
-It will search through both POST and GET streams for data, looking first in POST, and
-then in GET:</p>
+<p>Method ini berfungsi hampir sama dengan <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> dan <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, hanya saja digabungkan.
+Ini akan mencari melalui aliran POST dan GET untuk data, mencari terlebih dahulu di POST, dan
+kemudian di GET:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPostGet</span><span class="p">(</span><span class="s1">&#39;field1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If no index is specified, it will return both POST and GET streams combined.
-Although POST data will be preferred in case of name conflict.</p>
+<p>Jika tidak ada indeks yang ditentukan, ini akan mengembalikan aliran POST dan GET yang digabungkan.
+Meskipun data POST akan diutamakan jika terjadi konflik nama.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -1038,31 +1038,31 @@ Although POST data will be preferred in case of name conflict.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the variable/key to look for.</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Types of filters</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flags to apply. A list of flags can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Filter flags</a>.</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama variabel/kunci yang akan dicari.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Jenis filter</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Flag filter</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_GET</span></code> and <code class="docutils literal notranslate"><span class="pre">$_POST</span></code> combined if no parameters specified (prefer GET value on conflict),
-otherwise looks for GET value, if nothing found looks for POST value, if no value found returns null</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_GET</span></code> dan <code class="docutils literal notranslate"><span class="pre">$_POST</span></code> digabungkan jika tidak ada parameter yang ditentukan (lebih suka nilai GET jika terjadi konflik),
+jika tidak mencari nilai GET, jika tidak ada yang ditemukan mencari nilai POST, jika tidak ada nilai yang ditemukan mengembalikan null</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|bool|float|int|object|string|null</span></code></span></p>
 </dd>
 </dl>
-<p>This method works pretty much the same way as <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> and <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, only combined.
-It will search through both GET and POST streams for data, looking first in GET, and
-then in POST:</p>
+<p>Method ini berfungsi hampir sama dengan <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> dan <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, hanya saja digabungkan.
+Ini akan mencari melalui aliran GET dan POST untuk data, mencari terlebih dahulu di GET, dan
+kemudian di POST:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getGetPost</span><span class="p">(</span><span class="s1">&#39;field1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If no index is specified, it will return both GET and POST streams combined.
-Although GET data will be preferred in case of name conflict.</p>
+<p>Jika tidak ada indeks yang ditentukan, ini akan mengembalikan aliran GET dan POST yang digabungkan.
+Meskipun data GET akan diutamakan jika terjadi konflik nama.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -1071,28 +1071,28 @@ Although GET data will be preferred in case of name conflict.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|string|null</span></code></span>) -- COOKIE name</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Types of filters</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flags to apply. A list of flags can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Filter flags</a>.</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|string|null</span></code></span>) -- Nama COOKIE</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Jenis filter</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Flag filter</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code> if no parameters supplied, otherwise the COOKIE value if found or null if not</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code> jika tidak ada parameter yang diberikan, jika tidak nilai COOKIE jika ditemukan atau null jika tidak</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|bool|float|int|object|string|null</span></code></span></p>
 </dd>
 </dl>
-<p>This method is identical to <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> and <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, only it fetches cookie data:</p>
+<p>Method ini identik dengan <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> dan <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, hanya saja ini mengambil data cookie:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getCookie</span><span class="p">(</span><span class="s1">&#39;some_cookie&#39;</span><span class="p">);</span>
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getCookie</span><span class="p">(</span><span class="s1">&#39;some_cookie&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_FULL_SPECIAL_CHARS</span><span class="p">);</span> <span class="c1">// with filter</span>
 </pre></div>
 </div>
-<p>To return an array of multiple cookie values, pass all the required keys as an array:</p>
+<p>Untuk mengembalikan array dari beberapa nilai cookie, berikan semua kunci yang diperlukan sebagai array:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getCookie</span><span class="p">([</span><span class="s1">&#39;some_cookie&#39;</span><span class="p">,</span> <span class="s1">&#39;some_cookie2&#39;</span><span class="p">]);</span>
@@ -1100,9 +1100,9 @@ Although GET data will be preferred in case of name conflict.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Unlike the <a class="reference internal" href="../helpers/cookie_helper.html"><span class="doc">Cookie Helper</span></a>
-function <a class="reference internal" href="../helpers/cookie_helper.html#get_cookie" title="get_cookie"><code class="xref php php-func docutils literal notranslate"><span class="pre">get_cookie()</span></code></a>, this method does NOT prepend
-your configured <code class="docutils literal notranslate"><span class="pre">Config\Cookie::$prefix</span></code> value.</p>
+<p>Tidak seperti fungsi <a class="reference internal" href="../helpers/cookie_helper.html"><span class="doc">Pembantu Cookie</span></a>
+<a class="reference internal" href="../helpers/cookie_helper.html#get_cookie" title="get_cookie"><code class="xref php php-func docutils literal notranslate"><span class="pre">get_cookie()</span></code></a>, method ini TIDAK menambahkan
+nilai <code class="docutils literal notranslate"><span class="pre">Config\Cookie::$prefix</span></code> yang Anda konfigurasi.</p>
 </div>
 </dd></dl>
 
@@ -1112,29 +1112,29 @@ your configured <code class="docutils literal notranslate"><span class="pre">Con
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|string|null</span></code></span>) -- Value name</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Types of filters</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flags to apply. A list of flags can be found in
-<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Filter flags</a>.</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|string|null</span></code></span>) -- Nama nilai</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">Jenis filter</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan di
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">Flag filter</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code> item value if found, null if not</p>
+<dd class="field-even"><p>Nilai item <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code> jika ditemukan, null jika tidak</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|bool|float|int|object|string|null</span></code></span></p>
 </dd>
 </dl>
-<p>This method is identical to the <code class="docutils literal notranslate"><span class="pre">getPost()</span></code>, <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> and <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code>
-methods, only it fetches Server data (<code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>):</p>
+<p>Method ini identik dengan method <code class="docutils literal notranslate"><span class="pre">getPost()</span></code>, <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> dan <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code>,
+hanya saja ini mengambil data Server (<code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>):</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getServer</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>To return an array of multiple <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code> values, pass all the required keys
-as an array.</p>
+<p>Untuk mengembalikan array dari beberapa nilai <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>, berikan semua kunci yang diperlukan
+sebagai array.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getServer</span><span class="p">([</span><span class="s1">&#39;SERVER_PROTOCOL&#39;</span><span class="p">,</span> <span class="s1">&#39;REQUEST_URI&#39;</span><span class="p">]);</span>
@@ -1147,13 +1147,13 @@ as an array.</p>
 <span class="sig-name descname"><span class="pre">getUserAgent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\IncomingRequest::getUserAgent" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The User Agent string, as found in the SERVER data, or null if not found.</p>
+<dd class="field-odd"><p>String User Agent, seperti yang ditemukan dalam data SERVER, atau null jika tidak ditemukan.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><a class="reference internal" href="../libraries/user_agent.html#CodeIgniter\HTTP\UserAgent" title="CodeIgniter\HTTP\UserAgent"><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\UserAgent</span></code></a></span></p>
 </dd>
 </dl>
-<p>This method returns the User Agent instance from the SERVER data:</p>
+<p>Method ini mengembalikan instance User Agent dari data SERVER:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getUserAgent</span><span class="p">();</span>
@@ -1166,18 +1166,18 @@ as an array.</p>
 <span class="sig-name descname"><span class="pre">getPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\IncomingRequest::getPath" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current URI path relative to baseURL</p>
+<dd class="field-odd"><p>Jalur URI saat ini relatif terhadap baseURL</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
 </dd>
 </dl>
-<p>This method returns the current URI path relative to baseURL.</p>
+<p>Method ini mengembalikan jalur URI saat ini relatif terhadap baseURL.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.4.0, this was the safest method to determine the
-&quot;current URI&quot;, since <code class="docutils literal notranslate"><span class="pre">IncomingRequest::$uri</span></code> might not be aware of
-the complete App configuration for base URLs.</p>
+<p>Sebelum v4.4.0, ini adalah method teraman untuk menentukan
+&quot;URI saat ini&quot;, karena <code class="docutils literal notranslate"><span class="pre">IncomingRequest::$uri</span></code> mungkin tidak mengetahui
+konfigurasi App lengkap untuk URL dasar.</p>
 </div>
 </dd></dl>
 
@@ -1190,11 +1190,11 @@ the complete App configuration for base URLs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The relative path to use as the current URI</p></li>
+<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Jalur relatif yang akan digunakan sebagai URI saat ini</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>This Incoming Request</p>
+<dd class="field-even"><p>Permintaan Masuk ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\HTTP\IncomingRequest" title="CodeIgniter\HTTP\IncomingRequest"><code class="xref php php-obj docutils literal notranslate"><span class="pre">IncomingRequest</span></code></a></span></p>
@@ -1202,10 +1202,10 @@ the complete App configuration for base URLs.</p>
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.4.0, used mostly just for testing purposes, this
-allowed you to set the relative path value for the current request
-instead of relying on URI detection. This also updated the
-underlying <code class="docutils literal notranslate"><span class="pre">URI</span></code> instance with the new path.</p>
+<p>Sebelum v4.4.0, sebagian besar hanya digunakan untuk tujuan pengujian, ini
+memungkinkan Anda untuk mengatur nilai jalur relatif untuk permintaan saat ini
+daripada mengandalkan deteksi URI. Ini juga memperbarui
+instance <code class="docutils literal notranslate"><span class="pre">URI</span></code> yang mendasari dengan jalur baru.</p>
 </div>
 </dd></dl>
 
@@ -1218,7 +1218,7 @@ underlying <code class="docutils literal notranslate"><span class="pre">URI</spa
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="request.html" class="btn btn-neutral float-left" title="Request Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="request.html" class="btn btn-neutral float-left" title="Class Request" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="content_negotiation.html" class="btn btn-neutral float-right" title="Content Negotiation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -1226,7 +1226,7 @@ underlying <code class="docutils literal notranslate"><span class="pre">URI</spa
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

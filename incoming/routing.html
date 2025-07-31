@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>URI Routing &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+  <title>Perutean URI (Routing) &mdash; Dokumentasi CodeIgniter 4.6.2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
@@ -114,7 +114,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">URI Routing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Perutean URI (Routing)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_routing_improved.html">Auto Routing (Improved)</a></li>
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Penggunaan Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Ikhtisar CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Menjalankan Controller via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Command Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Membuat Perintah (Command) Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generator CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">Library CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -279,7 +279,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
-      <li class="breadcrumb-item active">URI Routing</li>
+      <li class="breadcrumb-item active">Perutean URI (Routing)</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -288,144 +288,144 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="uri-routing">
-<h1>URI Routing<a class="headerlink" href="#uri-routing" title="Permalink to this heading"></a></h1>
+  <section id="perutean-uri-routing">
+<h1>Perutean URI (Routing)<a class="headerlink" href="#perutean-uri-routing" title="Permalink to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#what-is-uri-routing" id="id15">What is URI Routing?</a></p></li>
-<li><p><a class="reference internal" href="#setting-routing-rules" id="id16">Setting Routing Rules</a></p>
+<li><p><a class="reference internal" href="#apa-itu-perutean-uri" id="id3">Apa itu Perutean URI?</a></p></li>
+<li><p><a class="reference internal" href="#mengatur-aturan-perutean" id="id4">Mengatur Aturan Perutean</a></p>
 <ul>
-<li><p><a class="reference internal" href="#examples" id="id17">Examples</a></p></li>
-<li><p><a class="reference internal" href="#http-verb-routes" id="id18">HTTP verb Routes</a></p></li>
-<li><p><a class="reference internal" href="#specifying-route-handlers" id="id19">Specifying Route Handlers</a></p>
+<li><p><a class="reference internal" href="#contoh" id="id5">Contoh</a></p></li>
+<li><p><a class="reference internal" href="#router-http-verb" id="id6">Router HTTP verb</a></p></li>
+<li><p><a class="reference internal" href="#menentukan-penangan-router" id="id7">Menentukan Penangan Router</a></p>
 <ul>
-<li><p><a class="reference internal" href="#controller-s-namespace" id="id20">Controller's Namespace</a></p></li>
-<li><p><a class="reference internal" href="#array-callable-syntax" id="id21">Array Callable Syntax</a></p></li>
-<li><p><a class="reference internal" href="#using-closures" id="id22">Using Closures</a></p></li>
+<li><p><a class="reference internal" href="#namespace-controller" id="id8">Namespace Controller</a></p></li>
+<li><p><a class="reference internal" href="#sintaks-panggilan-array" id="id9">Sintaks Panggilan Array</a></p></li>
+<li><p><a class="reference internal" href="#menggunakan-closure" id="id10">Menggunakan Closure</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#specifying-route-paths" id="id23">Specifying Route Paths</a></p>
+<li><p><a class="reference internal" href="#menentukan-jalur-router" id="id11">Menentukan Jalur Router</a></p>
 <ul>
-<li><p><a class="reference internal" href="#placeholders" id="id24">Placeholders</a></p></li>
-<li><p><a class="reference internal" href="#custom-placeholders" id="id25">Custom Placeholders</a></p></li>
-<li><p><a class="reference internal" href="#regular-expressions" id="id26">Regular Expressions</a></p></li>
+<li><p><a class="reference internal" href="#placeholder" id="id12">Placeholder</a></p></li>
+<li><p><a class="reference internal" href="#placeholder-kustom" id="id13">Placeholder Kustom</a></p></li>
+<li><p><a class="reference internal" href="#regular-expressions" id="id14">Regular Expressions</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#view-routes" id="id27">View Routes</a></p></li>
-<li><p><a class="reference internal" href="#redirecting-routes" id="id28">Redirecting Routes</a></p></li>
-<li><p><a class="reference internal" href="#environment-restrictions" id="id29">Environment Restrictions</a></p></li>
-<li><p><a class="reference internal" href="#routes-with-any-http-verbs" id="id30">Routes with any HTTP verbs</a></p></li>
-<li><p><a class="reference internal" href="#mapping-multiple-routes" id="id31">Mapping Multiple Routes</a></p></li>
-<li><p><a class="reference internal" href="#command-line-only-routes" id="id32">Command-Line Only Routes</a></p></li>
+<li><p><a class="reference internal" href="#router-tampilan" id="id15">Router Tampilan</a></p></li>
+<li><p><a class="reference internal" href="#mengarahkan-router" id="id16">Mengarahkan Router</a></p></li>
+<li><p><a class="reference internal" href="#pembatasan-lingkungan" id="id17">Pembatasan Lingkungan</a></p></li>
+<li><p><a class="reference internal" href="#router-dengan-http-verb-apa-pun" id="id18">Router dengan HTTP verb apa pun</a></p></li>
+<li><p><a class="reference internal" href="#memetakan-beberapa-router" id="id19">Memetakan Beberapa Router</a></p></li>
+<li><p><a class="reference internal" href="#router-khusus-baris-perintah" id="id20">Router Khusus Baris Perintah</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#global-options" id="id33">Global Options</a></p>
+<li><p><a class="reference internal" href="#opsi-global" id="id21">Opsi Global</a></p>
 <ul>
-<li><p><a class="reference internal" href="#applying-filters" id="id34">Applying Filters</a></p>
+<li><p><a class="reference internal" href="#menerapkan-filter" id="id22">Menerapkan Filter</a></p>
 <ul>
-<li><p><a class="reference internal" href="#alias-filter" id="id35">Alias Filter</a></p></li>
-<li><p><a class="reference internal" href="#classname-filter" id="id36">Classname Filter</a></p></li>
-<li><p><a class="reference internal" href="#multiple-filters" id="id37">Multiple Filters</a></p></li>
+<li><p><a class="reference internal" href="#filter-alias" id="id23">Filter Alias</a></p></li>
+<li><p><a class="reference internal" href="#filter-nama-class" id="id24">Filter Nama Class</a></p></li>
+<li><p><a class="reference internal" href="#beberapa-filter" id="id25">Beberapa Filter</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#assigning-namespace" id="id38">Assigning Namespace</a></p></li>
-<li><p><a class="reference internal" href="#limit-to-hostname" id="id39">Limit to Hostname</a></p>
+<li><p><a class="reference internal" href="#menetapkan-namespace" id="id26">Menetapkan Namespace</a></p></li>
+<li><p><a class="reference internal" href="#batasi-ke-hostname" id="id27">Batasi ke Hostname</a></p>
 <ul>
-<li><p><a class="reference internal" href="#restrict-by-multiple-hostnames" id="id40">Restrict by Multiple Hostnames</a></p></li>
+<li><p><a class="reference internal" href="#batasi-berdasarkan-beberapa-hostname" id="id28">Batasi berdasarkan Beberapa Hostname</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#limit-to-subdomains" id="id41">Limit to Subdomains</a></p></li>
-<li><p><a class="reference internal" href="#offsetting-the-matched-parameters" id="id42">Offsetting the Matched Parameters</a></p></li>
+<li><p><a class="reference internal" href="#batasi-ke-subdomain" id="id29">Batasi ke Subdomain</a></p></li>
+<li><p><a class="reference internal" href="#menggeser-parameter-yang-cocok" id="id30">Menggeser Parameter yang Cocok</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#reverse-routing" id="id43">Reverse Routing</a></p></li>
-<li><p><a class="reference internal" href="#named-routes" id="id44">Named Routes</a></p></li>
-<li><p><a class="reference internal" href="#grouping-routes" id="id45">Grouping Routes</a></p>
+<li><p><a class="reference internal" href="#perutean-balik" id="id31">Perutean Balik</a></p></li>
+<li><p><a class="reference internal" href="#router-bernama" id="id32">Router Bernama</a></p></li>
+<li><p><a class="reference internal" href="#mengelompokkan-router" id="id33">Mengelompokkan Router</a></p>
 <ul>
-<li><p><a class="reference internal" href="#setting-namespace" id="id46">Setting Namespace</a></p></li>
-<li><p><a class="reference internal" href="#setting-filters" id="id47">Setting Filters</a></p></li>
-<li><p><a class="reference internal" href="#setting-other-options" id="id48">Setting Other Options</a></p></li>
-<li><p><a class="reference internal" href="#nesting-groups" id="id49">Nesting Groups</a></p></li>
+<li><p><a class="reference internal" href="#mengatur-namespace" id="id34">Mengatur Namespace</a></p></li>
+<li><p><a class="reference internal" href="#mengatur-filter" id="id35">Mengatur Filter</a></p></li>
+<li><p><a class="reference internal" href="#mengatur-opsi-lain" id="id36">Mengatur Opsi Lain</a></p></li>
+<li><p><a class="reference internal" href="#mengelompokkan-bersarang" id="id37">Mengelompokkan Bersarang</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#route-priority" id="id50">Route Priority</a></p>
+<li><p><a class="reference internal" href="#prioritas-router" id="id38">Prioritas Router</a></p>
 <ul>
-<li><p><a class="reference internal" href="#changing-route-priority" id="id51">Changing Route Priority</a></p></li>
+<li><p><a class="reference internal" href="#mengubah-prioritas-router" id="id39">Mengubah Prioritas Router</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#routes-configuration-options" id="id52">Routes Configuration Options</a></p>
+<li><p><a class="reference internal" href="#opsi-konfigurasi-router" id="id40">Opsi Konfigurasi Router</a></p>
 <ul>
-<li><p><a class="reference internal" href="#default-namespace" id="id53">Default Namespace</a></p></li>
-<li><p><a class="reference internal" href="#default-method" id="id54">Default Method</a></p></li>
-<li><p><a class="reference internal" href="#translate-uri-dashes" id="id55">Translate URI Dashes</a></p></li>
-<li><p><a class="reference internal" href="#use-defined-routes-only" id="id56">Use Defined Routes Only</a></p></li>
-<li><p><a class="reference internal" href="#override" id="id57">404 Override</a></p></li>
-<li><p><a class="reference internal" href="#route-processing-by-priority" id="id58">Route Processing by Priority</a></p></li>
-<li><p><a class="reference internal" href="#multiple-uri-segments-as-one-parameter" id="id59">Multiple URI Segments as One Parameter</a></p></li>
+<li><p><a class="reference internal" href="#namespace-default" id="id41">Namespace Default</a></p></li>
+<li><p><a class="reference internal" href="#method-default" id="id42">Method Default</a></p></li>
+<li><p><a class="reference internal" href="#terjemahkan-garis-penghubung-uri" id="id43">Terjemahkan Garis Penghubung URI</a></p></li>
+<li><p><a class="reference internal" href="#gunakan-hanya-router-yang-didefinisikan" id="id44">Gunakan Hanya Router yang Didefinisikan</a></p></li>
+<li><p><a class="reference internal" href="#penggantian-404" id="id45">Penggantian 404</a></p></li>
+<li><p><a class="reference internal" href="#pemrosesan-router-berdasarkan-prioritas" id="id46">Pemrosesan Router berdasarkan Prioritas</a></p></li>
+<li><p><a class="reference internal" href="#beberapa-segmen-uri-sebagai-satu-parameter" id="id47">Beberapa Segmen URI sebagai Satu Parameter</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#auto-routing-improved" id="id60">Auto Routing (Improved)</a></p></li>
-<li><p><a class="reference internal" href="#auto-routing-legacy" id="id61">Auto Routing (Legacy)</a></p>
+<li><p><a class="reference internal" href="#perutean-otomatis-ditingkatkan" id="id48">Perutean Otomatis (Ditingkatkan)</a></p></li>
+<li><p><a class="reference internal" href="#perutean-otomatis-legacy" id="id49">Perutean Otomatis (Legacy)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#enable-auto-routing-legacy" id="id62">Enable Auto Routing (Legacy)</a></p></li>
-<li><p><a class="reference internal" href="#uri-segments-legacy" id="id63">URI Segments (Legacy)</a></p></li>
-<li><p><a class="reference internal" href="#configuration-options-legacy" id="id64">Configuration Options (Legacy)</a></p>
+<li><p><a class="reference internal" href="#mengaktifkan-perutean-otomatis-legacy" id="id50">Mengaktifkan Perutean Otomatis (Legacy)</a></p></li>
+<li><p><a class="reference internal" href="#segmen-uri-legacy" id="id51">Segmen URI (Legacy)</a></p></li>
+<li><p><a class="reference internal" href="#opsi-konfigurasi-legacy" id="id52">Opsi Konfigurasi (Legacy)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#default-controller-legacy" id="id65">Default Controller (Legacy)</a></p></li>
-<li><p><a class="reference internal" href="#default-method-legacy" id="id66">Default Method (Legacy)</a></p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#confirming-routes" id="id67">Confirming Routes</a></p>
-<ul>
-<li><p><a class="reference internal" href="#spark-routes" id="id68">spark routes</a></p>
-<ul>
-<li><p><a class="reference internal" href="#id13" id="id69">Auto Routing (Improved)</a></p></li>
-<li><p><a class="reference internal" href="#id14" id="id70">Auto Routing (Legacy)</a></p></li>
-<li><p><a class="reference internal" href="#sort-by-handler" id="id71">Sort by Handler</a></p></li>
-<li><p><a class="reference internal" href="#specify-host" id="id72">Specify Host</a></p></li>
+<li><p><a class="reference internal" href="#controller-default-legacy" id="id53">Controller Default (Legacy)</a></p></li>
+<li><p><a class="reference internal" href="#method-default-legacy" id="id54">Method Default (Legacy)</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#getting-routing-information" id="id73">Getting Routing Information</a></p>
+<li><p><a class="reference internal" href="#mengkonfirmasi-router" id="id55">Mengkonfirmasi Router</a></p>
 <ul>
-<li><p><a class="reference internal" href="#retrieving-the-current-controller-method-names" id="id74">Retrieving the Current Controller/Method Names</a></p></li>
-<li><p><a class="reference internal" href="#getting-active-filters-for-the-current-route" id="id75">Getting Active Filters for the Current Route</a></p></li>
-<li><p><a class="reference internal" href="#getting-matched-route-options-for-the-current-route" id="id76">Getting Matched Route Options for the Current Route</a></p></li>
+<li><p><a class="reference internal" href="#spark-routes" id="id56">spark routes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id57">Perutean Otomatis (Ditingkatkan)</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id58">Perutean Otomatis (Legacy)</a></p></li>
+<li><p><a class="reference internal" href="#urutkan-berdasarkan-penangan" id="id59">Urutkan berdasarkan Penangan</a></p></li>
+<li><p><a class="reference internal" href="#tentukan-host" id="id60">Tentukan Host</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mendapatkan-informasi-perutean" id="id61">Mendapatkan Informasi Perutean</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mengambil-nama-controller-method-saat-ini" id="id62">Mengambil Nama Controller/Method Saat Ini</a></p></li>
+<li><p><a class="reference internal" href="#mendapatkan-filter-aktif-untuk-router-saat-ini" id="id63">Mendapatkan Filter Aktif untuk Router Saat Ini</a></p></li>
+<li><p><a class="reference internal" href="#mendapatkan-opsi-router-yang-cocok-untuk-router-saat-ini" id="id64">Mendapatkan Opsi Router yang Cocok untuk Router Saat Ini</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
-<section id="what-is-uri-routing">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">What is URI Routing?</a><a class="headerlink" href="#what-is-uri-routing" title="Permalink to this heading"></a></h2>
-<p>URI Routing associates a URI with a controller's method.</p>
-<p>CodeIgniter has two kinds of routing. One is <strong>Defined Route Routing</strong>, and the other is <strong>Auto Routing</strong>.
-With Defined Route Routing, you can define routes manually. It allows flexible URL.
-Auto Routing automatically routes HTTP requests based on conventions and execute the corresponding controller methods. There is no need to define routes manually.</p>
-<p>First, let's look at Defined Route Routing. If you want to use Auto Routing, see <a class="reference internal" href="auto_routing_improved.html#auto-routing-improved"><span class="std std-ref">Auto Routing (Improved)</span></a>.</p>
+<section id="apa-itu-perutean-uri">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Apa itu Perutean URI?</a><a class="headerlink" href="#apa-itu-perutean-uri" title="Permalink to this heading"></a></h2>
+<p>Perutean URI mengaitkan sebuah URI dengan sebuah method controller.</p>
+<p>CodeIgniter memiliki dua jenis perutean. Salah satunya adalah <strong>Perutean Router yang Didefinisikan</strong>, dan yang lainnya adalah <strong>Perutean Otomatis</strong>.
+Dengan Perutean Router yang Didefinisikan, Anda dapat mendefinisikan router secara manual. Ini memungkinkan URL yang fleksibel.
+Perutean Otomatis secara otomatis merutekan permintaan HTTP berdasarkan konvensi dan mengeksekusi method controller yang sesuai. Tidak perlu mendefinisikan router secara manual.</p>
+<p>Pertama, mari kita lihat Perutean Router yang Didefinisikan. Jika Anda ingin menggunakan Perutean Otomatis, lihat <a class="reference internal" href="auto_routing_improved.html#auto-routing-improved"><span class="std std-ref">Auto Routing (Improved)</span></a>.</p>
 </section>
-<section id="setting-routing-rules">
-<span id="defined-route-routing"></span><h2><a class="toc-backref" href="#id16" role="doc-backlink">Setting Routing Rules</a><a class="headerlink" href="#setting-routing-rules" title="Permalink to this heading"></a></h2>
-<p>Routing rules are defined in the <strong>app/Config/Routes.php</strong> file. In it you'll see that
-it creates an instance of the RouteCollection class (<code class="docutils literal notranslate"><span class="pre">$routes</span></code>) that permits you to specify your own routing criteria.
-Routes can be specified using placeholders or Regular Expressions.</p>
-<p>When you specify a route, you choose a method to corresponding to HTTP verbs (request method).
-If you expect a GET request, you use the <code class="docutils literal notranslate"><span class="pre">get()</span></code> method:</p>
+<section id="mengatur-aturan-perutean">
+<span id="defined-route-routing"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Mengatur Aturan Perutean</a><a class="headerlink" href="#mengatur-aturan-perutean" title="Permalink to this heading"></a></h2>
+<p>Aturan perutean didefinisikan dalam berkas <strong>app/Config/Routes.php</strong>. Di dalamnya Anda akan melihat bahwa
+itu membuat sebuah instance dari class RouteCollection (<code class="docutils literal notranslate"><span class="pre">$routes</span></code>) yang memungkinkan Anda untuk menentukan kriteria perutean Anda sendiri.
+Router dapat ditentukan menggunakan placeholder atau Regular Expressions.</p>
+<p>Ketika Anda menentukan sebuah router, Anda memilih sebuah method yang sesuai dengan HTTP verbs (request method).
+Jika Anda mengharapkan permintaan GET, Anda menggunakan method <code class="docutils literal notranslate"><span class="pre">get()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Home::index&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>A route takes the <strong>Route Path</strong> (URI path relative to the BaseURL. <code class="docutils literal notranslate"><span class="pre">/</span></code>) on the left,
-and maps it to the <strong>Route Handler</strong> (controller and method <code class="docutils literal notranslate"><span class="pre">Home::index</span></code>) on the right,
-along with any parameters that should be passed to the controller.</p>
-<p>The controller and method should
-be listed in the same way that you would use a static method, by separating the class
-and its method with a double-colon, like <code class="docutils literal notranslate"><span class="pre">Users::list</span></code>.</p>
-<p>If that method requires parameters to be
-passed to it, then they would be listed after the method name, separated by forward-slashes:</p>
+<p>Sebuah router mengambil <strong>Jalur Router</strong> (jalur URI relatif terhadap BaseURL. <code class="docutils literal notranslate"><span class="pre">/</span></code>) di sebelah kiri,
+dan memetakannya ke <strong>Penangan Router</strong> (controller dan method <code class="docutils literal notranslate"><span class="pre">Home::index</span></code>) di sebelah kanan,
+bersama dengan parameter apa pun yang harus diteruskan ke controller.</p>
+<p>Controller dan method harus
+dicantumkan dengan cara yang sama seperti Anda akan menggunakan method statis, dengan memisahkan class
+dan method-nya dengan titik dua ganda, seperti <code class="docutils literal notranslate"><span class="pre">Users::list</span></code>.</p>
+<p>Jika method tersebut memerlukan parameter untuk
+diteruskan kepadanya, maka parameter tersebut akan dicantumkan setelah nama method, dipisahkan oleh garis miring:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Calls $Users-&gt;list()</span>
@@ -435,41 +435,41 @@ passed to it, then they would be listed after the method name, separated by forw
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users/1/23&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::list/1/23&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<section id="examples">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Permalink to this heading"></a></h3>
-<p>Here are a few basic routing examples.</p>
-<p>A URL containing the word <strong>journals</strong> in the first segment will be mapped to the <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Blogs</span></code> class,
-and the <a class="reference internal" href="#routing-default-method"><span class="std std-ref">default method</span></a>, which is usually <code class="docutils literal notranslate"><span class="pre">index()</span></code>:</p>
+<section id="contoh">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Contoh</a><a class="headerlink" href="#contoh" title="Permalink to this heading"></a></h3>
+<p>Berikut adalah beberapa contoh perutean dasar.</p>
+<p>Sebuah URL yang berisi kata <strong>journals</strong> di segmen pertama akan dipetakan ke class <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Blogs</span></code>,
+dan <a class="reference internal" href="#routing-default-method"><span class="std std-ref">method default</span></a>, yang biasanya <code class="docutils literal notranslate"><span class="pre">index()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;journals&#39;</span><span class="p">,</span> <span class="s1">&#39;Blogs&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>A URL containing the segments <strong>blog/joe</strong> will be mapped to the <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Blogs</span></code> class and the <code class="docutils literal notranslate"><span class="pre">users()</span></code> method.
-The ID will be set to <code class="docutils literal notranslate"><span class="pre">34</span></code>:</p>
+<p>Sebuah URL yang berisi segmen <strong>blog/joe</strong> akan dipetakan ke class <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Blogs</span></code> dan method <code class="docutils literal notranslate"><span class="pre">users()</span></code>.
+ID akan diatur ke <code class="docutils literal notranslate"><span class="pre">34</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;blog/joe&#39;</span><span class="p">,</span> <span class="s1">&#39;Blogs::users/34&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>A URL with <strong>product</strong> as the first segment, and anything in the second will be mapped to the <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Catalog</span></code> class
-and the <code class="docutils literal notranslate"><span class="pre">productLookup()</span></code> method:</p>
+<p>Sebuah URL dengan <strong>product</strong> sebagai segmen pertama, dan apa pun di segmen kedua akan dipetakan ke class <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Catalog</span></code>
+dan method <code class="docutils literal notranslate"><span class="pre">productLookup()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookup&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>A URL with <strong>product</strong> as the first segment, and a number in the second will be mapped to the <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Catalog</span></code> class
-and the <code class="docutils literal notranslate"><span class="pre">productLookupByID()</span></code> method passing in the match as a variable to the method:</p>
+<p>Sebuah URL dengan <strong>product</strong> sebagai segmen pertama, dan sebuah angka di segmen kedua akan dipetakan ke class <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Catalog</span></code>
+dan method <code class="docutils literal notranslate"><span class="pre">productLookupByID()</span></code> yang meneruskan kecocokan sebagai variabel ke method:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookupByID/$1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
-<section id="http-verb-routes">
-<span id="routing-http-verb-routes"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">HTTP verb Routes</a><a class="headerlink" href="#http-verb-routes" title="Permalink to this heading"></a></h3>
-<p>You can use any standard HTTP verb (GET, POST, PUT, DELETE, OPTIONS, etc):</p>
+<section id="router-http-verb">
+<span id="routing-http-verb-routes"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">Router HTTP verb</a><a class="headerlink" href="#router-http-verb" title="Permalink to this heading"></a></h3>
+<p>Anda dapat menggunakan HTTP verb standar apa pun (GET, POST, PUT, DELETE, OPTIONS, dll):</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;products&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::feature&#39;</span><span class="p">);</span>
@@ -477,68 +477,68 @@ and the <code class="docutils literal notranslate"><span class="pre">productLook
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;products/1&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::feature&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>You can supply multiple verbs that a route should match by passing them in as an array to the <code class="docutils literal notranslate"><span class="pre">match()</span></code> method:</p>
+<p>Anda dapat menyediakan beberapa verb yang harus dicocokkan oleh sebuah router dengan meneruskannya sebagai array ke method <code class="docutils literal notranslate"><span class="pre">match()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">([</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;PUT&#39;</span><span class="p">],</span> <span class="s1">&#39;products&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::feature&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
-<section id="specifying-route-handlers">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">Specifying Route Handlers</a><a class="headerlink" href="#specifying-route-handlers" title="Permalink to this heading"></a></h3>
-<section id="controller-s-namespace">
-<span id="controllers-namespace"></span><h4><a class="toc-backref" href="#id20" role="doc-backlink">Controller's Namespace</a><a class="headerlink" href="#controller-s-namespace" title="Permalink to this heading"></a></h4>
-<p>When you specify a controller and method name as a string, if a controller is
-written without a leading <code class="docutils literal notranslate"><span class="pre">\</span></code>, the <a class="reference internal" href="#routing-default-namespace"><span class="std std-ref">Default Namespace</span></a> will be
-prepended:</p>
+<section id="menentukan-penangan-router">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Menentukan Penangan Router</a><a class="headerlink" href="#menentukan-penangan-router" title="Permalink to this heading"></a></h3>
+<section id="namespace-controller">
+<span id="controllers-namespace"></span><h4><a class="toc-backref" href="#id8" role="doc-backlink">Namespace Controller</a><a class="headerlink" href="#namespace-controller" title="Permalink to this heading"></a></h4>
+<p>Ketika Anda menentukan nama controller dan method sebagai string, jika sebuah controller
+ditulis tanpa <code class="docutils literal notranslate"><span class="pre">\</span></code> di depannya, <a class="reference internal" href="#routing-default-namespace"><span class="std std-ref">Namespace Default</span></a> akan
+ditambahkan di depan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Routes to \App\Controllers\Api\Users::update()</span>
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;api/users&#39;</span><span class="p">,</span> <span class="s1">&#39;Api\Users::update&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If you put <code class="docutils literal notranslate"><span class="pre">\</span></code> at the beginning, it is treated as a fully qualified class name:</p>
+<p>Jika Anda meletakkan <code class="docutils literal notranslate"><span class="pre">\</span></code> di awal, itu diperlakukan sebagai nama class yang sepenuhnya memenuhi syarat:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Routes to \Acme\Blog\Controllers\Home::list()</span>
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">,</span> <span class="s1">&#39;\Acme\Blog\Controllers\Home::list&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>You can also specify the namespace with the <code class="docutils literal notranslate"><span class="pre">namespace</span></code> option:</p>
+<p>Anda juga dapat menentukan namespace dengan opsi <code class="docutils literal notranslate"><span class="pre">namespace</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Routes to \Admin\Users::index()</span>
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin/users&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Admin&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="#assigning-namespace"><span class="std std-ref">Assigning Namespace</span></a> for details.</p>
+<p>Lihat <a class="reference internal" href="#assigning-namespace"><span class="std std-ref">Menetapkan Namespace</span></a> untuk detailnya.</p>
 </section>
-<section id="array-callable-syntax">
-<h4><a class="toc-backref" href="#id21" role="doc-backlink">Array Callable Syntax</a><a class="headerlink" href="#array-callable-syntax" title="Permalink to this heading"></a></h4>
+<section id="sintaks-panggilan-array">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Sintaks Panggilan Array</a><a class="headerlink" href="#sintaks-panggilan-array" title="Permalink to this heading"></a></h4>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.2.0.</span></p>
 </div>
-<p>Since v4.2.0, you can use array callable syntax to specify the controller:</p>
+<p>Sejak v4.2.0, Anda dapat menggunakan sintaks panggilan array untuk menentukan controller:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">\App\Controllers\Home</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>Or using <code class="docutils literal notranslate"><span class="pre">use</span></code> keyword:</p>
+<p>Atau menggunakan kata kunci <code class="docutils literal notranslate"><span class="pre">use</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Controllers\Home</span><span class="p">;</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Home</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>If you forget to add <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">App\Controllers\Home;</span></code>, the controller classname is
-interpreted as <code class="docutils literal notranslate"><span class="pre">\Home</span></code>, not <code class="docutils literal notranslate"><span class="pre">App\Controllers\Home</span></code>.</p>
+<p>Jika Anda lupa menambahkan <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">App\Controllers\Home;</span></code>, nama class controller
+diinterpretasikan sebagai <code class="docutils literal notranslate"><span class="pre">\Home</span></code>, bukan <code class="docutils literal notranslate"><span class="pre">App\Controllers\Home</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>When you use Array Callable Syntax, the classname is always interpreted
-as a fully qualified classname. So <a class="reference internal" href="#routing-default-namespace"><span class="std std-ref">Default Namespace</span></a> and
-<a class="reference internal" href="#assigning-namespace"><span class="std std-ref">namespace option</span></a> have no effect.</p>
+<p>Ketika Anda menggunakan Sintaks Panggilan Array, nama class selalu diinterpretasikan
+sebagai nama class yang sepenuhnya memenuhi syarat. Jadi <a class="reference internal" href="#routing-default-namespace"><span class="std std-ref">Namespace Default</span></a> dan
+<a class="reference internal" href="#assigning-namespace"><span class="std std-ref">namespace option</span></a> tidak berpengaruh.</p>
 </div>
-<section id="array-callable-syntax-and-placeholders">
-<h5>Array Callable Syntax and Placeholders<a class="headerlink" href="#array-callable-syntax-and-placeholders" title="Permalink to this heading"></a></h5>
-<p>If there are placeholders, it will automatically set the parameters in the specified order:</p>
+<section id="sintaks-panggilan-array-dan-placeholder">
+<h5>Sintaks Panggilan Array dan Placeholder<a class="headerlink" href="#sintaks-panggilan-array-dan-placeholder" title="Permalink to this heading"></a></h5>
+<p>Jika ada placeholder, itu akan secara otomatis mengatur parameter dalam urutan yang ditentukan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Controllers\Product</span><span class="p">;</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)/(:num)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
@@ -547,8 +547,8 @@ as a fully qualified classname. So <a class="reference internal" href="#routing-
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::index/$1/$2&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>But the auto-configured parameters may not be correct if you use regular expressions in routes.
-In such a case, you can specify the parameters manually:</p>
+<p>Tetapi parameter yang dikonfigurasi secara otomatis mungkin tidak benar jika Anda menggunakan ekspresi reguler dalam router.
+Dalam kasus seperti itu, Anda dapat menentukan parameter secara manual:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Controllers\Product</span><span class="p">;</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)/(:num)&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">],</span> <span class="s1">&#39;$2/$1&#39;</span><span class="p">]);</span>
@@ -559,11 +559,11 @@ In such a case, you can specify the parameters manually:</p>
 </div>
 </section>
 </section>
-<section id="using-closures">
-<h4><a class="toc-backref" href="#id22" role="doc-backlink">Using Closures</a><a class="headerlink" href="#using-closures" title="Permalink to this heading"></a></h4>
-<p>You can use an anonymous function, or Closure, as the destination that a route maps to. This function will be
-executed when the user visits that URI. This is handy for quickly executing small tasks, or even just showing
-a simple view:</p>
+<section id="menggunakan-closure">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Menggunakan Closure</a><a class="headerlink" href="#menggunakan-closure" title="Permalink to this heading"></a></h4>
+<p>Anda dapat menggunakan fungsi anonim, atau Closure, sebagai tujuan yang dipetakan oleh sebuah router. Fungsi ini akan
+dieksekusi ketika pengguna mengunjungi URI tersebut. Ini berguna untuk dengan cepat mengeksekusi tugas-tugas kecil, atau bahkan hanya menampilkan
+tampilan sederhana:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">use</span> <span class="nx">App\Libraries\RSSFeeder</span><span class="p">;</span>
@@ -577,76 +577,76 @@ a simple view:</p>
 </div>
 </section>
 </section>
-<section id="specifying-route-paths">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">Specifying Route Paths</a><a class="headerlink" href="#specifying-route-paths" title="Permalink to this heading"></a></h3>
-<section id="placeholders">
-<h4><a class="toc-backref" href="#id24" role="doc-backlink">Placeholders</a><a class="headerlink" href="#placeholders" title="Permalink to this heading"></a></h4>
-<p>A typical route might look something like this:</p>
+<section id="menentukan-jalur-router">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Menentukan Jalur Router</a><a class="headerlink" href="#menentukan-jalur-router" title="Permalink to this heading"></a></h3>
+<section id="placeholder">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Placeholder</a><a class="headerlink" href="#placeholder" title="Permalink to this heading"></a></h4>
+<p>Sebuah router tipikal mungkin terlihat seperti ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookup&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In a route, the first parameter contains the URI to be matched, while the second parameter
-contains the destination it should be routed to. In the above example, if the literal word
-&quot;product&quot; is found in the first segment of the URL path, and a number is found in the second segment,
-the <code class="docutils literal notranslate"><span class="pre">Catalog</span></code> class and the <code class="docutils literal notranslate"><span class="pre">productLookup</span></code> method are used instead.</p>
-<p>Placeholders are simply strings that represent a Regular Expression pattern. During the routing
-process, these placeholders are replaced with the value of the Regular Expression. They are primarily
-used for readability.</p>
-<p>The following placeholders are available for you to use in your routes:</p>
+<p>Dalam sebuah router, parameter pertama berisi URI yang akan dicocokkan, sedangkan parameter kedua
+berisi tujuan yang harus dirutekan. Dalam contoh di atas, jika kata literal
+&quot;product&quot; ditemukan di segmen pertama jalur URL, dan sebuah angka ditemukan di segmen kedua,
+class <code class="docutils literal notranslate"><span class="pre">Catalog</span></code> dan method <code class="docutils literal notranslate"><span class="pre">productLookup</span></code> digunakan sebagai gantinya.</p>
+<p>Placeholder hanyalah string yang mewakili pola Regular Expression. Selama proses perutean,
+placeholder ini diganti dengan nilai Regular Expression. Placeholder ini terutama
+digunakan untuk keterbacaan.</p>
+<p>Placeholder berikut tersedia untuk Anda gunakan dalam router Anda:</p>
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Placeholders</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>Placeholder</p></th>
+<th class="head"><p>Deskripsi</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>(:any)</p></td>
-<td><p>will match all characters from that point to the end of the URI. This may include multiple URI segments.</p></td>
+<td><p>akan mencocokkan semua karakter dari titik tersebut hingga akhir URI. Ini mungkin termasuk beberapa segmen URI.</p></td>
 </tr>
 <tr class="row-odd"><td><p>(:segment)</p></td>
-<td><p>will match any character except for a forward slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>) restricting the result to a single segment.</p></td>
+<td><p>akan mencocokkan karakter apa pun kecuali garis miring (<code class="docutils literal notranslate"><span class="pre">/</span></code>) membatasi hasilnya ke satu segmen.</p></td>
 </tr>
 <tr class="row-even"><td><p>(:num)</p></td>
-<td><p>will match any positive integer.</p></td>
+<td><p>akan mencocokkan bilangan bulat positif apa pun.</p></td>
 </tr>
 <tr class="row-odd"><td><p>(:alpha)</p></td>
-<td><p>will match any string of alphabetic characters</p></td>
+<td><p>akan mencocokkan string karakter alfabet apa pun</p></td>
 </tr>
 <tr class="row-even"><td><p>(:alphanum)</p></td>
-<td><p>will match any string of alphabetic characters or integers, or any combination of the two.</p></td>
+<td><p>akan mencocokkan string karakter alfabet atau bilangan bulat apa pun, atau kombinasi keduanya.</p></td>
 </tr>
 <tr class="row-odd"><td><p>(:hash)</p></td>
-<td><p>is the same as <code class="docutils literal notranslate"><span class="pre">(:segment)</span></code>, but can be used to easily see which routes use hashed ids.</p></td>
+<td><p>sama dengan <code class="docutils literal notranslate"><span class="pre">(:segment)</span></code>, tetapi dapat digunakan untuk dengan mudah melihat router mana yang menggunakan ID hash.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p><code class="docutils literal notranslate"><span class="pre">{locale}</span></code> cannot be used as a placeholder or other part of the route, as it is reserved for use
-in <a class="reference internal" href="../outgoing/localization.html"><span class="doc">localization</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{locale}</span></code> tidak dapat digunakan sebagai placeholder atau bagian lain dari router, karena itu dicadangkan untuk digunakan
+dalam <a class="reference internal" href="../outgoing/localization.html"><span class="doc">lokalisasi</span></a>.</p>
 </div>
-<section id="the-behavior-of-any">
-<span id="routing-placeholder-any"></span><h5>The Behavior of (:any)<a class="headerlink" href="#the-behavior-of-any" title="Permalink to this heading"></a></h5>
-<p>Note that a single <code class="docutils literal notranslate"><span class="pre">(:any)</span></code> will match multiple segments in the URL if present.</p>
-<p>For example the route:</p>
+<section id="perilaku-any">
+<span id="routing-placeholder-any"></span><h5>Perilaku (:any)<a class="headerlink" href="#perilaku-any" title="Permalink to this heading"></a></h5>
+<p>Perhatikan bahwa satu <code class="docutils literal notranslate"><span class="pre">(:any)</span></code> akan mencocokkan beberapa segmen di URL jika ada.</p>
+<p>Misalnya router:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:any)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookup/$1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>will match <strong>product/123</strong>, <strong>product/123/456</strong>, <strong>product/123/456/789</strong> and so on.</p>
-<p>By default, in the above example, if the <code class="docutils literal notranslate"><span class="pre">$1</span></code> placeholder contains a slash
-(<code class="docutils literal notranslate"><span class="pre">/</span></code>), it will still be split into multiple parameters when passed to
+<p>akan cocok dengan <strong>product/123</strong>, <strong>product/123/456</strong>, <strong>product/123/456/789</strong> dan seterusnya.</p>
+<p>Secara default, dalam contoh di atas, jika placeholder <code class="docutils literal notranslate"><span class="pre">$1</span></code> berisi garis miring
+(<code class="docutils literal notranslate"><span class="pre">/</span></code>), itu masih akan dibagi menjadi beberapa parameter ketika diteruskan ke
 <code class="docutils literal notranslate"><span class="pre">Catalog::productLookup()</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Since v4.5.0, you can change the behavior with the config option.
-See <a class="reference internal" href="#multiple-uri-segments-as-one-parameter"><span class="std std-ref">Multiple URI Segments as One Parameter</span></a> for details.</p>
+<p>Sejak v4.5.0, Anda dapat mengubah perilaku dengan opsi konfigurasi.
+Lihat <a class="reference internal" href="#multiple-uri-segments-as-one-parameter"><span class="std std-ref">Beberapa Segmen URI sebagai Satu Parameter</span></a> untuk detailnya.</p>
 </div>
-<p>The implementation in the
-Controller should take into account the maximum parameters:</p>
+<p>Implementasi di
+Controller harus mempertimbangkan parameter maksimum:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
@@ -662,7 +662,7 @@ Controller should take into account the maximum parameters:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Or you can use <a class="reference external" href="https://www.php.net/manual/en/functions.arguments.php#functions.variable-arg-list">variable-length argument lists</a>:</p>
+<p>Atau Anda dapat menggunakan <a class="reference external" href="https://www.php.net/manual/en/functions.arguments.php#functions.variable-arg-list">daftar argumen dengan panjang variabel</a>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
@@ -680,26 +680,26 @@ Controller should take into account the maximum parameters:</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>Do not put any placeholder after <code class="docutils literal notranslate"><span class="pre">(:any)</span></code>. Because the number of
-parameters passed to the controller method may change.</p>
+<p>Jangan meletakkan placeholder setelah <code class="docutils literal notranslate"><span class="pre">(:any)</span></code>. Karena jumlah
+parameter yang diteruskan ke method controller dapat berubah.</p>
 </div>
-<p>If matching multiple segments is not the intended behavior, <code class="docutils literal notranslate"><span class="pre">(:segment)</span></code> should be used when defining the
-routes. With the examples URLs from above:</p>
+<p>Jika pencocokan beberapa segmen bukan perilaku yang dimaksudkan, <code class="docutils literal notranslate"><span class="pre">(:segment)</span></code> harus digunakan saat mendefinisikan
+router. Dengan contoh URL dari atas:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookup/$1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>will only match <strong>product/123</strong> and generate 404 errors for other example.</p>
+<p>hanya akan cocok dengan <strong>product/123</strong> dan menghasilkan error 404 untuk contoh lainnya.</p>
 </section>
 </section>
-<section id="custom-placeholders">
-<h4><a class="toc-backref" href="#id25" role="doc-backlink">Custom Placeholders</a><a class="headerlink" href="#custom-placeholders" title="Permalink to this heading"></a></h4>
-<p>You can create your own placeholders that can be used in your routes file to fully customize the experience
-and readability.</p>
-<p>You add new placeholders with the <code class="docutils literal notranslate"><span class="pre">addPlaceholder()</span></code> method. The first parameter is the string to be used as
-the placeholder. The second parameter is the Regular Expression pattern it should be replaced with.
-This must be called before you add the route:</p>
+<section id="placeholder-kustom">
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">Placeholder Kustom</a><a class="headerlink" href="#placeholder-kustom" title="Permalink to this heading"></a></h4>
+<p>Anda dapat membuat placeholder Anda sendiri yang dapat digunakan dalam berkas router Anda untuk sepenuhnya menyesuaikan pengalaman
+dan keterbacaan.</p>
+<p>Anda menambahkan placeholder baru dengan method <code class="docutils literal notranslate"><span class="pre">addPlaceholder()</span></code>. Parameter pertama adalah string yang akan digunakan sebagai
+placeholder. Parameter kedua adalah pola Regular Expression yang harus diganti.
+Ini harus dipanggil sebelum Anda menambahkan router:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">addPlaceholder</span><span class="p">(</span><span class="s1">&#39;uuid&#39;</span><span class="p">,</span> <span class="s1">&#39;[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}&#39;</span><span class="p">);</span>
@@ -708,62 +708,62 @@ This must be called before you add the route:</p>
 </div>
 </section>
 <section id="regular-expressions">
-<h4><a class="toc-backref" href="#id26" role="doc-backlink">Regular Expressions</a><a class="headerlink" href="#regular-expressions" title="Permalink to this heading"></a></h4>
-<p>If you prefer you can use regular expressions to define your routing rules. Any valid regular expression
-is allowed, as are back-references.</p>
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">Regular Expressions</a><a class="headerlink" href="#regular-expressions" title="Permalink to this heading"></a></h4>
+<p>Jika Anda mau, Anda dapat menggunakan ekspresi reguler untuk mendefinisikan aturan perutean Anda. Setiap ekspresi reguler yang valid
+diizinkan, begitu juga back-references.</p>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>Note: If you use back-references you must use the dollar syntax rather than the double backslash syntax.
-A typical RegEx route might look something like this:</p>
+<p>Catatan: Jika Anda menggunakan back-references, Anda harus menggunakan sintaks dolar daripada sintaks garis miring ganda.
+Sebuah router RegEx tipikal mungkin terlihat seperti ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;products/([a-z]+)/(\d+)&#39;</span><span class="p">,</span> <span class="s1">&#39;Products::show/$1/id_$2&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<p>In the above example, a URI similar to <strong>products/shirts/123</strong> would instead call the <code class="docutils literal notranslate"><span class="pre">show()</span></code> method
-of the <code class="docutils literal notranslate"><span class="pre">Products</span></code> controller class, with the original first and second segment passed as arguments to it.</p>
-<p>With regular expressions, you can also catch a segment containing a forward slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>), which would usually
-represent the delimiter between multiple segments.</p>
-<p>For example, if a user accesses a password protected area of your web application and you wish to be able to
-redirect them back to the same page after they log in, you may find this example useful:</p>
+<p>Dalam contoh di atas, URI yang mirip dengan <strong>products/shirts/123</strong> akan memanggil method <code class="docutils literal notranslate"><span class="pre">show()</span></code>
+dari class controller <code class="docutils literal notranslate"><span class="pre">Products</span></code>, dengan segmen pertama dan kedua asli diteruskan sebagai argumen kepadanya.</p>
+<p>Dengan ekspresi reguler, Anda juga dapat menangkap segmen yang berisi garis miring (<code class="docutils literal notranslate"><span class="pre">/</span></code>), yang biasanya
+akan mewakili pembatas antara beberapa segmen.</p>
+<p>Misalnya, jika pengguna mengakses area aplikasi web Anda yang dilindungi kata sandi dan Anda ingin dapat
+mengarahkan mereka kembali ke halaman yang sama setelah mereka masuk, Anda mungkin menemukan contoh ini berguna:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;login/(.+)&#39;</span><span class="p">,</span> <span class="s1">&#39;Auth::login/$1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>By default, in the above example, if the <code class="docutils literal notranslate"><span class="pre">$1</span></code> placeholder contains a slash
-(<code class="docutils literal notranslate"><span class="pre">/</span></code>), it will still be split into multiple parameters when passed to
+<p>Secara default, dalam contoh di atas, jika placeholder <code class="docutils literal notranslate"><span class="pre">$1</span></code> berisi garis miring
+(<code class="docutils literal notranslate"><span class="pre">/</span></code>), itu masih akan dibagi menjadi beberapa parameter ketika diteruskan ke
 <code class="docutils literal notranslate"><span class="pre">Auth::login()</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Since v4.5.0, you can change the behavior with the config option.
-See <a class="reference internal" href="#multiple-uri-segments-as-one-parameter"><span class="std std-ref">Multiple URI Segments as One Parameter</span></a> for details.</p>
+<p>Sejak v4.5.0, Anda dapat mengubah perilaku dengan opsi konfigurasi.
+Lihat <a class="reference internal" href="#multiple-uri-segments-as-one-parameter"><span class="std std-ref">Beberapa Segmen URI sebagai Satu Parameter</span></a> untuk detailnya.</p>
 </div>
-<p>For those of you who don't know regular expressions and want to learn more about them,
-<a class="reference external" href="https://www.regular-expressions.info/">regular-expressions.info</a> might be a good starting point.</p>
+<p>Bagi Anda yang tidak tahu ekspresi reguler dan ingin belajar lebih banyak tentangnya,
+<a class="reference external" href="https://www.regular-expressions.info/">regular-expressions.info</a> mungkin merupakan titik awal yang baik.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>You can also mix and match placeholders with regular expressions.</p>
+<p>Anda juga dapat mencampur dan mencocokkan placeholder dengan ekspresi reguler.</p>
 </div>
 </section>
 </section>
-<section id="view-routes">
-<span id="id1"></span><h3><a class="toc-backref" href="#id27" role="doc-backlink">View Routes</a><a class="headerlink" href="#view-routes" title="Permalink to this heading"></a></h3>
+<section id="router-tampilan">
+<span id="view-routes"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink">Router Tampilan</a><a class="headerlink" href="#router-tampilan" title="Permalink to this heading"></a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.3.0.</span></p>
 </div>
-<p>If you just want to render a view out that has no logic associated with it, you can use the <code class="docutils literal notranslate"><span class="pre">view()</span></code> method.
-This is always treated as GET request.
-This method accepts the name of the view to load as the second parameter.</p>
+<p>Jika Anda hanya ingin merender tampilan yang tidak memiliki logika terkait dengannya, Anda dapat menggunakan method <code class="docutils literal notranslate"><span class="pre">view()</span></code>.
+Ini selalu diperlakukan sebagai permintaan GET.
+Method ini menerima nama tampilan yang akan dimuat sebagai parameter kedua.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Displays the view in /app/Views/pages/about.php</span>
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="s1">&#39;pages/about&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If you use placeholders within your route, you can access them within the view in a special variable, <code class="docutils literal notranslate"><span class="pre">$segments</span></code>.
-They are available as an array, indexed in the order they appear in the route.</p>
+<p>Jika Anda menggunakan placeholder dalam router Anda, Anda dapat mengaksesnya dalam tampilan dalam variabel khusus, <code class="docutils literal notranslate"><span class="pre">$segments</span></code>.
+Variabel tersebut tersedia sebagai array, diindeks dalam urutan kemunculannya di router.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Displays the view in /app/Views/map.php</span>
@@ -774,13 +774,13 @@ They are available as an array, indexed in the order they appear in the route.</
 </pre></div>
 </div>
 </section>
-<section id="redirecting-routes">
-<span id="id2"></span><h3><a class="toc-backref" href="#id28" role="doc-backlink">Redirecting Routes</a><a class="headerlink" href="#redirecting-routes" title="Permalink to this heading"></a></h3>
-<p>Any site that lives long enough is bound to have pages that move. You can specify routes that should redirect
-to other routes with the <code class="docutils literal notranslate"><span class="pre">addRedirect()</span></code> method. The first parameter is the URI pattern for the old route. The
-second parameter is either the new URI to redirect to, or the name of a named route. The third parameter is
-the HTTP status code that should be sent along with the redirect. The default value is <code class="docutils literal notranslate"><span class="pre">302</span></code> which is a temporary
-redirect and is recommended in most cases:</p>
+<section id="mengarahkan-router">
+<span id="redirecting-routes"></span><h3><a class="toc-backref" href="#id16" role="doc-backlink">Mengarahkan Router</a><a class="headerlink" href="#mengarahkan-router" title="Permalink to this heading"></a></h3>
+<p>Situs mana pun yang hidup cukup lama pasti akan memiliki halaman yang berpindah. Anda dapat menentukan router yang harus mengarahkan
+ke router lain dengan method <code class="docutils literal notranslate"><span class="pre">addRedirect()</span></code>. Parameter pertama adalah pola URI untuk router lama. Parameter
+kedua adalah URI baru untuk mengarahkan, atau nama dari router bernama. Parameter ketiga adalah
+kode status HTTP yang harus dikirim bersama dengan pengalihan. Nilai default adalah <code class="docutils literal notranslate"><span class="pre">302</span></code> yang merupakan pengalihan sementara
+dan direkomendasikan dalam banyak kasus:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users/profile&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::profile&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;as&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;profile&#39;</span><span class="p">]);</span>
@@ -801,17 +801,17 @@ redirect and is recommended in most cases:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Since v4.2.0, <code class="docutils literal notranslate"><span class="pre">addRedirect()</span></code> can use placeholders.</p>
+<p>Sejak v4.2.0, <code class="docutils literal notranslate"><span class="pre">addRedirect()</span></code> dapat menggunakan placeholder.</p>
 </div>
-<p>If a redirect route is matched during a page load, the user will be immediately redirected to the new page before a
-controller can be loaded.</p>
+<p>Jika router pengalihan dicocokkan selama pemuatan halaman, pengguna akan segera diarahkan ke halaman baru sebelum
+controller dapat dimuat.</p>
 </section>
-<section id="environment-restrictions">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">Environment Restrictions</a><a class="headerlink" href="#environment-restrictions" title="Permalink to this heading"></a></h3>
-<p>You can create a set of routes that will only be viewable in a certain environment. This allows you to create
-tools that only the developer can use on their local machines that are not reachable on testing or production servers.
-This can be done with the <code class="docutils literal notranslate"><span class="pre">environment()</span></code> method. The first parameter is the name of the environment. Any
-routes defined within this closure are only accessible from the given environment:</p>
+<section id="pembatasan-lingkungan">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Pembatasan Lingkungan</a><a class="headerlink" href="#pembatasan-lingkungan" title="Permalink to this heading"></a></h3>
+<p>Anda dapat membuat sekumpulan router yang hanya akan dapat dilihat di lingkungan tertentu. Ini memungkinkan Anda untuk membuat
+tools yang hanya dapat digunakan oleh pengembang di mesin lokal mereka yang tidak dapat dijangkau di server pengujian atau produksi.
+Ini dapat dilakukan dengan method <code class="docutils literal notranslate"><span class="pre">environment()</span></code>. Parameter pertama adalah nama lingkungan. Setiap
+router yang didefinisikan dalam closure ini hanya dapat diakses dari lingkungan yang diberikan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">environment</span><span class="p">(</span><span class="s1">&#39;development&#39;</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
@@ -820,23 +820,23 @@ routes defined within this closure are only accessible from the given environmen
 </pre></div>
 </div>
 </section>
-<section id="routes-with-any-http-verbs">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink">Routes with any HTTP verbs</a><a class="headerlink" href="#routes-with-any-http-verbs" title="Permalink to this heading"></a></h3>
+<section id="router-dengan-http-verb-apa-pun">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Router dengan HTTP verb apa pun</a><a class="headerlink" href="#router-dengan-http-verb-apa-pun" title="Permalink to this heading"></a></h3>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>This method exists only for backward compatibility. Do not use it
-in new projects. Even if you are already using it, we recommend that you use
-another, more appropriate method.</p>
+<p>Method ini hanya ada untuk kompatibilitas mundur. Jangan menggunakannya
+dalam proyek baru. Bahkan jika Anda sudah menggunakannya, kami merekomendasikan Anda untuk menggunakan
+method lain yang lebih sesuai.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>While the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method seems to be convenient, it is recommended to always use the HTTP-verb-based
-routes, described above, as it is more secure. If you use the <a class="reference internal" href="../libraries/security.html"><span class="doc">CSRF protection</span></a>, it does not protect <strong>GET</strong>
-requests. If the URI specified in the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method is accessible by the GET method, the CSRF protection
-will not work.</p>
+<p>Meskipun method <code class="docutils literal notranslate"><span class="pre">add()</span></code> tampaknya nyaman, disarankan untuk selalu menggunakan
+router berbasis HTTP-verb, yang dijelaskan di atas, karena lebih aman. Jika Anda menggunakan <a class="reference internal" href="../libraries/security.html"><span class="doc">perlindungan CSRF</span></a>, itu tidak melindungi permintaan <strong>GET</strong>.
+Jika URI yang ditentukan dalam method <code class="docutils literal notranslate"><span class="pre">add()</span></code> dapat diakses oleh method GET, perlindungan CSRF
+tidak akan berfungsi.</p>
 </div>
-<p>It is possible to define a route with any HTTP verbs.
-You can use the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method:</p>
+<p>Dimungkinkan untuk mendefinisikan router dengan HTTP verb apa pun.
+Anda dapat menggunakan method <code class="docutils literal notranslate"><span class="pre">add()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;products&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::feature&#39;</span><span class="p">);</span>
@@ -844,27 +844,27 @@ You can use the <code class="docutils literal notranslate"><span class="pre">add
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Using the HTTP-verb-based routes will also provide a slight performance increase, since
-only routes that match the current request method are stored, resulting in fewer routes to scan through
-when trying to find a match.</p>
+<p>Menggunakan router berbasis HTTP-verb juga akan memberikan sedikit peningkatan kinerja, karena
+hanya router yang cocok dengan method permintaan saat ini yang disimpan, menghasilkan lebih sedikit router untuk dipindai
+saat mencoba menemukan kecocokan.</p>
 </div>
 </section>
-<section id="mapping-multiple-routes">
-<h3><a class="toc-backref" href="#id31" role="doc-backlink">Mapping Multiple Routes</a><a class="headerlink" href="#mapping-multiple-routes" title="Permalink to this heading"></a></h3>
+<section id="memetakan-beberapa-router">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Memetakan Beberapa Router</a><a class="headerlink" href="#memetakan-beberapa-router" title="Permalink to this heading"></a></h3>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>This method exists only for backward compatibility. Do not use it
-in new projects. Even if you are already using it, we recommend that you use
-another, more appropriate method.</p>
+<p>Method ini hanya ada untuk kompatibilitas mundur. Jangan menggunakannya
+dalam proyek baru. Bahkan jika Anda sudah menggunakannya, kami merekomendasikan Anda untuk menggunakan
+method lain yang lebih sesuai.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">map()</span></code> method is not recommended as well as <code class="docutils literal notranslate"><span class="pre">add()</span></code>
-because it calls <code class="docutils literal notranslate"><span class="pre">add()</span></code> internally.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">map()</span></code> juga tidak direkomendasikan seperti halnya <code class="docutils literal notranslate"><span class="pre">add()</span></code>
+karena secara internal memanggil <code class="docutils literal notranslate"><span class="pre">add()</span></code>.</p>
 </div>
-<p>While the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method is simple to use, it is often handier to work with multiple routes at once, using
-the <code class="docutils literal notranslate"><span class="pre">map()</span></code> method. Instead of calling the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method for each route that you need to add, you can
-define an array of routes and then pass it as the first parameter to the <code class="docutils literal notranslate"><span class="pre">map()</span></code> method:</p>
+<p>Meskipun method <code class="docutils literal notranslate"><span class="pre">add()</span></code> mudah digunakan, seringkali lebih praktis untuk bekerja dengan beberapa router sekaligus, menggunakan
+method <code class="docutils literal notranslate"><span class="pre">map()</span></code>. Daripada memanggil method <code class="docutils literal notranslate"><span class="pre">add()</span></code> untuk setiap router yang perlu Anda tambahkan, Anda dapat
+mendefinisikan array router dan kemudian meneruskannya sebagai parameter pertama ke method <code class="docutils literal notranslate"><span class="pre">map()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$multipleRoutes</span> <span class="o">=</span> <span class="p">[</span>
@@ -876,18 +876,18 @@ define an array of routes and then pass it as the first parameter to the <code c
 </pre></div>
 </div>
 </section>
-<section id="command-line-only-routes">
-<span id="id3"></span><h3><a class="toc-backref" href="#id32" role="doc-backlink">Command-Line Only Routes</a><a class="headerlink" href="#command-line-only-routes" title="Permalink to this heading"></a></h3>
+<section id="router-khusus-baris-perintah">
+<span id="command-line-only-routes"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">Router Khusus Baris Perintah</a><a class="headerlink" href="#router-khusus-baris-perintah" title="Permalink to this heading"></a></h3>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>It is recommended to use Spark Commands for CLI scripts instead of calling controllers via CLI.
-See the <a class="reference internal" href="../cli/cli_commands.html"><span class="doc">Creating Spark Commands</span></a> page for detailed information.</p>
+<p>Disarankan untuk menggunakan Spark Command untuk skrip CLI daripada memanggil controller melalui CLI.
+Lihat halaman <a class="reference internal" href="../cli/cli_commands.html"><span class="doc">Membuat Perintah (Command) Spark</span></a> untuk informasi lebih rinci.</p>
 </div>
-<p>Any route created by any of the HTTP-verb-based
-route methods will also be inaccessible from the CLI, but routes created by the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method will still be
-available from the command line.</p>
-<p>You can create routes that work only from the command-line, and are inaccessible from the web browser, with the
-<code class="docutils literal notranslate"><span class="pre">cli()</span></code> method:</p>
+<p>Setiap router yang dibuat oleh method router berbasis HTTP-verb
+juga tidak akan dapat diakses dari CLI, tetapi router yang dibuat oleh method <code class="docutils literal notranslate"><span class="pre">add()</span></code> masih akan
+tersedia dari baris perintah.</p>
+<p>Anda dapat membuat router yang hanya berfungsi dari baris perintah, dan tidak dapat diakses dari browser web, dengan
+method <code class="docutils literal notranslate"><span class="pre">cli()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">cli</span><span class="p">(</span><span class="s1">&#39;migrate&#39;</span><span class="p">,</span> <span class="s1">&#39;App\Database::migrate&#39;</span><span class="p">);</span>
@@ -895,15 +895,15 @@ available from the command line.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>If you enable <a class="reference internal" href="#auto-routing-legacy"><span class="std std-ref">Auto Routing (Legacy)</span></a> and place the command file in <strong>app/Controllers</strong>,
-anyone could access the command with the help of Auto Routing (Legacy) via HTTP.</p>
+<p>Jika Anda mengaktifkan <a class="reference internal" href="#auto-routing-legacy"><span class="std std-ref">Perutean Otomatis (Legacy)</span></a> dan menempatkan berkas perintah di <strong>app/Controllers</strong>,
+siapa pun dapat mengakses perintah dengan bantuan Perutean Otomatis (Legacy) melalui HTTP.</p>
 </div>
 </section>
 </section>
-<section id="global-options">
-<h2><a class="toc-backref" href="#id33" role="doc-backlink">Global Options</a><a class="headerlink" href="#global-options" title="Permalink to this heading"></a></h2>
-<p>All of the methods for creating a route (<code class="docutils literal notranslate"><span class="pre">get()</span></code>, <code class="docutils literal notranslate"><span class="pre">post()</span></code>, <a class="reference internal" href="restful.html"><span class="doc">resource()</span></a> etc) can take an array of options that
-can modify the generated routes, or further restrict them. The <code class="docutils literal notranslate"><span class="pre">$options</span></code> array is always the last parameter:</p>
+<section id="opsi-global">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Opsi Global</a><a class="headerlink" href="#opsi-global" title="Permalink to this heading"></a></h2>
+<p>Semua method untuk membuat router (<code class="docutils literal notranslate"><span class="pre">get()</span></code>, <code class="docutils literal notranslate"><span class="pre">post()</span></code>, <a class="reference internal" href="restful.html"><span class="doc">resource()</span></a> dll) dapat mengambil array opsi yang
+dapat memodifikasi router yang dihasilkan, atau lebih membatasinya. Array <code class="docutils literal notranslate"><span class="pre">$options</span></code> selalu menjadi parameter terakhir:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
@@ -920,115 +920,115 @@ can modify the generated routes, or further restrict them. The <code class="docu
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{});</span>
 </pre></div>
 </div>
-<section id="applying-filters">
-<span id="id4"></span><h3><a class="toc-backref" href="#id34" role="doc-backlink">Applying Filters</a><a class="headerlink" href="#applying-filters" title="Permalink to this heading"></a></h3>
-<p>You can alter the behavior of specific routes by supplying filters to run before or after the controller. This is especially handy during authentication or api logging.</p>
-<p>The value for the filter can be a string or an array of strings:</p>
+<section id="menerapkan-filter">
+<span id="applying-filters"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">Menerapkan Filter</a><a class="headerlink" href="#menerapkan-filter" title="Permalink to this heading"></a></h3>
+<p>Anda dapat mengubah perilaku router tertentu dengan menyediakan filter untuk dijalankan sebelum atau sesudah controller. Ini sangat berguna selama otentikasi atau pencatatan API.</p>
+<p>Nilai untuk filter dapat berupa string atau array string:</p>
 <ul class="simple">
-<li><p>matching the aliases defined in <strong>app/Config/Filters.php</strong>.</p></li>
-<li><p>filter classnames</p></li>
+<li><p>yang cocok dengan alias yang didefinisikan dalam <strong>app/Config/Filters.php</strong>.</p></li>
+<li><p>nama class filter</p></li>
 </ul>
-<p>See <a class="reference internal" href="filters.html#filters-aliases"><span class="std std-ref">Controller Filters</span></a> for more information on defining aliases.</p>
+<p>Lihat <a class="reference internal" href="filters.html#filters-aliases"><span class="std std-ref">Filter Controller</span></a> untuk informasi lebih lanjut tentang mendefinisikan alias.</p>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>If you set filters to routes in <strong>app/Config/Routes.php</strong>
-(not in <strong>app/Config/Filters.php</strong>), it is recommended to disable Auto Routing (Legacy).
-When <a class="reference internal" href="#auto-routing-legacy"><span class="std std-ref">Auto Routing (Legacy)</span></a> is enabled, it may be possible that a controller can be accessed
-via a different URL than the configured route,
-in which case the filter you specified to the route will not be applied.
-See <a class="reference internal" href="#use-defined-routes-only"><span class="std std-ref">Use Defined Routes Only</span></a> to disable auto-routing.</p>
+<p>Jika Anda mengatur filter ke router di <strong>app/Config/Routes.php</strong>
+(bukan di <strong>app/Config/Filters.php</strong>), disarankan untuk menonaktifkan Perutean Otomatis (Legacy).
+Ketika <a class="reference internal" href="#auto-routing-legacy"><span class="std std-ref">Perutean Otomatis (Legacy)</span></a> diaktifkan, mungkin saja sebuah controller dapat diakses
+melalui URL yang berbeda dari router yang dikonfigurasi,
+dalam hal ini filter yang Anda tentukan ke router tidak akan diterapkan.
+Lihat <a class="reference internal" href="#use-defined-routes-only"><span class="std std-ref">Gunakan Hanya Router yang Didefinisikan</span></a> untuk menonaktifkan perutean otomatis.</p>
 </div>
-<section id="alias-filter">
-<h4><a class="toc-backref" href="#id35" role="doc-backlink">Alias Filter</a><a class="headerlink" href="#alias-filter" title="Permalink to this heading"></a></h4>
-<p>You specify an alias <a class="reference internal" href="filters.html#filters-aliases"><span class="std std-ref">defined in app/Config/Filters.php</span></a> for the filter value:</p>
+<section id="filter-alias">
+<h4><a class="toc-backref" href="#id23" role="doc-backlink">Filter Alias</a><a class="headerlink" href="#filter-alias" title="Permalink to this heading"></a></h4>
+<p>Anda menentukan alias <a class="reference internal" href="filters.html#filters-aliases"><span class="std std-ref">yang didefinisikan dalam app/Config/Filters.php</span></a> untuk nilai filter:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39; AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;admin-auth&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>You may also supply arguments to be passed to the alias filter's <code class="docutils literal notranslate"><span class="pre">before()</span></code> and <code class="docutils literal notranslate"><span class="pre">after()</span></code> methods:</p>
+<p>Anda juga dapat menyediakan argumen untuk diteruskan ke method <code class="docutils literal notranslate"><span class="pre">before()</span></code> dan <code class="docutils literal notranslate"><span class="pre">after()</span></code> filter alias:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;users/delete/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;admin-auth:dual,noreturn&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
 </section>
-<section id="classname-filter">
-<h4><a class="toc-backref" href="#id36" role="doc-backlink">Classname Filter</a><a class="headerlink" href="#classname-filter" title="Permalink to this heading"></a></h4>
+<section id="filter-nama-class">
+<h4><a class="toc-backref" href="#id24" role="doc-backlink">Filter Nama Class</a><a class="headerlink" href="#filter-nama-class" title="Permalink to this heading"></a></h4>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.1.5.</span></p>
 </div>
-<p>You can specify a filter classname for the filter value:</p>
+<p>Anda dapat menentukan nama class filter untuk nilai filter:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39; AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="nx">\App\Filters\SomeFilter</span><span class="o">::</span><span class="na">class</span><span class="p">]);</span>
 </pre></div>
 </div>
 </section>
-<section id="multiple-filters">
-<span id="id5"></span><h4><a class="toc-backref" href="#id37" role="doc-backlink">Multiple Filters</a><a class="headerlink" href="#multiple-filters" title="Permalink to this heading"></a></h4>
+<section id="beberapa-filter">
+<span id="multiple-filters"></span><h4><a class="toc-backref" href="#id25" role="doc-backlink">Beberapa Filter</a><a class="headerlink" href="#beberapa-filter" title="Permalink to this heading"></a></h4>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.1.5.</span></p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>Since v4.5.0, <em>Multiple Filters</em> are always enabled.
-Prior to v4.5.0, <em>Multiple Filters</em> were disabled by default.
-If you want to use with prior to v4.5.0, See
-<a class="reference internal" href="../installation/upgrade_415.html#upgrade-415-multiple-filters-for-a-route"><span class="std std-ref">Upgrading from 4.1.4 to 4.1.5</span></a>
-for the details.</p>
+<p>Sejak v4.5.0, <em>Beberapa Filter</em> selalu diaktifkan.
+Sebelum v4.5.0, <em>Beberapa Filter</em> dinonaktifkan secara default.
+Jika Anda ingin menggunakannya dengan sebelum v4.5.0, Lihat
+<a class="reference internal" href="../installation/upgrade_415.html#upgrade-415-multiple-filters-for-a-route"><span class="std std-ref">Meningkatkan dari 4.1.4 ke 4.1.5</span></a>
+untuk detailnya.</p>
 </div>
-<p>You can specify an array for the filter value:</p>
+<p>Anda dapat menentukan array untuk nilai filter:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39; AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;admin-auth&#39;</span><span class="p">,</span> <span class="nx">\App\Filters\SomeFilter</span><span class="o">::</span><span class="na">class</span><span class="p">]]);</span>
 </pre></div>
 </div>
-<section id="filter-arguments">
-<h5>Filter Arguments<a class="headerlink" href="#filter-arguments" title="Permalink to this heading"></a></h5>
-<p>Additional arguments may be passed to a filter:</p>
+<section id="argumen-filter">
+<h5>Argumen Filter<a class="headerlink" href="#argumen-filter" title="Permalink to this heading"></a></h5>
+<p>Argumen tambahan dapat diteruskan ke filter:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;users/delete/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;admin-auth:dual,noreturn&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>In this example, the array <code class="docutils literal notranslate"><span class="pre">['dual',</span> <span class="pre">'noreturn']</span></code> will be passed in <code class="docutils literal notranslate"><span class="pre">$arguments</span></code>
-to the filter's <code class="docutils literal notranslate"><span class="pre">before()</span></code> and <code class="docutils literal notranslate"><span class="pre">after()</span></code> implementation methods.</p>
+<p>Dalam contoh ini, array <code class="docutils literal notranslate"><span class="pre">['dual',</span> <span class="pre">'noreturn']</span></code> akan diteruskan dalam <code class="docutils literal notranslate"><span class="pre">$arguments</span></code>
+ke method implementasi <code class="docutils literal notranslate"><span class="pre">before()</span></code> dan <code class="docutils literal notranslate"><span class="pre">after()</span></code> filter.</p>
 </section>
 </section>
 </section>
-<section id="assigning-namespace">
-<span id="id6"></span><h3><a class="toc-backref" href="#id38" role="doc-backlink">Assigning Namespace</a><a class="headerlink" href="#assigning-namespace" title="Permalink to this heading"></a></h3>
-<p>While a <a class="reference internal" href="#routing-default-namespace"><span class="std std-ref">Default Namespace</span></a> will be prepended to the generated controllers, you can also specify
-a different namespace to be used in any options array, with the <code class="docutils literal notranslate"><span class="pre">namespace</span></code> option. The value should be the
-namespace you want modified:</p>
+<section id="menetapkan-namespace">
+<span id="assigning-namespace"></span><h3><a class="toc-backref" href="#id26" role="doc-backlink">Menetapkan Namespace</a><a class="headerlink" href="#menetapkan-namespace" title="Permalink to this heading"></a></h3>
+<p>Meskipun <a class="reference internal" href="#routing-default-namespace"><span class="std std-ref">Namespace Default</span></a> akan ditambahkan di depan controller yang dihasilkan, Anda juga dapat menentukan
+namespace yang berbeda untuk digunakan dalam array opsi apa pun, dengan opsi <code class="docutils literal notranslate"><span class="pre">namespace</span></code>. Nilainya harus berupa
+namespace yang ingin Anda modifikasi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Routes to \Admin\Users::index()</span>
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin/users&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Admin&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>The new namespace is only applied during that call for any methods that create a single route, like get, post, etc.
-For any methods that create multiple routes, the new namespace is attached to all routes generated by that function
-or, in the case of <code class="docutils literal notranslate"><span class="pre">group()</span></code>, all routes generated while in the closure.</p>
+<p>Namespace baru hanya diterapkan selama panggilan tersebut untuk method apa pun yang membuat satu router, seperti get, post, dll.
+Untuk method apa pun yang membuat beberapa router, namespace baru dilampirkan ke semua router yang dihasilkan oleh fungsi tersebut
+atau, dalam kasus <code class="docutils literal notranslate"><span class="pre">group()</span></code>, semua router yang dihasilkan saat dalam closure.</p>
 </section>
-<section id="limit-to-hostname">
-<h3><a class="toc-backref" href="#id39" role="doc-backlink">Limit to Hostname</a><a class="headerlink" href="#limit-to-hostname" title="Permalink to this heading"></a></h3>
-<p>You can restrict groups of routes to function only in certain domain or sub-domains of your application
-by passing the &quot;hostname&quot; option along with the desired domain to allow it on as part of the options array:</p>
+<section id="batasi-ke-hostname">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Batasi ke Hostname</a><a class="headerlink" href="#batasi-ke-hostname" title="Permalink to this heading"></a></h3>
+<p>Anda dapat membatasi grup router untuk berfungsi hanya di domain atau subdomain tertentu dari aplikasi Anda
+dengan meneruskan opsi &quot;hostname&quot; bersama dengan domain yang diinginkan untuk mengizinkannya sebagai bagian dari array opsi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;hostname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;accounts.example.com&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>This example would only allow the specified hosts to work if the domain exactly matched <strong>accounts.example.com</strong>.
-It would not work under the main site at <strong>example.com</strong>.</p>
-<section id="restrict-by-multiple-hostnames">
-<h4><a class="toc-backref" href="#id40" role="doc-backlink">Restrict by Multiple Hostnames</a><a class="headerlink" href="#restrict-by-multiple-hostnames" title="Permalink to this heading"></a></h4>
+<p>Contoh ini hanya akan mengizinkan host yang ditentukan untuk berfungsi jika domainnya sama persis dengan <strong>accounts.example.com</strong>.
+Itu tidak akan berfungsi di bawah situs utama di <strong>example.com</strong>.</p>
+<section id="batasi-berdasarkan-beberapa-hostname">
+<h4><a class="toc-backref" href="#id28" role="doc-backlink">Batasi berdasarkan Beberapa Hostname</a><a class="headerlink" href="#batasi-berdasarkan-beberapa-hostname" title="Permalink to this heading"></a></h4>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.6.0.</span></p>
 </div>
-<p>Also you can restrict by multiple hostnames, e.g:</p>
+<p>Anda juga dapat membatasi berdasarkan beberapa hostname, contohnya:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;hostname&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;s1.example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;s2.example.com&#39;</span><span class="p">]]);</span>
@@ -1036,18 +1036,18 @@ It would not work under the main site at <strong>example.com</strong>.</p>
 </div>
 </section>
 </section>
-<section id="limit-to-subdomains">
-<h3><a class="toc-backref" href="#id41" role="doc-backlink">Limit to Subdomains</a><a class="headerlink" href="#limit-to-subdomains" title="Permalink to this heading"></a></h3>
-<p>When the <code class="docutils literal notranslate"><span class="pre">subdomain</span></code> option is present, the system will restrict the routes to only be available on that
-sub-domain. The route will only be matched if the subdomain is the one the application is being viewed through:</p>
+<section id="batasi-ke-subdomain">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Batasi ke Subdomain</a><a class="headerlink" href="#batasi-ke-subdomain" title="Permalink to this heading"></a></h3>
+<p>Ketika opsi <code class="docutils literal notranslate"><span class="pre">subdomain</span></code> ada, sistem akan membatasi router agar hanya tersedia di
+subdomain tersebut. Router hanya akan dicocokkan jika subdomain adalah tempat aplikasi sedang dilihat:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Limit to media.example.com</span>
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;subdomain&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;media&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>You can restrict it to any subdomain by setting the value to an asterisk, (<code class="docutils literal notranslate"><span class="pre">*</span></code>). If you are viewing from a URL
-that does not have any subdomain present, this will not be matched:</p>
+<p>Anda dapat membatasinya ke subdomain apa pun dengan mengatur nilai ke tanda bintang, (<code class="docutils literal notranslate"><span class="pre">*</span></code>). Jika Anda melihat dari URL
+yang tidak memiliki subdomain apa pun, ini tidak akan dicocokkan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Limit to any sub-domain</span>
@@ -1056,17 +1056,17 @@ that does not have any subdomain present, this will not be matched:</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>The system is not perfect and should be tested for your specific domain before being used in production.
-Most domains should work fine but some edge case ones, especially with a period in the domain itself (not used
-to separate suffixes or www) can potentially lead to false positives.</p>
+<p>Sistem ini tidak sempurna dan harus diuji untuk domain spesifik Anda sebelum digunakan dalam produksi.
+Sebagian besar domain harus berfungsi dengan baik tetapi beberapa kasus tepi, terutama dengan titik di domain itu sendiri (tidak digunakan
+untuk memisahkan akhiran atau www) berpotensi menyebabkan positif palsu.</p>
 </div>
 </section>
-<section id="offsetting-the-matched-parameters">
-<h3><a class="toc-backref" href="#id42" role="doc-backlink">Offsetting the Matched Parameters</a><a class="headerlink" href="#offsetting-the-matched-parameters" title="Permalink to this heading"></a></h3>
-<p>You can offset the matched parameters in your route by any numeric value with the <code class="docutils literal notranslate"><span class="pre">offset</span></code> option, with the
-value being the number of segments to offset.</p>
-<p>This can be beneficial when developing APIs with the first URI segment being the version number. It can also
-be used when the first parameter is a language string:</p>
+<section id="menggeser-parameter-yang-cocok">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Menggeser Parameter yang Cocok</a><a class="headerlink" href="#menggeser-parameter-yang-cocok" title="Permalink to this heading"></a></h3>
+<p>Anda dapat menggeser parameter yang cocok dalam router Anda dengan nilai numerik apa pun dengan opsi <code class="docutils literal notranslate"><span class="pre">offset</span></code>, dengan
+nilai menjadi jumlah segmen yang akan digeser.</p>
+<p>Ini dapat bermanfaat saat mengembangkan API dengan segmen URI pertama menjadi nomor versi. Ini juga dapat
+digunakan ketika parameter pertama adalah string bahasa:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;users/show/$1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;offset&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">]);</span>
@@ -1077,15 +1077,15 @@ be used when the first parameter is a language string:</p>
 </div>
 </section>
 </section>
-<section id="reverse-routing">
-<span id="id7"></span><h2><a class="toc-backref" href="#id43" role="doc-backlink">Reverse Routing</a><a class="headerlink" href="#reverse-routing" title="Permalink to this heading"></a></h2>
-<p>Reverse routing allows you to define the controller and method, as well as any parameters, that a link should go
-to, and have the router lookup the current route to it. This allows route definitions to change without you having
-to update your application code. This is typically used within views to create links.</p>
-<p>For example, if you have a route to a photo gallery that you want to link to, you can use the <a class="reference internal" href="../helpers/url_helper.html#url_to" title="url_to"><code class="xref php php-func docutils literal notranslate"><span class="pre">url_to()</span></code></a> helper
-function to get the route that should be used. The first parameter is the fully qualified Controller and method,
-separated by a double colon (<code class="docutils literal notranslate"><span class="pre">::</span></code>), much like you would use when writing the initial route itself. Any parameters that
-should be passed to the route are passed in next:</p>
+<section id="perutean-balik">
+<span id="reverse-routing"></span><h2><a class="toc-backref" href="#id31" role="doc-backlink">Perutean Balik</a><a class="headerlink" href="#perutean-balik" title="Permalink to this heading"></a></h2>
+<p>Perutean balik memungkinkan Anda untuk mendefinisikan controller dan method, serta parameter apa pun, yang harus dituju oleh sebuah tautan,
+dan membiarkan router mencari router saat ini. Ini memungkinkan definisi router berubah tanpa Anda
+harus memperbarui kode aplikasi Anda. Ini biasanya digunakan dalam tampilan untuk membuat tautan.</p>
+<p>Misalnya, jika Anda memiliki router ke galeri foto yang ingin Anda tautkan, Anda dapat menggunakan fungsi pembantu
+<a class="reference internal" href="../helpers/url_helper.html#url_to" title="url_to"><code class="xref php php-func docutils literal notranslate"><span class="pre">url_to()</span></code></a> untuk mendapatkan router yang harus digunakan. Parameter pertama adalah Controller dan method yang sepenuhnya memenuhi syarat,
+dipisahkan oleh titik dua ganda (<code class="docutils literal notranslate"><span class="pre">::</span></code>), mirip dengan cara Anda akan menggunakannya saat menulis router awal itu sendiri. Parameter apa pun yang
+harus diteruskan ke router diteruskan selanjutnya:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// The route is defined as:</span>
@@ -1099,12 +1099,12 @@ should be passed to the route are passed in next:</p>
 </pre></div>
 </div>
 </section>
-<section id="named-routes">
-<span id="using-named-routes"></span><h2><a class="toc-backref" href="#id44" role="doc-backlink">Named Routes</a><a class="headerlink" href="#named-routes" title="Permalink to this heading"></a></h2>
-<p>You can name routes to make your application less fragile. This applies a name to a route that can be called
-later, and even if the route definition changes, all of the links in your application built with <a class="reference internal" href="../helpers/url_helper.html#url_to" title="url_to"><code class="xref php php-func docutils literal notranslate"><span class="pre">url_to()</span></code></a>
-will still work without you having to make any changes. A route is named by passing in the <code class="docutils literal notranslate"><span class="pre">as</span></code> option
-with the name of the route:</p>
+<section id="router-bernama">
+<span id="using-named-routes"></span><h2><a class="toc-backref" href="#id32" role="doc-backlink">Router Bernama</a><a class="headerlink" href="#router-bernama" title="Permalink to this heading"></a></h2>
+<p>Anda dapat menamai router untuk membuat aplikasi Anda tidak terlalu rapuh. Ini menerapkan nama ke router yang dapat dipanggil
+nanti, dan bahkan jika definisi router berubah, semua tautan di aplikasi Anda yang dibangun dengan <a class="reference internal" href="../helpers/url_helper.html#url_to" title="url_to"><code class="xref php php-func docutils literal notranslate"><span class="pre">url_to()</span></code></a>
+akan tetap berfungsi tanpa Anda harus melakukan perubahan apa pun. Sebuah router dinamai dengan meneruskan opsi <code class="docutils literal notranslate"><span class="pre">as</span></code>
+dengan nama router:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// The route is defined as:</span>
@@ -1117,25 +1117,24 @@ with the name of the route:</p>
 <span class="cm">&lt;!-- Result: &#39;http://example.com/users/15/gallery/12&#39; --&gt;</span>
 </pre></div>
 </div>
-<p>This has the added benefit of making the views more readable, too.</p>
+<p>Ini memiliki manfaat tambahan membuat tampilan lebih mudah dibaca juga.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>By default, all defined routes have names matching their paths, with placeholders replaced by their corresponding
-regular expressions. For example, if you define a route like <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get('edit/(:num)',</span> <span class="pre">'PostController::edit/$1');</span></code>,
-you can generate the corresponding URL using <code class="docutils literal notranslate"><span class="pre">route_to('edit/([0-9]+)',</span> <span class="pre">12)</span></code>.</p>
+<p>Secara default, semua router yang didefinisikan memiliki nama yang cocok dengan jalurnya, dengan placeholder diganti dengan ekspresi reguler yang sesuai. Misalnya, jika Anda mendefinisikan router seperti <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get('edit/(:num)',</span> <span class="pre">'PostController::edit/$1');</span></code>,
+Anda dapat menghasilkan URL yang sesuai menggunakan <code class="docutils literal notranslate"><span class="pre">route_to('edit/([0-9]+)',</span> <span class="pre">12)</span></code>.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>According to <a class="reference internal" href="#routing-priority"><span class="std std-ref">Route Priority</span></a>, if a not-named route is defined first (e.g., <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get('edit',</span> <span class="pre">'PostController::edit');</span></code>)
-and another named route is defined later with the same name as the path of the first route (e.g., <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get('edit/(:num)',</span> <span class="pre">'PostController::edit/$1',</span> <span class="pre">['as'</span> <span class="pre">=&gt;</span> <span class="pre">'edit']);</span></code>),
-the second route will not be registered because its name will conflict with the automatically assigned name of the first route.</p>
+<p>Menurut <a class="reference internal" href="#routing-priority"><span class="std std-ref">Prioritas Router</span></a>, jika router yang tidak bernama didefinisikan terlebih dahulu (misalnya, <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get('edit',</span> <span class="pre">'PostController::edit');</span></code>)
+dan router bernama lain didefinisikan kemudian dengan nama yang sama dengan jalur router pertama (misalnya, <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get('edit/(:num)',</span> <span class="pre">'PostController::edit/$1',</span> <span class="pre">['as'</span> <span class="pre">=&gt;</span> <span class="pre">'edit']);</span></code>),
+router kedua tidak akan didaftarkan karena namanya akan bertentangan dengan nama yang secara otomatis ditetapkan dari router pertama.</p>
 </div>
 </section>
-<section id="grouping-routes">
-<h2><a class="toc-backref" href="#id45" role="doc-backlink">Grouping Routes</a><a class="headerlink" href="#grouping-routes" title="Permalink to this heading"></a></h2>
-<p>You can group your routes under a common name with the <code class="docutils literal notranslate"><span class="pre">group()</span></code> method. The group name becomes a segment that
-appears prior to the routes defined inside of the group. This allows you to reduce the typing needed to build out an
-extensive set of routes that all share the opening string, like when building an admin area:</p>
+<section id="mengelompokkan-router">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">Mengelompokkan Router</a><a class="headerlink" href="#mengelompokkan-router" title="Permalink to this heading"></a></h2>
+<p>Anda dapat mengelompokkan router Anda di bawah nama umum dengan method <code class="docutils literal notranslate"><span class="pre">group()</span></code>. Nama grup menjadi segmen yang
+muncul sebelum router yang didefinisikan di dalam grup. Ini memungkinkan Anda untuk mengurangi pengetikan yang diperlukan untuk membangun
+sekumpulan router yang luas yang semuanya berbagi string pembuka, seperti saat membangun area admin:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
@@ -1144,10 +1143,10 @@ extensive set of routes that all share the opening string, like when building an
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>This would prefix the <strong>users</strong> and <strong>blog</strong> URIs with <strong>admin</strong>, handling URLs like <strong>admin/users</strong> and <strong>admin/blog</strong>.</p>
-<section id="setting-namespace">
-<h3><a class="toc-backref" href="#id46" role="doc-backlink">Setting Namespace</a><a class="headerlink" href="#setting-namespace" title="Permalink to this heading"></a></h3>
-<p>If you need to assign options to a group, like a <a class="reference internal" href="#assigning-namespace"><span class="std std-ref">Assigning Namespace</span></a>, do it before the callback:</p>
+<p>Ini akan menambahkan awalan <strong>admin</strong> ke URI <strong>users</strong> dan <strong>blog</strong>, menangani URL seperti <strong>admin/users</strong> dan <strong>admin/blog</strong>.</p>
+<section id="mengatur-namespace">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">Mengatur Namespace</a><a class="headerlink" href="#mengatur-namespace" title="Permalink to this heading"></a></h3>
+<p>Jika Anda perlu menetapkan opsi ke grup, seperti <a class="reference internal" href="#assigning-namespace"><span class="std std-ref">Menetapkan Namespace</span></a>, lakukan sebelum callback:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;api&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\API\v1&#39;</span><span class="p">],</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
@@ -1155,12 +1154,12 @@ extensive set of routes that all share the opening string, like when building an
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>This would handle a resource route to the <code class="docutils literal notranslate"><span class="pre">App\API\v1\Users</span></code> controller with the <strong>api/users</strong> URI.</p>
+<p>Ini akan menangani router resource ke controller <code class="docutils literal notranslate"><span class="pre">App\API\v1\Users</span></code> dengan URI <strong>api/users</strong>.</p>
 </section>
-<section id="setting-filters">
-<h3><a class="toc-backref" href="#id47" role="doc-backlink">Setting Filters</a><a class="headerlink" href="#setting-filters" title="Permalink to this heading"></a></h3>
-<p>You can also use a specific <a class="reference internal" href="filters.html"><span class="doc">filter</span></a> for a group of routes. This will always
-run the filter before or after the controller. This is especially handy during authentication or api logging:</p>
+<section id="mengatur-filter">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Mengatur Filter</a><a class="headerlink" href="#mengatur-filter" title="Permalink to this heading"></a></h3>
+<p>Anda juga dapat menggunakan <a class="reference internal" href="filters.html"><span class="doc">filter</span></a> tertentu untuk sekelompok router. Ini akan selalu
+menjalankan filter sebelum atau sesudah controller. Ini sangat berguna selama otentikasi atau pencatatan API:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;api&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;api-auth&#39;</span><span class="p">],</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
@@ -1168,19 +1167,19 @@ run the filter before or after the controller. This is especially handy during a
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>The value for the filter must match one of the aliases defined within <strong>app/Config/Filters.php</strong>.</p>
+<p>Nilai untuk filter harus cocok dengan salah satu alias yang didefinisikan dalam <strong>app/Config/Filters.php</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.5.4, due to a bug, filters passed to the <code class="docutils literal notranslate"><span class="pre">group()</span></code> were
-not merged into the filters passed to the inner routes.</p>
+<p>Sebelum v4.5.4, karena bug, filter yang diteruskan ke <code class="docutils literal notranslate"><span class="pre">group()</span></code>
+tidak digabungkan ke dalam filter yang diteruskan ke router internal.</p>
 </div>
 </section>
-<section id="setting-other-options">
-<h3><a class="toc-backref" href="#id48" role="doc-backlink">Setting Other Options</a><a class="headerlink" href="#setting-other-options" title="Permalink to this heading"></a></h3>
-<p>At some point, you may want to group routes for the purpose of applying filters or other route
-config options like namespace, subdomain, etc. Without necessarily needing to add a prefix to the group, you can pass
-an empty string in place of the prefix and the routes in the group will be routed as though the group never existed but with the
-given route config options:</p>
+<section id="mengatur-opsi-lain">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">Mengatur Opsi Lain</a><a class="headerlink" href="#mengatur-opsi-lain" title="Permalink to this heading"></a></h3>
+<p>Pada titik tertentu, Anda mungkin ingin mengelompokkan router untuk tujuan menerapkan filter atau opsi konfigurasi
+router lainnya seperti namespace, subdomain, dll. Tanpa perlu menambahkan awalan ke grup, Anda dapat meneruskan
+string kosong sebagai ganti awalan dan router dalam grup akan dirutekan seolah-olah grup tidak pernah ada tetapi dengan
+opsi konfigurasi router yang diberikan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Myth\Auth\Controllers&#39;</span><span class="p">],</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
@@ -1191,9 +1190,9 @@ given route config options:</p>
 </pre></div>
 </div>
 </section>
-<section id="nesting-groups">
-<span id="routing-nesting-groups"></span><h3><a class="toc-backref" href="#id49" role="doc-backlink">Nesting Groups</a><a class="headerlink" href="#nesting-groups" title="Permalink to this heading"></a></h3>
-<p>It is possible to nest groups within groups for finer organization if you need it:</p>
+<section id="mengelompokkan-bersarang">
+<span id="routing-nesting-groups"></span><h3><a class="toc-backref" href="#id37" role="doc-backlink">Mengelompokkan Bersarang</a><a class="headerlink" href="#mengelompokkan-bersarang" title="Permalink to this heading"></a></h3>
+<p>Dimungkinkan untuk mengelompokkan bersarang di dalam grup untuk organisasi yang lebih baik jika Anda membutuhkannya:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;myfilter1:config&#39;</span><span class="p">],</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
@@ -1205,39 +1204,39 @@ given route config options:</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>This would handle the URL at <strong>admin/users/list</strong>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">filter</span></code> option passed to the outer <code class="docutils literal notranslate"><span class="pre">group()</span></code> are merged with the inner
-<code class="docutils literal notranslate"><span class="pre">group()</span></code> filter option.
-The above code runs <code class="docutils literal notranslate"><span class="pre">myfilter1:config</span></code> for the route <code class="docutils literal notranslate"><span class="pre">admin</span></code>, and <code class="docutils literal notranslate"><span class="pre">myfilter1:config</span></code>
-and <code class="docutils literal notranslate"><span class="pre">myfilter2:region</span></code> for the route <code class="docutils literal notranslate"><span class="pre">admin/users/list</span></code>.</p>
+<p>Ini akan menangani URL di <strong>admin/users/list</strong>.</p>
+<p>Opsi <code class="docutils literal notranslate"><span class="pre">filter</span></code> yang diteruskan ke <code class="docutils literal notranslate"><span class="pre">group()</span></code> luar digabungkan dengan opsi filter
+<code class="docutils literal notranslate"><span class="pre">group()</span></code> dalam.
+Kode di atas menjalankan <code class="docutils literal notranslate"><span class="pre">myfilter1:config</span></code> untuk router <code class="docutils literal notranslate"><span class="pre">admin</span></code>, dan <code class="docutils literal notranslate"><span class="pre">myfilter1:config</span></code>
+serta <code class="docutils literal notranslate"><span class="pre">myfilter2:region</span></code> untuk router <code class="docutils literal notranslate"><span class="pre">admin/users/list</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.6.0, the same filter cannot be run multiple times with
-different arguments.</p>
+<p>Sebelum v4.6.0, filter yang sama tidak dapat dijalankan beberapa kali dengan
+argumen yang berbeda.</p>
 </div>
-<p>Any other overlapping options passed to the inner <code class="docutils literal notranslate"><span class="pre">group()</span></code> will overwrite their values.</p>
+<p>Setiap opsi tumpang tindih lainnya yang diteruskan ke <code class="docutils literal notranslate"><span class="pre">group()</span></code> dalam akan menimpa nilainya.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.5.0, due to a bug, options passed to the outer <code class="docutils literal notranslate"><span class="pre">group()</span></code>
-are not merged with the inner <code class="docutils literal notranslate"><span class="pre">group()</span></code> options.</p>
+<p>Sebelum v4.5.0, karena bug, opsi yang diteruskan ke <code class="docutils literal notranslate"><span class="pre">group()</span></code> luar
+tidak digabungkan dengan opsi <code class="docutils literal notranslate"><span class="pre">group()</span></code> dalam.</p>
 </div>
 </section>
 </section>
-<section id="route-priority">
-<span id="routing-priority"></span><h2><a class="toc-backref" href="#id50" role="doc-backlink">Route Priority</a><a class="headerlink" href="#route-priority" title="Permalink to this heading"></a></h2>
-<p>Routes are registered in the routing table in the order in which they are defined. This means that when a URI is accessed, the first matching route will be executed.</p>
+<section id="prioritas-router">
+<span id="routing-priority"></span><h2><a class="toc-backref" href="#id38" role="doc-backlink">Prioritas Router</a><a class="headerlink" href="#prioritas-router" title="Permalink to this heading"></a></h2>
+<p>Router didaftarkan dalam tabel perutean dalam urutan di mana router tersebut didefinisikan. Ini berarti bahwa ketika sebuah URI diakses, router yang cocok pertama akan dieksekusi.</p>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>If a route path is defined more than once with different handlers, only the first defined route is registered.</p>
+<p>Jika jalur router didefinisikan lebih dari sekali dengan penangan yang berbeda, hanya router yang didefinisikan pertama yang didaftarkan.</p>
 </div>
-<p>You can check registered routes in the routing table by running the <a class="reference internal" href="#routing-spark-routes"><span class="std std-ref">spark routes</span></a> command.</p>
-<section id="changing-route-priority">
-<h3><a class="toc-backref" href="#id51" role="doc-backlink">Changing Route Priority</a><a class="headerlink" href="#changing-route-priority" title="Permalink to this heading"></a></h3>
-<p>When working with modules, it can be a problem if the routes in the application contain wildcards.
-Then the module routes will not be processed correctly.
-You can solve this problem by lowering the priority of route processing using the <code class="docutils literal notranslate"><span class="pre">priority</span></code> option. The parameter
-accepts positive integers and zero. The higher the number specified in the <code class="docutils literal notranslate"><span class="pre">priority</span></code>, the lower
-route priority in the processing queue:</p>
+<p>Anda dapat memeriksa router yang terdaftar dalam tabel perutean dengan menjalankan perintah <a class="reference internal" href="#routing-spark-routes"><span class="std std-ref">spark routes</span></a>.</p>
+<section id="mengubah-prioritas-router">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">Mengubah Prioritas Router</a><a class="headerlink" href="#mengubah-prioritas-router" title="Permalink to this heading"></a></h3>
+<p>Saat bekerja dengan modul, bisa menjadi masalah jika router dalam aplikasi berisi wildcard.
+Maka router modul tidak akan diproses dengan benar.
+Anda dapat mengatasi masalah ini dengan menurunkan prioritas pemrosesan router menggunakan opsi <code class="docutils literal notranslate"><span class="pre">priority</span></code>. Parameter
+menerima bilangan bulat positif dan nol. Semakin tinggi angka yang ditentukan dalam <code class="docutils literal notranslate"><span class="pre">priority</span></code>, semakin rendah
+prioritas router dalam antrian pemrosesan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// First you need to enable processing of the routes queue by priority.</span>
@@ -1252,7 +1251,7 @@ route priority in the processing queue:</p>
 <span class="c1">// The &quot;admin&quot; route will now be processed before the wildcard route.</span>
 </pre></div>
 </div>
-<p>To disable this functionality, you must call the method with the parameter <code class="docutils literal notranslate"><span class="pre">false</span></code>:</p>
+<p>Untuk menonaktifkan fungsionalitas ini, Anda harus memanggil method dengan parameter <code class="docutils literal notranslate"><span class="pre">false</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setPrioritize</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
@@ -1260,27 +1259,27 @@ route priority in the processing queue:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>By default, all routes have a priority of 0.
-Negative integers will be cast to the absolute value.</p>
+<p>Secara default, semua router memiliki prioritas 0.
+Bilangan bulat negatif akan diubah menjadi nilai absolut.</p>
 </div>
 </section>
 </section>
-<section id="routes-configuration-options">
-<span id="id8"></span><h2><a class="toc-backref" href="#id52" role="doc-backlink">Routes Configuration Options</a><a class="headerlink" href="#routes-configuration-options" title="Permalink to this heading"></a></h2>
-<p>The RoutesCollection class provides several options that affect all routes, and can be modified to meet your
-application's needs. These options are available in <strong>app/Config/Routing.php</strong>.</p>
+<section id="opsi-konfigurasi-router">
+<span id="routes-configuration-options"></span><h2><a class="toc-backref" href="#id40" role="doc-backlink">Opsi Konfigurasi Router</a><a class="headerlink" href="#opsi-konfigurasi-router" title="Permalink to this heading"></a></h2>
+<p>Class RoutesCollection menyediakan beberapa opsi yang memengaruhi semua router, dan dapat dimodifikasi untuk memenuhi kebutuhan
+aplikasi Anda. Opsi ini tersedia di <strong>app/Config/Routing.php</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The config file <strong>app/Config/Routing.php</strong> has been added since v4.4.0.
-In previous versions, the setter methods were used in <strong>app/Config/Routes.php</strong>
-to change settings.</p>
+<p>Berkas konfigurasi <strong>app/Config/Routing.php</strong> telah ditambahkan sejak v4.4.0.
+Dalam versi sebelumnya, method setter digunakan di <strong>app/Config/Routes.php</strong>
+untuk mengubah pengaturan.</p>
 </div>
-<section id="default-namespace">
-<span id="routing-default-namespace"></span><h3><a class="toc-backref" href="#id53" role="doc-backlink">Default Namespace</a><a class="headerlink" href="#default-namespace" title="Permalink to this heading"></a></h3>
-<p>When matching a controller to a route, the router will add the default namespace value to the front of the controller
-specified by the route. By default, this value is <code class="docutils literal notranslate"><span class="pre">App\Controllers</span></code>.</p>
-<p>If you set the value empty string (<code class="docutils literal notranslate"><span class="pre">''</span></code>), it leaves each route to specify the fully namespaced
-controller:</p>
+<section id="namespace-default">
+<span id="routing-default-namespace"></span><h3><a class="toc-backref" href="#id41" role="doc-backlink">Namespace Default</a><a class="headerlink" href="#namespace-default" title="Permalink to this heading"></a></h3>
+<p>Saat mencocokkan controller dengan router, router akan menambahkan nilai namespace default ke bagian depan controller
+yang ditentukan oleh router. Secara default, nilai ini adalah <code class="docutils literal notranslate"><span class="pre">App\Controllers</span></code>.</p>
+<p>Jika Anda mengatur nilai string kosong (<code class="docutils literal notranslate"><span class="pre">''</span></code>), itu membiarkan setiap router untuk menentukan controller
+yang sepenuhnya bernama:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// In app/Config/Routing.php</span>
@@ -1302,8 +1301,8 @@ controller:</p>
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin\Users::index&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If your controllers are not explicitly namespaced, there is no need to change this. If you namespace your controllers,
-then you can change this value to save typing:</p>
+<p>Jika controller Anda tidak secara eksplisit memiliki namespace, tidak perlu mengubah ini. Jika Anda menamai controller Anda,
+maka Anda dapat mengubah nilai ini untuk menghemat pengetikan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// This can be overridden in app/Config/Routes.php</span>
@@ -1317,36 +1316,36 @@ then you can change this value to save typing:</p>
 </pre></div>
 </div>
 </section>
-<section id="default-method">
-<span id="routing-default-method"></span><h3><a class="toc-backref" href="#id54" role="doc-backlink">Default Method</a><a class="headerlink" href="#default-method" title="Permalink to this heading"></a></h3>
-<p>This setting is used when the route handler only has the controller name and no
-method name listed. The default value is <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
-<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// In app/Config/Routing.php</span>
+<section id="method-default">
+<span id="routing-default-method"></span><h3><a class="toc-backref" href="#id42" role="doc-backlink">Method Default</a><a class="headerlink" href="#method-default" title="Permalink to this heading"></a></h3>
+<p>Pengaturan ini digunakan ketika penangan router hanya memiliki nama controller dan tidak ada
+nama method yang tercantum. Nilai default adalah <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Di app/Config/Routing.php</span>
 <span class="k">public</span> <span class="nx">string</span> <span class="nv">$defaultMethod</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">$defaultMethod</span></code> is also common with Auto Routing.
-See <a class="reference internal" href="auto_routing_improved.html#routing-auto-routing-improved-default-method"><span class="std std-ref">Auto Routing (Improved)</span></a>
-or <a class="reference internal" href="#routing-auto-routing-legacy-default-method"><span class="std std-ref">Auto Routing (Legacy)</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">$defaultMethod</span></code> juga umum dengan Perutean Otomatis.
+Lihat <a class="reference internal" href="auto_routing_improved.html#routing-auto-routing-improved-default-method"><span class="std std-ref">Perutean Otomatis (Ditingkatkan)</span></a>
+atau <a class="reference internal" href="#routing-auto-routing-legacy-default-method"><span class="std std-ref">Perutean Otomatis (Legacy)</span></a>.</p>
 </div>
-<p>If you define the following route:</p>
+<p>Jika Anda mendefinisikan router berikut:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Home&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>the <code class="docutils literal notranslate"><span class="pre">index()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">App\Controllers\Home</span></code> controller is executed
-when the route matches.</p>
+<p>method <code class="docutils literal notranslate"><span class="pre">index()</span></code> dari controller <code class="docutils literal notranslate"><span class="pre">App\Controllers\Home</span></code> dieksekusi
+ketika router cocok.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Method names beginning with <code class="docutils literal notranslate"><span class="pre">_</span></code> cannot be used as the default method.
-However, starting with v4.5.0, <code class="docutils literal notranslate"><span class="pre">__invoke</span></code> method is allowed.</p>
+<p>Nama method yang dimulai dengan <code class="docutils literal notranslate"><span class="pre">_</span></code> tidak dapat digunakan sebagai method default.
+Namun, mulai v4.5.0, method <code class="docutils literal notranslate"><span class="pre">__invoke</span></code> diizinkan.</p>
 </div>
 </section>
-<section id="translate-uri-dashes">
-<h3><a class="toc-backref" href="#id55" role="doc-backlink">Translate URI Dashes</a><a class="headerlink" href="#translate-uri-dashes" title="Permalink to this heading"></a></h3>
-<p>This option enables you to automatically replace dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) with underscores in the controller and method
-URI segments when used in Auto Routing, thus saving you additional route entries if you need to do that. This is required because the dash isn't a valid class or method name character and would cause a fatal error if you try to use it:</p>
+<section id="terjemahkan-garis-penghubung-uri">
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">Terjemahkan Garis Penghubung URI</a><a class="headerlink" href="#terjemahkan-garis-penghubung-uri" title="Permalink to this heading"></a></h3>
+<p>Opsi ini memungkinkan Anda untuk secara otomatis mengganti garis penghubung (<code class="docutils literal notranslate"><span class="pre">-</span></code>) dengan garis bawah dalam segmen URI controller dan method
+ketika digunakan dalam Perutean Otomatis, sehingga menghemat entri router tambahan jika Anda perlu melakukannya. Ini diperlukan karena garis penghubung bukan karakter nama class atau method yang valid dan akan menyebabkan error fatal jika Anda mencoba menggunakannya:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// In app/Config/Routing.php</span>
@@ -1366,20 +1365,20 @@ URI segments when used in Auto Routing, thus saving you additional route entries
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>When using Auto Routing (Improved), prior to v4.4.0, if
-<code class="docutils literal notranslate"><span class="pre">$translateURIDashes</span></code> is true, two URIs correspond to a single controller
-method, one URI for dashes (e.g., <strong>foo-bar</strong>) and one URI for underscores
-(e.g., <strong>foo_bar</strong>). This was incorrect behavior. Since v4.4.0, the URI for
-underscores (<strong>foo_bar</strong>) is not accessible.</p>
+<p>Saat menggunakan Perutean Otomatis (Ditingkatkan), sebelum v4.4.0, jika
+<code class="docutils literal notranslate"><span class="pre">$translateURIDashes</span></code> adalah true, dua URI sesuai dengan satu method controller,
+satu URI untuk garis penghubung (misalnya, <strong>foo-bar</strong>) dan satu URI untuk garis bawah
+(misalnya, <strong>foo_bar</strong>). Ini adalah perilaku yang salah. Sejak v4.4.0, URI untuk
+garis bawah (<strong>foo_bar</strong>) tidak dapat diakses.</p>
 </div>
 </section>
-<section id="use-defined-routes-only">
-<span id="id9"></span><h3><a class="toc-backref" href="#id56" role="doc-backlink">Use Defined Routes Only</a><a class="headerlink" href="#use-defined-routes-only" title="Permalink to this heading"></a></h3>
-<p>Since v4.2.0, the auto-routing is disabled by default.</p>
-<p>When no defined route is found that matches the URI, the system will attempt to match that URI against the
-controllers and methods when Auto Routing is enabled.</p>
-<p>You can disable this automatic matching, and restrict routes
-to only those defined by you, by setting the <code class="docutils literal notranslate"><span class="pre">$autoRoute</span></code> property to false:</p>
+<section id="gunakan-hanya-router-yang-didefinisikan">
+<span id="use-defined-routes-only"></span><h3><a class="toc-backref" href="#id44" role="doc-backlink">Gunakan Hanya Router yang Didefinisikan</a><a class="headerlink" href="#gunakan-hanya-router-yang-didefinisikan" title="Permalink to this heading"></a></h3>
+<p>Sejak v4.2.0, perutean otomatis dinonaktifkan secara default.</p>
+<p>Ketika tidak ada router yang didefinisikan yang cocok dengan URI, sistem akan mencoba mencocokkan URI tersebut dengan
+controller dan method ketika Perutean Otomatis diaktifkan.</p>
+<p>Anda dapat menonaktifkan pencocokan otomatis ini, dan membatasi router
+hanya untuk yang Anda definisikan, dengan mengatur properti <code class="docutils literal notranslate"><span class="pre">$autoRoute</span></code> ke false:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// In app/Config/Routing.php</span>
@@ -1399,15 +1398,15 @@ to only those defined by you, by setting the <code class="docutils literal notra
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>If you use the <a class="reference internal" href="../libraries/security.html"><span class="doc">CSRF protection</span></a>, it does not protect <strong>GET</strong>
-requests. If the URI is accessible by the GET method, the CSRF protection will not work.</p>
+<p>Jika Anda menggunakan <a class="reference internal" href="../libraries/security.html"><span class="doc">perlindungan CSRF</span></a>, itu tidak melindungi permintaan <strong>GET</strong>.
+Jika URI dapat diakses oleh method GET, perlindungan CSRF tidak akan berfungsi.</p>
 </div>
 </section>
-<section id="override">
-<span id="id10"></span><h3><a class="toc-backref" href="#id57" role="doc-backlink">404 Override</a><a class="headerlink" href="#override" title="Permalink to this heading"></a></h3>
-<p>When a page is not found that matches the current URI, the system will show a
-generic 404 view. Using the <code class="docutils literal notranslate"><span class="pre">$override404</span></code> property within the routing config
-file, you can define controller class/method for 404 routes.</p>
+<section id="penggantian-404">
+<span id="override"></span><h3><a class="toc-backref" href="#id45" role="doc-backlink">Penggantian 404</a><a class="headerlink" href="#penggantian-404" title="Permalink to this heading"></a></h3>
+<p>Ketika halaman tidak ditemukan yang cocok dengan URI saat ini, sistem akan menampilkan
+tampilan 404 generik. Menggunakan properti <code class="docutils literal notranslate"><span class="pre">$override404</span></code> dalam berkas konfigurasi perutean,
+Anda dapat mendefinisikan class/method controller untuk router 404.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// In app/Config/Routing.php</span>
@@ -1422,9 +1421,9 @@ file, you can define controller class/method for 404 routes.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>You can also change what happens by specifying an action to happen with the
-<code class="docutils literal notranslate"><span class="pre">set404Override()</span></code> method in Routes config file. The value can be either a
-valid class/method pair, or a Closure:</p>
+<p>Anda juga dapat mengubah apa yang terjadi dengan menentukan tindakan yang akan terjadi dengan
+method <code class="docutils literal notranslate"><span class="pre">set404Override()</span></code> dalam berkas konfigurasi Router. Nilainya bisa berupa
+pasangan class/method yang valid, atau Closure:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// In app/Config/Routes.php</span>
@@ -1442,18 +1441,18 @@ valid class/method pair, or a Closure:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Starting with v4.5.0, the 404 Override feature sets the Response status
-code to <code class="docutils literal notranslate"><span class="pre">404</span></code> by default. In previous versions, the code was <code class="docutils literal notranslate"><span class="pre">200</span></code>.
-If you want to change the status code in the controller, see
-<a class="reference internal" href="../outgoing/response.html#CodeIgniter\HTTP\Response::setStatusCode" title="CodeIgniter\HTTP\Response::setStatusCode"><code class="xref php php-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response::setStatusCode()</span></code></a> for information on
-how to set the status code.</p>
+<p>Mulai v4.5.0, fitur Penggantian 404 mengatur kode status Respons
+ke <code class="docutils literal notranslate"><span class="pre">404</span></code> secara default. Dalam versi sebelumnya, kodenya adalah <code class="docutils literal notranslate"><span class="pre">200</span></code>.
+Jika Anda ingin mengubah kode status di controller, lihat
+<a class="reference internal" href="../outgoing/response.html#CodeIgniter\HTTP\Response::setStatusCode" title="CodeIgniter\HTTP\Response::setStatusCode"><code class="xref php php-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response::setStatusCode()</span></code></a> untuk informasi tentang
+cara mengatur kode status.</p>
 </div>
 </section>
-<section id="route-processing-by-priority">
-<h3><a class="toc-backref" href="#id58" role="doc-backlink">Route Processing by Priority</a><a class="headerlink" href="#route-processing-by-priority" title="Permalink to this heading"></a></h3>
-<p>Enables or disables processing of the routes queue by priority. Lowering the priority is defined in the route option.
-Disabled by default. This functionality affects all routes.
-For an example use of lowering the priority see <a class="reference internal" href="#routing-priority"><span class="std std-ref">Route Priority</span></a>:</p>
+<section id="pemrosesan-router-berdasarkan-prioritas">
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">Pemrosesan Router berdasarkan Prioritas</a><a class="headerlink" href="#pemrosesan-router-berdasarkan-prioritas" title="Permalink to this heading"></a></h3>
+<p>Mengaktifkan atau menonaktifkan pemrosesan antrian router berdasarkan prioritas. Penurunan prioritas didefinisikan dalam opsi router.
+Dinonaktifkan secara default. Fungsionalitas ini memengaruhi semua router.
+Untuk contoh penggunaan penurunan prioritas lihat <a class="reference internal" href="#routing-priority"><span class="std std-ref">Prioritas Router</span></a>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// In app/Config/Routing.php</span>
@@ -1475,15 +1474,20 @@ For an example use of lowering the priority see <a class="reference internal" hr
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setPrioritize</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Secara default, semua router memiliki prioritas 0.
+Bilangan bulat negatif akan diubah menjadi nilai absolut.</p>
+</div>
 </section>
-<section id="multiple-uri-segments-as-one-parameter">
-<span id="id11"></span><h3><a class="toc-backref" href="#id59" role="doc-backlink">Multiple URI Segments as One Parameter</a><a class="headerlink" href="#multiple-uri-segments-as-one-parameter" title="Permalink to this heading"></a></h3>
+<section id="beberapa-segmen-uri-sebagai-satu-parameter">
+<span id="multiple-uri-segments-as-one-parameter"></span><h3><a class="toc-backref" href="#id47" role="doc-backlink">Beberapa Segmen URI sebagai Satu Parameter</a><a class="headerlink" href="#beberapa-segmen-uri-sebagai-satu-parameter" title="Permalink to this heading"></a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.5.0.</span></p>
 </div>
-<p>When this option is enabled, a placeholder that matches multiple segments, such
-as <code class="docutils literal notranslate"><span class="pre">(:any)</span></code>, will be passed directly as it is to one parameter, even if it
-contains multiple segments.</p>
+<p>Ketika opsi ini diaktifkan, placeholder yang cocok dengan beberapa segmen, seperti
+<code class="docutils literal notranslate"><span class="pre">(:any)</span></code>, akan diteruskan langsung sebagaimana adanya ke satu parameter, meskipun
+mengandung beberapa segmen.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// In app/Config/Routing.php</span>
@@ -1497,229 +1501,229 @@ contains multiple segments.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>For example the route:</p>
+<p>Misalnya router:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:any)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookup/$1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>will match <strong>product/123</strong>, <strong>product/123/456</strong>, <strong>product/123/456/789</strong> and so on.
-And if the URI is <strong>product/123/456</strong>, <code class="docutils literal notranslate"><span class="pre">123/456</span></code> will be passed to the first
-parameter of the <code class="docutils literal notranslate"><span class="pre">Catalog::productLookup()</span></code> method.</p>
+<p>akan cocok dengan <strong>product/123</strong>, <strong>product/123/456</strong>, <strong>product/123/456/789</strong> dan seterusnya.
+Dan jika URI adalah <strong>product/123/456</strong>, <code class="docutils literal notranslate"><span class="pre">123/456</span></code> akan diteruskan ke parameter pertama
+method <code class="docutils literal notranslate"><span class="pre">Catalog::productLookup()</span></code>.</p>
 </section>
 </section>
-<section id="auto-routing-improved">
-<h2><a class="toc-backref" href="#id60" role="doc-backlink">Auto Routing (Improved)</a><a class="headerlink" href="#auto-routing-improved" title="Permalink to this heading"></a></h2>
+<section id="perutean-otomatis-ditingkatkan">
+<h2><a class="toc-backref" href="#id48" role="doc-backlink">Perutean Otomatis (Ditingkatkan)</a><a class="headerlink" href="#perutean-otomatis-ditingkatkan" title="Permalink to this heading"></a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.2.0.</span></p>
 </div>
-<p>Auto Routing (Improved) is a new, more secure automatic routing system.</p>
-<p>See <a class="reference internal" href="auto_routing_improved.html"><span class="doc">Auto Routing (Improved)</span></a> for details.</p>
+<p>Perutean Otomatis (Ditingkatkan) adalah sistem perutean otomatis baru yang lebih aman.</p>
+<p>Lihat <a class="reference internal" href="auto_routing_improved.html"><span class="doc">Auto Routing (Improved)</span></a> untuk detailnya.</p>
 </section>
-<section id="auto-routing-legacy">
-<span id="id12"></span><h2><a class="toc-backref" href="#id61" role="doc-backlink">Auto Routing (Legacy)</a><a class="headerlink" href="#auto-routing-legacy" title="Permalink to this heading"></a></h2>
+<section id="perutean-otomatis-legacy">
+<span id="auto-routing-legacy"></span><h2><a class="toc-backref" href="#id49" role="doc-backlink">Perutean Otomatis (Legacy)</a><a class="headerlink" href="#perutean-otomatis-legacy" title="Permalink to this heading"></a></h2>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>This feature exists only for backward compatibility. Do not use it
-in new projects. Even if you are already using it, we recommend that you use
-the <a class="reference internal" href="auto_routing_improved.html#auto-routing-improved"><span class="std std-ref">Auto Routing (Improved)</span></a> instead.</p>
+<p>Fitur ini hanya ada untuk kompatibilitas mundur. Jangan menggunakannya
+dalam proyek baru. Bahkan jika Anda sudah menggunakannya, kami merekomendasikan Anda untuk menggunakan
+<a class="reference internal" href="auto_routing_improved.html#auto-routing-improved"><span class="std std-ref">Auto Routing (Improved)</span></a> sebagai gantinya.</p>
 </div>
-<p>Auto Routing (Legacy) is a routing system from CodeIgniter 3.
-It can automatically route HTTP requests based on conventions and execute the corresponding controller methods.</p>
-<p>It is recommended that all routes are defined in the <strong>app/Config/Routes.php</strong> file,
-or to use <a class="reference internal" href="auto_routing_improved.html#auto-routing-improved"><span class="std std-ref">Auto Routing (Improved)</span></a>,</p>
+<p>Perutean Otomatis (Legacy) adalah sistem perutean dari CodeIgniter 3.
+Ini dapat secara otomatis merutekan permintaan HTTP berdasarkan konvensi dan mengeksekusi method controller yang sesuai.</p>
+<p>Disarankan agar semua router didefinisikan dalam berkas <strong>app/Config/Routes.php</strong>,
+atau untuk menggunakan <a class="reference internal" href="auto_routing_improved.html#auto-routing-improved"><span class="std std-ref">Auto Routing (Improved)</span></a>,</p>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>To prevent misconfiguration and miscoding, we recommend that you do not use
-Auto Routing (Legacy) feature. It is easy to create vulnerable apps where controller filters
-or CSRF protection are bypassed.</p>
+<p>Untuk mencegah kesalahan konfigurasi dan kesalahan pengkodean, kami merekomendasikan agar Anda tidak menggunakan
+fitur Perutean Otomatis (Legacy). Mudah untuk membuat aplikasi yang rentan di mana filter controller
+atau perlindungan CSRF dilewati.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>Auto Routing (Legacy) routes an HTTP request with <strong>any</strong> HTTP method to a controller method.</p>
+<p>Perutean Otomatis (Legacy) merutekan permintaan HTTP dengan method HTTP <strong>apa pun</strong> ke method controller.</p>
 </div>
-<section id="enable-auto-routing-legacy">
-<h3><a class="toc-backref" href="#id62" role="doc-backlink">Enable Auto Routing (Legacy)</a><a class="headerlink" href="#enable-auto-routing-legacy" title="Permalink to this heading"></a></h3>
-<p>Since v4.2.0, the auto-routing is disabled by default.</p>
-<p>To use it, you need to change the setting <code class="docutils literal notranslate"><span class="pre">$autoRoute</span></code> option to <code class="docutils literal notranslate"><span class="pre">true</span></code> in <strong>app/Config/Routing.php</strong>:</p>
+<section id="mengaktifkan-perutean-otomatis-legacy">
+<h3><a class="toc-backref" href="#id50" role="doc-backlink">Mengaktifkan Perutean Otomatis (Legacy)</a><a class="headerlink" href="#mengaktifkan-perutean-otomatis-legacy" title="Permalink to this heading"></a></h3>
+<p>Sejak v4.2.0, perutean otomatis dinonaktifkan secara default.</p>
+<p>Untuk menggunakannya, Anda perlu mengubah pengaturan opsi <code class="docutils literal notranslate"><span class="pre">$autoRoute</span></code> menjadi <code class="docutils literal notranslate"><span class="pre">true</span></code> di <strong>app/Config/Routing.php</strong>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nx">bool</span> <span class="nv">$autoRoute</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>And set the property <code class="docutils literal notranslate"><span class="pre">$autoRoutesImproved</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> in <strong>app/Config/Feature.php</strong>:</p>
+<p>Dan atur properti <code class="docutils literal notranslate"><span class="pre">$autoRoutesImproved</span></code> menjadi <code class="docutils literal notranslate"><span class="pre">false</span></code> di <strong>app/Config/Feature.php</strong>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nx">bool</span> <span class="nv">$autoRoutesImproved</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
-<section id="uri-segments-legacy">
-<h3><a class="toc-backref" href="#id63" role="doc-backlink">URI Segments (Legacy)</a><a class="headerlink" href="#uri-segments-legacy" title="Permalink to this heading"></a></h3>
-<p>The segments in the URL, in following with the Model-View-Controller approach, usually represent:</p>
+<section id="segmen-uri-legacy">
+<h3><a class="toc-backref" href="#id51" role="doc-backlink">Segmen URI (Legacy)</a><a class="headerlink" href="#segmen-uri-legacy" title="Permalink to this heading"></a></h3>
+<p>Segmen dalam URL, mengikuti pendekatan Model-View-Controller, biasanya mewakili:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">class</span><span class="o">/</span><span class="nx">method</span><span class="o">/</span><span class="nx">ID</span>
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li><p>The first segment represents the controller <strong>class</strong> that should be invoked.</p></li>
-<li><p>The second segment represents the class <strong>method</strong> that should be called.</p></li>
-<li><p>The third, and any additional segments, represent the ID and any variables that will be passed to the controller.</p></li>
+<li><p>Segmen pertama mewakili <strong>class</strong> controller yang harus dipanggil.</p></li>
+<li><p>Segmen kedua mewakili <strong>method</strong> class yang harus dipanggil.</p></li>
+<li><p>Segmen ketiga, dan segmen tambahan apa pun, mewakili ID dan variabel apa pun yang akan diteruskan ke controller.</p></li>
 </ol>
-<p>Consider this URI:</p>
+<p>Pertimbangkan URI ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">index</span><span class="o">/</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>In the above example, CodeIgniter would attempt to find a controller named <strong>Helloworld.php</strong>
-and executes <code class="docutils literal notranslate"><span class="pre">index()</span></code> method with passing <code class="docutils literal notranslate"><span class="pre">'1'</span></code> as the first argument.</p>
-<p>See <a class="reference internal" href="controllers.html#controller-auto-routing-legacy"><span class="std std-ref">Auto Routing (Legacy) in Controllers</span></a> for more info.</p>
+<p>Dalam contoh di atas, CodeIgniter akan mencoba menemukan controller bernama <strong>Helloworld.php</strong>
+dan mengeksekusi method <code class="docutils literal notranslate"><span class="pre">index()</span></code> dengan meneruskan <code class="docutils literal notranslate"><span class="pre">'1'</span></code> sebagai argumen pertama.</p>
+<p>Lihat <a class="reference internal" href="controllers.html#controller-auto-routing-legacy"><span class="std std-ref">Perutean Otomatis (Legacy) dalam Controller</span></a> untuk info lebih lanjut.</p>
 </section>
-<section id="configuration-options-legacy">
-<span id="routing-auto-routing-legacy-configuration-options"></span><h3><a class="toc-backref" href="#id64" role="doc-backlink">Configuration Options (Legacy)</a><a class="headerlink" href="#configuration-options-legacy" title="Permalink to this heading"></a></h3>
-<p>These options are available in the <strong>app/Config/Routing.php</strong> file.</p>
-<section id="default-controller-legacy">
-<h4><a class="toc-backref" href="#id65" role="doc-backlink">Default Controller (Legacy)</a><a class="headerlink" href="#default-controller-legacy" title="Permalink to this heading"></a></h4>
-<section id="for-site-root-uri-legacy">
-<h5>For Site Root URI (Legacy)<a class="headerlink" href="#for-site-root-uri-legacy" title="Permalink to this heading"></a></h5>
-<p>When a user visits the root of your site (i.e., <strong>example.com</strong>) the controller
-to use is determined by the value set to the <code class="docutils literal notranslate"><span class="pre">$defaultController</span></code> property,
-unless a route exists for it explicitly.</p>
-<p>The default value for this is <code class="docutils literal notranslate"><span class="pre">Home</span></code> which matches the controller at
+<section id="opsi-konfigurasi-legacy">
+<span id="routing-auto-routing-legacy-configuration-options"></span><h3><a class="toc-backref" href="#id52" role="doc-backlink">Opsi Konfigurasi (Legacy)</a><a class="headerlink" href="#opsi-konfigurasi-legacy" title="Permalink to this heading"></a></h3>
+<p>Opsi ini tersedia di berkas <strong>app/Config/Routing.php</strong>.</p>
+<section id="controller-default-legacy">
+<h4><a class="toc-backref" href="#id53" role="doc-backlink">Controller Default (Legacy)</a><a class="headerlink" href="#controller-default-legacy" title="Permalink to this heading"></a></h4>
+<section id="untuk-uri-root-situs-legacy">
+<h5>Untuk URI Root Situs (Legacy)<a class="headerlink" href="#untuk-uri-root-situs-legacy" title="Permalink to this heading"></a></h5>
+<p>Ketika pengguna mengunjungi root situs Anda (yaitu, <strong>example.com</strong>) controller
+yang akan digunakan ditentukan oleh nilai yang ditetapkan ke properti <code class="docutils literal notranslate"><span class="pre">$defaultController</span></code>,
+kecuali jika ada router yang secara eksplisit ada untuk itu.</p>
+<p>Nilai default untuk ini adalah <code class="docutils literal notranslate"><span class="pre">Home</span></code> yang cocok dengan controller di
 <strong>app/Controllers/Home.php</strong>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nx">string</span> <span class="nv">$defaultController</span> <span class="o">=</span> <span class="s1">&#39;Home&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
-<section id="for-directory-uri-legacy">
-<h5>For Directory URI (Legacy)<a class="headerlink" href="#for-directory-uri-legacy" title="Permalink to this heading"></a></h5>
-<p>The default controller is also used when no matching route has been found, and the URI would point to a directory
-in the controllers directory. For example, if the user visits <strong>example.com/admin</strong>, if a controller was found at
-<strong>app/Controllers/Admin/Home.php</strong>, it would be used.</p>
-<p>See <a class="reference internal" href="controllers.html#controller-auto-routing-legacy"><span class="std std-ref">Auto Routing (Legacy) in Controllers</span></a> for more info.</p>
+<section id="untuk-uri-direktori-legacy">
+<h5>Untuk URI Direktori (Legacy)<a class="headerlink" href="#untuk-uri-direktori-legacy" title="Permalink to this heading"></a></h5>
+<p>Controller default juga digunakan ketika tidak ada router yang cocok ditemukan, dan URI akan menunjuk ke direktori
+dalam direktori controller. Misalnya, jika pengguna mengunjungi <strong>example.com/admin</strong>, jika controller ditemukan di
+<strong>app/Controllers/Admin/Home.php</strong>, itu akan digunakan.</p>
+<p>Lihat <a class="reference internal" href="controllers.html#controller-auto-routing-legacy"><span class="std std-ref">Perutean Otomatis (Legacy) dalam Controller</span></a> untuk info lebih lanjut.</p>
 </section>
 </section>
-<section id="default-method-legacy">
-<span id="routing-auto-routing-legacy-default-method"></span><h4><a class="toc-backref" href="#id66" role="doc-backlink">Default Method (Legacy)</a><a class="headerlink" href="#default-method-legacy" title="Permalink to this heading"></a></h4>
-<p>This works similar to the default controller setting, but is used to determine the default method that is used
-when a controller is found that matches the URI, but no segment exists for the method. The default value is
+<section id="method-default-legacy">
+<span id="routing-auto-routing-legacy-default-method"></span><h4><a class="toc-backref" href="#id54" role="doc-backlink">Method Default (Legacy)</a><a class="headerlink" href="#method-default-legacy" title="Permalink to this heading"></a></h4>
+<p>Ini berfungsi mirip dengan pengaturan controller default, tetapi digunakan untuk menentukan method default yang digunakan
+ketika controller ditemukan yang cocok dengan URI, tetapi tidak ada segmen yang ada untuk method. Nilai default adalah
 <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
-<p>In this example, if the user were to visit <strong>example.com/products</strong>, and a <code class="docutils literal notranslate"><span class="pre">Products</span></code>
-controller existed, the <code class="docutils literal notranslate"><span class="pre">Products::listAll()</span></code> method would be executed:</p>
+<p>Dalam contoh ini, jika pengguna mengunjungi <strong>example.com/products</strong>, dan controller <code class="docutils literal notranslate"><span class="pre">Products</span></code>
+ada, method <code class="docutils literal notranslate"><span class="pre">Products::listAll()</span></code> akan dieksekusi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nx">string</span> <span class="nv">$defaultMethod</span> <span class="o">=</span> <span class="s1">&#39;listAll&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
 </section>
 </section>
-<section id="confirming-routes">
-<h2><a class="toc-backref" href="#id67" role="doc-backlink">Confirming Routes</a><a class="headerlink" href="#confirming-routes" title="Permalink to this heading"></a></h2>
-<p>CodeIgniter has the following <a class="reference internal" href="../cli/spark_commands.html"><span class="doc">command</span></a> to display all routes.</p>
+<section id="mengkonfirmasi-router">
+<h2><a class="toc-backref" href="#id55" role="doc-backlink">Mengkonfirmasi Router</a><a class="headerlink" href="#mengkonfirmasi-router" title="Permalink to this heading"></a></h2>
+<p>CodeIgniter memiliki <a class="reference internal" href="../cli/spark_commands.html"><span class="doc">perintah</span></a> berikut untuk menampilkan semua router.</p>
 <section id="spark-routes">
-<span id="routing-spark-routes"></span><h3><a class="toc-backref" href="#id68" role="doc-backlink">spark routes</a><a class="headerlink" href="#spark-routes" title="Permalink to this heading"></a></h3>
-<p>Displays all routes and filters:</p>
+<span id="routing-spark-routes"></span><h3><a class="toc-backref" href="#id56" role="doc-backlink">spark routes</a><a class="headerlink" href="#spark-routes" title="Permalink to this heading"></a></h3>
+<p>Menampilkan semua router dan filter:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark routes</span>
 </pre></div>
 </div>
-<p>The output is like the following:</p>
+<p>Outputnya seperti berikut:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---------+---------+---------------+-------------------------------+----------------+---------------+
-| Method  | Route   | Name          | Handler                       | Before Filters | After Filters |
+| Method  | Router  | Nama          | Penangan                      | Filter Sebelum | Filter Sesudah|
 +---------+---------+---------------+-------------------------------+----------------+---------------+
 | GET     | /       | »             | \App\Controllers\Home::index  |                | toolbar       |
 | GET     | feed    | »             | (Closure)                     |                | toolbar       |
 +---------+---------+---------------+-------------------------------+----------------+---------------+
 </pre></div>
 </div>
-<p>The <em>Method</em> column shows the HTTP method that the route is listening for.</p>
-<p>The <em>Route</em> column shows the route path to match. The route of a defined route is expressed as a regular expression.</p>
-<p>Since v4.3.0, the <em>Name</em> column shows the route name. <code class="docutils literal notranslate"><span class="pre">»</span></code> indicates the name is the same as the route path.</p>
+<p>Kolom <em>Method</em> menunjukkan method HTTP yang didengarkan oleh router.</p>
+<p>Kolom <em>Router</em> menunjukkan jalur router yang akan dicocokkan. Jalur router yang didefinisikan diekspresikan sebagai ekspresi reguler.</p>
+<p>Sejak v4.3.0, kolom <em>Nama</em> menunjukkan nama router. <code class="docutils literal notranslate"><span class="pre">»</span></code> menunjukkan nama sama dengan jalur router.</p>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>The system is not perfect.
-For routes containing regular expression patterns like <code class="docutils literal notranslate"><span class="pre">([^/]+)</span></code> or <code class="docutils literal notranslate"><span class="pre">{locale}</span></code>,
-the <em>Filters</em> displayed might not be correct (if you set complicated URI pattern
-for the filters in <strong>app/Config/Filters.php</strong>), or it is displayed as <code class="docutils literal notranslate"><span class="pre">&lt;unknown&gt;</span></code>.</p>
-<p>The <a class="reference internal" href="filters.html#spark-filter-check"><span class="std std-ref">spark filter:check</span></a> command can be used to check
-for 100% accurate filters.</p>
+<p>Sistem ini tidak sempurna.
+Untuk router yang berisi pola ekspresi reguler seperti <code class="docutils literal notranslate"><span class="pre">([^/]+)</span></code> atau <code class="docutils literal notranslate"><span class="pre">{locale}</span></code>,
+<em>Filter</em> yang ditampilkan mungkin tidak benar (jika Anda mengatur pola URI yang rumit
+untuk filter di <strong>app/Config/Filters.php</strong>), atau ditampilkan sebagai <code class="docutils literal notranslate"><span class="pre">&lt;unknown&gt;</span></code>.</p>
+<p>Perintah <a class="reference internal" href="filters.html#spark-filter-check"><span class="std std-ref">spark filter:check</span></a> dapat digunakan untuk memeriksa
+filter yang 100% akurat.</p>
 </div>
-<section id="id13">
-<h4><a class="toc-backref" href="#id69" role="doc-backlink">Auto Routing (Improved)</a><a class="headerlink" href="#id13" title="Permalink to this heading"></a></h4>
-<p>When you use Auto Routing (Improved), the output is like the following:</p>
+<section id="id1">
+<h4><a class="toc-backref" href="#id57" role="doc-backlink">Perutean Otomatis (Ditingkatkan)</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<p>Ketika Anda menggunakan Perutean Otomatis (Ditingkatkan), outputnya seperti berikut:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-----------+-------------------------+---------------+-----------------------------------+----------------+---------------+
-| Method    | Route                   | Name          | Handler                           | Before Filters | After Filters |
+| Method    | Router                  | Nama          | Penangan                          | Filter Sebelum | Filter Sesudah|
 +-----------+-------------------------+---------------+-----------------------------------+----------------+---------------+
 | GET(auto) | product/list/../..[/..] |               | \App\Controllers\Product::getList |                | toolbar       |
 +-----------+-------------------------+---------------+-----------------------------------+----------------+---------------+
 </pre></div>
 </div>
-<p>The <em>Method</em> will be like <code class="docutils literal notranslate"><span class="pre">GET(auto)</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">/..</span></code> in the <em>Route</em> column indicates one segment. <code class="docutils literal notranslate"><span class="pre">[/..]</span></code> indicates it is optional.</p>
+<p><em>Method</em> akan seperti <code class="docutils literal notranslate"><span class="pre">GET(auto)</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">/..</span></code> di kolom <em>Router</em> menunjukkan satu segmen. <code class="docutils literal notranslate"><span class="pre">[/..]</span></code> menunjukkan itu opsional.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>When auto-routing is enabled and you have the route <code class="docutils literal notranslate"><span class="pre">home</span></code>, it can be also accessed by <code class="docutils literal notranslate"><span class="pre">Home</span></code>, or maybe by <code class="docutils literal notranslate"><span class="pre">hOme</span></code>, <code class="docutils literal notranslate"><span class="pre">hoMe</span></code>, <code class="docutils literal notranslate"><span class="pre">HOME</span></code>, etc. but the command will show only <code class="docutils literal notranslate"><span class="pre">home</span></code>.</p>
+<p>Ketika perutean otomatis diaktifkan dan Anda memiliki router <code class="docutils literal notranslate"><span class="pre">home</span></code>, itu juga dapat diakses oleh <code class="docutils literal notranslate"><span class="pre">Home</span></code>, atau mungkin oleh <code class="docutils literal notranslate"><span class="pre">hOme</span></code>, <code class="docutils literal notranslate"><span class="pre">hoMe</span></code>, <code class="docutils literal notranslate"><span class="pre">HOME</span></code>, dll. tetapi perintah hanya akan menampilkan <code class="docutils literal notranslate"><span class="pre">home</span></code>.</p>
 </div>
-<p>If you see a route starting with <code class="docutils literal notranslate"><span class="pre">x</span></code> like the following, it indicates an invalid
-route that won't be routed, but the controller has a public method for routing.</p>
+<p>Jika Anda melihat router dimulai dengan <code class="docutils literal notranslate"><span class="pre">x</span></code> seperti berikut, itu menunjukkan router yang tidak valid
+yang tidak akan dirutekan, tetapi controller memiliki method publik untuk perutean.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-----------+----------------+------+-------------------------------------+----------------+---------------+
-| Method    | Route          | Name | Handler                             | Before Filters | After Filters |
+| Method    | Router         | Nama | Penangan                            | Filter Sebelum | Filter Sesudah|
 +-----------+----------------+------+-------------------------------------+----------------+---------------+
 | GET(auto) | x home/foo     |      | \App\Controllers\Home::getFoo       | &lt;unknown&gt;      | &lt;unknown&gt;     |
 +-----------+----------------+------+-------------------------------------+----------------+---------------+
 </pre></div>
 </div>
-<p>The above example shows you have the <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Home::getFoo()</span></code> method,
-but it is not routed because it is the default controller (<code class="docutils literal notranslate"><span class="pre">Home</span></code> by default)
-and the default controller name must be omitted in the URI. You should delete
-the <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> method.</p>
+<p>Contoh di atas menunjukkan Anda memiliki method <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Home::getFoo()</span></code>,
+tetapi tidak dirutekan karena itu adalah controller default (<code class="docutils literal notranslate"><span class="pre">Home</span></code> secara default)
+dan nama controller default harus dihilangkan di URI. Anda harus menghapus
+method <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.3.4, the invalid route is displayed as a normal route
-due to a bug.</p>
+<p>Sebelum v4.3.4, router yang tidak valid ditampilkan sebagai router normal
+karena bug.</p>
 </div>
 </section>
-<section id="id14">
-<h4><a class="toc-backref" href="#id70" role="doc-backlink">Auto Routing (Legacy)</a><a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
-<p>When you use Auto Routing (Legacy), the output is like the following:</p>
+<section id="id2">
+<h4><a class="toc-backref" href="#id58" role="doc-backlink">Perutean Otomatis (Legacy)</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<p>Ketika Anda menggunakan Perutean Otomatis (Legacy), outputnya seperti berikut:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+--------+--------------------+---------------+-----------------------------------+----------------+---------------+
-| Method | Route              | Name          | Handler                           | Before Filters | After Filters |
+| Method | Router             | Nama          | Penangan                          | Filter Sebelum | Filter Sesudah|
 +--------+--------------------+---------------+-----------------------------------+----------------+---------------+
 | auto   | product/list[/...] |               | \App\Controllers\Product::getList |                | toolbar       |
 +--------+--------------------+---------------+-----------------------------------+----------------+---------------+
 </pre></div>
 </div>
-<p>The <em>Method</em> will be <code class="docutils literal notranslate"><span class="pre">auto</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">[/...]</span></code> in the <em>Route</em> column indicates any number of segments.</p>
+<p><em>Method</em> akan menjadi <code class="docutils literal notranslate"><span class="pre">auto</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[/...]</span></code> di kolom <em>Router</em> menunjukkan sejumlah segmen.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>When auto-routing is enabled and you have the route <code class="docutils literal notranslate"><span class="pre">home</span></code>, it can be also accessed by <code class="docutils literal notranslate"><span class="pre">Home</span></code>, or maybe by <code class="docutils literal notranslate"><span class="pre">hOme</span></code>, <code class="docutils literal notranslate"><span class="pre">hoMe</span></code>, <code class="docutils literal notranslate"><span class="pre">HOME</span></code>, etc. but the command will show only <code class="docutils literal notranslate"><span class="pre">home</span></code>.</p>
+<p>Ketika perutean otomatis diaktifkan dan Anda memiliki router <code class="docutils literal notranslate"><span class="pre">home</span></code>, itu juga dapat diakses oleh <code class="docutils literal notranslate"><span class="pre">Home</span></code>, atau mungkin oleh <code class="docutils literal notranslate"><span class="pre">hOme</span></code>, <code class="docutils literal notranslate"><span class="pre">hoMe</span></code>, <code class="docutils literal notranslate"><span class="pre">HOME</span></code>, dll. tetapi perintah hanya akan menampilkan <code class="docutils literal notranslate"><span class="pre">home</span></code>.</p>
 </div>
 </section>
-<section id="sort-by-handler">
-<span id="routing-spark-routes-sort-by-handler"></span><h4><a class="toc-backref" href="#id71" role="doc-backlink">Sort by Handler</a><a class="headerlink" href="#sort-by-handler" title="Permalink to this heading"></a></h4>
+<section id="urutkan-berdasarkan-penangan">
+<span id="routing-spark-routes-sort-by-handler"></span><h4><a class="toc-backref" href="#id59" role="doc-backlink">Urutkan berdasarkan Penangan</a><a class="headerlink" href="#urutkan-berdasarkan-penangan" title="Permalink to this heading"></a></h4>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.3.0.</span></p>
 </div>
-<p>You can sort the routes by <em>Handler</em>:</p>
+<p>Anda dapat mengurutkan router berdasarkan <em>Penangan</em>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark routes -h</span>
 </pre></div>
 </div>
 </section>
-<section id="specify-host">
-<span id="routing-spark-routes-specify-host"></span><h4><a class="toc-backref" href="#id72" role="doc-backlink">Specify Host</a><a class="headerlink" href="#specify-host" title="Permalink to this heading"></a></h4>
+<section id="tentukan-host">
+<span id="routing-spark-routes-specify-host"></span><h4><a class="toc-backref" href="#id60" role="doc-backlink">Tentukan Host</a><a class="headerlink" href="#tentukan-host" title="Permalink to this heading"></a></h4>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.4.0.</span></p>
 </div>
-<p>You can specify the host in the request URL with the <code class="docutils literal notranslate"><span class="pre">--host</span></code> option:</p>
+<p>Anda dapat menentukan host di URL permintaan dengan opsi <code class="docutils literal notranslate"><span class="pre">--host</span></code>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark routes --host accounts.example.com</span>
 </pre></div>
 </div>
 </section>
 </section>
 </section>
-<section id="getting-routing-information">
-<h2><a class="toc-backref" href="#id73" role="doc-backlink">Getting Routing Information</a><a class="headerlink" href="#getting-routing-information" title="Permalink to this heading"></a></h2>
-<p>In CodeIgniter 4, understanding and managing routing information is crucial for handling HTTP requests effectively.
-This involves retrieving details about the active controller and method, as well as the filters applied to a specific route.
-Below, we explore how to access this routing information to assist in tasks such as logging, debugging, or implementing conditional logic.</p>
-<section id="retrieving-the-current-controller-method-names">
-<h3><a class="toc-backref" href="#id74" role="doc-backlink">Retrieving the Current Controller/Method Names</a><a class="headerlink" href="#retrieving-the-current-controller-method-names" title="Permalink to this heading"></a></h3>
-<p>In some cases, you might need to determine which controller and method have been triggered by the current HTTP request.
-This can be useful for logging, debugging, or conditional logic based on the active controller method.</p>
-<p>CodeIgniter 4 provides a simple way to access the current route's controller and method names using the <code class="docutils literal notranslate"><span class="pre">Router</span></code> class. Here is an example:</p>
+<section id="mendapatkan-informasi-perutean">
+<h2><a class="toc-backref" href="#id61" role="doc-backlink">Mendapatkan Informasi Perutean</a><a class="headerlink" href="#mendapatkan-informasi-perutean" title="Permalink to this heading"></a></h2>
+<p>Di CodeIgniter 4, memahami dan mengelola informasi perutean sangat penting untuk menangani permintaan HTTP secara efektif.
+Ini melibatkan pengambilan detail tentang controller dan method yang aktif, serta filter yang diterapkan pada router tertentu.
+Di bawah ini, kita akan menjelajahi cara mengakses informasi perutean ini untuk membantu dalam tugas-tugas seperti pencatatan, debugging, atau mengimplementasikan logika kondisional.</p>
+<section id="mengambil-nama-controller-method-saat-ini">
+<h3><a class="toc-backref" href="#id62" role="doc-backlink">Mengambil Nama Controller/Method Saat Ini</a><a class="headerlink" href="#mengambil-nama-controller-method-saat-ini" title="Permalink to this heading"></a></h3>
+<p>Dalam beberapa kasus, Anda mungkin perlu menentukan controller dan method mana yang telah dipicu oleh permintaan HTTP saat ini.
+Ini dapat berguna untuk pencatatan, debugging, atau logika kondisional berdasarkan method controller yang aktif.</p>
+<p>CodeIgniter 4 menyediakan cara sederhana untuk mengakses nama controller dan method router saat ini menggunakan class <code class="docutils literal notranslate"><span class="pre">Router</span></code>. Berikut adalah contohnya:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Get the router instance.</span>
@@ -1736,13 +1740,13 @@ This can be useful for logging, debugging, or conditional logic based on the act
 <span class="k">echo</span> <span class="s1">&#39;Current Method: &#39;</span> <span class="o">.</span> <span class="nv">$method</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>This functionality is particularly useful when you need to dynamically interact with your controller or log which method is handling a particular request.</p>
+<p>Fungsionalitas ini sangat berguna ketika Anda perlu berinteraksi secara dinamis dengan controller Anda atau mencatat method mana yang menangani permintaan tertentu.</p>
 </section>
-<section id="getting-active-filters-for-the-current-route">
-<h3><a class="toc-backref" href="#id75" role="doc-backlink">Getting Active Filters for the Current Route</a><a class="headerlink" href="#getting-active-filters-for-the-current-route" title="Permalink to this heading"></a></h3>
-<p><a class="reference internal" href="filters.html"><span class="doc">Filters</span></a> are a powerful feature that enables you to perform operations such as authentication, logging, and security checks before or after processing HTTP requests.
-To access the active filters for a specific route, you can use the <code class="xref php php-meth docutils literal notranslate"><span class="pre">CodeIgniter\Router\Router::getFilters()</span></code> method from the <code class="docutils literal notranslate"><span class="pre">Router</span></code> class.</p>
-<p>This method returns a list of filters that are currently active for the route being processed:</p>
+<section id="mendapatkan-filter-aktif-untuk-router-saat-ini">
+<h3><a class="toc-backref" href="#id63" role="doc-backlink">Mendapatkan Filter Aktif untuk Router Saat Ini</a><a class="headerlink" href="#mendapatkan-filter-aktif-untuk-router-saat-ini" title="Permalink to this heading"></a></h3>
+<p><a class="reference internal" href="filters.html"><span class="doc">Filter</span></a> adalah fitur canggih yang memungkinkan Anda melakukan operasi seperti otentikasi, pencatatan, dan pemeriksaan keamanan sebelum atau sesudah memproses permintaan HTTP.
+Untuk mengakses filter aktif untuk router tertentu, Anda dapat menggunakan method <code class="xref php php-meth docutils literal notranslate"><span class="pre">CodeIgniter\Router\Router::getFilters()</span></code> dari class <code class="docutils literal notranslate"><span class="pre">Router</span></code>.</p>
+<p>Method ini mengembalikan daftar filter yang saat ini aktif untuk router yang sedang diproses:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Get the router instance.</span>
@@ -1755,15 +1759,15 @@ To access the active filters for a specific route, you can use the <code class="
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">getFilters()</span></code> method returns only the filters defined for the specific route.
-It does not include global filters or those specified in the <strong>app/Config/Filters.php</strong> file.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">getFilters()</span></code> hanya mengembalikan filter yang didefinisikan untuk router tertentu.
+Ini tidak termasuk filter global atau yang ditentukan dalam berkas <strong>app/Config/Filters.php</strong>.</p>
 </div>
 </section>
-<section id="getting-matched-route-options-for-the-current-route">
-<h3><a class="toc-backref" href="#id76" role="doc-backlink">Getting Matched Route Options for the Current Route</a><a class="headerlink" href="#getting-matched-route-options-for-the-current-route" title="Permalink to this heading"></a></h3>
-<p>When we're defining routes, they may have optional parameters: <code class="docutils literal notranslate"><span class="pre">filter</span></code>, <code class="docutils literal notranslate"><span class="pre">namespace</span></code>, <code class="docutils literal notranslate"><span class="pre">hostname</span></code>, <code class="docutils literal notranslate"><span class="pre">subdomain</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">priority</span></code>, <code class="docutils literal notranslate"><span class="pre">as</span></code>. All of them were described earlier above.
-Additionally, if we use <code class="docutils literal notranslate"><span class="pre">addRedirect()</span></code> we can also expect the <code class="docutils literal notranslate"><span class="pre">redirect</span></code> key.
-To access the values of these parameters, we can call <code class="docutils literal notranslate"><span class="pre">Router::getMatchedRouteOptions()</span></code>. Here is an example of the returned array:</p>
+<section id="mendapatkan-opsi-router-yang-cocok-untuk-router-saat-ini">
+<h3><a class="toc-backref" href="#id64" role="doc-backlink">Mendapatkan Opsi Router yang Cocok untuk Router Saat Ini</a><a class="headerlink" href="#mendapatkan-opsi-router-yang-cocok-untuk-router-saat-ini" title="Permalink to this heading"></a></h3>
+<p>Ketika kita mendefinisikan router, router tersebut mungkin memiliki parameter opsional: <code class="docutils literal notranslate"><span class="pre">filter</span></code>, <code class="docutils literal notranslate"><span class="pre">namespace</span></code>, <code class="docutils literal notranslate"><span class="pre">hostname</span></code>, <code class="docutils literal notranslate"><span class="pre">subdomain</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">priority</span></code>, <code class="docutils literal notranslate"><span class="pre">as</span></code>. Semuanya telah dijelaskan sebelumnya di atas.
+Selain itu, jika kita menggunakan <code class="docutils literal notranslate"><span class="pre">addRedirect()</span></code> kita juga dapat mengharapkan kunci <code class="docutils literal notranslate"><span class="pre">redirect</span></code>.
+Untuk mengakses nilai-nilai parameter ini, kita dapat memanggil <code class="docutils literal notranslate"><span class="pre">Router::getMatchedRouteOptions()</span></code>. Berikut adalah contoh array yang dikembalikan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// Get the router instance.</span>
@@ -1805,7 +1809,7 @@ To access the values of these parameters, we can call <code class="docutils lite
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

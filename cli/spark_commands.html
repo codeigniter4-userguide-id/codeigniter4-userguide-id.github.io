@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spark Commands &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+  <title>Command Spark &mdash; Dokumentasi CodeIgniter 4.6.2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
@@ -237,10 +237,10 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command Line Usage</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Penggunaan Command Line</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cli_overview.html">CLI Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Spark Commands</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Command Spark</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Creating Spark Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_generators.html">CLI Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_library.html">CLI Library</a></li>
@@ -278,8 +278,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Command Line Usage</a></li>
-      <li class="breadcrumb-item active">Spark Commands</li>
+          <li class="breadcrumb-item"><a href="index.html">Penggunaan Command Line</a></li>
+      <li class="breadcrumb-item active">Command Spark</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -288,114 +288,114 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="spark-commands">
-<h1>Spark Commands<a class="headerlink" href="#spark-commands" title="Permalink to this heading"></a></h1>
-<p>CodeIgniter ships with the official command <strong>spark</strong> and built-in commands.</p>
+  <section id="command-spark">
+<h1>Command Spark<a class="headerlink" href="#command-spark" title="Permalink to this heading"></a></h1>
+<p>CodeIgniter dilengkapi dengan perintah resmi <strong>spark</strong> dan perintah bawaan.</p>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#running-commands" id="id1">Running Commands</a></p>
+<li><p><a class="reference internal" href="#menjalankan-command-perintah" id="id1">Menjalankan Command (Perintah)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#running-via-cli" id="id2">Running via CLI</a></p>
+<li><p><a class="reference internal" href="#menjalankan-via-cli" id="id2">Menjalankan via CLI</a></p>
 <ul>
-<li><p><a class="reference internal" href="#showing-list-of-commands" id="id3">Showing List of Commands</a></p></li>
-<li><p><a class="reference internal" href="#showing-help" id="id4">Showing Help</a></p></li>
-<li><p><a class="reference internal" href="#running-a-command" id="id5">Running a Command</a></p></li>
-<li><p><a class="reference internal" href="#suppressing-header-output" id="id6">Suppressing Header Output</a></p></li>
+<li><p><a class="reference internal" href="#menampilkan-daftar-perintah" id="id3">Menampilkan Daftar Perintah</a></p></li>
+<li><p><a class="reference internal" href="#menampilkan-bantuan" id="id4">Menampilkan Bantuan</a></p></li>
+<li><p><a class="reference internal" href="#menjalankan-perintah" id="id5">Menjalankan Perintah</a></p></li>
+<li><p><a class="reference internal" href="#menekan-output-header" id="id6">Menekan Output Header</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#calling-commands" id="id7">Calling Commands</a></p></li>
+<li><p><a class="reference internal" href="#memanggil-perintah" id="id7">Memanggil Perintah</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
-<section id="running-commands">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Running Commands</a><a class="headerlink" href="#running-commands" title="Permalink to this heading"></a></h2>
-<section id="running-via-cli">
-<h3><a class="toc-backref" href="#id2" role="doc-backlink">Running via CLI</a><a class="headerlink" href="#running-via-cli" title="Permalink to this heading"></a></h3>
-<p>The commands are run from the command line, in the project root directory.
-The command file <strong>spark</strong> has been provided that is used to run any of the CLI commands.</p>
-<section id="showing-list-of-commands">
-<h4><a class="toc-backref" href="#id3" role="doc-backlink">Showing List of Commands</a><a class="headerlink" href="#showing-list-of-commands" title="Permalink to this heading"></a></h4>
-<p>When called <strong>spark</strong> without specifying a command, a simple help page is displayed
-that also provides a list of available commands and their descriptions, sorted by
-categories:</p>
+<section id="menjalankan-command-perintah">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Menjalankan Command (Perintah)</a><a class="headerlink" href="#menjalankan-command-perintah" title="Permalink to this heading"></a></h2>
+<section id="menjalankan-via-cli">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Menjalankan via CLI</a><a class="headerlink" href="#menjalankan-via-cli" title="Permalink to this heading"></a></h3>
+<p>Perintah dijalankan dari baris perintah, di direktori root proyek.
+Berkas perintah <strong>spark</strong> telah disediakan yang digunakan untuk menjalankan perintah CLI apa pun.</p>
+<section id="menampilkan-daftar-perintah">
+<h4><a class="toc-backref" href="#id3" role="doc-backlink">Menampilkan Daftar Perintah</a><a class="headerlink" href="#menampilkan-daftar-perintah" title="Permalink to this heading"></a></h4>
+<p>Ketika memanggil <strong>spark</strong> tanpa menentukan perintah, halaman bantuan sederhana akan ditampilkan
+yang juga menyediakan daftar perintah yang tersedia dan deskripsinya, diurutkan berdasarkan
+kategori:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark</span>
 </pre></div>
 </div>
 <section id="spark-list">
 <h5>spark list<a class="headerlink" href="#spark-list" title="Permalink to this heading"></a></h5>
-<p><code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span></code> is the exactly same as the <code class="docutils literal notranslate"><span class="pre">list</span></code> command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span></code> sama persis dengan perintah <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark list</span>
 </pre></div>
 </div>
-<p>You may also use the <code class="docutils literal notranslate"><span class="pre">--simple</span></code> option to get a raw list of all available commands,
-sorted alphabetically:</p>
+<p>Anda juga dapat menggunakan opsi <code class="docutils literal notranslate"><span class="pre">--simple</span></code> untuk mendapatkan daftar mentah semua perintah yang tersedia,
+diurutkan secara alfabetis:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark list --simple</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="showing-help">
-<h4><a class="toc-backref" href="#id4" role="doc-backlink">Showing Help</a><a class="headerlink" href="#showing-help" title="Permalink to this heading"></a></h4>
-<p>You can get help about any CLI command using the <code class="docutils literal notranslate"><span class="pre">help</span></code> command as follows:</p>
+<section id="menampilkan-bantuan">
+<h4><a class="toc-backref" href="#id4" role="doc-backlink">Menampilkan Bantuan</a><a class="headerlink" href="#menampilkan-bantuan" title="Permalink to this heading"></a></h4>
+<p>Anda bisa mendapatkan bantuan tentang perintah CLI apa pun menggunakan perintah <code class="docutils literal notranslate"><span class="pre">help</span></code> sebagai berikut:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark help db:seed</span>
 </pre></div>
 </div>
-<p>Since v4.3.0, you can also use the <code class="docutils literal notranslate"><span class="pre">--help</span></code> option instead of the <code class="docutils literal notranslate"><span class="pre">help</span></code> command:</p>
+<p>Sejak v4.3.0, Anda juga dapat menggunakan opsi <code class="docutils literal notranslate"><span class="pre">--help</span></code> alih-alih perintah <code class="docutils literal notranslate"><span class="pre">help</span></code>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark db:seed --help</span>
 </pre></div>
 </div>
 </section>
-<section id="running-a-command">
-<h4><a class="toc-backref" href="#id5" role="doc-backlink">Running a Command</a><a class="headerlink" href="#running-a-command" title="Permalink to this heading"></a></h4>
-<p>You should pass the name of the command as the first argument to run that command:</p>
+<section id="menjalankan-perintah">
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">Menjalankan Perintah</a><a class="headerlink" href="#menjalankan-perintah" title="Permalink to this heading"></a></h4>
+<p>Anda harus meneruskan nama perintah sebagai argumen pertama untuk menjalankan perintah tersebut:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrate</span>
 </pre></div>
 </div>
-<p>Some commands take additional arguments, which should be provided directly after the command, separated by spaces:</p>
+<p>Beberapa perintah memerlukan argumen tambahan, yang harus disediakan langsung setelah perintah, dipisahkan oleh spasi:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark db:seed DevUserSeeder</span>
 </pre></div>
 </div>
-<p>For all of the commands CodeIgniter provides, if you do not provide the required arguments, you will be prompted
-for the information it needs to run correctly:</p>
+<p>Untuk semua perintah yang disediakan CodeIgniter, jika Anda tidak memberikan argumen yang diperlukan, Anda akan diminta
+untuk informasi yang dibutuhkan agar berjalan dengan benar:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark make:controller</span>
 
 <span class="go">Controller class name :</span>
 </pre></div>
 </div>
 </section>
-<section id="suppressing-header-output">
-<h4><a class="toc-backref" href="#id6" role="doc-backlink">Suppressing Header Output</a><a class="headerlink" href="#suppressing-header-output" title="Permalink to this heading"></a></h4>
-<p>When you run a command, the header with CodeIgniter version and the current time
-is output:</p>
+<section id="menekan-output-header">
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Menekan Output Header</a><a class="headerlink" href="#menekan-output-header" title="Permalink to this heading"></a></h4>
+<p>Ketika Anda menjalankan perintah, header dengan versi CodeIgniter dan waktu saat ini
+akan ditampilkan:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark env</span>
 
 <span class="go">CodeIgniter v4.3.5 Command Line Tool - Server Time: 2023-06-16 12:45:31 UTC+00:00</span>
 
-<span class="go">Your environment is currently set as development.</span>
+<span class="go">Lingkungan Anda saat ini diatur sebagai development.</span>
 </pre></div>
 </div>
-<p>You may always pass <code class="docutils literal notranslate"><span class="pre">--no-header</span></code> to suppress the header output, helpful for parsing results:</p>
+<p>Anda selalu dapat menambahkan <code class="docutils literal notranslate"><span class="pre">--no-header</span></code> untuk menghilangkan output header:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark env --no-header</span>
 
-<span class="go">Your environment is currently set as development.</span>
+<span class="go">Lingkungan Anda saat ini diatur sebagai development.</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="calling-commands">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Calling Commands</a><a class="headerlink" href="#calling-commands" title="Permalink to this heading"></a></h3>
-<p>Commands can also be ran from within your own code. This is most often done within a controller for cronjob tasks,
-but they can be used at any time. You do this by using the <code class="docutils literal notranslate"><span class="pre">command()</span></code> function. This function is always available.</p>
+<section id="memanggil-perintah">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Memanggil Perintah</a><a class="headerlink" href="#memanggil-perintah" title="Permalink to this heading"></a></h3>
+<p>Perintah juga dapat dijalankan dari dalam kode Anda sendiri. Ini paling sering dilakukan dalam sebuah controller untuk tugas cronjob,
+tetapi dapat digunakan kapan saja. Anda melakukannya dengan menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">command()</span></code>. Fungsi ini selalu tersedia.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">echo</span> <span class="nx">command</span><span class="p">(</span><span class="s1">&#39;make:migration TestMigration&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The only argument is string that is the command called and any parameters. This appears exactly as you would call
-it from the command line.</p>
-<p>All output from the command that is ran is captured when not run from the command line. It is returned from the command
-so that you can choose to display it or not.</p>
+<p>Satu-satunya argumen adalah string yaitu perintah yang dipanggil dan parameter apa pun. Ini muncul persis seperti yang akan Anda panggil
+dari baris perintah.</p>
+<p>Semua output dari perintah yang dijalankan ditangkap ketika tidak dijalankan dari baris perintah. Ini dikembalikan dari perintah
+sehingga Anda dapat memilih untuk menampilkannya atau tidak.</p>
 </section>
 </section>
 </section>
@@ -412,7 +412,7 @@ so that you can choose to display it or not.</p>
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

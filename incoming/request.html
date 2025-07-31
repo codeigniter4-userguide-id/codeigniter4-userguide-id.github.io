@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Request Class &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+  <title>Class Request &mdash; Dokumentasi CodeIgniter 4.6.2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
@@ -114,16 +114,16 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Perutean URI (Routing)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_routing_improved.html">Auto Routing (Improved)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Request Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Class Request</a></li>
 <li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">HTTP Method Spoofing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="restful.html">RESTful Resource Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Penanganan Resource RESTful</a></li>
 </ul>
 </li>
 </ul>
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Penggunaan Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Ikhtisar CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Menjalankan Controller via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Command Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Membuat Perintah (Command) Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generator CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">Library CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -279,7 +279,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
-      <li class="breadcrumb-item active">Request Class</li>
+      <li class="breadcrumb-item active">Class Request</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -288,18 +288,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="request-class">
-<h1>Request Class<a class="headerlink" href="#request-class" title="Permalink to this heading"></a></h1>
-<p>The request class is an object-oriented representation of an HTTP request. This is meant to
-work for both incoming, such as a request to the application from a browser, and outgoing requests,
-like would be used to send a request from the application to a third-party application.</p>
-<p>This class
-provides the common functionality they both need, but both cases have custom classes that extend
-from the Request class to add specific functionality. In practice, you will need to use these classes.</p>
-<p>See the documentation for the <a class="reference internal" href="incomingrequest.html"><span class="doc">IncomingRequest Class</span></a> and
-<a class="reference internal" href="../libraries/curlrequest.html"><span class="doc">CURLRequest Class</span></a> for more usage details.</p>
+  <section id="class-request">
+<h1>Class Request<a class="headerlink" href="#class-request" title="Permalink to this heading"></a></h1>
+<p>Class request adalah representasi berorientasi objek dari sebuah permintaan HTTP. Ini dimaksudkan untuk
+berfungsi baik untuk permintaan masuk, seperti permintaan ke aplikasi dari browser, maupun permintaan keluar,
+seperti yang akan digunakan untuk mengirim permintaan dari aplikasi ke aplikasi pihak ketiga.</p>
+<p>Class ini
+menyediakan fungsionalitas umum yang keduanya butuhkan, tetapi kedua kasus memiliki class kustom yang memperluas
+dari class Request untuk menambahkan fungsionalitas spesifik. Dalam praktiknya, Anda perlu menggunakan class-class ini.</p>
+<p>Lihat dokumentasi untuk <a class="reference internal" href="incomingrequest.html"><span class="doc">Class IncomingRequest</span></a> dan
+<a class="reference internal" href="../libraries/curlrequest.html"><span class="doc">Class CURLRequest</span></a> untuk detail penggunaan lebih lanjut.</p>
 <section id="namespace-CodeIgniter\HTTP">
-<span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#namespace-CodeIgniter\HTTP" title="Permalink to this heading"></a></h2>
+<span id="referensi-class"></span><h2>Referensi Class<a class="headerlink" href="#namespace-CodeIgniter\HTTP" title="Permalink to this heading"></a></h2>
 <dl class="php class">
 <dt class="sig sig-object php" id="CodeIgniter\HTTP\Request">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">CodeIgniter\HTTP\</span></span><span class="sig-name descname"><span class="pre">Request</span></span><a class="headerlink" href="#CodeIgniter\HTTP\Request" title="Link permanen untuk definisi ini"></a></dt>
@@ -308,15 +308,15 @@ from the Request class to add specific functionality. In practice, you will need
 <span class="sig-name descname"><span class="pre">getIPAddress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Request::getIPAddress" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The user's IP Address, if it can be detected. If the IP address
-is not a valid IP address, then will return <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p>
+<dd class="field-odd"><p>Alamat IP pengguna, jika dapat dideteksi. Jika alamat IP
+bukan alamat IP yang valid, maka akan mengembalikan <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
 </dd>
 </dl>
-<p>Returns the IP address for the current user. If the IP address is not valid, the method
-will return <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>:</p>
+<p>Mengembalikan alamat IP untuk pengguna saat ini. Jika alamat IP tidak valid, method
+akan mengembalikan <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getIPAddress</span><span class="p">();</span>
@@ -324,8 +324,8 @@ will return <code class="docutils literal notranslate"><span class="pre">0.0.0.0
 </div>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>This method takes into account the <code class="docutils literal notranslate"><span class="pre">Config\App::$proxyIPs</span></code> setting and will
-return the reported client IP address by the HTTP header for the allowed IP address.</p>
+<p>Method ini memperhitungkan pengaturan <code class="docutils literal notranslate"><span class="pre">Config\App::$proxyIPs</span></code> dan akan
+mengembalikan alamat IP klien yang dilaporkan oleh header HTTP untuk alamat IP yang diizinkan.</p>
 </div>
 </dd></dl>
 
@@ -333,31 +333,31 @@ return the reported client IP address by the HTTP header for the allowed IP addr
 <dt class="sig sig-object php" id="CodeIgniter\HTTP\Request::isValidIP">
 <span class="sig-name descname"><span class="pre">isValidIP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$ip</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$which</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Request::isValidIP" title="Link permanen untuk definisi ini"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.0.5: </span>Use <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a> instead.</p>
+<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.0.5: </span>Gunakan <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a> sebagai gantinya.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>This method is deprecated. It will be removed in future releases.</p>
+<p>Method ini sudah usang. Ini akan dihapus di rilis mendatang.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$ip</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- IP address</p></li>
-<li><p><strong>$which</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- IP protocol (<code class="docutils literal notranslate"><span class="pre">ipv4</span></code> or <code class="docutils literal notranslate"><span class="pre">ipv6</span></code>)</p></li>
+<li><p><strong>$ip</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Alamat IP</p></li>
+<li><p><strong>$which</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Protokol IP (<code class="docutils literal notranslate"><span class="pre">ipv4</span></code> atau <code class="docutils literal notranslate"><span class="pre">ipv6</span></code>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>true if the address is valid, false if not</p>
+<dd class="field-even"><p>true jika alamat valid, false jika tidak</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
 </dd>
 </dl>
-<p>Takes an IP address as input and returns true or false (boolean) depending
-on whether it is valid or not.</p>
+<p>Mengambil alamat IP sebagai input dan mengembalikan true atau false (boolean) tergantung
+apakah itu valid atau tidak.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The $request-&gt;getIPAddress() method above automatically validates the IP address.</p>
+<p>Method $request-&gt;getIPAddress() di atas secara otomatis memvalidasi alamat IP.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isValidIP</span><span class="p">(</span><span class="nv">$ip</span><span class="p">))</span> <span class="p">{</span>
@@ -368,8 +368,8 @@ on whether it is valid or not.</p>
 </pre></div>
 </div>
 </div>
-<p>Accepts an optional second string parameter of <code class="docutils literal notranslate"><span class="pre">ipv4</span></code> or <code class="docutils literal notranslate"><span class="pre">ipv6</span></code> to specify
-an IP format. The default checks for both formats.</p>
+<p>Menerima parameter string kedua opsional berupa <code class="docutils literal notranslate"><span class="pre">ipv4</span></code> atau <code class="docutils literal notranslate"><span class="pre">ipv6</span></code> untuk menentukan
+format IP. Defaultnya memeriksa kedua format.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -377,13 +377,13 @@ an IP format. The default checks for both formats.</p>
 <span class="sig-name descname"><span class="pre">getMethod</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Request::getMethod" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>HTTP request method</p>
+<dd class="field-odd"><p>Method permintaan HTTP</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
 </dd>
 </dl>
-<p>Returns the <code class="docutils literal notranslate"><span class="pre">$_SERVER['REQUEST_METHOD']</span></code>.</p>
+<p>Mengembalikan <code class="docutils literal notranslate"><span class="pre">$_SERVER['REQUEST_METHOD']</span></code>.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span> <span class="c1">// Outputs: POST</span>
@@ -395,16 +395,16 @@ an IP format. The default checks for both formats.</p>
 <dt class="sig sig-object php" id="CodeIgniter\HTTP\Request::setMethod">
 <span class="sig-name descname"><span class="pre">setMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$method</span></em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Request::setMethod" title="Link permanen untuk definisi ini"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.0.5: </span>Use <a class="reference internal" href="#CodeIgniter\HTTP\Request::withMethod" title="CodeIgniter\HTTP\Request::withMethod"><code class="xref php php-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::withMethod()</span></code></a> instead.</p>
+<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.0.5: </span>Gunakan <a class="reference internal" href="#CodeIgniter\HTTP\Request::withMethod" title="CodeIgniter\HTTP\Request::withMethod"><code class="xref php php-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::withMethod()</span></code></a> sebagai gantinya.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$method</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Sets the request method. Used when spoofing the request.</p></li>
+<li><p><strong>$method</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Mengatur method permintaan. Digunakan saat memalsukan permintaan.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>This request</p>
+<dd class="field-even"><p>Permintaan ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\HTTP\Request" title="CodeIgniter\HTTP\Request"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Request</span></code></a></span></p>
@@ -421,11 +421,11 @@ an IP format. The default checks for both formats.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$method</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Sets the request method.</p></li>
+<li><p><strong>$method</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Mengatur method permintaan.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>New request instance</p>
+<dd class="field-even"><p>Instance permintaan baru</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\HTTP\Request" title="CodeIgniter\HTTP\Request"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Request</span></code></a></span></p>
@@ -439,27 +439,27 @@ an IP format. The default checks for both formats.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Value name</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be found in <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">PHP manual</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int|array</span></code></span>) -- Flags to apply. A list of flags can be found in <a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">PHP manual</a>.</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Nama nilai</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat ditemukan di <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">manual PHP</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int|array</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan di <a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">manual PHP</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code> item value if found, null if not</p>
+<dd class="field-even"><p>Nilai item <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code> jika ditemukan, null jika tidak</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span></p>
 </dd>
 </dl>
-<p>This method is identical to the <code class="docutils literal notranslate"><span class="pre">getPost()</span></code>, <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> and <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code> methods from the
-<a class="reference internal" href="incomingrequest.html"><span class="doc">IncomingRequest Class</span></a>, only it fetches server data (<code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>):</p>
+<p>Method ini identik dengan method <code class="docutils literal notranslate"><span class="pre">getPost()</span></code>, <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> dan <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code> dari
+<a class="reference internal" href="incomingrequest.html"><span class="doc">Class IncomingRequest</span></a>, hanya saja ini mengambil data server (<code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>):</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getServer</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>To return an array of multiple <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code> values, pass all the required keys
-as an array.</p>
+<p>Untuk mengembalikan array dari beberapa nilai <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>, berikan semua kunci yang diperlukan
+sebagai array.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getServer</span><span class="p">([</span><span class="s1">&#39;SERVER_PROTOCOL&#39;</span><span class="p">,</span> <span class="s1">&#39;REQUEST_URI&#39;</span><span class="p">]);</span>
@@ -471,33 +471,33 @@ as an array.</p>
 <dt class="sig sig-object php" id="CodeIgniter\HTTP\Request::getEnv">
 <span class="sig-name descname"><span class="pre">getEnv</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Request::getEnv" title="Link permanen untuk definisi ini"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.4.4: </span>This method does not work from the beginning. Use
-<a class="reference internal" href="../general/common_functions.html#env" title="env"><code class="xref php php-func docutils literal notranslate"><span class="pre">env()</span></code></a> instead.</p>
+<p><span class="versionmodified deprecated">Ditinggalkan sejak versi 4.4.4: </span>Method ini tidak berfungsi sejak awal. Gunakan
+<a class="reference internal" href="../general/common_functions.html#env" title="env"><code class="xref php php-func docutils literal notranslate"><span class="pre">env()</span></code></a> sebagai gantinya.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Value name</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be found in <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">PHP manual</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int|array</span></code></span>) -- Flags to apply. A list of flags can be found in <a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">PHP manual</a>.</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Nama nilai</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat ditemukan di <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">manual PHP</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int|array</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan di <a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">manual PHP</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">$_ENV</span></code> item value if found, null if not</p>
+<dd class="field-even"><p>Nilai item <code class="docutils literal notranslate"><span class="pre">$_ENV</span></code> jika ditemukan, null jika tidak</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span></p>
 </dd>
 </dl>
-<p>This method is identical to the <code class="docutils literal notranslate"><span class="pre">getPost()</span></code>, <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> and <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code> methods from the
-<a class="reference internal" href="incomingrequest.html"><span class="doc">IncomingRequest Class</span></a>, only it fetches env data (<code class="docutils literal notranslate"><span class="pre">$_ENV</span></code>):</p>
+<p>Method ini identik dengan method <code class="docutils literal notranslate"><span class="pre">getPost()</span></code>, <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> dan <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code> dari
+<a class="reference internal" href="incomingrequest.html"><span class="doc">Class IncomingRequest</span></a>, hanya saja ini mengambil data env (<code class="docutils literal notranslate"><span class="pre">$_ENV</span></code>):</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getEnv</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>To return an array of multiple <code class="docutils literal notranslate"><span class="pre">$_ENV</span></code> values, pass all the required keys
-as an array.</p>
+<p>Untuk mengembalikan array dari beberapa nilai <code class="docutils literal notranslate"><span class="pre">$_ENV</span></code>, berikan semua kunci yang diperlukan
+sebagai array.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getEnv</span><span class="p">([</span><span class="s1">&#39;CI_ENVIRONMENT&#39;</span><span class="p">,</span> <span class="s1">&#39;S3_BUCKET&#39;</span><span class="p">]);</span>
@@ -511,18 +511,18 @@ as an array.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$method</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Method name</p></li>
-<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Data to be added</p></li>
+<li><p><strong>$method</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama method</p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Data yang akan ditambahkan</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>This request</p>
+<dd class="field-even"><p>Permintaan ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\HTTP\Request" title="CodeIgniter\HTTP\Request"><code class="xref php php-obj docutils literal notranslate"><span class="pre">Request</span></code></a></span></p>
 </dd>
 </dl>
-<p>Allows manually setting the value of PHP global, like <code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, etc.</p>
+<p>Memungkinkan pengaturan nilai global PHP secara manual, seperti <code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, dll.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -531,18 +531,18 @@ as an array.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$method</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Input filter constant</p></li>
-<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Value name</p></li>
-<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- The type of filter to apply. A list of filters can be found in <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">PHP manual</a>.</p></li>
-<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int|array</span></code></span>) -- Flags to apply. A list of flags can be found in <a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">PHP manual</a>.</p></li>
+<li><p><strong>$method</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Konstanta filter input</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Nama nilai</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- Jenis filter yang akan diterapkan. Daftar filter dapat ditemukan di <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">manual PHP</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int|array</span></code></span>) -- Flag yang akan diterapkan. Daftar flag dapat ditemukan di <a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">manual PHP</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span></p>
 </dd>
 </dl>
-<p>Fetches one or more items from a global, like cookies, get, post, etc.
-Can optionally filter the input when you retrieve it by passing in a filter.</p>
+<p>Mengambil satu atau lebih item dari global, seperti cookie, get, post, dll.
+Dapat secara opsional memfilter input saat Anda mengambilnya dengan meneruskan filter.</p>
 </dd></dl>
 
 </dd></dl>
@@ -562,7 +562,7 @@ Can optionally filter the input when you retrieve it by passing in a filter.</p>
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

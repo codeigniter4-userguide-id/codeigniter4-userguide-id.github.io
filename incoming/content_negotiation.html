@@ -28,7 +28,7 @@
     <link rel="index" title="Indeks" href="../genindex.html" />
     <link rel="search" title="Pencarian" href="../search.html" />
     <link rel="next" title="HTTP Method Spoofing" href="methodspoofing.html" />
-    <link rel="prev" title="IncomingRequest Class" href="incomingrequest.html" /> 
+    <link rel="prev" title="Class IncomingRequest" href="incomingrequest.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -113,17 +113,17 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controller dan Router</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Perutean URI (Routing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Filter Controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_routing_improved.html">Auto Routing (Improved)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="request.html">Request Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Class Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">Class IncomingRequest</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">HTTP Method Spoofing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="restful.html">RESTful Resource Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Penanganan Resource RESTful</a></li>
 </ul>
 </li>
 </ul>
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Penggunaan Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Ikhtisar CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Menjalankan Controller via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Command Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Membuat Perintah (Command) Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generator CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">Library CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -278,7 +278,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Controller dan Router</a></li>
       <li class="breadcrumb-item active">Content Negotiation</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -292,77 +292,74 @@
 <h1>Content Negotiation<a class="headerlink" href="#content-negotiation" title="Permalink to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#what-is-content-negotiation" id="id1">What is Content Negotiation?</a></p></li>
-<li><p><a class="reference internal" href="#loading-the-class" id="id2">Loading the Class</a></p></li>
-<li><p><a class="reference internal" href="#negotiating" id="id3">Negotiating</a></p>
+<li><p><a class="reference internal" href="#apa-itu-negosiasi-konten" id="id1">Apa itu Negosiasi Konten?</a></p></li>
+<li><p><a class="reference internal" href="#memuat-class" id="id2">Memuat Class</a></p></li>
+<li><p><a class="reference internal" href="#negosiasi" id="id3">Negosiasi</a></p>
 <ul>
 <li><p><a class="reference internal" href="#media" id="id4">Media</a></p></li>
-<li><p><a class="reference internal" href="#language" id="id5">Language</a></p></li>
-<li><p><a class="reference internal" href="#encoding" id="id6">Encoding</a></p></li>
-<li><p><a class="reference internal" href="#character-set" id="id7">Character Set</a></p></li>
+<li><p><a class="reference internal" href="#bahasa" id="id5">Bahasa</a></p></li>
+<li><p><a class="reference internal" href="#pengkodean" id="id6">Pengkodean</a></p></li>
+<li><p><a class="reference internal" href="#set-karakter" id="id7">Set Karakter</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
-<section id="what-is-content-negotiation">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">What is Content Negotiation?</a><a class="headerlink" href="#what-is-content-negotiation" title="Permalink to this heading"></a></h2>
-<p>Content negotiation is a way to determine what type of content to return to the client based on what the client
-can handle, and what the server can handle. This can be used to determine whether the client is wanting HTML or JSON
-returned, whether the image should be returned as a JPEG or PNG, what type of compression is supported and more. This
-is done by analyzing four different headers which can each support multiple value options, each with their own priority.</p>
-<p>Trying to match this up manually can be pretty challenging. CodeIgniter provides the <code class="docutils literal notranslate"><span class="pre">Negotiator</span></code> class that
-can handle this for you.</p>
-<p>At it's heart Content Negotiation is simply a part of the HTTP specification that allows a single
-resource to serve more than one type of content, allowing the clients to request the type of
-data that works best for them.</p>
-<p>A classic example of this is a browser that cannot display PNG files can request only GIF or
-JPEG images. When the server receives the request, it looks at the available file types the client
-is requesting and selects the best match from the image formats that it supports, in this case
-likely choosing a JPEG image to return.</p>
-<p>This same negotiation can happen with four types of data:</p>
+<section id="apa-itu-negosiasi-konten">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Apa itu Negosiasi Konten?</a><a class="headerlink" href="#apa-itu-negosiasi-konten" title="Permalink to this heading"></a></h2>
+<p>Negosiasi konten adalah cara untuk menentukan jenis konten apa yang akan dikembalikan ke klien berdasarkan apa yang dapat ditangani oleh klien, dan apa yang dapat ditangani oleh server. Ini dapat digunakan untuk menentukan apakah klien menginginkan HTML atau JSON
+yang dikembalikan, apakah gambar harus dikembalikan sebagai JPEG atau PNG, jenis kompresi apa yang didukung dan banyak lagi. Ini
+dilakukan dengan menganalisis empat header berbeda yang masing-masing dapat mendukung beberapa opsi nilai, masing-masing dengan prioritasnya sendiri.</p>
+<p>Mencoba mencocokkan ini secara manual bisa sangat menantang. CodeIgniter menyediakan class <code class="docutils literal notranslate"><span class="pre">Negotiator</span></code> yang
+dapat menangani ini untuk Anda.</p>
+<p>Pada intinya, Negosiasi Konten hanyalah bagian dari spesifikasi HTTP yang memungkinkan satu
+resource untuk menyajikan lebih dari satu jenis konten, memungkinkan klien untuk meminta jenis
+data yang paling sesuai untuk mereka.</p>
+<p>Contoh klasik dari ini adalah browser yang tidak dapat menampilkan berkas PNG dapat meminta hanya gambar GIF atau
+JPEG. Ketika server menerima permintaan, ia melihat jenis berkas yang tersedia yang diminta klien
+dan memilih kecocokan terbaik dari format gambar yang didukungnya, dalam kasus ini
+kemungkinan memilih gambar JPEG untuk dikembalikan.</p>
+<p>Negosiasi yang sama ini dapat terjadi dengan empat jenis data:</p>
 <ul class="simple">
-<li><p><strong>Media/Document Type</strong> - this could be image format, or HTML vs. XML or JSON.</p></li>
-<li><p><strong>Character Set</strong> - The character set the returned document should be set in. Typically is UTF-8.</p></li>
-<li><p><strong>Document Encoding</strong> - Typically the type of compression used on the results.</p></li>
-<li><p><strong>Document Language</strong> - For sites that support multiple languages, this helps determine which to return.</p></li>
+<li><p><strong>Jenis Media/Dokumen</strong> - ini bisa berupa format gambar, atau HTML vs. XML atau JSON.</p></li>
+<li><p><strong>Set Karakter</strong> - Set karakter yang harus diatur dalam dokumen yang dikembalikan. Biasanya adalah UTF-8.</p></li>
+<li><p><strong>Pengkodean Dokumen</strong> - Biasanya jenis kompresi yang digunakan pada hasil.</p></li>
+<li><p><strong>Bahasa Dokumen</strong> - Untuk situs yang mendukung banyak bahasa, ini membantu menentukan mana yang akan dikembalikan.</p></li>
 </ul>
 </section>
-<section id="loading-the-class">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Loading the Class</a><a class="headerlink" href="#loading-the-class" title="Permalink to this heading"></a></h2>
-<p>You can load an instance of the class manually through the Service class:</p>
+<section id="memuat-class">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Memuat Class</a><a class="headerlink" href="#memuat-class" title="Permalink to this heading"></a></h2>
+<p>Anda dapat memuat instance class secara manual melalui class Service:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$negotiate</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;negotiator&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>This will grab the current request instance and automatically inject it into the Negotiator class.</p>
-<p>This class does not need to be loaded on it's own. Instead, it can be accessed through this request's <code class="docutils literal notranslate"><span class="pre">IncomingRequest</span></code>
-instance. While you cannot access it directly this way, you can easily access all of methods through the <code class="docutils literal notranslate"><span class="pre">negotiate()</span></code>
-method:</p>
+<p>Ini akan mengambil instance permintaan saat ini dan secara otomatis menyuntikkannya ke dalam class Negotiator.</p>
+<p>Class ini tidak perlu dimuat sendiri. Sebaliknya, itu dapat diakses melalui instance <code class="docutils literal notranslate"><span class="pre">IncomingRequest</span></code> permintaan ini. Meskipun Anda tidak dapat mengaksesnya secara langsung dengan cara ini, Anda dapat dengan mudah mengakses semua method melalui method <code class="docutils literal notranslate"><span class="pre">negotiate()</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>When accessed this way, the first parameter is the type of content you're trying to find a match for, while the
-second is an array of supported values.</p>
+<p>Ketika diakses dengan cara ini, parameter pertama adalah jenis konten yang Anda coba temukan kecocokannya, sedangkan
+yang kedua adalah array nilai yang didukung.</p>
 </section>
-<section id="negotiating">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Negotiating</a><a class="headerlink" href="#negotiating" title="Permalink to this heading"></a></h2>
-<p>In this section, we will discuss the 4 types of content that can be negotiated and show how that would look using
-both of the methods described above to access the negotiator.</p>
+<section id="negosiasi">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Negosiasi</a><a class="headerlink" href="#negosiasi" title="Permalink to this heading"></a></h2>
+<p>Di bagian ini, kita akan membahas 4 jenis konten yang dapat dinegosiasikan dan menunjukkan bagaimana itu akan terlihat menggunakan
+kedua method yang dijelaskan di atas untuk mengakses negosiator.</p>
 <section id="media">
 <h3><a class="toc-backref" href="#id4" role="doc-backlink">Media</a><a class="headerlink" href="#media" title="Permalink to this heading"></a></h3>
-<p>The first aspect to look at is handling 'media' negotiations. These are provided by the <code class="docutils literal notranslate"><span class="pre">Accept</span></code> header and
-is one of the most complex headers available. A common example is the client telling the server what format it
-wants the data in. This is especially common in APIs. For example, a client might request JSON formatted data
-from an API endpoint:</p>
+<p>Aspek pertama yang perlu dilihat adalah penanganan negosiasi 'media'. Ini disediakan oleh header <code class="docutils literal notranslate"><span class="pre">Accept</span></code> dan
+merupakan salah satu header paling kompleks yang tersedia. Contoh umum adalah klien memberi tahu server format apa yang
+diinginkannya data. Ini sangat umum dalam API. Misalnya, klien mungkin meminta data berformat JSON
+dari endpoint API:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">GET</span> <span class="o">/</span><span class="nx">foo</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="nx">Accept</span><span class="o">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </pre></div>
 </div>
-<p>The server now needs to provide a list of what type of content it can provide. In this example, the API might
-be able to return data as raw HTML, JSON, or XML. This list should be provided in order of preference:</p>
+<p>Server sekarang perlu menyediakan daftar jenis konten apa yang dapat disediakannya. Dalam contoh ini, API mungkin
+dapat mengembalikan data sebagai HTML mentah, JSON, atau XML. Daftar ini harus disediakan dalam urutan preferensi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$supported</span> <span class="o">=</span> <span class="p">[</span>
@@ -376,10 +373,10 @@ be able to return data as raw HTML, JSON, or XML. This list should be provided i
 <span class="nv">$format</span> <span class="o">=</span> <span class="nv">$negotiate</span><span class="o">-&gt;</span><span class="na">media</span><span class="p">(</span><span class="nv">$supported</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In this case, both the client and the server can agree on formatting the data as JSON so 'json' is returned from
-the negotiate method. By default, if no match is found, the first element in the <code class="docutils literal notranslate"><span class="pre">$supported</span></code> array would be returned.
-In some cases, though, you might need to enforce the format to be a strict match. If you pass <code class="docutils literal notranslate"><span class="pre">true</span></code> as the
-final value, it will return an empty string if no match is found:</p>
+<p>Dalam kasus ini, baik klien maupun server dapat menyetujui pemformatan data sebagai JSON sehingga 'json' dikembalikan dari
+method negosiasi. Secara default, jika tidak ada kecocokan yang ditemukan, elemen pertama dalam array <code class="docutils literal notranslate"><span class="pre">$supported</span></code> akan dikembalikan.
+Namun, dalam beberapa kasus, Anda mungkin perlu memberlakukan format agar sesuai persis. Jika Anda meneruskan <code class="docutils literal notranslate"><span class="pre">true</span></code> sebagai
+nilai akhir, itu akan mengembalikan string kosong jika tidak ada kecocokan yang ditemukan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$format</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="nv">$supported</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
@@ -388,18 +385,17 @@ final value, it will return an empty string if no match is found:</p>
 </pre></div>
 </div>
 </section>
-<section id="language">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Language</a><a class="headerlink" href="#language" title="Permalink to this heading"></a></h3>
-<p>Another common usage is to determine the language the content should be served in. If you are running only a single
-language site, this obviously isn't going to make much difference, but any site that can offer up multiple translations
-of content will find this useful, since the browser will typically send the preferred language along in the <code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code>
-header:</p>
+<section id="bahasa">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Bahasa</a><a class="headerlink" href="#bahasa" title="Permalink to this heading"></a></h3>
+<p>Penggunaan umum lainnya adalah untuk menentukan bahasa di mana konten harus disajikan. Jika Anda hanya menjalankan situs satu
+bahasa, ini jelas tidak akan membuat banyak perbedaan, tetapi situs mana pun yang dapat menawarkan beberapa terjemahan
+konten akan menemukan ini berguna, karena browser biasanya akan mengirim bahasa yang disukai di header <code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code></p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">GET</span> <span class="o">/</span><span class="nx">foo</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="nx">Accept</span><span class="o">-</span><span class="nx">Language</span><span class="o">:</span> <span class="nx">fr</span><span class="p">;</span> <span class="nx">q</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nx">en</span><span class="p">;</span> <span class="nx">q</span><span class="o">=</span><span class="mf">0.5</span>
 </pre></div>
 </div>
-<p>In this example, the browser would prefer French, with a second choice of English. If your website supports English
-and German you would do something like:</p>
+<p>Dalam contoh ini, browser akan lebih memilih bahasa Prancis, dengan pilihan kedua bahasa Inggris. Jika situs web Anda mendukung bahasa Inggris
+dan Jerman, Anda akan melakukan sesuatu seperti:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$supported</span> <span class="o">=</span> <span class="p">[</span>
@@ -412,32 +408,32 @@ and German you would do something like:</p>
 <span class="nv">$lang</span> <span class="o">=</span> <span class="nv">$negotiate</span><span class="o">-&gt;</span><span class="na">language</span><span class="p">(</span><span class="nv">$supported</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In this example, 'en' would be returned as the current language. If no match is found, it will return the first element
-in the <code class="docutils literal notranslate"><span class="pre">$supported</span></code> array, so that should always be the preferred language.</p>
-<section id="strict-locale-negotiation">
-<h4>Strict Locale Negotiation<a class="headerlink" href="#strict-locale-negotiation" title="Permalink to this heading"></a></h4>
+<p>Dalam contoh ini, 'en' akan dikembalikan sebagai bahasa saat ini. Jika tidak ada kecocokan yang ditemukan, itu akan mengembalikan elemen pertama
+dalam array <code class="docutils literal notranslate"><span class="pre">$supported</span></code>, sehingga itu harus selalu menjadi bahasa yang disukai.</p>
+<section id="negosiasi-lokal-yang-ketat">
+<h4>Negosiasi Lokal yang Ketat<a class="headerlink" href="#negosiasi-lokal-yang-ketat" title="Permalink to this heading"></a></h4>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.6.0.</span></p>
 </div>
-<p>By default, locale is determined on a lossy comparison basis. So only the first part of the locale string is taken
-into account (language). This is usually sufficient. But sometimes we want to be able to distinguish between regional versions such as
-<code class="docutils literal notranslate"><span class="pre">en-US</span></code> and <code class="docutils literal notranslate"><span class="pre">en-GB</span></code> to serve different content.</p>
-<p>For such cases, we have introduced a new setting that can be enabled via <code class="docutils literal notranslate"><span class="pre">Config\Feature::$strictLocaleNegotiation</span></code>. This will ensure
-that the strict comparison will be made in the first place.</p>
+<p>Secara default, lokal ditentukan berdasarkan perbandingan yang hilang. Jadi hanya bagian pertama dari string lokal yang dipertimbangkan
+(bahasa). Ini biasanya cukup. Tetapi terkadang kita ingin dapat membedakan antara versi regional seperti
+<code class="docutils literal notranslate"><span class="pre">en-US</span></code> dan <code class="docutils literal notranslate"><span class="pre">en-GB</span></code> untuk menyajikan konten yang berbeda.</p>
+<p>Untuk kasus seperti itu, kami telah memperkenalkan pengaturan baru yang dapat diaktifkan melalui <code class="docutils literal notranslate"><span class="pre">Config\Feature::$strictLocaleNegotiation</span></code>. Ini akan memastikan
+bahwa perbandingan ketat akan dilakukan terlebih dahulu.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>CodeIgniter comes with translations only for primary language tags ('en', 'fr', etc.). So if you enable this feature and your
-settings in <code class="docutils literal notranslate"><span class="pre">Config\App::$supportedLocales</span></code> include regional language tags ('en-US', 'fr-FR', etc.), then keep in mind that
-if you have your own translation files, you <strong>must also change</strong> the folder names for CodeIgniter's translation files to match
-what you put in the <code class="docutils literal notranslate"><span class="pre">$supportedLocales</span></code> array.</p>
+<p>CodeIgniter dilengkapi dengan terjemahan hanya untuk tag bahasa utama ('en', 'fr', dll.). Jadi jika Anda mengaktifkan fitur ini dan
+pengaturan Anda di <code class="docutils literal notranslate"><span class="pre">Config\App::$supportedLocales</span></code> menyertakan tag bahasa regional ('en-US', 'fr-FR', dll.), maka perlu diingat bahwa
+jika Anda memiliki berkas terjemahan Anda sendiri, Anda <strong>juga harus mengubah</strong> nama folder untuk berkas terjemahan CodeIgniter agar sesuai
+dengan apa yang Anda masukkan dalam array <code class="docutils literal notranslate"><span class="pre">$supportedLocales</span></code>.</p>
 </div>
-<p>Now let's consider the below example. The browser's preferred language will be set as this:</p>
+<p>Sekarang mari kita pertimbangkan contoh di bawah ini. Bahasa pilihan browser akan diatur seperti ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">GET</span> <span class="o">/</span><span class="nx">foo</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="nx">Accept</span><span class="o">-</span><span class="nx">Language</span><span class="o">:</span> <span class="nx">fr</span><span class="p">;</span> <span class="nx">q</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nx">en</span><span class="o">-</span><span class="nx">GB</span><span class="p">;</span> <span class="nx">q</span><span class="o">=</span><span class="mf">0.5</span>
 </pre></div>
 </div>
-<p>In this example, the browser would prefer French, with a second choice of English (United Kingdom). Your website on another hand
-supports German and English (United States):</p>
+<p>Dalam contoh ini, browser akan lebih memilih bahasa Prancis, dengan pilihan kedua bahasa Inggris (Britania Raya). Situs web Anda di sisi lain
+mendukung bahasa Jerman dan Inggris (Amerika Serikat):</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$supported</span> <span class="o">=</span> <span class="p">[</span>
@@ -450,29 +446,29 @@ supports German and English (United States):</p>
 <span class="nv">$lang</span> <span class="o">=</span> <span class="nv">$negotiate</span><span class="o">-&gt;</span><span class="na">language</span><span class="p">(</span><span class="nv">$supported</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In this example, 'en-US' would be returned as the current language. If no match is found, it will return the first element
-in the <code class="docutils literal notranslate"><span class="pre">$supported</span></code> array. Here is how exactly the locale selection process works.</p>
-<p>Even though the 'fr' is preferred by the browser it is not in our <code class="docutils literal notranslate"><span class="pre">$supported</span></code> array. The same problem occurs with 'en-GB', but here
-we will be able to search for variants. First, we will fallback to the most general locale (in this case 'en') which again is not in our
-array. Then we will search for the regional locale 'en-'. And that's when our value from the <code class="docutils literal notranslate"><span class="pre">$supported</span></code> array will be matched.
-We will return 'en-US'.</p>
-<p>So the process of selecting a locale is as follows:</p>
+<p>Dalam contoh ini, 'en-US' akan dikembalikan sebagai bahasa saat ini. Jika tidak ada kecocokan yang ditemukan, itu akan mengembalikan elemen pertama
+dalam array <code class="docutils literal notranslate"><span class="pre">$supported</span></code>. Begini cara kerja proses pemilihan lokal.</p>
+<p>Meskipun 'fr' lebih disukai oleh browser, itu tidak ada dalam array <code class="docutils literal notranslate"><span class="pre">$supported</span></code> kami. Masalah yang sama terjadi dengan 'en-GB', tetapi di sini
+kita akan dapat mencari varian. Pertama, kita akan kembali ke lokal yang paling umum (dalam kasus ini 'en') yang lagi-lagi tidak ada dalam
+array kami. Kemudian kita akan mencari lokal regional 'en-'. Dan saat itulah nilai kita dari array <code class="docutils literal notranslate"><span class="pre">$supported</span></code> akan dicocokkan.
+Kita akan mengembalikan 'en-US'.</p>
+<p>Jadi proses pemilihan lokal adalah sebagai berikut:</p>
 <ol class="arabic simple">
-<li><p>strict match ('en-GB') - ISO 639-1 plus ISO 3166-1 alpha-2</p></li>
-<li><p>general locale match ('en') - ISO 639-1</p></li>
-<li><p>regional locale match ('en-') - ISO 639-1 plus &quot;wildcard&quot; for ISO 3166-1 alpha-2</p></li>
+<li><p>kecocokan ketat ('en-GB') - ISO 639-1 ditambah ISO 3166-1 alpha-2</p></li>
+<li><p>kecocokan lokal umum ('en') - ISO 639-1</p></li>
+<li><p>kecocokan lokal regional ('en-') - ISO 639-1 ditambah &quot;wildcard&quot; untuk ISO 3166-1 alpha-2</p></li>
 </ol>
 </section>
 </section>
-<section id="encoding">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Encoding</a><a class="headerlink" href="#encoding" title="Permalink to this heading"></a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">Accept-Encoding</span></code> header contains the character sets the client prefers to receive, and is used to
-specify the type of compression the client supports:</p>
+<section id="pengkodean">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Pengkodean</a><a class="headerlink" href="#pengkodean" title="Permalink to this heading"></a></h3>
+<p>Header <code class="docutils literal notranslate"><span class="pre">Accept-Encoding</span></code> berisi set karakter yang lebih disukai klien untuk diterima, dan digunakan untuk
+menentukan jenis kompresi yang didukung klien:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">GET</span> <span class="o">/</span><span class="nx">foo</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="o">:</span> <span class="nx">compress</span><span class="p">,</span> <span class="nx">gzip</span>
 </pre></div>
 </div>
-<p>Your web server will define what types of compression you can use. Some, like Apache, only support <strong>gzip</strong>:</p>
+<p>Web server Anda akan menentukan jenis kompresi apa yang dapat Anda gunakan. Beberapa, seperti Apache, hanya mendukung <strong>gzip</strong>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$type</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;encoding&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;gzip&#39;</span><span class="p">]);</span>
@@ -480,16 +476,16 @@ specify the type of compression the client supports:</p>
 <span class="nv">$type</span> <span class="o">=</span> <span class="nv">$negotiate</span><span class="o">-&gt;</span><span class="na">encoding</span><span class="p">([</span><span class="s1">&#39;gzip&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<p>See more at <a class="reference external" href="https://en.wikipedia.org/wiki/HTTP_compression">Wikipedia</a>.</p>
+<p>Lihat lebih lanjut di <a class="reference external" href="https://en.wikipedia.org/wiki/HTTP_compression">Wikipedia</a>.</p>
 </section>
-<section id="character-set">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Character Set</a><a class="headerlink" href="#character-set" title="Permalink to this heading"></a></h3>
-<p>The desired character set is passed through the <code class="docutils literal notranslate"><span class="pre">Accept-Charset</span></code> header:</p>
+<section id="set-karakter">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Set Karakter</a><a class="headerlink" href="#set-karakter" title="Permalink to this heading"></a></h3>
+<p>Set karakter yang diinginkan diteruskan melalui header <code class="docutils literal notranslate"><span class="pre">Accept-Charset</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">GET</span> <span class="o">/</span><span class="nx">foo</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="nx">Accept</span><span class="o">-</span><span class="nx">Charset</span><span class="o">:</span> <span class="nx">utf</span><span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="nx">utf</span><span class="o">-</span><span class="mi">8</span>
 </pre></div>
 </div>
-<p>By default, if no matches are found, <strong>utf-8</strong> will be returned:</p>
+<p>Secara default, jika tidak ada kecocokan yang ditemukan, <strong>utf-8</strong> akan dikembalikan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$charset</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;charset&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;utf-8&#39;</span><span class="p">]);</span>
@@ -505,7 +501,7 @@ specify the type of compression the client supports:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="incomingrequest.html" class="btn btn-neutral float-left" title="IncomingRequest Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="incomingrequest.html" class="btn btn-neutral float-left" title="Class IncomingRequest" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="methodspoofing.html" class="btn btn-neutral float-right" title="HTTP Method Spoofing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -513,7 +509,7 @@ specify the type of compression the client supports:</p>
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

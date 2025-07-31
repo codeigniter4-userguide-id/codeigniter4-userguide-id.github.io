@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Controller Filters &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+  <title>Filter Controller &mdash; Dokumentasi CodeIgniter 4.6.2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
@@ -113,17 +113,17 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controller dan Router</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Perutean URI (Routing)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Controller Filters</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Filter Controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_routing_improved.html">Auto Routing (Improved)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="request.html">Request Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Class Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">Class IncomingRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">HTTP Method Spoofing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="restful.html">RESTful Resource Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Penanganan Resource RESTful</a></li>
 </ul>
 </li>
 </ul>
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Penggunaan Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Ikhtisar CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Menjalankan Controller via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Command Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Membuat Perintah (Command) Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generator CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">Library CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -278,8 +278,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
-      <li class="breadcrumb-item active">Controller Filters</li>
+          <li class="breadcrumb-item"><a href="index.html">Controller dan Router</a></li>
+      <li class="breadcrumb-item active">Filter Controller</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -288,70 +288,70 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="controller-filters">
-<h1>Controller Filters<a class="headerlink" href="#controller-filters" title="Permalink to this heading"></a></h1>
+  <section id="filter-controller">
+<h1>Filter Controller<a class="headerlink" href="#filter-controller" title="Permalink to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#creating-a-filter" id="id8">Creating a Filter</a></p>
+<li><p><a class="reference internal" href="#membuat-filter" id="id5">Membuat Filter</a></p>
 <ul>
-<li><p><a class="reference internal" href="#before-filters" id="id9">Before Filters</a></p>
+<li><p><a class="reference internal" href="#filter-sebelum" id="id6">Filter Sebelum</a></p>
 <ul>
-<li><p><a class="reference internal" href="#replacing-request" id="id10">Replacing Request</a></p></li>
-<li><p><a class="reference internal" href="#stopping-later-filters" id="id11">Stopping Later Filters</a></p></li>
-<li><p><a class="reference internal" href="#returning-response" id="id12">Returning Response</a></p></li>
+<li><p><a class="reference internal" href="#mengganti-request" id="id7">Mengganti Request</a></p></li>
+<li><p><a class="reference internal" href="#menghentikan-filter-selanjutnya" id="id8">Menghentikan Filter Selanjutnya</a></p></li>
+<li><p><a class="reference internal" href="#mengembalikan-response" id="id9">Mengembalikan Response</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#after-filters" id="id13">After Filters</a></p></li>
+<li><p><a class="reference internal" href="#filter-sesudah" id="id10">Filter Sesudah</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#configuring-filters" id="id14">Configuring Filters</a></p>
+<li><p><a class="reference internal" href="#mengkonfigurasi-filter" id="id11">Mengkonfigurasi Filter</a></p>
 <ul>
-<li><p><a class="reference internal" href="#app-config-filters-php" id="id15">app/Config/Filters.php</a></p>
+<li><p><a class="reference internal" href="#app-config-filters-php" id="id12">app/Config/Filters.php</a></p>
 <ul>
-<li><p><a class="reference internal" href="#aliases" id="id16">$aliases</a></p></li>
-<li><p><a class="reference internal" href="#required" id="id17">$required</a></p></li>
-<li><p><a class="reference internal" href="#globals" id="id18">$globals</a></p></li>
-<li><p><a class="reference internal" href="#methods" id="id19">$methods</a></p></li>
-<li><p><a class="reference internal" href="#filters" id="id20">$filters</a></p></li>
+<li><p><a class="reference internal" href="#aliases" id="id13">$aliases</a></p></li>
+<li><p><a class="reference internal" href="#required" id="id14">$required</a></p></li>
+<li><p><a class="reference internal" href="#globals" id="id15">$globals</a></p></li>
+<li><p><a class="reference internal" href="#methods" id="id16">$methods</a></p></li>
+<li><p><a class="reference internal" href="#filters" id="id17">$filters</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#filter-execution-order" id="id21">Filter Execution Order</a></p></li>
+<li><p><a class="reference internal" href="#urutan-eksekusi-filter" id="id18">Urutan Eksekusi Filter</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#confirming-filters" id="id22">Confirming Filters</a></p>
+<li><p><a class="reference internal" href="#mengkonfirmasi-filter" id="id19">Mengkonfirmasi Filter</a></p>
 <ul>
-<li><p><a class="reference internal" href="#filter-check" id="id23">filter:check</a></p></li>
+<li><p><a class="reference internal" href="#filter-check" id="id20">filter:check</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#provided-filters" id="id24">Provided Filters</a></p>
+<li><p><a class="reference internal" href="#filter-yang-disediakan" id="id21">Filter yang Disediakan</a></p>
 <ul>
-<li><p><a class="reference internal" href="#forcehttps" id="id25">ForceHTTPS</a></p></li>
-<li><p><a class="reference internal" href="#performancemetrics" id="id26">PerformanceMetrics</a></p></li>
-<li><p><a class="reference internal" href="#invalidchars" id="id27">InvalidChars</a></p></li>
-<li><p><a class="reference internal" href="#secureheaders" id="id28">SecureHeaders</a></p></li>
+<li><p><a class="reference internal" href="#forcehttps" id="id22">ForceHTTPS</a></p></li>
+<li><p><a class="reference internal" href="#performancemetrics" id="id23">PerformanceMetrics</a></p></li>
+<li><p><a class="reference internal" href="#invalidchars" id="id24">InvalidChars</a></p></li>
+<li><p><a class="reference internal" href="#secureheaders" id="id25">SecureHeaders</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
-<p>Controller Filters allow you to perform actions either before or after the controllers execute. Unlike <a class="reference internal" href="../extending/events.html"><span class="doc">events</span></a>,
-you can choose the specific URIs or routes in which the filters will be applied to. Before filters may
-modify the Request while after filters can act on and even modify the Response, allowing for a lot of flexibility
-and power.</p>
-<p>Some common examples of tasks that might be performed with filters are:</p>
+<p>Filter Controller memungkinkan Anda untuk melakukan tindakan baik sebelum atau sesudah eksekusi controller. Tidak seperti <a class="reference internal" href="../extending/events.html"><span class="doc">event</span></a>,
+Anda dapat memilih URI atau router spesifik di mana filter akan diterapkan. Filter sebelum dapat
+memodifikasi Request sementara filter sesudah dapat bertindak dan bahkan memodifikasi Response, memungkinkan banyak fleksibilitas
+dan kekuatan.</p>
+<p>Beberapa contoh umum tugas yang mungkin dilakukan dengan filter adalah:</p>
 <ul class="simple">
-<li><p>Performing CSRF protection on the incoming requests</p></li>
-<li><p>Restricting areas of your site based upon their Role</p></li>
-<li><p>Perform rate limiting on certain endpoints</p></li>
-<li><p>Display a &quot;Down for Maintenance&quot; page</p></li>
-<li><p>Perform automatic content negotiation</p></li>
-<li><p>and more...</p></li>
+<li><p>Melakukan perlindungan CSRF pada permintaan masuk</p></li>
+<li><p>Membatasi area situs Anda berdasarkan Role mereka</p></li>
+<li><p>Melakukan pembatasan laju pada endpoint tertentu</p></li>
+<li><p>Menampilkan halaman &quot;Sedang dalam Perbaikan&quot;</p></li>
+<li><p>Melakukan negosiasi konten otomatis</p></li>
+<li><p>dan banyak lagi...</p></li>
 </ul>
-<section id="creating-a-filter">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Creating a Filter</a><a class="headerlink" href="#creating-a-filter" title="Permalink to this heading"></a></h2>
-<p>Filters are simple classes that implement <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Filters\FilterInterface</span></code>.
-They contain two methods: <code class="docutils literal notranslate"><span class="pre">before()</span></code> and <code class="docutils literal notranslate"><span class="pre">after()</span></code> which hold the code that
-will run before and after the controller respectively. Your class must contain both methods
-but may leave the methods empty if they are not needed. A skeleton filter class looks like:</p>
+<section id="membuat-filter">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Membuat Filter</a><a class="headerlink" href="#membuat-filter" title="Permalink to this heading"></a></h2>
+<p>Filter adalah class sederhana yang mengimplementasikan <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Filters\FilterInterface</span></code>.
+Mereka berisi dua method: <code class="docutils literal notranslate"><span class="pre">before()</span></code> dan <code class="docutils literal notranslate"><span class="pre">after()</span></code> yang menampung kode yang
+akan berjalan sebelum dan sesudah controller secara berurutan. Class Anda harus berisi kedua method
+tetapi dapat membiarkan method kosong jika tidak diperlukan. Kerangka class filter terlihat seperti:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Filters</span><span class="p">;</span>
@@ -374,27 +374,27 @@ but may leave the methods empty if they are not needed. A skeleton filter class 
 <span class="p">}</span>
 </pre></div>
 </div>
-<section id="before-filters">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Before Filters</a><a class="headerlink" href="#before-filters" title="Permalink to this heading"></a></h3>
-<section id="replacing-request">
-<h4><a class="toc-backref" href="#id10" role="doc-backlink">Replacing Request</a><a class="headerlink" href="#replacing-request" title="Permalink to this heading"></a></h4>
-<p>From any filter, you can return the <code class="docutils literal notranslate"><span class="pre">$request</span></code> object and it will replace the current Request, allowing you
-to make changes that will still be present when the controller executes.</p>
+<section id="filter-sebelum">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Filter Sebelum</a><a class="headerlink" href="#filter-sebelum" title="Permalink to this heading"></a></h3>
+<section id="mengganti-request">
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">Mengganti Request</a><a class="headerlink" href="#mengganti-request" title="Permalink to this heading"></a></h4>
+<p>Dari filter mana pun, Anda dapat mengembalikan objek <code class="docutils literal notranslate"><span class="pre">$request</span></code> dan itu akan mengganti Request saat ini, memungkinkan Anda
+untuk membuat perubahan yang masih akan ada saat controller dieksekusi.</p>
 </section>
-<section id="stopping-later-filters">
-<h4><a class="toc-backref" href="#id11" role="doc-backlink">Stopping Later Filters</a><a class="headerlink" href="#stopping-later-filters" title="Permalink to this heading"></a></h4>
-<p>Also, when you have a series of filters you may also want to
-stop the execution of the later filters after a certain filter. You can easily do this by returning
-<strong>any non-empty</strong> result. If the before filter returns an empty result, the controller actions or the later
-filters will still be executed.</p>
-<p>An exception to the non-empty result rule is the <code class="docutils literal notranslate"><span class="pre">Request</span></code> instance.
-Returning it in the before filter will not stop the execution but only replace the current <code class="docutils literal notranslate"><span class="pre">$request</span></code> object.</p>
+<section id="menghentikan-filter-selanjutnya">
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Menghentikan Filter Selanjutnya</a><a class="headerlink" href="#menghentikan-filter-selanjutnya" title="Permalink to this heading"></a></h4>
+<p>Juga, ketika Anda memiliki serangkaian filter, Anda mungkin juga ingin
+menghentikan eksekusi filter selanjutnya setelah filter tertentu. Anda dapat dengan mudah melakukannya dengan mengembalikan
+hasil <strong>non-kosong apa pun</strong>. Jika filter sebelum mengembalikan hasil kosong, tindakan controller atau filter selanjutnya
+masih akan dieksekusi.</p>
+<p>Pengecualian untuk aturan hasil non-kosong adalah instance <code class="docutils literal notranslate"><span class="pre">Request</span></code>.
+Mengembalikannya di filter sebelum tidak akan menghentikan eksekusi tetapi hanya mengganti objek <code class="docutils literal notranslate"><span class="pre">$request</span></code> saat ini.</p>
 </section>
-<section id="returning-response">
-<h4><a class="toc-backref" href="#id12" role="doc-backlink">Returning Response</a><a class="headerlink" href="#returning-response" title="Permalink to this heading"></a></h4>
-<p>Since before filters are executed prior to your controller being executed, you may at times want to stop the
-actions in the controller from happening.</p>
-<p>This is typically used to perform redirects, like in this example:</p>
+<section id="mengembalikan-response">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Mengembalikan Response</a><a class="headerlink" href="#mengembalikan-response" title="Permalink to this heading"></a></h4>
+<p>Karena filter sebelum dieksekusi sebelum controller Anda dieksekusi, Anda mungkin kadang-kadang ingin menghentikan
+tindakan di controller agar tidak terjadi.</p>
+<p>Ini biasanya digunakan untuk melakukan pengalihan, seperti dalam contoh ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Filters</span><span class="p">;</span>
@@ -416,44 +416,44 @@ actions in the controller from happening.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If a <code class="docutils literal notranslate"><span class="pre">Response</span></code> instance is returned, the Response will be sent back to the client and script execution will stop.
-This can be useful for implementing rate limiting for APIs. See <a class="reference internal" href="../libraries/throttler.html"><span class="doc">Throttler</span></a> for an
-example.</p>
+<p>Jika instance <code class="docutils literal notranslate"><span class="pre">Response</span></code> dikembalikan, Response akan dikirim kembali ke klien dan eksekusi skrip akan berhenti.
+Ini dapat berguna untuk mengimplementasikan pembatasan laju untuk API. Lihat <a class="reference internal" href="../libraries/throttler.html"><span class="doc">Throttler</span></a> untuk sebuah
+contoh.</p>
 </section>
 </section>
-<section id="after-filters">
-<span id="id1"></span><h3><a class="toc-backref" href="#id13" role="doc-backlink">After Filters</a><a class="headerlink" href="#after-filters" title="Permalink to this heading"></a></h3>
-<p>After filters are nearly identical to before filters, except that you can only return the <code class="docutils literal notranslate"><span class="pre">$response</span></code> object,
-and you cannot stop script execution. This does allow you to modify the final output, or simply do something with
-the final output. This could be used to ensure certain security headers were set the correct way, or to cache
-the final output, or even to filter the final output with a bad words filter.</p>
+<section id="filter-sesudah">
+<span id="after-filters"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Filter Sesudah</a><a class="headerlink" href="#filter-sesudah" title="Permalink to this heading"></a></h3>
+<p>Filter sesudah hampir identik dengan filter sebelum, kecuali bahwa Anda hanya dapat mengembalikan objek <code class="docutils literal notranslate"><span class="pre">$response</span></code>,
+dan Anda tidak dapat menghentikan eksekusi skrip. Ini memungkinkan Anda untuk memodifikasi output akhir, atau hanya melakukan sesuatu dengan
+output akhir. Ini dapat digunakan untuk memastikan header keamanan tertentu diatur dengan cara yang benar, atau untuk menyimpan
+output akhir, atau bahkan untuk memfilter output akhir dengan filter kata-kata buruk.</p>
 </section>
 </section>
-<section id="configuring-filters">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">Configuring Filters</a><a class="headerlink" href="#configuring-filters" title="Permalink to this heading"></a></h2>
-<p>There are two ways to configure filters when they get run. One is done in
-<strong>app/Config/Filters.php</strong>, the other is done in <strong>app/Config/Routes.php</strong>.</p>
-<p>If you want to specify filters to defined routes, use <strong>app/Config/Routes.php</strong>
-and see <a class="reference internal" href="routing.html#applying-filters"><span class="std std-ref">URI Routing</span></a>.</p>
+<section id="mengkonfigurasi-filter">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Mengkonfigurasi Filter</a><a class="headerlink" href="#mengkonfigurasi-filter" title="Permalink to this heading"></a></h2>
+<p>Ada dua cara untuk mengkonfigurasi filter saat mereka dijalankan. Salah satunya dilakukan di
+<strong>app/Config/Filters.php</strong>, yang lainnya dilakukan di <strong>app/Config/Routes.php</strong>.</p>
+<p>Jika Anda ingin menentukan filter ke router yang didefinisikan, gunakan <strong>app/Config/Routes.php</strong>
+dan lihat <a class="reference internal" href="routing.html#applying-filters"><span class="std std-ref">Perutean URI</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The safest way to apply filters is to <a class="reference internal" href="routing.html#use-defined-routes-only"><span class="std std-ref">disable auto-routing</span></a>, and <a class="reference internal" href="routing.html#applying-filters"><span class="std std-ref">set filters to routes</span></a>.</p>
+<p>Cara teraman untuk menerapkan filter adalah dengan <a class="reference internal" href="routing.html#use-defined-routes-only"><span class="std std-ref">menonaktifkan perutean otomatis</span></a>, dan <a class="reference internal" href="routing.html#applying-filters"><span class="std std-ref">mengatur filter ke router</span></a>.</p>
 </div>
 <section id="app-config-filters-php">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">app/Config/Filters.php</a><a class="headerlink" href="#app-config-filters-php" title="Permalink to this heading"></a></h3>
-<p>The <strong>app/Config/Filters.php</strong> file contains four properties that allow you to
-configure exactly when the filters run.</p>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">app/Config/Filters.php</a><a class="headerlink" href="#app-config-filters-php" title="Permalink to this heading"></a></h3>
+<p>Berkas <strong>app/Config/Filters.php</strong> berisi empat properti yang memungkinkan Anda untuk
+mengkonfigurasi kapan tepatnya filter berjalan.</p>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>It is recommended that you should always add <code class="docutils literal notranslate"><span class="pre">*</span></code> at the end of a URI in the filter settings.
-Because a controller method might be accessible by different URLs than you think.
-For example, when <a class="reference internal" href="routing.html#auto-routing-legacy"><span class="std std-ref">Auto Routing (Legacy)</span></a> is enabled, if you have <code class="docutils literal notranslate"><span class="pre">Blog::index()</span></code>,
-it can be accessible with <code class="docutils literal notranslate"><span class="pre">blog</span></code>, <code class="docutils literal notranslate"><span class="pre">blog/index</span></code>, and <code class="docutils literal notranslate"><span class="pre">blog/index/1</span></code>, etc.</p>
+<p>Disarankan agar Anda selalu menambahkan <code class="docutils literal notranslate"><span class="pre">*</span></code> di akhir URI dalam pengaturan filter.
+Karena method controller mungkin dapat diakses oleh URL yang berbeda dari yang Anda kira.
+Misalnya, ketika <a class="reference internal" href="routing.html#auto-routing-legacy"><span class="std std-ref">Perutean Otomatis (Legacy)</span></a> diaktifkan, jika Anda memiliki <code class="docutils literal notranslate"><span class="pre">Blog::index()</span></code>,
+itu dapat diakses dengan <code class="docutils literal notranslate"><span class="pre">blog</span></code>, <code class="docutils literal notranslate"><span class="pre">blog/index</span></code>, dan <code class="docutils literal notranslate"><span class="pre">blog/index/1</span></code>, dll.</p>
 </div>
 <section id="aliases">
-<span id="filters-aliases"></span><h4><a class="toc-backref" href="#id16" role="doc-backlink">$aliases</a><a class="headerlink" href="#aliases" title="Permalink to this heading"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">$aliases</span></code> array is used to associate a simple name with one or more fully-qualified class names that are the
-filters to run:</p>
+<span id="filters-aliases"></span><h4><a class="toc-backref" href="#id13" role="doc-backlink">$aliases</a><a class="headerlink" href="#aliases" title="Permalink to this heading"></a></h4>
+<p>Array <code class="docutils literal notranslate"><span class="pre">$aliases</span></code> digunakan untuk mengaitkan nama sederhana dengan satu atau lebih nama class yang sepenuhnya memenuhi syarat yang merupakan
+filter yang akan dijalankan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -470,11 +470,11 @@ filters to run:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Aliases are mandatory and if you try to use a full class name later, the system will throw an error.</p>
-<p>Defining them
-in this way makes it simple to switch out the class used. Great for when you decided you need to change to a
-different authentication system since you only change the filter's class and you're done.</p>
-<p>You can combine multiple filters into one alias, making complex sets of filters simple to apply:</p>
+<p>Alias adalah wajib dan jika Anda mencoba menggunakan nama class lengkap nanti, sistem akan memunculkan error.</p>
+<p>Mendefinisikannya
+dengan cara ini membuatnya sederhana untuk mengganti class yang digunakan. Sangat bagus untuk ketika Anda memutuskan Anda perlu beralih ke
+sistem otentikasi yang berbeda karena Anda hanya mengubah class filter dan Anda selesai.</p>
+<p>Anda dapat menggabungkan beberapa filter menjadi satu alias, membuat set filter yang kompleks mudah diterapkan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -494,26 +494,26 @@ different authentication system since you only change the filter's class and you
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>You should define as many aliases as you need.</p>
+<p>Anda harus mendefinisikan alias sebanyak yang Anda butuhkan.</p>
 </section>
 <section id="required">
-<span id="filters-required"></span><h4><a class="toc-backref" href="#id17" role="doc-backlink">$required</a><a class="headerlink" href="#required" title="Permalink to this heading"></a></h4>
+<span id="filters-required"></span><h4><a class="toc-backref" href="#id14" role="doc-backlink">$required</a><a class="headerlink" href="#required" title="Permalink to this heading"></a></h4>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.5.0.</span></p>
 </div>
-<p>The second section allows you to define <strong>Required Filters</strong>.
-They are special filters that are applied to every request made by the
-framework. They are applied before and after other kinds of filters that are
-explained below.</p>
+<p>Bagian kedua memungkinkan Anda untuk mendefinisikan <strong>Filter yang Diperlukan</strong>.
+Mereka adalah filter khusus yang diterapkan pada setiap permintaan yang dibuat oleh
+framework. Mereka diterapkan sebelum dan sesudah jenis filter lain yang
+dijelaskan di bawah ini.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The Required Filters are always executed. However, if the route does not exist, only the Before Filters are executed.</p>
+<p>Filter yang Diperlukan selalu dieksekusi. Namun, jika router tidak ada, hanya Filter Sebelum yang dieksekusi.</p>
 </div>
-<p>You should take care with how many you use here, since it could have performance
-implications to have too many run on every request. But the filters set by default
-provide framework functionality. If removed, those functions will no longer work.
-See <a class="reference internal" href="#provided-filters"><span class="std std-ref">Provided Filters</span></a> for details.</p>
-<p>Filters can be specified by adding their alias to either the <code class="docutils literal notranslate"><span class="pre">before</span></code> or <code class="docutils literal notranslate"><span class="pre">after</span></code> array:</p>
+<p>Anda harus berhati-hati dengan berapa banyak yang Anda gunakan di sini, karena itu bisa memiliki implikasi kinerja
+untuk terlalu banyak berjalan pada setiap permintaan. Tetapi filter yang diatur secara default
+menyediakan fungsionalitas framework. Jika dihapus, fungsi-fungsi tersebut tidak akan berfungsi lagi.
+Lihat <a class="reference internal" href="#provided-filters"><span class="std std-ref">Filter yang Disediakan</span></a> untuk detailnya.</p>
+<p>Filter dapat ditentukan dengan menambahkan alias mereka ke array <code class="docutils literal notranslate"><span class="pre">before</span></code> atau <code class="docutils literal notranslate"><span class="pre">after</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -541,11 +541,11 @@ See <a class="reference internal" href="#provided-filters"><span class="std std-
 </div>
 </section>
 <section id="globals">
-<span id="filters-globals"></span><h4><a class="toc-backref" href="#id18" role="doc-backlink">$globals</a><a class="headerlink" href="#globals" title="Permalink to this heading"></a></h4>
-<p>The third section allows you to define any filters that should be applied to every valid request made by the framework.</p>
-<p>You should take care with how many you use here, since it could have performance implications to have too many
-run on every request.</p>
-<p>Filters can be specified by adding their alias to either the <code class="docutils literal notranslate"><span class="pre">before</span></code> or <code class="docutils literal notranslate"><span class="pre">after</span></code> array:</p>
+<span id="filters-globals"></span><h4><a class="toc-backref" href="#id15" role="doc-backlink">$globals</a><a class="headerlink" href="#globals" title="Permalink to this heading"></a></h4>
+<p>Bagian ketiga memungkinkan Anda untuk mendefinisikan filter apa pun yang harus diterapkan pada setiap permintaan valid yang dibuat oleh framework.</p>
+<p>Anda harus berhati-hati dengan berapa banyak yang Anda gunakan di sini, karena itu bisa memiliki implikasi kinerja untuk terlalu banyak
+berjalan pada setiap permintaan.</p>
+<p>Filter dapat ditentukan dengan menambahkan alias mereka ke array <code class="docutils literal notranslate"><span class="pre">before</span></code> atau <code class="docutils literal notranslate"><span class="pre">after</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -567,13 +567,13 @@ run on every request.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<section id="except-for-a-few-uris">
-<h5>Except for a Few URIs<a class="headerlink" href="#except-for-a-few-uris" title="Permalink to this heading"></a></h5>
-<p>There are times where you want to apply a filter to almost every request, but have a few that should be left alone.
-One common example is if you need to exclude a few URI's from the CSRF protection filter to allow requests from
-third-party websites to hit one or two specific URI's, while keeping the rest of them protected.</p>
-<p>To do this, add
-an array with the <code class="docutils literal notranslate"><span class="pre">except</span></code> key and a URI path (relative to BaseURL) to match as the value alongside the alias:</p>
+<section id="kecuali-untuk-beberapa-uri">
+<h5>Kecuali untuk Beberapa URI<a class="headerlink" href="#kecuali-untuk-beberapa-uri" title="Permalink to this heading"></a></h5>
+<p>Ada kalanya Anda ingin menerapkan filter ke hampir setiap permintaan, tetapi ada beberapa yang harus dibiarkan.
+Salah satu contoh umum adalah jika Anda perlu mengecualikan beberapa URI dari filter perlindungan CSRF untuk memungkinkan permintaan dari
+situs web pihak ketiga untuk mencapai satu atau dua URI spesifik, sambil menjaga sisanya tetap terlindungi.</p>
+<p>Untuk melakukan ini, tambahkan
+array dengan kunci <code class="docutils literal notranslate"><span class="pre">except</span></code> dan jalur URI (relatif terhadap BaseURL) untuk dicocokkan sebagai nilai di samping alias:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -597,16 +597,16 @@ an array with the <code class="docutils literal notranslate"><span class="pre">e
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>Prior to v4.4.7, due to a bug, the URI paths processed by the filter
-were not URL-decoded. In other words, the URI paths specified in the routing
-and the URI paths specified in the filter could be different.
-See <a class="reference internal" href="../installation/upgrade_447.html#upgrade-447-filter-paths"><span class="std std-ref">Paths in Controller Filters</span></a> for details.</p>
+<p>Sebelum v4.4.7, karena bug, jalur URI yang diproses oleh filter
+tidak di-URL-decode. Dengan kata lain, jalur URI yang ditentukan dalam perutean
+dan jalur URI yang ditentukan dalam filter bisa berbeda.
+Lihat <a class="reference internal" href="../installation/upgrade_447.html#upgrade-447-filter-paths"><span class="std std-ref">Paths in Controller Filters</span></a> untuk detailnya.</p>
 </div>
-<p>Any place you can use a URI path (relative to BaseURL) in the filter settings, you can use a regular expression or, like in this example above, use
-an asterisk (<code class="docutils literal notranslate"><span class="pre">*</span></code>) for a wildcard that will match all characters after that. In this example, any URI path starting with <code class="docutils literal notranslate"><span class="pre">api/</span></code>
-would be exempted from CSRF protection, but the site's forms would all be protected.</p>
-<p>If you need to specify multiple
-URI paths, you can use an array of URI path patterns:</p>
+<p>Di mana pun Anda dapat menggunakan jalur URI (relatif terhadap BaseURL) dalam pengaturan filter, Anda dapat menggunakan ekspresi reguler atau, seperti dalam contoh di atas, menggunakan
+tanda bintang (<code class="docutils literal notranslate"><span class="pre">*</span></code>) untuk wildcard yang akan mencocokkan semua karakter setelah itu. Dalam contoh ini, jalur URI apa pun yang dimulai dengan <code class="docutils literal notranslate"><span class="pre">api/</span></code>
+akan dikecualikan dari perlindungan CSRF, tetapi form situs semuanya akan dilindungi.</p>
+<p>Jika Anda perlu menentukan beberapa
+jalur URI, Anda dapat menggunakan array pola jalur URI:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -631,15 +631,15 @@ URI paths, you can use an array of URI path patterns:</p>
 </section>
 </section>
 <section id="methods">
-<h4><a class="toc-backref" href="#id19" role="doc-backlink">$methods</a><a class="headerlink" href="#methods" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">$methods</a><a class="headerlink" href="#methods" title="Permalink to this heading"></a></h4>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>If you use <code class="docutils literal notranslate"><span class="pre">$methods</span></code> filters, you should <a class="reference internal" href="routing.html#use-defined-routes-only"><span class="std std-ref">disable Auto Routing (Legacy)</span></a>
-because <a class="reference internal" href="routing.html#auto-routing-legacy"><span class="std std-ref">Auto Routing (Legacy)</span></a> permits any HTTP method to access a controller.
-Accessing the controller with a method you don't expect could bypass the filter.</p>
+<p>Jika Anda menggunakan filter <code class="docutils literal notranslate"><span class="pre">$methods</span></code>, Anda harus <a class="reference internal" href="routing.html#use-defined-routes-only"><span class="std std-ref">menonaktifkan Perutean Otomatis (Legacy)</span></a>
+karena <a class="reference internal" href="routing.html#auto-routing-legacy"><span class="std std-ref">Perutean Otomatis (Legacy)</span></a> mengizinkan method HTTP apa pun untuk mengakses controller.
+Mengakses controller dengan method yang tidak Anda harapkan dapat melewati filter.</p>
 </div>
-<p>You can apply filters to all requests of a certain HTTP method, like <code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, etc.
-It's value would be an array of filters to run:</p>
+<p>Anda dapat menerapkan filter ke semua permintaan dari method HTTP tertentu, seperti <code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, dll.
+Nilainya akan menjadi array filter yang akan dijalankan:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -661,20 +661,20 @@ It's value would be an array of filters to run:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Unlike the <code class="docutils literal notranslate"><span class="pre">$globals</span></code> or the
-<code class="docutils literal notranslate"><span class="pre">$filters</span></code> properties, these will only run as before filters.</p>
+<p>Tidak seperti properti <code class="docutils literal notranslate"><span class="pre">$globals</span></code> atau
+<code class="docutils literal notranslate"><span class="pre">$filters</span></code>, ini hanya akan berjalan sebagai filter sebelum.</p>
 </div>
-<p>In addition to the standard HTTP methods, this also supports one special case: <code class="docutils literal notranslate"><span class="pre">CLI</span></code>. The <code class="docutils literal notranslate"><span class="pre">CLI</span></code> method would apply to
-all requests that were run from the command line.</p>
+<p>Selain method HTTP standar, ini juga mendukung satu kasus khusus: <code class="docutils literal notranslate"><span class="pre">CLI</span></code>. Method <code class="docutils literal notranslate"><span class="pre">CLI</span></code> akan berlaku untuk
+semua permintaan yang dijalankan dari baris perintah.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.5.0, due to a bug, you needed to specify the HTTP method names in <strong>lowercase</strong>.</p>
+<p>Sebelum v4.5.0, karena bug, Anda perlu menentukan nama method HTTP dalam <strong>huruf kecil</strong>.</p>
 </div>
 </section>
 <section id="filters">
-<h4><a class="toc-backref" href="#id20" role="doc-backlink">$filters</a><a class="headerlink" href="#filters" title="Permalink to this heading"></a></h4>
-<p>This property is an array of filter aliases. For each alias, you can specify <code class="docutils literal notranslate"><span class="pre">before</span></code> and <code class="docutils literal notranslate"><span class="pre">after</span></code> arrays that contain
-a list of URI path (relative to BaseURL) patterns that filter should apply to:</p>
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">$filters</a><a class="headerlink" href="#filters" title="Permalink to this heading"></a></h4>
+<p>Properti ini adalah array alias filter. Untuk setiap alias, Anda dapat menentukan array <code class="docutils literal notranslate"><span class="pre">before</span></code> dan <code class="docutils literal notranslate"><span class="pre">after</span></code> yang berisi
+daftar pola jalur URI (relatif terhadap BaseURL) yang harus diterapkan oleh filter:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -696,17 +696,17 @@ a list of URI path (relative to BaseURL) patterns that filter should apply to:</
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Peringatan</p>
-<p>Prior to v4.4.7, due to a bug, the URI paths processed by the filter
-were not URL-decoded. In other words, the URI paths specified in the routing
-and the URI paths specified in the filter could be different.
-See <a class="reference internal" href="../installation/upgrade_447.html#upgrade-447-filter-paths"><span class="std std-ref">Paths in Controller Filters</span></a> for details.</p>
+<p>Sebelum v4.4.7, karena bug, jalur URI yang diproses oleh filter
+tidak di-URL-decode. Dengan kata lain, jalur URI yang ditentukan dalam perutean
+dan jalur URI yang ditentukan dalam filter bisa berbeda.
+Lihat <a class="reference internal" href="../installation/upgrade_447.html#upgrade-447-filter-paths"><span class="std std-ref">Paths in Controller Filters</span></a> untuk detailnya.</p>
 </div>
-<section id="filter-arguments">
-<span id="filters-filters-filter-arguments"></span><h5>Filter Arguments<a class="headerlink" href="#filter-arguments" title="Permalink to this heading"></a></h5>
+<section id="argumen-filter">
+<span id="filters-filters-filter-arguments"></span><h5>Argumen Filter<a class="headerlink" href="#argumen-filter" title="Permalink to this heading"></a></h5>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.4.0.</span></p>
 </div>
-<p>When configuring <code class="docutils literal notranslate"><span class="pre">$filters</span></code>, additional arguments may be passed to a filter:</p>
+<p>Saat mengkonfigurasi <code class="docutils literal notranslate"><span class="pre">$filters</span></code>, argumen tambahan dapat diteruskan ke filter:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -726,83 +726,83 @@ See <a class="reference internal" href="../installation/upgrade_447.html#upgrade
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In this example, when the URI matches <code class="docutils literal notranslate"><span class="pre">admin/*'</span></code>, the array <code class="docutils literal notranslate"><span class="pre">['admin',</span> <span class="pre">'superadmin']</span></code>
-will be passed in <code class="docutils literal notranslate"><span class="pre">$arguments</span></code> to the <code class="docutils literal notranslate"><span class="pre">group</span></code> filter's <code class="docutils literal notranslate"><span class="pre">before()</span></code> methods.
-When the URI matches <code class="docutils literal notranslate"><span class="pre">admin/users/*'</span></code>, the array <code class="docutils literal notranslate"><span class="pre">['users.manage']</span></code>
-will be passed in <code class="docutils literal notranslate"><span class="pre">$arguments</span></code> to the <code class="docutils literal notranslate"><span class="pre">permission</span></code> filter's <code class="docutils literal notranslate"><span class="pre">before()</span></code> methods.</p>
+<p>Dalam contoh ini, ketika URI cocok dengan <code class="docutils literal notranslate"><span class="pre">admin/*'</span></code>, array <code class="docutils literal notranslate"><span class="pre">['admin',</span> <span class="pre">'superadmin']</span></code>
+akan diteruskan dalam <code class="docutils literal notranslate"><span class="pre">$arguments</span></code> ke method <code class="docutils literal notranslate"><span class="pre">before()</span></code> filter <code class="docutils literal notranslate"><span class="pre">group</span></code>.
+Ketika URI cocok dengan <code class="docutils literal notranslate"><span class="pre">admin/users/*'</span></code>, array <code class="docutils literal notranslate"><span class="pre">['users.manage']</span></code>
+akan diteruskan dalam <code class="docutils literal notranslate"><span class="pre">$arguments</span></code> ke method <code class="docutils literal notranslate"><span class="pre">before()</span></code> filter <code class="docutils literal notranslate"><span class="pre">permission</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.6.0, the same filter cannot be run multiple times with
-different arguments.</p>
+<p>Sebelum v4.6.0, filter yang sama tidak dapat dijalankan beberapa kali dengan
+argumen yang berbeda.</p>
 </div>
 </section>
 </section>
 </section>
-<section id="filter-execution-order">
-<span id="id2"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">Filter Execution Order</a><a class="headerlink" href="#filter-execution-order" title="Permalink to this heading"></a></h3>
+<section id="urutan-eksekusi-filter">
+<span id="filter-execution-order"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Urutan Eksekusi Filter</a><a class="headerlink" href="#urutan-eksekusi-filter" title="Permalink to this heading"></a></h3>
 <div class="admonition important">
 <p class="admonition-title">Penting</p>
-<p>Starting with v4.5.0, the order in which filters are executed has
-changed. If you wish to maintain the same execution order as in previous versions,
-you must set <code class="docutils literal notranslate"><span class="pre">true</span></code> to <code class="docutils literal notranslate"><span class="pre">Config\Feature::$oldFilterOrder</span></code>.</p>
+<p>Mulai v4.5.0, urutan eksekusi filter telah
+berubah. Jika Anda ingin mempertahankan urutan eksekusi yang sama seperti pada versi sebelumnya,
+Anda harus mengatur <code class="docutils literal notranslate"><span class="pre">true</span></code> ke <code class="docutils literal notranslate"><span class="pre">Config\Feature::$oldFilterOrder</span></code>.</p>
 </div>
-<p>Filters are executed in the following order:</p>
+<p>Filter dieksekusi dalam urutan berikut:</p>
 <ul class="simple">
-<li><p><strong>Before Filters</strong>: required → globals → methods → filters → route</p></li>
-<li><p><strong>After Filters</strong>: route → filters → globals → required</p></li>
+<li><p><strong>Filter Sebelum</strong>: required → globals → methods → filters → route</p></li>
+<li><p><strong>Filter Sesudah</strong>: route → filters → globals → required</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The <em>required</em> filters can be used since v4.5.0.</p>
+<p>Filter <em>required</em> dapat digunakan sejak v4.5.0.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Prior to v4.5.0, the filters that are specified to a route
-(in <strong>app/Config/Routes.php</strong>) are executed before the filters specified in
-<strong>app/Config/Filters.php</strong>. And the After Filters in Route filters and Filters
-filters execution order were not reversed.
-See <a class="reference internal" href="../installation/upgrade_450.html#upgrade-450-filter-execution-order"><span class="std std-ref">Upgrading Guide</span></a> for details.</p>
+<p>Sebelum v4.5.0, filter yang ditentukan ke router
+(di <strong>app/Config/Routes.php</strong>) dieksekusi sebelum filter yang ditentukan di
+<strong>app/Config/Filters.php</strong>. Dan urutan eksekusi Filter Sesudah dalam filter Router dan filter Filters
+tidak dibalik.
+Lihat <a class="reference internal" href="../installation/upgrade_450.html#upgrade-450-filter-execution-order"><span class="std std-ref">Panduan Peningkatan</span></a> untuk detailnya.</p>
 </div>
 </section>
 </section>
-<section id="confirming-filters">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink">Confirming Filters</a><a class="headerlink" href="#confirming-filters" title="Permalink to this heading"></a></h2>
-<p>CodeIgniter has the following <a class="reference internal" href="../cli/spark_commands.html"><span class="doc">command</span></a> to check the filters for a route.</p>
+<section id="mengkonfirmasi-filter">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Mengkonfirmasi Filter</a><a class="headerlink" href="#mengkonfirmasi-filter" title="Permalink to this heading"></a></h2>
+<p>CodeIgniter memiliki <a class="reference internal" href="../cli/spark_commands.html"><span class="doc">perintah</span></a> berikut untuk memeriksa filter untuk sebuah router.</p>
 <section id="filter-check">
-<span id="spark-filter-check"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">filter:check</a><a class="headerlink" href="#filter-check" title="Permalink to this heading"></a></h3>
+<span id="spark-filter-check"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">filter:check</a><a class="headerlink" href="#filter-check" title="Permalink to this heading"></a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.3.0.</span></p>
 </div>
-<p>For example, check the filters for the route <code class="docutils literal notranslate"><span class="pre">/</span></code> with <strong>GET</strong> method:</p>
+<p>Misalnya, periksa filter untuk router <code class="docutils literal notranslate"><span class="pre">/</span></code> dengan method <strong>GET</strong>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark filter:check get /</span>
 </pre></div>
 </div>
-<p>The output is like the following:</p>
+<p>Outputnya seperti berikut:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+--------+-------+----------------------+-------------------------------+
-| Method | Route | Before Filters       | After Filters                 |
+| Method | Router| Filter Sebelum       | Filter Sesudah                |
 +--------+-------+----------------------+-------------------------------+
 | GET    | /     | forcehttps pagecache | pagecache performance toolbar |
 +--------+-------+----------------------+-------------------------------+
 
-Before Filter Classes:
+Class Filter Sebelum:
 CodeIgniter\Filters\ForceHTTPS → CodeIgniter\Filters\PageCache
-After Filter Classes:
+Class Filter Sesudah:
 CodeIgniter\Filters\PageCache → CodeIgniter\Filters\PerformanceMetrics → CodeIgniter\Filters\DebugToolbar
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Since v4.6.0, filter arguments have been displayed in the output table.
-Also, the actual filter classnames have been displayed in the end.</p>
+<p>Sejak v4.6.0, argumen filter telah ditampilkan dalam tabel output.
+Juga, nama class filter yang sebenarnya telah ditampilkan di akhir.</p>
 </div>
-<p>You can also see the routes and filters by the <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">routes</span></code> command,
-but it might not show accurate filters when you use regular expressions for routes.
-See <a class="reference internal" href="routing.html#routing-spark-routes"><span class="std std-ref">URI Routing</span></a> for details.</p>
+<p>Anda juga dapat melihat router dan filter dengan perintah <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">routes</span></code>,
+tetapi mungkin tidak menampilkan filter yang akurat ketika Anda menggunakan ekspresi reguler untuk router.
+Lihat <a class="reference internal" href="routing.html#routing-spark-routes"><span class="std std-ref">Perutean URI</span></a> untuk detailnya.</p>
 </section>
 </section>
-<section id="provided-filters">
-<span id="id3"></span><h2><a class="toc-backref" href="#id24" role="doc-backlink">Provided Filters</a><a class="headerlink" href="#provided-filters" title="Permalink to this heading"></a></h2>
-<p>The filters bundled with CodeIgniter4 are:</p>
+<section id="filter-yang-disediakan">
+<span id="provided-filters"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink">Filter yang Disediakan</a><a class="headerlink" href="#filter-yang-disediakan" title="Permalink to this heading"></a></h2>
+<p>Filter yang dibundel dengan CodeIgniter4 adalah:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cors</span></code> =&gt; <a class="reference internal" href="../libraries/cors.html"><span class="doc">Cross-Origin Resource Sharing (CORS)</span></a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">csrf</span></code> =&gt; <a class="reference internal" href="../libraries/security.html#cross-site-request-forgery"><span class="std std-ref">CSRF</span></a></p></li>
@@ -816,51 +816,50 @@ See <a class="reference internal" href="routing.html#routing-spark-routes"><span
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The filters are executed in the order defined in the config file. However, if enabled, <code class="docutils literal notranslate"><span class="pre">DebugToolbar</span></code> is always executed last because it should be able to capture everything that happens in the other filters.</p>
+<p>Filter dieksekusi dalam urutan yang ditentukan dalam berkas konfigurasi. Namun, jika diaktifkan, <code class="docutils literal notranslate"><span class="pre">DebugToolbar</span></code> selalu dieksekusi terakhir karena harus dapat menangkap semua yang terjadi di filter lain.</p>
 </div>
 <section id="forcehttps">
-<span id="id4"></span><h3><a class="toc-backref" href="#id25" role="doc-backlink">ForceHTTPS</a><a class="headerlink" href="#forcehttps" title="Permalink to this heading"></a></h3>
+<span id="id1"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">ForceHTTPS</a><a class="headerlink" href="#forcehttps" title="Permalink to this heading"></a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.5.0.</span></p>
 </div>
-<p>This filter provides the &quot;Force Global Secure Requests&quot; feature.</p>
-<p>If you set <code class="docutils literal notranslate"><span class="pre">Config\App:$forceGlobalSecureRequests</span></code> to true, this will force
-every request made to this application to be made via a secure connection (HTTPS).
-If the incoming request is not secure, the user will be redirected to a secure
-version of the page and the HTTP Strict Transport Security (HSTS) header will be
-set.</p>
+<p>Filter ini menyediakan fitur &quot;Paksa Permintaan Aman Global&quot;.</p>
+<p>Jika Anda mengatur <code class="docutils literal notranslate"><span class="pre">Config\App:$forceGlobalSecureRequests</span></code> ke true, ini akan memaksa
+setiap permintaan yang dibuat ke aplikasi ini untuk dilakukan melalui koneksi aman (HTTPS).
+Jika permintaan masuk tidak aman, pengguna akan diarahkan ke versi aman
+halaman dan header HTTP Strict Transport Security (HSTS) akan diatur.</p>
 </section>
 <section id="performancemetrics">
-<span id="id5"></span><h3><a class="toc-backref" href="#id26" role="doc-backlink">PerformanceMetrics</a><a class="headerlink" href="#performancemetrics" title="Permalink to this heading"></a></h3>
+<span id="id2"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">PerformanceMetrics</a><a class="headerlink" href="#performancemetrics" title="Permalink to this heading"></a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">Baru pada versi 4.5.0.</span></p>
 </div>
-<p>This filter provides the pseudo-variables for performance metrics.</p>
-<p>If you would like to display the total elapsed time from the moment CodeIgniter
-starts to the moment right before the final output is sent to the browser,
-simply place this pseudo-variable in one of your views:</p>
+<p>Filter ini menyediakan pseudo-variabel untuk metrik kinerja.</p>
+<p>Jika Anda ingin menampilkan total waktu yang berlalu dari saat CodeIgniter
+dimulai hingga saat tepat sebelum output akhir dikirim ke browser,
+cukup tempatkan pseudo-variabel ini di salah satu tampilan Anda:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nx">elapsed_time</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>If you would like to show your memory usage in your view files, use this
-pseudo-variable:</p>
+<p>Jika Anda ingin menampilkan penggunaan memori Anda di berkas tampilan Anda, gunakan
+pseudo-variabel ini:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nx">memory_usage</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>If you don't need this feature, remove <code class="docutils literal notranslate"><span class="pre">'performance'</span></code> from <code class="docutils literal notranslate"><span class="pre">$required['after']</span></code>.</p>
+<p>Jika Anda tidak membutuhkan fitur ini, hapus <code class="docutils literal notranslate"><span class="pre">'performance'</span></code> dari <code class="docutils literal notranslate"><span class="pre">$required['after']</span></code>.</p>
 </section>
 <section id="invalidchars">
-<span id="id6"></span><h3><a class="toc-backref" href="#id27" role="doc-backlink">InvalidChars</a><a class="headerlink" href="#invalidchars" title="Permalink to this heading"></a></h3>
-<p>This filter prohibits user input data (<code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code>, <code class="docutils literal notranslate"><span class="pre">php://input</span></code>) from containing the following characters:</p>
+<span id="id3"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink">InvalidChars</a><a class="headerlink" href="#invalidchars" title="Permalink to this heading"></a></h3>
+<p>Filter ini melarang data input pengguna (<code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code>, <code class="docutils literal notranslate"><span class="pre">php://input</span></code>) mengandung karakter berikut:</p>
 <ul class="simple">
-<li><p>invalid UTF-8 characters</p></li>
-<li><p>control characters except line break and tab code</p></li>
+<li><p>karakter UTF-8 tidak valid</p></li>
+<li><p>karakter kontrol kecuali baris baru dan kode tab</p></li>
 </ul>
 </section>
 <section id="secureheaders">
-<span id="id7"></span><h3><a class="toc-backref" href="#id28" role="doc-backlink">SecureHeaders</a><a class="headerlink" href="#secureheaders" title="Permalink to this heading"></a></h3>
-<p>This filter adds HTTP response headers that your application can use to increase the security of your application.</p>
-<p>If you want to customize the headers, extend <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Filters\SecureHeaders</span></code> and override the <code class="docutils literal notranslate"><span class="pre">$headers</span></code> property. And change the <code class="docutils literal notranslate"><span class="pre">$aliases</span></code> property in <strong>app/Config/Filters.php</strong>:</p>
+<span id="id4"></span><h3><a class="toc-backref" href="#id25" role="doc-backlink">SecureHeaders</a><a class="headerlink" href="#secureheaders" title="Permalink to this heading"></a></h3>
+<p>Filter ini menambahkan header respons HTTP yang dapat digunakan aplikasi Anda untuk meningkatkan keamanan aplikasi Anda.</p>
+<p>Jika Anda ingin menyesuaikan header, perluas <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Filters\SecureHeaders</span></code> dan timpa properti <code class="docutils literal notranslate"><span class="pre">$headers</span></code>. Dan ubah properti <code class="docutils literal notranslate"><span class="pre">$aliases</span></code> di <strong>app/Config/Filters.php</strong>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
@@ -878,7 +877,7 @@ pseudo-variable:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If you want to know about secure headers, see <a class="reference external" href="https://owasp.org/www-project-secure-headers/">OWASP Secure Headers Project</a>.</p>
+<p>Jika Anda ingin tahu tentang header aman, lihat <a class="reference external" href="https://owasp.org/www-project-secure-headers/">OWASP Secure Headers Project</a>.</p>
 </section>
 </section>
 </section>
@@ -895,7 +894,7 @@ pseudo-variable:</p>
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

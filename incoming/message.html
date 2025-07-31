@@ -27,7 +27,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Indeks" href="../genindex.html" />
     <link rel="search" title="Pencarian" href="../search.html" />
-    <link rel="next" title="Request Class" href="request.html" />
+    <link rel="next" title="Class Request" href="request.html" />
     <link rel="prev" title="Auto Routing (Improved)" href="auto_routing_improved.html" /> 
 </head>
 
@@ -113,17 +113,17 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controller dan Router</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Perutean URI (Routing)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_routing_improved.html">Auto Routing (Improved)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">HTTP Messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="request.html">Request Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Class Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">Class IncomingRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">HTTP Method Spoofing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="restful.html">RESTful Resource Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Penanganan Resource RESTful</a></li>
 </ul>
 </li>
 </ul>
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Penggunaan Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Ikhtisar CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Menjalankan Controller via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Command Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Membuat Perintah (Command) Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generator CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">Library CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -278,7 +278,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Controller dan Router</a></li>
       <li class="breadcrumb-item active">HTTP Messages</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -290,13 +290,13 @@
              
   <section id="http-messages">
 <h1>HTTP Messages<a class="headerlink" href="#http-messages" title="Permalink to this heading"></a></h1>
-<p>The Message class provides an interface to the portions of an HTTP message that are common to both
-requests and responses, including the message body, protocol version, utilities for working with
-the headers, and methods for handling content negotiation.</p>
-<p>This class is the parent class that both the <a class="reference internal" href="request.html"><span class="doc">Request Class</span></a> and the
-<a class="reference internal" href="../outgoing/response.html"><span class="doc">Response Class</span></a> extend from, and it is not used directly.</p>
+<p>Class Message menyediakan antarmuka untuk bagian-bagian pesan informatif HTTP yang umum untuk
+permintaan dan respons, termasuk isi pesan, versi protokol, utilitas untuk bekerja dengan
+header, dan method untuk menangani negosiasi konten.</p>
+<p>Class ini adalah class induk yang diperluas oleh <a class="reference internal" href="request.html"><span class="doc">Class Request</span></a> dan
+<a class="reference internal" href="../outgoing/response.html"><span class="doc">Class Response</span></a>, dan tidak digunakan secara langsung.</p>
 <section id="namespace-CodeIgniter\HTTP">
-<span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#namespace-CodeIgniter\HTTP" title="Permalink to this heading"></a></h2>
+<span id="referensi-class"></span><h2>Referensi Class<a class="headerlink" href="#namespace-CodeIgniter\HTTP" title="Permalink to this heading"></a></h2>
 <dl class="php class">
 <dt class="sig sig-object php" id="CodeIgniter\HTTP\Message">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">CodeIgniter\HTTP\</span></span><span class="sig-name descname"><span class="pre">Message</span></span><a class="headerlink" href="#CodeIgniter\HTTP\Message" title="Link permanen untuk definisi ini"></a></dt>
@@ -305,13 +305,13 @@ the headers, and methods for handling content negotiation.</p>
 <span class="sig-name descname"><span class="pre">getBody</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Message::getBody" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current message body</p>
+<dd class="field-odd"><p>Isi pesan saat ini</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span></p>
 </dd>
 </dl>
-<p>Returns the current message body, if any has been set. If not body exists, returns null:</p>
+<p>Mengembalikan isi pesan saat ini, jika ada yang telah diatur. Jika tidak ada isi, mengembalikan null:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">echo</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
@@ -325,17 +325,17 @@ the headers, and methods for handling content negotiation.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$data</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- The body of the message.</p></li>
+<li><p><strong>$data</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Isi pesan.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>the Message|Response instance to allow methods to be chained together.</p>
+<dd class="field-even"><p>instance Message|Response untuk memungkinkan method dirantai bersama.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message|CodeIgniter\HTTP\Response</span></code></span></p>
 </dd>
 </dl>
-<p>Sets the body of the current request.</p>
+<p>Mengatur isi permintaan saat ini.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -344,17 +344,17 @@ the headers, and methods for handling content negotiation.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$data</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- The body of the message.</p></li>
+<li><p><strong>$data</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Isi pesan.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>the Message|Response instance to allow methods to be chained together.</p>
+<dd class="field-even"><p>instance Message|Response untuk memungkinkan method dirantai bersama.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message|CodeIgniter\HTTP\Response</span></code></span></p>
 </dd>
 </dl>
-<p>Appends data to the body of the current request.</p>
+<p>Menambahkan data ke isi permintaan saat ini.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -365,12 +365,12 @@ the headers, and methods for handling content negotiation.</p>
 <dd class="field-odd"><p>void</p>
 </dd>
 </dl>
-<p>Scans and parses the headers found in the SERVER data and stores it for later access.
-This is used by the <a class="reference internal" href="incomingrequest.html"><span class="doc">IncomingRequest Class</span></a> to make
-the current request's headers available.</p>
-<p>The headers are any SERVER data that starts with <code class="docutils literal notranslate"><span class="pre">HTTP_</span></code>, like <code class="docutils literal notranslate"><span class="pre">HTTP_HOST</span></code>. Each message
-is converted from it's standard uppercase and underscore format to a ucwords and dash format.
-The preceding <code class="docutils literal notranslate"><span class="pre">HTTP_</span></code> is removed from the string. So <code class="docutils literal notranslate"><span class="pre">HTTP_ACCEPT_LANGUAGE</span></code> becomes
+<p>Memindai dan mengurai header yang ditemukan dalam data SERVER dan menyimpannya untuk akses nanti.
+Ini digunakan oleh <a class="reference internal" href="incomingrequest.html"><span class="doc">Class IncomingRequest</span></a> untuk membuat
+header permintaan saat ini tersedia.</p>
+<p>Header adalah data SERVER apa pun yang dimulai dengan <code class="docutils literal notranslate"><span class="pre">HTTP_</span></code>, seperti <code class="docutils literal notranslate"><span class="pre">HTTP_HOST</span></code>. Setiap pesan
+diubah dari format huruf besar dan garis bawah standar menjadi format ucwords dan garis penghubung.
+<code class="docutils literal notranslate"><span class="pre">HTTP_</span></code> yang mendahului dihapus dari string. Jadi <code class="docutils literal notranslate"><span class="pre">HTTP_ACCEPT_LANGUAGE</span></code> menjadi
 <code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code>.</p>
 </dd></dl>
 
@@ -379,13 +379,13 @@ The preceding <code class="docutils literal notranslate"><span class="pre">HTTP_
 <span class="sig-name descname"><span class="pre">headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Message::headers" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>An array of all of the headers found.</p>
+<dd class="field-odd"><p>Array dari semua header yang ditemukan.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span></p>
 </dd>
 </dl>
-<p>Returns an array of all headers found or previously set.</p>
+<p>Mengembalikan array dari semua header yang ditemukan atau yang sebelumnya diatur.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -394,18 +394,18 @@ The preceding <code class="docutils literal notranslate"><span class="pre">HTTP_
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the header you want to retrieve the value of.</p></li>
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama header yang ingin Anda ambil nilainya.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>Returns a single header object. If multiple headers with the same name exist, then will return an array of header objects.</p>
+<dd class="field-even"><p>Mengembalikan objek header tunggal. Jika ada beberapa header dengan nama yang sama, maka akan mengembalikan array objek header.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Header|array</span></code></span></p>
 </dd>
 </dl>
-<p>Allows you to retrieve the current value of a single message header. <code class="docutils literal notranslate"><span class="pre">$name</span></code> is the case-insensitive header name.
-While the header is converted internally as described above, you can access the header with any type of case:</p>
+<p>Memungkinkan Anda untuk mengambil nilai saat ini dari sebuah header pesan tunggal. <code class="docutils literal notranslate"><span class="pre">$name</span></code> adalah nama header yang tidak peka huruf besar/kecil.
+Meskipun header diubah secara internal seperti yang dijelaskan di atas, Anda dapat mengakses header dengan jenis huruf apa pun:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// These are all the same:</span>
@@ -414,8 +414,8 @@ While the header is converted internally as described above, you can access the 
 <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If the header has multiple values, <code class="docutils literal notranslate"><span class="pre">getValue()</span></code> will return as an array of values. You can use the <code class="docutils literal notranslate"><span class="pre">getValueLine()</span></code>
-method to retrieve the values as a string:</p>
+<p>Jika header memiliki beberapa nilai, <code class="docutils literal notranslate"><span class="pre">getValue()</span></code> akan mengembalikan sebagai array nilai. Anda dapat menggunakan method <code class="docutils literal notranslate"><span class="pre">getValueLine()</span></code>
+untuk mengambil nilai sebagai string:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">echo</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;Accept-Language&#39;</span><span class="p">);</span>
@@ -440,7 +440,7 @@ method to retrieve the values as a string:</p>
 <span class="cm"> */</span>
 </pre></div>
 </div>
-<p>You can filter the header by passing a filter value in as the second parameter:</p>
+<p>Anda dapat memfilter header dengan meneruskan nilai filter sebagai parameter kedua:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;Document-URI&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_URL</span><span class="p">);</span>
@@ -454,11 +454,11 @@ method to retrieve the values as a string:</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the header you want to see if it exists.</p></li>
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama header yang ingin Anda lihat apakah ada.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>Returns true if it exists, false otherwise.</p>
+<dd class="field-even"><p>Mengembalikan true jika ada, false jika tidak.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
@@ -472,18 +472,18 @@ method to retrieve the values as a string:</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the header to retrieve.</p></li>
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama header yang akan diambil.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>A string representing the header value.</p>
+<dd class="field-even"><p>String yang mewakili nilai header.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
 </dd>
 </dl>
-<p>Returns the value(s) of the header as a string. This method allows you to easily get a string representation
-of the header values when the header has multiple values. The values are appropriately joined:</p>
+<p>Mengembalikan nilai(nilai-nilai) header sebagai string. Method ini memungkinkan Anda untuk dengan mudah mendapatkan representasi string
+dari nilai header ketika header memiliki beberapa nilai. Nilai-nilai digabungkan dengan tepat:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">echo</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">getHeaderLine</span><span class="p">(</span><span class="s1">&#39;Accept-Language&#39;</span><span class="p">);</span>
@@ -501,20 +501,20 @@ of the header values when the header has multiple values. The values are appropr
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the header to set the value for.</p></li>
-<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- The value to set the header to.</p></li>
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama header yang akan diatur nilainya.</p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- Nilai yang akan diatur ke header.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current Message|Response instance</p>
+<dd class="field-even"><p>instance Message|Response saat ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message|CodeIgniter\HTTP\Response</span></code></span></p>
 </dd>
 </dl>
-<p>Sets the value of a single header. <code class="docutils literal notranslate"><span class="pre">$name</span></code> is the case-insensitive name of the header. If the header
-doesn't already exist in the collection, it will be created. The <code class="docutils literal notranslate"><span class="pre">$value</span></code> can be either a string
-or an array of strings:</p>
+<p>Mengatur nilai sebuah header tunggal. <code class="docutils literal notranslate"><span class="pre">$name</span></code> adalah nama header yang tidak peka huruf besar/kecil. Jika header
+belum ada dalam koleksi, itu akan dibuat. <code class="docutils literal notranslate"><span class="pre">$value</span></code> dapat berupa string
+atau array string:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s1">&#39;Host&#39;</span><span class="p">,</span> <span class="s1">&#39;codeigniter.com&#39;</span><span class="p">);</span>
@@ -528,17 +528,17 @@ or an array of strings:</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the header to remove.</p></li>
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama header yang akan dihapus.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current message instance</p>
+<dd class="field-even"><p>instance pesan saat ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\HTTP\Message" title="CodeIgniter\HTTP\Message"><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message</span></code></a></span></p>
 </dd>
 </dl>
-<p>Removes the header from the Message. <code class="docutils literal notranslate"><span class="pre">$name</span></code> is the case-insensitive name of the header:</p>
+<p>Menghapus header dari Message. <code class="docutils literal notranslate"><span class="pre">$name</span></code> adalah nama header yang tidak peka huruf besar/kecil:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">removeHeader</span><span class="p">(</span><span class="s1">&#39;Host&#39;</span><span class="p">);</span>
@@ -552,19 +552,19 @@ or an array of strings:</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the header to modify</p></li>
-<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The value to add to the header.</p></li>
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama header yang akan dimodifikasi</p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nilai yang akan ditambahkan ke header.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current message instance</p>
+<dd class="field-even"><p>instance pesan saat ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\HTTP\Message" title="CodeIgniter\HTTP\Message"><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message</span></code></a></span></p>
 </dd>
 </dl>
-<p>Adds a value to an existing header. The header must already be an array of values instead of a single string.
-If it is a string then a LogicException will be thrown.</p>
+<p>Menambahkan nilai ke header yang sudah ada. Header harus sudah berupa array nilai, bukan string tunggal.
+Jika itu adalah string maka LogicException akan dilemparkan.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">appendHeader</span><span class="p">(</span><span class="s1">&#39;Accept-Language&#39;</span><span class="p">,</span> <span class="s1">&#39;en-US; q=0.8&#39;</span><span class="p">);</span>
@@ -578,19 +578,19 @@ If it is a string then a LogicException will be thrown.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the header to modify</p></li>
-<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The value to prepend to the header.</p></li>
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama header yang akan dimodifikasi</p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nilai yang akan ditambahkan di depan header.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current message instance</p>
+<dd class="field-even"><p>instance pesan saat ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\HTTP\Message" title="CodeIgniter\HTTP\Message"><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message</span></code></a></span></p>
 </dd>
 </dl>
-<p>Prepends a value to an existing header. The header must already be an array of values instead of a single string.
-If it is a string then a LogicException will be thrown.</p>
+<p>Menambahkan nilai di depan header yang sudah ada. Header harus sudah berupa array nilai, bukan string tunggal.
+Jika itu adalah string maka LogicException akan dilemparkan.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">prependHeader</span><span class="p">(</span><span class="s1">&#39;Accept-Language&#39;</span><span class="p">,</span> <span class="s1">&#39;en,&#39;</span><span class="p">);</span>
@@ -607,19 +607,19 @@ If it is a string then a LogicException will be thrown.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The name of the header to add.</p></li>
-<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The value of the header.</p></li>
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nama header yang akan ditambahkan.</p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Nilai header.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current message instance</p>
+<dd class="field-even"><p>instance pesan saat ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\HTTP\Message" title="CodeIgniter\HTTP\Message"><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message</span></code></a></span></p>
 </dd>
 </dl>
-<p>Adds a header (not a header value) with the same name.
-Use this only when you set multiple headers with the same name,</p>
+<p>Menambahkan header (bukan nilai header) dengan nama yang sama.
+Gunakan ini hanya ketika Anda mengatur beberapa header dengan nama yang sama,</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">addHeader</span><span class="p">(</span><span class="s1">&#39;Set-Cookie&#39;</span><span class="p">,</span> <span class="s1">&#39;logged_in=no; Path=/&#39;</span><span class="p">);</span>
@@ -633,14 +633,14 @@ Use this only when you set multiple headers with the same name,</p>
 <span class="sig-name descname"><span class="pre">getProtocolVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\HTTP\Message::getProtocolVersion" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current HTTP protocol version</p>
+<dd class="field-odd"><p>Versi protokol HTTP saat ini</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
 </dd>
 </dl>
-<p>Returns the message's current HTTP protocol. If none has been set, will
-return <code class="docutils literal notranslate"><span class="pre">1.1</span></code>.</p>
+<p>Mengembalikan protokol HTTP pesan saat ini. Jika belum ada yang diatur, akan
+mengembalikan <code class="docutils literal notranslate"><span class="pre">1.1</span></code>.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -649,18 +649,18 @@ return <code class="docutils literal notranslate"><span class="pre">1.1</span></
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$version</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- The HTTP protocol version</p></li>
+<li><p><strong>$version</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- Versi protokol HTTP</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current message instance</p>
+<dd class="field-even"><p>instance pesan saat ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\HTTP\Message" title="CodeIgniter\HTTP\Message"><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message</span></code></a></span></p>
 </dd>
 </dl>
-<p>Sets the HTTP protocol version this Message uses. Valid values are
-<code class="docutils literal notranslate"><span class="pre">1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">1.1</span></code>, <code class="docutils literal notranslate"><span class="pre">2.0</span></code> and <code class="docutils literal notranslate"><span class="pre">3.0</span></code>:</p>
+<p>Mengatur versi protokol HTTP yang digunakan Message ini. Nilai yang valid adalah
+<code class="docutils literal notranslate"><span class="pre">1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">1.1</span></code>, <code class="docutils literal notranslate"><span class="pre">2.0</span></code> dan <code class="docutils literal notranslate"><span class="pre">3.0</span></code>:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">setProtocolVersion</span><span class="p">(</span><span class="s1">&#39;1.1&#39;</span><span class="p">);</span>
@@ -678,14 +678,14 @@ return <code class="docutils literal notranslate"><span class="pre">1.1</span></
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="auto_routing_improved.html" class="btn btn-neutral float-left" title="Auto Routing (Improved)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="request.html" class="btn btn-neutral float-right" title="Request Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="request.html" class="btn btn-neutral float-right" title="Class Request" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

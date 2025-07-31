@@ -27,7 +27,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Indeks" href="../genindex.html" />
     <link rel="search" title="Pencarian" href="../search.html" />
-    <link rel="next" title="RESTful Resource Handling" href="restful.html" />
+    <link rel="next" title="Penanganan Resource RESTful" href="restful.html" />
     <link rel="prev" title="Content Negotiation" href="content_negotiation.html" /> 
 </head>
 
@@ -114,16 +114,16 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Perutean URI (Routing)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_routing_improved.html">Auto Routing (Improved)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Class Request</a></li>
 <li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">HTTP Method Spoofing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="restful.html">RESTful Resource Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Penanganan Resource RESTful</a></li>
 </ul>
 </li>
 </ul>
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Penggunaan Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Ikhtisar CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Menjalankan Controller via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Command Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Membuat Perintah (Command) Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generator CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">Library CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -290,24 +290,24 @@
              
   <section id="http-method-spoofing">
 <h1>HTTP Method Spoofing<a class="headerlink" href="#http-method-spoofing" title="Permalink to this heading"></a></h1>
-<p>When working with HTML forms you can only use GET or POST HTTP verbs. In most cases, this is just fine. However, to
-support REST-ful routing you need to support other, more correct, verbs, like DELETE or PUT. Since the browsers
-don't support this, CodeIgniter provides you with a way to spoof the method that is being used. This allows you to
-make a POST request, but tell the application that it should be treated as a different request type.</p>
-<p>To spoof the method, a hidden input is added to the form with the name of <code class="docutils literal notranslate"><span class="pre">_method</span></code>. It's value is the HTTP verb
-that you want the request to be:</p>
+<p>Saat bekerja dengan form HTML Anda hanya dapat menggunakan HTTP verb GET atau POST. Dalam kebanyakan kasus, ini baik-baik saja. Namun, untuk
+mendukung perutean REST-ful Anda perlu mendukung verb lain yang lebih tepat, seperti DELETE atau PUT. Karena browser
+tidak mendukung ini, CodeIgniter memberi Anda cara untuk memalsukan method yang sedang digunakan. Ini memungkinkan Anda untuk
+membuat permintaan POST, tetapi memberi tahu aplikasi bahwa itu harus diperlakukan sebagai jenis permintaan yang berbeda.</p>
+<p>Untuk memalsukan method, input tersembunyi ditambahkan ke form dengan nama <code class="docutils literal notranslate"><span class="pre">_method</span></code>. Nilainya adalah HTTP verb
+yang Anda inginkan untuk permintaan tersebut:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">form</span> <span class="nx">action</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="nx">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;_method&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;PUT&quot;</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="nx">form</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>This form is converted into a PUT request and is a true PUT request as far as the routing and the IncomingRequest
-class are concerned.</p>
-<p>The form that you are using must be a POST request. GET requests cannot be spoofed.</p>
+<p>Form ini diubah menjadi permintaan PUT dan merupakan permintaan PUT yang sebenarnya sejauh perutean dan class IncomingRequest
+berkaitan.</p>
+<p>Form yang Anda gunakan harus berupa permintaan POST. Permintaan GET tidak dapat dipalsukan.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Be sure to check your web server's configuration as some servers do not support all HTTP verbs
-with the default configuration, and must have additional packages enabled to work.</p>
+<p>Pastikan untuk memeriksa konfigurasi web server Anda karena beberapa server tidak mendukung semua HTTP verb
+dengan konfigurasi default, dan harus mengaktifkan paket tambahan agar berfungsi.</p>
 </div>
 </section>
 
@@ -316,14 +316,14 @@ with the default configuration, and must have additional packages enabled to wor
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="content_negotiation.html" class="btn btn-neutral float-left" title="Content Negotiation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="restful.html" class="btn btn-neutral float-right" title="RESTful Resource Handling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="restful.html" class="btn btn-neutral float-right" title="Penanganan Resource RESTful" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

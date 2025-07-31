@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLIRequest Class &mdash; Dokumentasi CodeIgniter 4.6.2</title>
+  <title>Class CLIRequest &mdash; Dokumentasi CodeIgniter 4.6.2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/citheme_dark.css" />
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command Line Usage</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Penggunaan Command Line</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cli_overview.html">CLI Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark_commands.html">Command Spark</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Creating Spark Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_generators.html">CLI Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_library.html">CLI Library</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">CLIRequest Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -278,8 +278,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Command Line Usage</a></li>
-      <li class="breadcrumb-item active">CLIRequest Class</li>
+          <li class="breadcrumb-item"><a href="index.html">Penggunaan Command Line</a></li>
+      <li class="breadcrumb-item active">Class CLIRequest</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -288,16 +288,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="clirequest-class">
-<h1>CLIRequest Class<a class="headerlink" href="#clirequest-class" title="Permalink to this heading"></a></h1>
-<p>If a request comes from a command line invocation, the request object is actually a
-<code class="docutils literal notranslate"><span class="pre">CLIRequest</span></code>. It behaves the same as a <a class="reference internal" href="../incoming/request.html"><span class="doc">conventional request</span></a>
-but adds some accessor methods for convenience.</p>
-<section id="additional-accessors">
-<h2>Additional Accessors<a class="headerlink" href="#additional-accessors" title="Permalink to this heading"></a></h2>
+  <section id="class-clirequest">
+<h1>Class CLIRequest<a class="headerlink" href="#class-clirequest" title="Permalink to this heading"></a></h1>
+<p>Jika sebuah request berasal dari pemanggilan baris perintah, objek request sebenarnya adalah
+sebuah <code class="docutils literal notranslate"><span class="pre">CLIRequest</span></code>. Ini berperilaku sama dengan <a class="reference internal" href="../incoming/request.html"><span class="doc">request konvensional</span></a>
+tetapi menambahkan beberapa metode accessor untuk kenyamanan.</p>
+<section id="accessor-tambahan">
+<h2>Accessor Tambahan<a class="headerlink" href="#accessor-tambahan" title="Permalink to this heading"></a></h2>
 <section id="getsegments">
 <h3>getSegments()<a class="headerlink" href="#getsegments" title="Permalink to this heading"></a></h3>
-<p>Returns an array of the command line arguments deemed to be part of a path:</p>
+<p>Mengembalikan array dari argumen baris perintah yang dianggap sebagai bagian dari path:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// command line: php index.php users 21 profile --foo bar</span>
@@ -307,7 +307,7 @@ but adds some accessor methods for convenience.</p>
 </section>
 <section id="getpath">
 <h3>getPath()<a class="headerlink" href="#getpath" title="Permalink to this heading"></a></h3>
-<p>Returns the reconstructed path as a string:</p>
+<p>Mengembalikan path yang direkonstruksi sebagai string:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// command line: php index.php users 21 profile --foo bar</span>
@@ -317,7 +317,7 @@ but adds some accessor methods for convenience.</p>
 </section>
 <section id="getoptions">
 <h3>getOptions()<a class="headerlink" href="#getoptions" title="Permalink to this heading"></a></h3>
-<p>Returns an array of the command line arguments deemed to be options:</p>
+<p>Mengembalikan array dari argumen baris perintah yang dianggap sebagai opsi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// command line: php index.php users 21 profile --foo bar</span>
@@ -327,7 +327,7 @@ but adds some accessor methods for convenience.</p>
 </section>
 <section id="getoption-key">
 <h3>getOption($key)<a class="headerlink" href="#getoption-key" title="Permalink to this heading"></a></h3>
-<p>Returns the value of a specific command line argument deemed to be an option:</p>
+<p>Mengembalikan nilai dari argumen baris perintah tertentu yang dianggap sebagai opsi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// command line: php index.php users 21 profile --foo bar</span>
@@ -338,14 +338,14 @@ but adds some accessor methods for convenience.</p>
 </section>
 <section id="getoptionstring">
 <h3>getOptionString()<a class="headerlink" href="#getoptionstring" title="Permalink to this heading"></a></h3>
-<p>Returns the reconstructed command line string for the options:</p>
+<p>Mengembalikan string baris perintah yang direkonstruksi untuk opsi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// command line: php index.php users 21 profile --foo bar</span>
 <span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getOptionString</span><span class="p">();</span>  <span class="c1">// -foo bar</span>
 </pre></div>
 </div>
-<p>Passing <code class="docutils literal notranslate"><span class="pre">true</span></code> to the first argument will try to write long options using two dashes:</p>
+<p>Meneruskan <code class="docutils literal notranslate"><span class="pre">true</span></code> ke argumen pertama akan mencoba menulis opsi panjang menggunakan dua tanda hubung:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// php index.php user 21 --foo bar -f</span>
@@ -369,7 +369,7 @@ but adds some accessor methods for convenience.</p>
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 30, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
       </span></p>
   </div>
 

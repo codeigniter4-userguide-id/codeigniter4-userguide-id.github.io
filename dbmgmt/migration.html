@@ -113,17 +113,17 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Auto Routing (Improved)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controller dan Router</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Perutean URI (Routing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filter Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/auto_routing_improved.html">Perutean Otomatis (Pembaruan)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Class Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">Class IncomingRequest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Penanganan Resource RESTful</a></li>
 </ul>
 </li>
 </ul>
@@ -169,11 +169,11 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Managing Databases</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mengelola Database</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="forge.html">Database Forge</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Database Migrations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Database Migrasi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="db_commands.html">Database Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="db_commands.html">CommandLine Database</a></li>
 </ul>
 </li>
 </ul>
@@ -237,14 +237,14 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Penggunaan Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Ikhtisar CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Menjalankan Controller via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Command Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Membuat Perintah (Command) Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generator CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">Library CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Class CLIRequest</a></li>
 </ul>
 </li>
 </ul>
@@ -278,7 +278,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Managing Databases</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Mengelola Database</a></li>
       <li class="breadcrumb-item active">Database Migrations</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -290,66 +290,66 @@
              
   <section id="database-migrations">
 <h1>Database Migrations<a class="headerlink" href="#database-migrations" title="Permalink to this heading"></a></h1>
-<p>Migrations are a convenient way for you to alter your database in a
-structured and organized manner. You could edit fragments of SQL by hand
-but you would then be responsible for telling other developers that they
-need to go and run them. You would also have to keep track of which changes
-need to be run against the production machines next time you deploy.</p>
-<p>The database table <strong>migrations</strong> tracks which migrations have already been
-run, so all you have to do is make sure your migrations are in place and
-run the <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">migrate</span></code> command to bring the database up to the most recent
-state. You can also use <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">migrate</span> <span class="pre">--all</span></code> to
-include migrations from all namespaces.</p>
+<p>Migrasi adalah cara yang nyaman bagi Anda untuk mengubah database Anda secara
+terstruktur dan terorganisir. Anda bisa mengedit fragmen SQL secara manual
+tetapi Anda kemudian akan bertanggung jawab untuk memberitahu pengembang lain bahwa mereka
+perlu menjalankan perubahan tersebut. Anda juga harus melacak perubahan mana
+yang perlu dijalankan terhadap mesin produksi saat Anda melakukan deploy berikutnya.</p>
+<p>Tabel database <strong>migrations</strong> melacak migrasi mana yang telah
+dijalankan, jadi yang perlu Anda lakukan hanyalah memastikan migrasi Anda sudah ada dan
+menjalankan perintah <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">migrate</span></code> untuk membawa database ke kondisi terbaru.
+Anda juga dapat menggunakan <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">migrate</span> <span class="pre">--all</span></code> untuk
+menyertakan migrasi dari semua namespace.</p>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#migration-file-names" id="id2">Migration File Names</a></p></li>
-<li><p><a class="reference internal" href="#create-a-migration" id="id3">Create a Migration</a></p>
+<li><p><a class="reference internal" href="#nama-berkas-migrasi" id="id1">Nama Berkas Migrasi</a></p></li>
+<li><p><a class="reference internal" href="#membuat-migrasi" id="id2">Membuat Migrasi</a></p>
 <ul>
-<li><p><a class="reference internal" href="#foreign-keys" id="id4">Foreign Keys</a></p></li>
-<li><p><a class="reference internal" href="#database-groups" id="id5">Database Groups</a></p></li>
-<li><p><a class="reference internal" href="#namespaces" id="id6">Namespaces</a></p></li>
+<li><p><a class="reference internal" href="#foreign-keys" id="id3">Foreign Keys</a></p></li>
+<li><p><a class="reference internal" href="#grup-database" id="id4">Grup Database</a></p></li>
+<li><p><a class="reference internal" href="#namespaces" id="id5">Namespaces</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#command-line-tools" id="id7">Command-Line Tools</a></p>
+<li><p><a class="reference internal" href="#alat-baris-perintah" id="id6">Alat Baris Perintah</a></p>
 <ul>
-<li><p><a class="reference internal" href="#migrate" id="id8">migrate</a></p></li>
-<li><p><a class="reference internal" href="#migrate-rollback" id="id9">migrate:rollback</a></p></li>
-<li><p><a class="reference internal" href="#migrate-refresh" id="id10">migrate:refresh</a></p></li>
-<li><p><a class="reference internal" href="#migrate-status" id="id11">migrate:status</a></p></li>
-<li><p><a class="reference internal" href="#make-migration" id="id12">make:migration</a></p></li>
+<li><p><a class="reference internal" href="#migrate" id="id7">migrate</a></p></li>
+<li><p><a class="reference internal" href="#migrate-rollback" id="id8">migrate:rollback</a></p></li>
+<li><p><a class="reference internal" href="#migrate-refresh" id="id9">migrate:refresh</a></p></li>
+<li><p><a class="reference internal" href="#migrate-status" id="id10">migrate:status</a></p></li>
+<li><p><a class="reference internal" href="#make-migration" id="id11">make:migration</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#migration-preferences" id="id13">Migration Preferences</a></p></li>
-<li><p><a class="reference internal" href="#namespace-CodeIgniter\Database" id="id14">Class Reference</a></p></li>
+<li><p><a class="reference internal" href="#preferensi-migrasi" id="id12">Preferensi Migrasi</a></p></li>
+<li><p><a class="reference internal" href="#namespace-CodeIgniter\Database" id="id13">Referensi Class</a></p></li>
 </ul>
 </nav>
-<section id="migration-file-names">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Migration File Names</a><a class="headerlink" href="#migration-file-names" title="Permalink to this heading"></a></h2>
-<p>A migration file name is made up of a timestamp prefix, an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>),
-and a descriptive name (classname).</p>
+<section id="nama-berkas-migrasi">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Nama Berkas Migrasi</a><a class="headerlink" href="#nama-berkas-migrasi" title="Permalink to this heading"></a></h2>
+<p>Nama berkas migrasi terdiri dari prefiks timestamp, garis bawah (<code class="docutils literal notranslate"><span class="pre">_</span></code>),
+dan nama deskriptif (nama class).</p>
 <ul class="simple">
 <li><p>2024-09-08-013653_AddBlogTable.php</p></li>
 </ul>
-<p>Each migration is numbered using the timestamp (<strong>2024-09-08-013653</strong>) when the
-migration was created, in <strong>YYYY-MM-DD-HHIISS</strong> format.</p>
-<p>The descriptive name (<strong>AddBlogTable</strong>) for the migration is a classname in PHP.
-So you must name a valid classname.</p>
-<p>The year, month, day, and time in a prefix can be separated from each other by
-dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>), underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>), or not at all. For example:</p>
+<p>Setiap migrasi diberi nomor menggunakan timestamp (<strong>2024-09-08-013653</strong>) saat
+migrasi dibuat, dalam format <strong>YYYY-MM-DD-HHIISS</strong>.</p>
+<p>Nama deskriptif (<strong>AddBlogTable</strong>) untuk migrasi adalah nama class dalam PHP.
+Jadi Anda harus menamai nama class yang valid.</p>
+<p>Tahun, bulan, hari, dan waktu dalam prefiks dapat dipisahkan satu sama lain oleh
+tanda hubung (<code class="docutils literal notranslate"><span class="pre">-</span></code>), garis bawah (<code class="docutils literal notranslate"><span class="pre">_</span></code>), atau tidak sama sekali. Contoh:</p>
 <ul class="simple">
 <li><p>2012-10-31-100538_AlterBlogTrackViews.php</p></li>
 <li><p>2012_10_31_100539_AlterBlogAddTranslations.php</p></li>
 <li><p>20121031100537_AddBlog.php</p></li>
 </ul>
-<p>Each Migration is run in numeric order forward or backwards depending on the
-method taken. This helps prevent numbering conflicts when working in a team
-environment.</p>
+<p>Setiap Migrasi dijalankan dalam urutan numerik maju atau mundur tergantung pada
+method yang diambil. Ini membantu mencegah konflik penomoran saat bekerja dalam
+lingkungan tim.</p>
 </section>
-<section id="create-a-migration">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Create a Migration</a><a class="headerlink" href="#create-a-migration" title="Permalink to this heading"></a></h2>
-<p>This will be the first migration for a new site which has a blog. All
-migrations go in the <strong>app/Database/Migrations/</strong> directory and have names such
-as <strong>2022-01-31-013057_AddBlog.php</strong>.</p>
+<section id="membuat-migrasi">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Membuat Migrasi</a><a class="headerlink" href="#membuat-migrasi" title="Permalink to this heading"></a></h2>
+<p>Ini akan menjadi migrasi pertama untuk situs baru yang memiliki blog. Semua
+migrasi masuk ke direktori <strong>app/Database/Migrations/</strong> dan memiliki nama seperti
+<strong>2022-01-31-013057_AddBlog.php</strong>.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Database\Migrations</span><span class="p">;</span>
@@ -387,19 +387,19 @@ as <strong>2022-01-31-013057_AddBlog.php</strong>.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The database connection and the database Forge class are both available to you through
-<code class="docutils literal notranslate"><span class="pre">$this-&gt;db</span></code> and <code class="docutils literal notranslate"><span class="pre">$this-&gt;forge</span></code>, respectively.</p>
-<p>Alternatively, you can use a command-line call to generate a skeleton migration file.
-See <a class="reference internal" href="#make-migration">make:migration</a> in <a class="reference internal" href="#command-line-tools"><span class="std std-ref">Command-Line Tools</span></a> for more details.</p>
+<p>Koneksi database dan class database Forge keduanya tersedia untuk Anda melalui
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;db</span></code> dan <code class="docutils literal notranslate"><span class="pre">$this-&gt;forge</span></code>, secara berurutan.</p>
+<p>Sebagai alternatif, Anda dapat menggunakan panggilan baris perintah untuk menghasilkan berkas migrasi kerangka.
+Lihat <a class="reference internal" href="#make-migration">make:migration</a> di <a class="reference internal" href="#command-line-tools"><span class="std std-ref">Alat Baris Perintah</span></a> untuk detail lebih lanjut.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>Since the migration class is a PHP class, the classname must be unique in every migration file.</p>
+<p>Karena class migrasi adalah class PHP, nama class harus unik di setiap berkas migrasi.</p>
 </div>
 <section id="foreign-keys">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Foreign Keys</a><a class="headerlink" href="#foreign-keys" title="Permalink to this heading"></a></h3>
-<p>When your tables include Foreign Keys, migrations can often cause problems as you attempt to drop tables and columns.
-To temporarily bypass the foreign key checks while running migrations, use the <code class="docutils literal notranslate"><span class="pre">disableForeignKeyChecks()</span></code> and
-<code class="docutils literal notranslate"><span class="pre">enableForeignKeyChecks()</span></code> methods on the database connection.</p>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Foreign Keys</a><a class="headerlink" href="#foreign-keys" title="Permalink to this heading"></a></h3>
+<p>Ketika tabel Anda menyertakan Foreign Key, migrasi seringkali dapat menyebabkan masalah saat Anda mencoba menghapus tabel dan kolom.
+Untuk sementara melewati pemeriksaan foreign key saat menjalankan migrasi, gunakan method <code class="docutils literal notranslate"><span class="pre">disableForeignKeyChecks()</span></code> dan
+<code class="docutils literal notranslate"><span class="pre">enableForeignKeyChecks()</span></code> pada koneksi database.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Database\Migrations</span><span class="p">;</span>
@@ -420,17 +420,17 @@ To temporarily bypass the foreign key checks while running migrations, use the <
 </pre></div>
 </div>
 </section>
-<section id="database-groups">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Database Groups</a><a class="headerlink" href="#database-groups" title="Permalink to this heading"></a></h3>
-<p>A migration will only be run against a single database group. If you have multiple groups defined in
-<strong>app/Config/Database.php</strong>, then by default it will run against the <code class="docutils literal notranslate"><span class="pre">$defaultGroup</span></code> as specified
-in that same configuration file.</p>
-<p>There may be times when you need different schemas for different
-database groups. Perhaps you have one database that is used for all general site information, while
-another database is used for mission critical data.</p>
-<p>You can ensure that migrations are run only
-against the proper group by setting the <code class="docutils literal notranslate"><span class="pre">$DBGroup</span></code> property on your migration. This name must
-match the name of the database group exactly:</p>
+<section id="grup-database">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Grup Database</a><a class="headerlink" href="#grup-database" title="Permalink to this heading"></a></h3>
+<p>Sebuah migrasi hanya akan dijalankan terhadap satu grup database. Jika Anda memiliki beberapa grup yang didefinisikan dalam
+<strong>app/Config/Database.php</strong>, maka secara default akan dijalankan terhadap <code class="docutils literal notranslate"><span class="pre">$defaultGroup</span></code> seperti yang ditentukan
+dalam berkas konfigurasi yang sama.</p>
+<p>Mungkin ada saat-saat ketika Anda membutuhkan skema yang berbeda untuk grup database yang berbeda.
+Mungkin Anda memiliki satu database yang digunakan untuk semua informasi situs umum, sementara
+database lain digunakan untuk data penting misi.</p>
+<p>Anda dapat memastikan bahwa migrasi hanya dijalankan
+terhadap grup yang tepat dengan mengatur properti <code class="docutils literal notranslate"><span class="pre">$DBGroup</span></code> pada migrasi Anda. Nama ini harus
+sesuai dengan nama grup database secara tepat:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Database\Migrations</span><span class="p">;</span>
@@ -455,89 +455,88 @@ match the name of the database group exactly:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>The <strong>migrations</strong> table that tracks which migrations have already been
-run will be always created in the default database group.</p>
+<p>Tabel <strong>migrations</strong> yang melacak migrasi mana yang telah
+dijalankan akan selalu dibuat dalam grup database default.</p>
 </div>
 </section>
 <section id="namespaces">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Namespaces</a><a class="headerlink" href="#namespaces" title="Permalink to this heading"></a></h3>
-<p>The migration library can automatically scan all namespaces you have defined within
-<strong>app/Config/Autoload.php</strong> or loaded from an external source like Composer, using
-the <code class="docutils literal notranslate"><span class="pre">$psr4</span></code> property for matching directory names. It will include all migrations
-it finds in <strong>Database/Migrations</strong>.</p>
-<p>Each namespace has its own version sequence, this will help you upgrade and downgrade each module (namespace) without affecting other namespaces.</p>
-<p>For example, assume that we have the following namespaces defined in our Autoload
-configuration file:</p>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Namespaces</a><a class="headerlink" href="#namespaces" title="Permalink to this heading"></a></h3>
+<p>Library migrasi dapat secara otomatis memindai semua namespace yang telah Anda definisikan dalam
+<strong>app/Config/Autoload.php</strong> atau dimuat dari sumber eksternal seperti Composer, menggunakan
+properti <code class="docutils literal notranslate"><span class="pre">$psr4</span></code> untuk mencocokkan nama direktori. Ini akan menyertakan semua migrasi
+yang ditemukannya di <strong>Database/Migrations</strong>.</p>
+<p>Setiap namespace memiliki urutan versinya sendiri, ini akan membantu Anda mengupgrade dan mendowngrade setiap modul (namespace) tanpa memengaruhi namespace lain.</p>
+<p>Contoh, asumsikan bahwa kita memiliki namespace berikut yang didefinisikan dalam berkas konfigurasi Autoload kita:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$psr4</span> <span class="o">=</span> <span class="p">[</span>
     <span class="nx">APP_NAMESPACE</span> <span class="o">=&gt;</span> <span class="nx">APPPATH</span><span class="p">,</span>
     <span class="s1">&#39;MyCompany&#39;</span>   <span class="o">=&gt;</span> <span class="nx">ROOTPATH</span> <span class="o">.</span> <span class="s1">&#39;MyCompany&#39;</span><span class="p">,</span>
 <span class="p">];</span>
 </pre></div>
 </div>
-<p>This will look for any migrations located at both <strong>APPPATH/Database/Migrations</strong> and
-<strong>ROOTPATH/MyCompany/Database/Migrations</strong>. This makes it simple to include migrations in your
-re-usable, modular code suites.</p>
+<p>Ini akan mencari migrasi apa pun yang terletak di <strong>APPPATH/Database/Migrations</strong> dan
+<strong>ROOTPATH/MyCompany/Database/Migrations</strong>. Ini membuat mudah untuk menyertakan migrasi dalam
+suite kode modular yang dapat digunakan kembali.</p>
 </section>
 </section>
-<section id="command-line-tools">
-<span id="id1"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Command-Line Tools</a><a class="headerlink" href="#command-line-tools" title="Permalink to this heading"></a></h2>
-<p>CodeIgniter ships with several <a class="reference internal" href="../cli/spark_commands.html"><span class="doc">commands</span></a> that are available from the command line to help
-you work with migrations. These tools make things easier for those of you
-that wish to use them. The tools primarily provide access to the same methods that are available within the MigrationRunner class.</p>
+<section id="alat-baris-perintah">
+<span id="command-line-tools"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Alat Baris Perintah</a><a class="headerlink" href="#alat-baris-perintah" title="Permalink to this heading"></a></h2>
+<p>CodeIgniter dilengkapi dengan beberapa <a class="reference internal" href="../cli/spark_commands.html"><span class="doc">perintah</span></a> yang tersedia dari baris perintah untuk membantu
+Anda bekerja dengan migrasi. Alat-alat ini membuat segalanya lebih mudah bagi Anda
+yang ingin menggunakannya. Alat-alat ini terutama menyediakan akses ke method yang sama yang tersedia dalam class MigrationRunner.</p>
 <section id="migrate">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">migrate</a><a class="headerlink" href="#migrate" title="Permalink to this heading"></a></h3>
-<p>Migrates a database group with all available migrations:</p>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">migrate</a><a class="headerlink" href="#migrate" title="Permalink to this heading"></a></h3>
+<p>Memigrasi grup database dengan semua migrasi yang tersedia:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrate</span>
 </pre></div>
 </div>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">migrate</span></code> with the following options:</p>
+<p>Anda dapat menggunakan <code class="docutils literal notranslate"><span class="pre">migrate</span></code> dengan opsi berikut:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> - to specify database group. If specified, only migrations for the specified database group will be run. If not specified, all migrations will be run.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> - to choose namespace, otherwise <code class="docutils literal notranslate"><span class="pre">App</span></code> namespace will be used.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--all</span></code> - to migrate all namespaces to the latest migration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> - untuk menentukan grup database. Jika ditentukan, hanya migrasi untuk grup database yang ditentukan yang akan dijalankan. Jika tidak ditentukan, semua migrasi akan dijalankan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> - untuk memilih namespace, jika tidak namespace <code class="docutils literal notranslate"><span class="pre">App</span></code> akan digunakan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--all</span></code> - untuk memigrasi semua namespace ke migrasi terbaru.</p></li>
 </ul>
-<p>This example will migrate <code class="docutils literal notranslate"><span class="pre">Acme\Blog</span></code> namespace with any new migrations on the test database group:</p>
-<p>For Unix:</p>
+<p>Contoh ini akan memigrasi namespace <code class="docutils literal notranslate"><span class="pre">Acme\Blog</span></code> dengan migrasi baru apa pun pada grup database test:</p>
+<p>Untuk Unix:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrate -g test -n Acme\\Blog</span>
 </pre></div>
 </div>
-<p>For Windows:</p>
+<p>Untuk Windows:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrate -g test -n Acme\Blog</span>
 </pre></div>
 </div>
-<p>When using the <code class="docutils literal notranslate"><span class="pre">--all</span></code> option, it will scan through all namespaces attempting to find any migrations that have
-not been run. These will all be collected and then sorted as a group by date created. This should help
-to minimize any potential conflicts between the main application and any modules.</p>
+<p>Saat menggunakan opsi <code class="docutils literal notranslate"><span class="pre">--all</span></code>, ini akan memindai semua namespace untuk menemukan migrasi yang
+belum dijalankan. Ini semua akan dikumpulkan dan kemudian diurutkan sebagai grup berdasarkan tanggal pembuatan. Ini akan membantu
+meminimalkan potensi konflik antara aplikasi utama dan modul apa pun.</p>
 </section>
 <section id="migrate-rollback">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">migrate:rollback</a><a class="headerlink" href="#migrate-rollback" title="Permalink to this heading"></a></h3>
-<p>Rolls back all migrations to a blank slate, effectively migration 0:</p>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">migrate:rollback</a><a class="headerlink" href="#migrate-rollback" title="Permalink to this heading"></a></h3>
+<p>Mengembalikan semua migrasi ke keadaan kosong, secara efektif migrasi 0:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrate:rollback</span>
 </pre></div>
 </div>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">migrate:rollback</span></code> with the following options:</p>
+<p>Anda dapat menggunakan <code class="docutils literal notranslate"><span class="pre">migrate:rollback</span></code> dengan opsi berikut:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">-b</span></code> - to choose a batch: natural numbers specify the batch.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> - to force a bypass confirmation question, it is only asked in a production environment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-b</span></code> - untuk memilih batch: angka alami menentukan batch.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> - untuk memaksa melewati pertanyaan konfirmasi, ini hanya ditanyakan di lingkungan produksi.</p></li>
 </ul>
 </section>
 <section id="migrate-refresh">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">migrate:refresh</a><a class="headerlink" href="#migrate-refresh" title="Permalink to this heading"></a></h3>
-<p>Refreshes the database state by first rolling back all migrations, and then migrating all:</p>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">migrate:refresh</a><a class="headerlink" href="#migrate-refresh" title="Permalink to this heading"></a></h3>
+<p>Memperbarui status database dengan terlebih dahulu mengembalikan semua migrasi, dan kemudian memigrasi semua:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrate:refresh</span>
 </pre></div>
 </div>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">migrate:refresh</span></code> with the following options:</p>
+<p>Anda dapat menggunakan <code class="docutils literal notranslate"><span class="pre">migrate:refresh</span></code> dengan opsi berikut:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> - to specify database group. If specified, only migrations for the specified database group will be run. If not specified, all migrations will be run.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> - to choose namespace, otherwise <code class="docutils literal notranslate"><span class="pre">App</span></code> namespace will be used.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--all</span></code> - to refresh all namespaces.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> - to force a bypass confirmation question, it is only asked in a production environment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> - untuk menentukan grup database. Jika ditentukan, hanya migrasi untuk grup database yang ditentukan yang akan dijalankan. Jika tidak ditentukan, semua migrasi akan dijalankan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> - untuk memilih namespace, jika tidak namespace <code class="docutils literal notranslate"><span class="pre">App</span></code> akan digunakan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--all</span></code> - untuk memperbarui semua namespace.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> - untuk memaksa melewati pertanyaan konfirmasi, ini hanya ditanyakan di lingkungan produksi.</p></li>
 </ul>
 </section>
 <section id="migrate-status">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">migrate:status</a><a class="headerlink" href="#migrate-status" title="Permalink to this heading"></a></h3>
-<p>Displays a list of all migrations and the date and time they ran, or '--' if they have not been run:</p>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">migrate:status</a><a class="headerlink" href="#migrate-status" title="Permalink to this heading"></a></h3>
+<p>Menampilkan daftar semua migrasi dan tanggal serta waktu mereka dijalankan, atau '--' jika belum dijalankan:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrate:status</span>
 
 <span class="go">...</span>
@@ -551,67 +550,39 @@ to minimize any potential conflicts between the main application and any modules
 <span class="go">+----------------------+-------------------+-----------------------+---------+---------------------+-------+</span>
 </pre></div>
 </div>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">migrate:status</span></code> with the following options:</p>
+<p>Anda dapat menggunakan <code class="docutils literal notranslate"><span class="pre">migrate:status</span></code> dengan opsi berikut:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> - to specify database group. If specified, only migrations for the specified database group will be checked. If not specified, all migrations will be checked.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> - untuk menentukan grup database. Jika ditentukan, hanya migrasi untuk grup database yang ditentukan yang akan diperiksa. Jika tidak ditentukan, semua migrasi akan diperiksa.</p></li>
 </ul>
 </section>
 <section id="make-migration">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">make:migration</a><a class="headerlink" href="#make-migration" title="Permalink to this heading"></a></h3>
-<p>Creates a skeleton migration file in <strong>app/Database/Migrations</strong>.
-It automatically prepends the current timestamp. The class name it
-creates is the Pascal case version of the filename.</p>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">make:migration</a><a class="headerlink" href="#make-migration" title="Permalink to this heading"></a></h3>
+<p>Membuat berkas migrasi kerangka di <strong>app/Database/Migrations</strong>.
+Secara otomatis menambahkan timestamp saat ini. Nama class yang
+dibuat adalah versi Pascal case dari nama berkas.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark make:migration &lt;class&gt; [options]</span>
 </pre></div>
 </div>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">make:migration</span></code> with the following options:</p>
+<p>Anda dapat menggunakan <code class="docutils literal notranslate"><span class="pre">make:migration</span></code> dengan opsi berikut:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code> - Set root namespace. Default: <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>    - Append the component title to the class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code> - Mengatur namespace root. Default: <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>    - Menambahkan judul komponen ke nama class.</p></li>
 </ul>
-<p>The following options are also available to generate the migration file for
-database sessions:</p>
+<p>Opsi berikut juga tersedia untuk menghasilkan berkas migrasi untuk
+sesi database:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--session</span></code>   - Generates the migration file for database sessions.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--table</span></code>     - Table name to use for database sessions. Default: <code class="docutils literal notranslate"><span class="pre">ci_sessions</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--dbgroup</span></code>   - Database group to use for database sessions. Default: <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--session</span></code>   - Menghasilkan berkas migrasi untuk sesi database.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--table</span></code>     - Nama tabel yang akan digunakan untuk sesi database. Default: <code class="docutils literal notranslate"><span class="pre">ci_sessions</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--dbgroup</span></code>   - Grup database yang akan digunakan untuk sesi database. Default: <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p></li>
 </ul>
 </section>
 </section>
-<section id="migration-preferences">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Migration Preferences</a><a class="headerlink" href="#migration-preferences" title="Permalink to this heading"></a></h2>
-<p>The following is a table of all the config options for migrations, available in <strong>app/Config/Migrations.php</strong>.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Preference</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Options</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>enabled</strong></p></td>
-<td><p>true</p></td>
-<td><p>true / false</p></td>
-<td><p>Enable or disable migrations.</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>table</strong></p></td>
-<td><p>migrations</p></td>
-<td><p>None</p></td>
-<td><p>The table name for storing the schema version number. This
-table is always created in the default database group
-(<code class="docutils literal notranslate"><span class="pre">$defaultGroup</span></code>).</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>timestampFormat</strong></p></td>
-<td><p>Y-m-d-His_</p></td>
-<td></td>
-<td><p>The format to use for timestamps when creating a migration.</p></td>
-</tr>
-</tbody>
-</table>
+<section id="preferensi-migrasi">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Preferensi Migrasi</a><a class="headerlink" href="#preferensi-migrasi" title="Permalink to this heading"></a></h2>
+<p>Berikut adalah tabel semua opsi konfigurasi untuk migrasi, yang tersedia di <strong>app/Config/Migrations.php</strong>.</p>
 </section>
 <section id="namespace-CodeIgniter\Database">
-<span id="class-reference"></span><h2><a class="toc-backref" href="#id14" role="doc-backlink">Class Reference</a><a class="headerlink" href="#namespace-CodeIgniter\Database" title="Permalink to this heading"></a></h2>
+<span id="referensi-class"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">Referensi Class</a><a class="headerlink" href="#namespace-CodeIgniter\Database" title="Permalink to this heading"></a></h2>
 <dl class="php class">
 <dt class="sig sig-object php" id="CodeIgniter\Database\MigrationRunner">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">CodeIgniter\Database\</span></span><span class="sig-name descname"><span class="pre">MigrationRunner</span></span><a class="headerlink" href="#CodeIgniter\Database\MigrationRunner" title="Link permanen untuk definisi ini"></a></dt>
@@ -620,13 +591,13 @@ table is always created in the default database group
 <span class="sig-name descname"><span class="pre">findMigrations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniter\Database\MigrationRunner::findMigrations" title="Link permanen untuk definisi ini"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Kembali<span class="colon">:</span></dt>
-<dd class="field-odd"><p>An array of migration files</p>
+<dd class="field-odd"><p>Array berkas migrasi</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span></p>
 </dd>
 </dl>
-<p>An array of migration filenames are returned that are found in the <code class="docutils literal notranslate"><span class="pre">path</span></code> property.</p>
+<p>Array nama berkas migrasi yang ditemukan di properti <code class="docutils literal notranslate"><span class="pre">path</span></code> dikembalikan.</p>
 </dd></dl>
 
 <dl class="php method">
@@ -635,18 +606,18 @@ table is always created in the default database group
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$group</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- database group name, if null default database group will be used.</p></li>
+<li><p><strong>$group</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- nama grup database, jika null grup database default akan digunakan.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> on success, <code class="docutils literal notranslate"><span class="pre">false</span></code> on failure</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> jika berhasil, <code class="docutils literal notranslate"><span class="pre">false</span></code> jika gagal</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
 </dd>
 </dl>
-<p>This locates migrations for a namespace (or all namespaces), determines which migrations
-have not yet been run, and runs them in order of their version (namespaces intermingled).</p>
+<p>Ini menemukan migrasi untuk sebuah namespace (atau semua namespace), menentukan migrasi mana
+yang belum dijalankan, dan menjalankannya sesuai urutan versinya (namespace bercampur).</p>
 </dd></dl>
 
 <dl class="php method">
@@ -655,18 +626,18 @@ have not yet been run, and runs them in order of their version (namespaces inter
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$targetBatch</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- previous batch to migrate down to; 1+ specifies the batch, 0 reverts all, negative refers to the relative batch (e.g., -3 means &quot;three batches back&quot;)</p></li>
-<li><p><strong>$group</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">?string</span></code></span>) -- database group name, if null default database group will be used.</p></li>
+<li><p><strong>$targetBatch</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) -- batch sebelumnya untuk migrasi mundur; 1+ menentukan batch, 0 mengembalikan semua, negatif mengacu pada batch relatif (misalnya, -3 berarti &quot;tiga batch ke belakang&quot;)</p></li>
+<li><p><strong>$group</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">?string</span></code></span>) -- nama grup database, jika null grup database default akan digunakan.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> on success, <code class="docutils literal notranslate"><span class="pre">false</span></code> on failure or no migrations are found</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> jika berhasil, <code class="docutils literal notranslate"><span class="pre">false</span></code> jika gagal atau tidak ada migrasi yang ditemukan</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
 </dd>
 </dl>
-<p>Regress can be used to roll back changes to a previous state, batch by batch.</p>
+<p>Regress dapat digunakan untuk mengembalikan perubahan ke keadaan sebelumnya, batch demi batch.</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$migration</span><span class="o">-&gt;</span><span class="na">regress</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
@@ -681,22 +652,22 @@ have not yet been run, and runs them in order of their version (namespaces inter
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- path to a valid migration file.</p></li>
-<li><p><strong>$namespace</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- namespace of the provided migration.</p></li>
-<li><p><strong>$group</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- database group name, if null default database group will be used.</p></li>
+<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- path ke berkas migrasi yang valid.</p></li>
+<li><p><strong>$namespace</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- namespace dari migrasi yang disediakan.</p></li>
+<li><p><strong>$group</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) -- nama grup database, jika null grup database default akan digunakan.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> on success, <code class="docutils literal notranslate"><span class="pre">false</span></code> on failure</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> jika berhasil, <code class="docutils literal notranslate"><span class="pre">false</span></code> jika gagal</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
 </dd>
 </dl>
-<p>This forces a single file to migrate regardless of order or batches. Method <code class="docutils literal notranslate"><span class="pre">up()</span></code> or <code class="docutils literal notranslate"><span class="pre">down()</span></code> is detected based on whether it has already been migrated.</p>
+<p>Ini memaksa satu berkas untuk dimigrasi terlepas dari urutan atau batch. Method <code class="docutils literal notranslate"><span class="pre">up()</span></code> atau <code class="docutils literal notranslate"><span class="pre">down()</span></code> dideteksi berdasarkan apakah sudah dimigrasi.</p>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>This method is recommended only for testing and could cause data consistency issues.</p>
+<p>Method ini hanya direkomendasikan untuk pengujian dan dapat menyebabkan masalah konsistensi data.</p>
 </div>
 </dd></dl>
 
@@ -706,17 +677,17 @@ have not yet been run, and runs them in order of their version (namespaces inter
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$namespace</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string|null</span></code></span>) -- application namespace. <code class="docutils literal notranslate"><span class="pre">null</span></code> is all namespaces.</p></li>
+<li><p><strong>$namespace</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string|null</span></code></span>) -- namespace aplikasi. <code class="docutils literal notranslate"><span class="pre">null</span></code> adalah semua namespace.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current MigrationRunner instance</p>
+<dd class="field-even"><p>Instance MigrationRunner saat ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\Database\MigrationRunner" title="CodeIgniter\Database\MigrationRunner"><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\Database\MigrationRunner</span></code></a></span></p>
 </dd>
 </dl>
-<p>Sets the namespace the library should look for migration files:</p>
+<p>Mengatur namespace yang harus dicari oleh library untuk berkas migrasi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$migration</span><span class="o">-&gt;</span><span class="na">setNamespace</span><span class="p">(</span><span class="nv">$namespace</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">latest</span><span class="p">();</span>
@@ -724,7 +695,7 @@ have not yet been run, and runs them in order of their version (namespaces inter
 </div>
 <div class="admonition note">
 <p class="admonition-title">Catatan</p>
-<p>If you set <code class="docutils literal notranslate"><span class="pre">null</span></code>, it looks for migration files in all namespaces.</p>
+<p>Jika Anda mengatur <code class="docutils literal notranslate"><span class="pre">null</span></code>, itu mencari berkas migrasi di semua namespace.</p>
 </div>
 </dd></dl>
 
@@ -734,17 +705,17 @@ have not yet been run, and runs them in order of their version (namespaces inter
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>$group</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- database group name.</p></li>
+<li><p><strong>$group</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) -- nama grup database.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Kembali<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current MigrationRunner instance</p>
+<dd class="field-even"><p>Instance MigrationRunner saat ini</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><a class="reference internal" href="#CodeIgniter\Database\MigrationRunner" title="CodeIgniter\Database\MigrationRunner"><code class="xref php php-obj docutils literal notranslate"><span class="pre">CodeIgniter\Database\MigrationRunner</span></code></a></span></p>
 </dd>
 </dl>
-<p>Sets the group the library should look for migration files:</p>
+<p>Mengatur grup yang harus dicari oleh library untuk berkas migrasi:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$migration</span><span class="o">-&gt;</span><span class="na">setGroup</span><span class="p">(</span><span class="nv">$group</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">latest</span><span class="p">();</span>
@@ -769,7 +740,7 @@ have not yet been run, and runs them in order of their version (namespaces inter
 
   <div role="contentinfo">
     <p>&#169; Hak cipta 2019-2025 CodeIgniter Foundation.
-      <span class="lastupdated">Terakhir diperbarui pada Jul 31, 2025.
+      <span class="lastupdated">Terakhir diperbarui pada Agu 01, 2025.
       </span></p>
   </div>
 
